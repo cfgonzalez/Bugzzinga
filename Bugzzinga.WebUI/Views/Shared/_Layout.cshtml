@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <script src="@Url.Content("~/Scripts/jquery-1.6.2-core/jquery-1.6.2.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />   
+    <script src="@Url.Content("~/Scripts/Menu.js")" type="text/javascript"></script>
+</head>
+<body>
+
+
+<div id="body_leftFrame">
+<div id="pmalogo"></div>
+<div id="leftframelinks"></div>
+<div id="databaseList"></div>
+<div id="left_tableList"></div>
+</div>
+
+    <div class="divmasterHeader">
+        <div class="divLogoCompany">
+            <img src="../../Content/Images/header.jpg" />
+        </div>
+        <div class="divRight">
+            @if (Request.IsAuthenticated)
+            {
+                <p align="right">@User.Identity.Name | @Html.ActionLink("Logout", "LogOff", "Login")</p>
+            }
+        </div>
+    </div>
+    <div>
+			<ul id="menu">
+			<li class="button">@Html.ActionLink("Home", "Index", "DatabaseAdministrator", new { @class = "current" })</li>
+            <li class="button"><a href="#" id="MenuItemEmailNotificationData">Email Notification Data</a></li>            
+			<li class="button">@Html.ActionLink("Error Logs", "Index", "Logs")</li>			
+			</ul>
+	</div>
+    @RenderBody()
+</body>
+</html>

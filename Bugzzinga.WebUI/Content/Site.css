@@ -1,0 +1,170 @@
+﻿principalText, 
+.divmasterHeader .divRight, 
+.divmasterHeader .divRight a, 
+#masterTableFooter
+{
+	color: #fff;
+	text-decoration: none;
+}
+#masterTableHeader a:hover
+{
+	text-decoration: none;
+}
+
+
+/* Header */
+
+.tableActions td
+{
+    padding:5px;   
+}
+
+.divmasterHeader
+{
+	height: 65px;
+	background-color: #999999;
+}
+.divmasterHeader .divLogoCompany
+{	
+	height: 17px;
+	float:left;
+	top: 6px;
+	left: 12px;
+	position:relative;
+	color: #fff;
+	font-size: 18px;
+	font-weight:bold;
+	vertical-align:top;
+}
+.divmasterHeader .divRight 
+{
+	padding: 12px 13px 0 0; 
+	background-repeat:no-repeat;
+	width: 221px;
+	height: 35px;
+	float:right;
+	/*-*/
+	text-align: right;
+}
+.divmasterHeader .divRight a:hover
+{
+	text-decoration:  underline;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.5em;
+    background-color: #e8eef4;
+    color: #034af3;
+    height:22px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Navigation */
+
+ul#menu
+{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	width:auto;
+	position:relative;
+	display:block;
+	height:30px;
+	font-size:11px;
+	font-weight:bold;
+	background:transparent url(Images/Menu/nav_bg.png) repeat-x top left;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:1px solid #000000;
+	border-top:1px solid #000000;
+}
+
+ul#menu li
+{
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+}
+	
+ul#menu li a
+{
+	display:block;
+	float:left;
+	color:#999999;
+	text-decoration:none;
+	font-weight:bold;
+	padding:8px 20px 0 20px;
+	background: url("Images/Menu/nav_bg.png") repeat-x scroll left top transparent;
+}
+	
+ul#menu li a:hover
+{	
+	color:#650202;
+	height:22px;
+	background:transparent url("./Images/Menu/nav_bg.png") 0px -30px no-repeat;		
+}
+	
+
+ul#menu li a.current
+{
+	display:inline;
+	height:22px;
+	background:transparent url(Images/Menu/nav_bg.png) 0px -30px no-repeat;	
+	float:left;
+	margin:0;
+}
+
+div#left_tableList li {
+    margin: 0;
+    padding: 2px 0;
+    white-space: nowrap;
+}
+
+div#left_tableList ul {
+    list-style-position: outside;
+    list-style-type: none;
+}

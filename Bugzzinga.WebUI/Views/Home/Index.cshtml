@@ -1,0 +1,26 @@
+﻿@using MvcJqGrid
+
+
+
+<link href="../../Scripts/jquery-plugins/jquery-ui-1.8.19/css/ui-lightness/jquery-ui-1.8.19.custom.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../Scripts/jquery-plugins/jquery-jqGrid/css/ui.jqgrid.css" />
+<script src="../../Scripts/jquery-plugins/jquery-jqGrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-plugins/jquery-jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="../../ViewsClientLogic/Home/Home.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home</h2>
+
+
+@(Html.Grid("basic")
+    .SetCaption("Incidencias asignadas a mi")    
+    .AddColumn(new Column("Nombre").SetLabel("Nombre"))
+    .AddColumn(new Column("Descripcion").SetLabel("Descripcion"))
+        .SetUrl("/Home/TraerProyectosJson")
+    .SetAutoWidth(true)  
+    .SetViewRecords(true)
+    .SetPager("pager"))

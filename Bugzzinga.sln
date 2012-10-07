@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.WebUI", "Bugzzinga.WebUI\Bugzzinga.WebUI.csproj", "{2BF4071F-3982-45C5-8631-1DA81FD7231A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Model.Entities", "Bugzzinga.Model.Entities\Bugzzinga.Model.Entities.csproj", "{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Model.Business", "Bugzzinga.Model.Business\Bugzzinga.Model.Business.csproj", "{5B098F91-1E31-4EB6-935E-72D94D1337BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Exceptions", "Bugzzinga.Exceptions\Bugzzinga.Exceptions.csproj", "{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Data", "Bugzzinga.Data\Bugzzinga.Data.csproj", "{17246868-7261-4FE8-B96F-75818A3B2D61}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BF4071F-3982-45C5-8631-1DA81FD7231A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF4071F-3982-45C5-8631-1DA81FD7231A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF4071F-3982-45C5-8631-1DA81FD7231A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF4071F-3982-45C5-8631-1DA81FD7231A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B098F91-1E31-4EB6-935E-72D94D1337BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B098F91-1E31-4EB6-935E-72D94D1337BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B098F91-1E31-4EB6-935E-72D94D1337BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B098F91-1E31-4EB6-935E-72D94D1337BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17246868-7261-4FE8-B96F-75818A3B2D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17246868-7261-4FE8-B96F-75818A3B2D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17246868-7261-4FE8-B96F-75818A3B2D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17246868-7261-4FE8-B96F-75818A3B2D61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
