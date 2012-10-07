@@ -44,14 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bugzzinga.Data\Bugzzinga.Data.csproj">
-      <Project>{17246868-7261-4FE8-B96F-75818A3B2D61}</Project>
-      <Name>Bugzzinga.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bugzzinga.Exceptions\Bugzzinga.Exceptions.csproj">
-      <Project>{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}</Project>
-      <Name>Bugzzinga.Exceptions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Model.Entities\Bugzzinga.Model.Entities.csproj">
       <Project>{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}</Project>
       <Name>Bugzzinga.Model.Entities</Name>

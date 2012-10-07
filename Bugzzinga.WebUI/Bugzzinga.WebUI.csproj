@@ -14,6 +14,7 @@
     <AssemblyName>Bugzzinga</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -730,10 +731,6 @@
     <Content Include="Views\IncidenciaDetalle\PartialImagenPerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bugzzinga.Exceptions\Bugzzinga.Exceptions.csproj">
-      <Project>{0CD1618B-BB5B-41D6-9FF7-1A406C51549C}</Project>
-      <Name>Bugzzinga.Exceptions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Model.Business\Bugzzinga.Model.Business.csproj">
       <Project>{5B098F91-1E31-4EB6-935E-72D94D1337BD}</Project>
       <Name>Bugzzinga.Model.Business</Name>
