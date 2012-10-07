@@ -40,6 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DominioException.cs" />
+    <Compile Include="ErroresValidacion.cs" />
+    <Compile Include="GestorExcepcionesNulo.cs" />
+    <Compile Include="IServicioExcepciones.cs" />
+    <Compile Include="IServicioExcepcionesDominio.cs" />
+    <Compile Include="IServicioExcepcionesGUI.cs" />
     <Compile Include="IServicioExcepcionesPersistencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,18 +2,21 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4F346A6C-F0B1-415E-B957-3D5C65679797}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{243B7679-8D1C-41AB-9A13-AF66EE02A413}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bugzzinga.Data</RootNamespace>
-    <AssemblyName>Bugzzinga.Data</AssemblyName>
+    <RootNamespace>Bugzzinga.EjemplosDominio</RootNamespace>
+    <AssemblyName>Bugzzinga.EjemplosDominio</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,7 +25,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,27 +44,57 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataMapper.cs" />
-    <Compile Include="DMEstadoTarea.cs" />
-    <Compile Include="DMPerfil.cs" />
-    <Compile Include="DMPrioridadTarea.cs" />
-    <Compile Include="DMProyecto.cs" />
-    <Compile Include="DMTipoDeTarea.cs" />
-    <Compile Include="IDataMapper.cs" />
-    <Compile Include="IoC\BugzzingaDataRegistry.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\ConfiguracionIoC.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bugzzinga.Data\Bugzzinga.Data.csproj">
+      <Project>{4F346A6C-F0B1-415E-B957-3D5C65679797}</Project>
+      <Name>Bugzzinga.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Model.Business\Bugzzinga.Model.Business.csproj">
+      <Project>{5B098F91-1E31-4EB6-935E-72D94D1337BD}</Project>
+      <Name>Bugzzinga.Model.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Model.Entities\Bugzzinga.Model.Entities.csproj">
       <Project>{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}</Project>
       <Name>Bugzzinga.Model.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.db4o.Common\Data.db4o.Common.csproj">
-      <Project>{9BF1B38D-DA7A-43CB-A43E-1D3C83E06ED1}</Project>
-      <Name>Data.db4o.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.DB4o.Repository\Data.DB4o.Repository.csproj">
       <Project>{74A4868B-1735-44C6-9EB8-EB207333648B}</Project>
@@ -71,9 +105,7 @@
       <Name>Services.Exceptions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Querys\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -14,10 +14,8 @@ namespace Data.DB4o.Repository
     /// <summary>
     /// Repositorio para persistencia de los objetos de la aplicación.
     /// </summary>
-    public class Repositorio
-    {
-
-        
+    public class Repositorio : Data.DB4o.Repository.IRepositorio 
+    {      
 
         /// <summary>
         /// Instancia del contenedor de objetos
@@ -219,30 +217,14 @@ namespace Data.DB4o.Repository
             return resultado;
         }
 
-        /*
-        /// <summary>
-        /// Devuelve un listado con todas las instancias que cumplan con los criterios
-        /// indicados en el Query.
-        /// </summary>
-        /// <param name="pQuery">Query con los criterios para obtener las instancias desde
-        /// el repositorio.</param>
-        public IEnumerable<T> Listar<T>(Querys.IQuery pQuery)
+
+        public IEnumerable<Entidad> ListarTodos<Entidad>()
         {
-            IEnumerable<T> resultado = null;
 
-            try
-            {
-                resultado = pQuery.Ejecutar<T>(_bd);
-            }
-            catch (Exception ex)
-            {
-                throw;
-                //Servicios.GestionExcepciones.GestionarExcepcion(ex);
-            }
-
-            this.RefrescarInstancia(resultado, 100);
-            return resultado;
+            return  (IEnumerable<Entidad>) _bd.QueryByExample(typeof(Entidad)).GetEnumerator();
         }
+
+       /*
         /// <summary>
         /// Devuelve la primer instancia que cumple con los criterios indicados en Query.
         /// </summary>

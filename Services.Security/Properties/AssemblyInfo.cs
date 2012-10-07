@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Bugzzinga.Data")]
+[assembly: AssemblyTitle("Services.Security")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Bugzzinga.Data")]
+[assembly: AssemblyProduct("Services.Security")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("951555bc-da4e-4958-a1ab-69dc95a4ae51")]
+[assembly: Guid("ee371976-e980-4ec9-b241-aafcfad654b9")]
 
 // Version information for an assembly consists of the following four values:
 //
