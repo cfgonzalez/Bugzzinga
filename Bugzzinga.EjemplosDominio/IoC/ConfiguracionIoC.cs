@@ -19,6 +19,7 @@ namespace Bugzzinga.EjemplosDominio.IoC
                 (
                 x =>
                 {
+                    x.AddRegistry(new GUIRegistry());
                     x.AddRegistry(new BugzzingaModelBusinessRegistry());
                     x.AddRegistry(new BugzzingaDataRegistry());
                 }

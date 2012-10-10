@@ -7,8 +7,8 @@ using Db4objects.Db4o;
 
 namespace Data.DB4o.Common
 {
-    public interface IQuery
+    public interface IQuery<T>
     {
-        object Ejecutar(IObjectContainer pBD);
+        T Ejecutar(IObjectContainer pBD);
     }
 }

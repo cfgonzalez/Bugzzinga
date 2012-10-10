@@ -33,5 +33,11 @@ namespace Data.DB4o.Repository
         {
             HttpContext.Current.Session.Remove(_claveDb4o);
         }
+
+
+        public void  SetContenedor(IObjectContainer contenedor)
+        {
+            HttpContext.Current.Session.Add(_claveDb4o, contenedor);
+        }
     }
 }

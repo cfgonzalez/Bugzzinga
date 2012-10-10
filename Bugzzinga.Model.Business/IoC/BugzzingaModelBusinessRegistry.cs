@@ -9,6 +9,8 @@ using Bugzzinga.Data;
 using Services.Exceptions;
 using Services.Security;
 
+using Data.DB4o.Common;
+
 namespace Bugzzinga.Model.Business.IoC
 {
     public class BugzzingaModelBusinessRegistry:Registry
@@ -16,8 +18,30 @@ namespace Bugzzinga.Model.Business.IoC
 
         public BugzzingaModelBusinessRegistry()
         {
+
+            ConfigurarPersistencia();
+            ConfigurarGestores();
+            ConfigurarServicios();
+            ConfigurarDataMappers();
         }
 
+        private void ConfigurarPersistencia()
+        {
+            For<IConfiguracionEntidadesPersistentes>().Use<ConfiguracionEntidadesPersistentesBuggzinga>();
+        
+        }
+
+
+        private void ConfigurarGestores()
+        {
+
+            For<IGestorPerfiles>().Singleton().Use<GestorPerfiles>();
+            
+            
+            For<IGestorPrioridadesTarea>().Singleton().Use<GestorPrioridadesTarea>();
+            For<IGestorTiposDetarea>().Singleton().Use<GestorTiposDeTarea>();
+
+        }
 
         private void ConfigurarServicios()
         {
@@ -28,7 +52,11 @@ namespace Bugzzinga.Model.Business.IoC
         private void ConfigurarDataMappers()
         {
 
+            For<IDMPerfil>().Singleton().Use<DMPerfil>();
+            For<IDMUsuario>().Singleton().Use<DMUsuario>();
+            
             For<IDMTipoTarea>().Singleton().Use<DMTipoDeTarea>();
+            
         }
 
     }

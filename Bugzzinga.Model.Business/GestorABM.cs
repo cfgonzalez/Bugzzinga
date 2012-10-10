@@ -21,10 +21,10 @@ namespace Bugzzinga.Model.Business
     public abstract class GestorABM<Entidad> : IGestorABM<Entidad> 
     {
 
-        private IDataMapper<Entidad> _dataMapper;
-        private IServicioExcepcionesDominio _gestorExcepciones;
-        private IServicioAutorizacion _servicioAutorizacion;
-        private IContextoSeguridad _contextoSeguridad;
+        protected  IDataMapper<Entidad> _dataMapper;
+        protected IServicioExcepcionesDominio _gestorExcepciones;
+        protected IServicioAutorizacion _servicioAutorizacion;
+        protected IContextoSeguridad _contextoSeguridad;
 
         public GestorABM(IDataMapper<Entidad> dataMapper, IServicioExcepcionesDominio gestorExcepciones, IServicioAutorizacion servicioAutorizacion, IContextoSeguridad contextoSeguridad)
         {

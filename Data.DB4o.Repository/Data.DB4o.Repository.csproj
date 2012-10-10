@@ -37,6 +37,9 @@
     <Reference Include="Db4objects.Db4o.CS">
       <HintPath>..\packages\DB4o.8.0.249\Db4objects.Db4o.CS.dll</HintPath>
     </Reference>
+    <Reference Include="Db4objects.Db4o.Linq">
+      <HintPath>..\packages\DB4o.8.0.249\Db4objects.Db4o.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -47,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextoContenedorDesktop.cs" />
     <Compile Include="ContextoContenedorWeb.cs" />
     <Compile Include="IContextoContenedor.cs" />
     <Compile Include="IRepositorio.cs" />
@@ -54,9 +58,9 @@
     <Compile Include="Repositorio.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.db4o.Common\Data.db4o.Common.csproj">
+    <ProjectReference Include="..\Data.db4o.Common\Data.BD4o.Common.csproj">
       <Project>{9BF1B38D-DA7A-43CB-A43E-1D3C83E06ED1}</Project>
-      <Name>Data.db4o.Common</Name>
+      <Name>Data.BD4o.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.DB4o.Server\Data.DB4o.Server.csproj">
       <Project>{C8FA350E-C5CE-472F-9A84-D074B4D89F8B}</Project>

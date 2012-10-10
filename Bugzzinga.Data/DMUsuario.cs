@@ -6,21 +6,22 @@ using System.Text;
 using Bugzzinga.Model.Entities;
 
 using Data.DB4o.Repository;
-
 using Services.Exceptions;
+
 
 namespace Bugzzinga.Data
 {
-    public interface IDMPerfil : IDataMapper<Perfil>
+    public interface IDMUsuario:IDataMapper<Usuario>
     { 
     }
 
-    public class DMPerfil:DataMapper<Perfil>,IDMPerfil 
+    public class DMUsuario:DataMapper<Usuario>, IDMUsuario 
     {
-        public DMPerfil(IRepositorio repositorio, IServicioExcepcionesPersistencia servicioExcepciones) :
+        public DMUsuario(IRepositorio repositorio, IServicioExcepcionesPersistencia servicioExcepciones) :
             base(repositorio, servicioExcepciones)
         { 
         }
 
     }
+
 }

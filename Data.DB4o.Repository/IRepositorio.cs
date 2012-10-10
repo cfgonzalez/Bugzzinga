@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Data.DB4o.Repository
@@ -9,7 +10,7 @@ namespace Data.DB4o.Repository
         void Conectar();
         void ConfigurarEntidadesPersistentes(global::Data.DB4o.Common.IConfiguracionEntidadesPersistentes configuracionEntidades);
         void Desconectar();
-        object Ejecutar(global::Data.DB4o.Common.IQuery pQuery);
+        T Ejecutar <T>(global::Data.DB4o.Common.IQuery<T> pQuery);
         void Eliminar(object pObjeto);
         void EliminarInstancia();
         void FinalizarTransaccion();

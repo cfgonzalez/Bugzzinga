@@ -12,7 +12,14 @@ using Services.Exceptions;
 
 namespace Bugzzinga.Model.Business
 {
-    public class GestorTiposDeTarea:GestorABM<TipoTarea> 
+
+    public interface IGestorTiposDetarea:IGestorABM<TipoTarea>
+    { 
+    
+    }
+
+
+    public class GestorTiposDeTarea:GestorABM<TipoTarea>, IGestorTiposDetarea  
     {
 
         public GestorTiposDeTarea(IDMTipoTarea dataMapper, IServicioExcepcionesDominio gestorExcepciones, IServicioAutorizacion servicioAutorizacion, IContextoSeguridad contextoSeguridad)
@@ -39,7 +46,7 @@ namespace Bugzzinga.Model.Business
 
         protected override void ValidarBaja(TipoTarea entidad)
         {
-            // Hay que validar que no este asignada a ninguna tarea existente.
+            // Hay que validar que no este asignada a ninguna starea existente.
         }
         
     }

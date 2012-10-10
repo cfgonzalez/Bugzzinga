@@ -24,12 +24,14 @@ namespace Bugzzinga.Data
         public void Registrar(Entidad entidad)
         {
             _repositorio.Registrar(entidad);
+            _repositorio.FinalizarTransaccion();
         }
 
         public void Modificar(Entidad entidad)
         {
 
             _repositorio.Modificar(entidad);
+            _repositorio.FinalizarTransaccion();
 
         }
 
@@ -37,11 +39,14 @@ namespace Bugzzinga.Data
         {
 
             _repositorio.Eliminar(entidad);
+            _repositorio.FinalizarTransaccion();
         }
 
         public IList<Entidad> ListarTodos()
         {
-            return _repositorio.ListarTodos<Entidad>().ToList();                        
+            return  (IList<Entidad>) _repositorio.ListarTodos<Entidad>().ToList();                        
         }
+
+        
     }
 }

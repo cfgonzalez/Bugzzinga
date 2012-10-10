@@ -12,6 +12,7 @@ namespace Data.DB4o.Repository
 
         IObjectContainer GetContenedor();
         void LiberarContenedor();
+        void SetContenedor(IObjectContainer contenedor);
 
     }
 }

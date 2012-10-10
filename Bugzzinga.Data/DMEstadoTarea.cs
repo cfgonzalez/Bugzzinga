@@ -9,9 +9,15 @@ using Services.Exceptions;
 
 namespace Bugzzinga.Data
 {
+    public interface IDMEstadoTarea : IDataMapper<EstadoTarea>
+    {
+    }
+
+    
     public class DMEstadoTarea : DataMapper<EstadoTarea>
     {
 
+    
         public DMEstadoTarea(IRepositorio repositorio, IServicioExcepcionesPersistencia servicioExcepciones)
             : base(repositorio, servicioExcepciones)
         {

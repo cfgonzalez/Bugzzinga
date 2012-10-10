@@ -48,6 +48,9 @@ namespace Bugzzinga.Model.Entities
         /// Logs relacionados a la tarea
         /// </summary>
         private IList<LogTarea> _logs = new List<LogTarea>();
+
+        private IList<Tarea> _subTareas = new List<Tarea>();
+
         /// <summary>
         /// Usuario responsable de llevar a cabo la tarea
         /// </summary>
@@ -122,6 +125,25 @@ namespace Bugzzinga.Model.Entities
         public void QuitarLogTarea(LogTarea log)
         { 
         
+        }
+
+
+        public void AgregarSubTarea(Tarea subTarea)
+        {
+            _subTareas.Add(subTarea);
+        }
+
+        public void QuitarSubTarea(Tarea subTarea)
+        {
+            _subTareas.Remove(subTarea);
+        }
+
+        public IEnumerable<Tarea> SubTareas
+        { 
+            get
+            {
+                return (IEnumerable<Tarea>) _subTareas;
+            }
         }
 
     }

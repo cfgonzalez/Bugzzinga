@@ -44,8 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anteriores\ServicioNegocio.cs" />
+    <Compile Include="ConfiguracionPersistencia\ConfiguracionEntidadesPersistentesBuggzinga.cs" />
+    <Compile Include="Dominio.cs" />
     <Compile Include="GestorABM.cs" />
+    <Compile Include="GestorEstadosTarea.cs" />
+    <Compile Include="GestorPerfiles.cs" />
+    <Compile Include="GestorPrioridadesTarea.cs" />
     <Compile Include="GestorTiposDeTarea.cs" />
+    <Compile Include="GestorUsuarios.cs" />
     <Compile Include="IoC\BugzzingaModelBusinessRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +63,10 @@
     <ProjectReference Include="..\Bugzzinga.Model.Entities\Bugzzinga.Model.Entities.csproj">
       <Project>{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}</Project>
       <Name>Bugzzinga.Model.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.db4o.Common\Data.BD4o.Common.csproj">
+      <Project>{9BF1B38D-DA7A-43CB-A43E-1D3C83E06ED1}</Project>
+      <Name>Data.BD4o.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services.Exceptions\Services.Exceptions.csproj">
       <Project>{1D876790-7E8B-4EB3-AE41-9C9A6C7B3068}</Project>

@@ -10,6 +10,13 @@ using Services.Exceptions;
 
 namespace Bugzzinga.Data
 {
+
+    public interface IDMPrioridadTarea : IDataMapper<PrioridadTarea>
+    {
+
+    }
+
+
     public class DMPrioridadTarea : DataMapper<PrioridadTarea>
     {
 

@@ -35,6 +35,8 @@ namespace Bugzzinga.Model.Entities
         }
 
 
+
+
         /// <summary>
         /// Quita un próximo estado válido
         /// </summary>
@@ -44,7 +46,13 @@ namespace Bugzzinga.Model.Entities
             _proximosEstados.Remove(estado.Denominacion);
         }
 
-
+        public IEnumerable<EstadoTarea> ProximosEstados
+        { 
+            get 
+            {
+                return (IEnumerable<EstadoTarea>) _proximosEstados;
+            }
+        }
 
     }
 }

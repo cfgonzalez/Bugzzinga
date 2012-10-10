@@ -5,7 +5,9 @@ using System.Text;
 
 using StructureMap.Configuration.DSL;
 using Services.Exceptions;
+
 using Data.DB4o.Repository;
+using Data.DB4o.Common;
 
 namespace Bugzzinga.Data.IoC
 {
@@ -21,6 +23,7 @@ namespace Bugzzinga.Data.IoC
 
         private void ConfigurarServicios()
         {
+            For<IContextoContenedor>().Singleton().Use<ContextoContenedorDesktop>();
             For<IRepositorio>().Singleton().Use<Repositorio>();
             For<IServicioExcepcionesPersistencia>().Singleton().Use<GestorExcepcionesNulo>();
         }

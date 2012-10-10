@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Db4objects.Db4o;
-
+using Db4objects.Db4o.Linq;
 using Data.DB4o.Server;
 using Data.DB4o.Common;
 using Services.Exceptions;
@@ -70,7 +71,13 @@ namespace Data.DB4o.Repository
         {
             try
             {
-                _bd = ServidorBD.Instancia().CrearConexion();
+                if (_bd == null)
+                {
+                    _bd = ServidorBD.Instancia().CrearConexion();
+                    _contexto.SetContenedor(_bd);
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -84,6 +91,7 @@ namespace Data.DB4o.Repository
         {
             try
             {
+                _contexto.LiberarContenedor();
                 ServidorBD.Instancia().EliminarConexion(_bd);
             }
             catch (Exception ex)
@@ -208,7 +216,7 @@ namespace Data.DB4o.Repository
         }
 
 
-        public object Ejecutar(IQuery  pQuery)
+        public T Ejecutar <T> (IQuery<T>  pQuery)
         {
             var resultado = pQuery.Ejecutar(_bd);
 
@@ -221,7 +229,11 @@ namespace Data.DB4o.Repository
         public IEnumerable<Entidad> ListarTodos<Entidad>()
         {
 
-            return  (IEnumerable<Entidad>) _bd.QueryByExample(typeof(Entidad)).GetEnumerator();
+            IEnumerable<Entidad> resultado =
+                from Entidad e in _bd
+                select e;
+
+            return resultado;
         }
 
        /*
