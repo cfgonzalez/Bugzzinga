@@ -41,5 +41,10 @@ namespace Bugzzinga.EjemplosDominio
         {
             return ObjectFactory.GetInstance<IGestorPerfiles>();
         }
+
+        public IGestorUsuarios GestorUsuarios()
+        {
+            return ObjectFactory.GetInstance<IGestorUsuarios>();
+        }
     }
 }

@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using Bugzzinga.Model.Entities;
 using Bugzzinga.Model.Business;
 
+using Bugzzinga.EjemplosDominio.Ejemplos;
 
 
 namespace Bugzzinga.EjemplosDominio
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, ILogger 
     {
         public Form1()
         {
@@ -76,6 +77,29 @@ namespace Bugzzinga.EjemplosDominio
         {
             IEnumerable<TipoTarea> resultado = Dominio.Instancia().GestorTiposDeTarea().ListarTodos();
 
+        }
+
+        private void btnResetearLog_Click(object sender, EventArgs e)
+        {
+            ResetearLog();
+        }
+
+        public void ResetearLog()
+        {
+            txtLog.Text = "";
+        }
+
+        public void AgregarALog(string mensaje)
+        {
+            txtLog.Text += Environment.NewLine + mensaje;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ResetearLog();
+            EjemploUsuariosyPerfiles.ListarTodosLosUsuarios(this);
+            EjemploUsuariosyPerfiles.RegistrarNuevoUsuario(this);
+            EjemploUsuariosyPerfiles.ListarTodosLosUsuarios(this);
         }
     }
 }

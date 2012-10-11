@@ -62,11 +62,13 @@ namespace Bugzzinga.Model.Business
 
 
             //El LoginName de usuario debe ser unico
-            IList<Usuario> usuarios = new QueryUsuariosPorLoginName(usuario.LoginName).EjecutarQuery().ToList();
-
-            if (usuarios.Count > 0 && !Object.ReferenceEquals(usuarios.FirstOrDefault(), usuario))
+            IList<Usuario> usuarios = new QueryUsuariosPorLoginName(usuario.LoginName).EjecutarQuery();
+            if (usuarios != null)
             {
-                errores.Agregar(String.Format("Ya existe un cuenta registrada con el nombre: {0}, el nombre de usuario debe ser único", usuario.LoginName));
+                if (usuarios.Count > 0 && !Object.ReferenceEquals(usuarios.FirstOrDefault(), usuario))
+                {
+                    errores.Agregar(String.Format("Ya existe un cuenta registrada con el nombre: {0}, el nombre de usuario debe ser único", usuario.LoginName));
+                }
             }
 
 

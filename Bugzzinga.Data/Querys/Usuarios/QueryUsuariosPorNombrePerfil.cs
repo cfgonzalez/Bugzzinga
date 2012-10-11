@@ -12,7 +12,7 @@ using Bugzzinga.Model.Entities;
 
 namespace Bugzzinga.Data.Querys
 {
-    public class QueryUsuariosPorNombrePerfil:QueryDB4o<IEnumerable<Usuario>>
+    public class QueryUsuariosPorNombrePerfil : QueryDB4o<IList<Usuario>>
     {
 
         Perfil _perfil;
@@ -24,12 +24,12 @@ namespace Bugzzinga.Data.Querys
      
         }
 
-        public override IEnumerable<Usuario> Ejecutar(IObjectContainer pBD)
+        public override IList<Usuario> Ejecutar(IObjectContainer pBD)
         {
-            IEnumerable<Usuario> resultado =
-               from Usuario u in pBD
+            IList<Usuario> resultado =
+               (from Usuario u in pBD
                where u.Perfiles.Contains(_perfil)
-               select u;
+               select u).ToList();
 
             return null;
         }

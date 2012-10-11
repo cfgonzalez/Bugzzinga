@@ -36,7 +36,7 @@ namespace Bugzzinga.Model.Business.IoC
         {
 
             For<IGestorPerfiles>().Singleton().Use<GestorPerfiles>();
-            
+            For<IGestorUsuarios>().Singleton().Use<GestorUsuarios>();
             
             For<IGestorPrioridadesTarea>().Singleton().Use<GestorPrioridadesTarea>();
             For<IGestorTiposDetarea>().Singleton().Use<GestorTiposDeTarea>();

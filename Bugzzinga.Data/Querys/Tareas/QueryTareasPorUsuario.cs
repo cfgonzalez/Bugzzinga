@@ -9,7 +9,7 @@ using Db4objects.Db4o.Linq;
 
 namespace Bugzzinga.Data.Querys
 {
-    public class QueryTareasPorUsuario:QueryDB4o<IEnumerable<Tarea>>
+    public class QueryTareasPorUsuario : QueryDB4o<IList<Tarea>>
     {
         private Usuario  _usuario;
 
@@ -18,12 +18,12 @@ namespace Bugzzinga.Data.Querys
             _usuario = usuario;
         }
 
-        public override IEnumerable<Tarea> Ejecutar(Db4objects.Db4o.IObjectContainer pBD)
+        public override IList<Tarea> Ejecutar(Db4objects.Db4o.IObjectContainer pBD)
         {
-            IEnumerable<Tarea> resultado =
-                from Tarea t in pBD
+            IList<Tarea> resultado =
+                (from Tarea t in pBD
                 where t.Responsable.Nombre == _usuario.Nombre 
-                select t;
+                select t).ToList();
 
                 return resultado;
         }

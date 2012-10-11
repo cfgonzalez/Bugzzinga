@@ -207,7 +207,10 @@ namespace Data.DB4o.Repository
         {
             try
             {
-                _bd.Ext().Refresh(pObjeto, pProfundidad);
+                if (pObjeto != null)
+                {
+                    _bd.Ext().Refresh(pObjeto, pProfundidad);
+                }
             }
             catch (Exception ex)
             {

@@ -12,7 +12,7 @@ using Bugzzinga.Model.Entities;
 
 namespace Bugzzinga.Data.Querys
 {
-    public class QueryUsuariosPorLoginName:QueryDB4o<IEnumerable<Usuario>>
+    public class QueryUsuariosPorLoginName : QueryDB4o<IList<Usuario>>
     {
 
         string _loginName;
@@ -24,14 +24,14 @@ namespace Bugzzinga.Data.Querys
      
         }
 
-        public override IEnumerable<Usuario> Ejecutar(IObjectContainer pBD)
+        public override IList<Usuario> Ejecutar(IObjectContainer pBD)
         {
-            IEnumerable<Usuario> resultado =
-               from Usuario u in pBD
-               where u.Nombre == _loginName 
-               select u;
+            IList<Usuario> resultado =
+               (from Usuario u in pBD
+               where u.LoginName  == _loginName 
+               select u).ToList();
 
-            return null;
+            return resultado;
         }
 
     }

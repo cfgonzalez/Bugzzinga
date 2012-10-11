@@ -88,12 +88,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejemplos\EjemploUsuariosyPerfiles.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ILogger.cs" />
     <Compile Include="IoC\ConfiguracionIoC.cs" />
     <Compile Include="IoC\GUIRegistry.cs" />
     <Compile Include="Program.cs" />

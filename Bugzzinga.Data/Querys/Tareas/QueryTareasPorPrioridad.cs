@@ -9,7 +9,7 @@ using Db4objects.Db4o.Linq;
 
 namespace Bugzzinga.Data.Querys
 {
-    public class QueryTareasPorPrioridad:QueryDB4o<IEnumerable<Tarea>>
+    public class QueryTareasPorPrioridad : QueryDB4o<IList<Tarea>>
     {
         private PrioridadTarea  _prioridad;
 
@@ -18,12 +18,12 @@ namespace Bugzzinga.Data.Querys
             _prioridad = prioridad;
         }
 
-        public override IEnumerable<Tarea> Ejecutar(Db4objects.Db4o.IObjectContainer pBD)
+        public override IList<Tarea> Ejecutar(Db4objects.Db4o.IObjectContainer pBD)
         {
-            IEnumerable<Tarea> resultado =
-                from Tarea t in pBD
+            IList<Tarea> resultado =
+                (from Tarea t in pBD
                 where t.Prioridad.Denominacion == _prioridad.Denominacion 
-                select t;
+                select t).ToList();
 
                 return resultado;
         }
