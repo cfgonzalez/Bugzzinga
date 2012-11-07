@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Model.Entities", "Bugzzinga.Model.Entities\Bugzzinga.Model.Entities.csproj", "{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Model.Business", "Bugzzinga.Model.Business\Bugzzinga.Model.Business.csproj", "{5B098F91-1E31-4EB6-935E-72D94D1337BD}"
@@ -38,11 +38,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Data", "Bugzzinga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.EjemplosDominio", "Bugzzinga.EjemplosDominio\Bugzzinga.EjemplosDominio.csproj", "{243B7679-8D1C-41AB-9A13-AF66EE02A413}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bugzzinga.Model.BusinessDecorado", "Bugzzinga.Model.BusinessDecorado\Bugzzinga.Model.BusinessDecorado.csproj", "{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Bugzzinga.vsmdi
 	EndGlobalSection
@@ -153,6 +151,16 @@ Global
 		{243B7679-8D1C-41AB-9A13-AF66EE02A413}.Release|Mixed Platforms.Build.0 = Release|x86
 		{243B7679-8D1C-41AB-9A13-AF66EE02A413}.Release|x86.ActiveCfg = Release|x86
 		{243B7679-8D1C-41AB-9A13-AF66EE02A413}.Release|x86.Build.0 = Release|x86
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +168,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5B098F91-1E31-4EB6-935E-72D94D1337BD} = {021E87F2-507A-4128-BB52-E2BFD3AA37C9}
 		{DB2F21A3-C644-4EAB-947E-01F6F6CCF66A} = {021E87F2-507A-4128-BB52-E2BFD3AA37C9}
+		{EB74EC05-C337-4D93-A15E-6D0EDA59D0BA} = {021E87F2-507A-4128-BB52-E2BFD3AA37C9}
 		{243B7679-8D1C-41AB-9A13-AF66EE02A413} = {580E31A4-77B6-4D38-812C-A4C993CB58D5}
 		{74A4868B-1735-44C6-9EB8-EB207333648B} = {528E6066-2B27-4280-A7A3-D1FECB95C9C2}
 		{C8FA350E-C5CE-472F-9A84-D074B4D89F8B} = {528E6066-2B27-4280-A7A3-D1FECB95C9C2}
@@ -168,5 +177,9 @@ Global
 		{1D876790-7E8B-4EB3-AE41-9C9A6C7B3068} = {DD107D35-540D-4B18-9A50-5B29E3192B3A}
 		{46D58221-5885-4EEE-914B-2D8AC59497DC} = {DD107D35-540D-4B18-9A50-5B29E3192B3A}
 		{C83DC489-B604-4AF9-9EDD-B7FD4FF681BF} = {31170D22-6624-4319-B00C-A8755FDBB759}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

@@ -5,9 +5,9 @@ using System.Text;
 
 using Services.Exceptions;
 
-namespace Bugzzinga.Model.Entities
+namespace Bugzzinga.Model.Business
 {
-    public class Usuario
+    public class Usuario : Bugzzinga.Model.Business.IUsuario
     {
         public string LoginName { get; set; }
         public string Nombre { get; set; }
