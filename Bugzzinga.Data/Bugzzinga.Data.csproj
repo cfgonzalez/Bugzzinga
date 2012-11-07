@@ -69,7 +69,6 @@
     <Compile Include="Querys\Tareas\QueryTareasPorTipotarea.cs" />
     <Compile Include="Querys\Tareas\QueryTareasPorPrioridad.cs" />
     <Compile Include="Querys\Tareas\QueryTareasPorUsuario.cs" />
-    <Compile Include="Querys\Usuarios\QueryUsuariosPorNombre.cs" />
     <Compile Include="Querys\Usuarios\QueryUsuariosPorNombrePerfil.cs" />
   </ItemGroup>
   <ItemGroup>

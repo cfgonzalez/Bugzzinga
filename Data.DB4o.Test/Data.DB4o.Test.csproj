@@ -62,7 +62,7 @@
     <Compile Include="ServidorBDTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data.db4o.Common\Data.db4o.Common.csproj">
+    <ProjectReference Include="..\Data.db4o.Common\Data.BD4o.Common.csproj">
       <Project>{9BF1B38D-DA7A-43CB-A43E-1D3C83E06ED1}</Project>
       <Name>Data.db4o.Common</Name>
     </ProjectReference>

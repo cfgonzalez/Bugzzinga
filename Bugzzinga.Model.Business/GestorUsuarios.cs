@@ -62,7 +62,7 @@ namespace Bugzzinga.Model.Business
 
 
             //El LoginName de usuario debe ser unico
-            IList<Usuario> usuarios = new QueryUsuariosPorLoginName(usuario.LoginName).EjecutarQuery();
+            IList<Usuario> usuarios = null; //new QueryUsuariosPorLoginName(usuario.LoginName).EjecutarQuery();
             if (usuarios != null)
             {
                 if (usuarios.Count > 0 && !Object.ReferenceEquals(usuarios.FirstOrDefault(), usuario))
