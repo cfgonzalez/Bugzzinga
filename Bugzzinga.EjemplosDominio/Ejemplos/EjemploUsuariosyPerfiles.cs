@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using Bugzzinga.Model.Business;
-using Bugzzinga.Model.Entities;
 
 namespace Bugzzinga.EjemplosDominio.Ejemplos
 {
@@ -21,7 +20,7 @@ namespace Bugzzinga.EjemplosDominio.Ejemplos
             usuario1.Nombre = "Que es";
             usuario1.Apellido = "Nafta";
 
-            Dominio.Instancia().GestorUsuarios().Registrar(usuario1);
+            //Dominio.Instancia().GestorUsuarios().Registrar(usuario1);
         }
 
         public static void ModificarUsuario(ILogger log)
@@ -32,14 +31,14 @@ namespace Bugzzinga.EjemplosDominio.Ejemplos
         }
         public static void ListarTodosLosUsuarios(ILogger log)
         {
-            IList<Usuario> usuarios =
-                Dominio.Instancia().GestorUsuarios().ListarTodos();
+            //IList<Usuario> usuarios =
+                //Dominio.Instancia().GestorUsuarios().ListarTodos();
 
 
-            foreach (var usuario in usuarios)
-            {
-                log.AgregarALog(string.Format("Usuario {0}", usuario.LoginName));
-            }
+            //foreach (var usuario in usuarios)
+            //{
+            //    log.AgregarALog(string.Format("Usuario {0}", usuario.LoginName));
+            //}
         }
 
         #endregion

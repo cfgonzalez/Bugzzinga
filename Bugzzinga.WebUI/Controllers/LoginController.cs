@@ -15,12 +15,10 @@ namespace MvcApp.Controllers
         {
             return View();
         }
-
-        [HttpPost] 
+               
         public ActionResult Autenticar(string usuario, string clave)
         {           
             //Autenticar
-
             return RedirectToAction("Index", "Home");             
         }
     }

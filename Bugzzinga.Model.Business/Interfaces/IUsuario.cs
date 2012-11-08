@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IUsuario
+    public interface IUsuario
     {
         void AgregarPerfil(Perfil perfil);
         string Apellido { get; set; }

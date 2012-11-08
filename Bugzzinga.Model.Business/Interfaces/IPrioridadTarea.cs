@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IPrioridadTarea
+    public interface IPrioridadTarea
     {
         string Denominacion { get; set; }
         string Descripcion { get; set; }

@@ -19,8 +19,7 @@ namespace Bugzzinga.Model.Business.IoC
         public BugzzingaModelBusinessRegistry()
         {
 
-            ConfigurarPersistencia();
-            ConfigurarGestores();
+            ConfigurarPersistencia();            
             ConfigurarServicios();
             ConfigurarDataMappers();
         }
@@ -28,20 +27,7 @@ namespace Bugzzinga.Model.Business.IoC
         private void ConfigurarPersistencia()
         {
             For<IConfiguracionEntidadesPersistentes>().Use<ConfiguracionEntidadesPersistentesBuggzinga>();
-        
-        }
-
-
-        private void ConfigurarGestores()
-        {
-
-            For<IGestorPerfiles>().Singleton().Use<GestorPerfiles>();
-            For<IGestorUsuarios>().Singleton().Use<GestorUsuarios>();
-            
-            For<IGestorPrioridadesTarea>().Singleton().Use<GestorPrioridadesTarea>();
-            For<IGestorTiposDetarea>().Singleton().Use<GestorTiposDeTarea>();
-
-        }
+        }  
 
         private void ConfigurarServicios()
         {

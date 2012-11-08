@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,7 +15,15 @@
     <AssemblyName>Bugzzinga</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,15 +74,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncidenciaDetalleController.cs" />
+    <Compile Include="Controllers\ProyectosController.cs" />
+    <Compile Include="Controllers\TareaDetalleController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MetroController.cs" />
+    <Compile Include="Controllers\TareasController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mappers\IncidenciaMapper.cs" />
+    <Compile Include="Mappers\TareaMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\IncidenciaViewModel.cs" />
+    <Compile Include="ViewModels\TareaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Actions\Add.png" />
@@ -102,6 +116,7 @@
     <Content Include="Content\Images\Icons\Company.png" />
     <Content Include="Content\Images\Icons\deleteicon.gif" />
     <Content Include="Content\Images\Icons\editicon.gif" />
+    <Content Include="Content\Images\icon_sprite_actionArrow_white.png" />
     <Content Include="Content\Images\Listbox\rlbButtonDisabled.png" />
     <Content Include="Content\Images\Listbox\rlbButtonDisabledIE6.png" />
     <Content Include="Content\Images\Listbox\rlbButtonHoverIE6.png" />
@@ -110,12 +125,20 @@
     <Content Include="Content\Images\Listbox\rlbDropClue.png" />
     <Content Include="Content\Images\Listbox\rlbHeaderFooter.png" />
     <Content Include="Content\Images\Listbox\rlbSprite.png" />
+    <Content Include="Content\Images\LoginBackground.png" />
+    <Content Include="Content\Images\Login\blue.jpg" />
     <Content Include="Content\Images\Login\LoginBackground.jpg" />
     <Content Include="Content\Images\Login\LogoLogin.gif" />
     <Content Include="Content\Images\Login\LogoLogin.png" />
     <Content Include="Content\Images\Login\transparente.png" />
+    <Content Include="Content\Images\logo_blanco.png" />
+    <Content Include="Content\Images\logo_small.png" />
+    <Content Include="Content\Images\logo_small_.png" />
+    <Content Include="Content\Images\Menu\nav_bg - copia.png" />
+    <Content Include="Content\Images\Menu\nav_bg.png" />
     <Content Include="Content\Images\progress1.gif" />
     <Content Include="Content\Images\rlbButtonHover.png" />
+    <Content Include="Content\metro.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -266,6 +289,21 @@
     <Content Include="Scripts\jquery-plugins\jquery-jqGrid\src\jqModal.js" />
     <Content Include="Scripts\jquery-plugins\jquery-jqGrid\src\jquery.fmatter.js" />
     <Content Include="Scripts\jquery-plugins\jquery-jqGrid\src\JsonXml.js" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\jquery-ui-1.9.0.custom.css" />
+    <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\smoothness\jquery-ui-1.9.0.custom.min.css" />
     <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
@@ -694,8 +732,12 @@
     <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\js\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-plugins\jquery-ui-1.8.19\js\jquery-ui-1.8.19.custom.min.js" />
     <Content Include="Scripts\Menu.js" />
-    <Content Include="ViewsClientLogic\Home\Home.js" />
-    <Content Include="ViewsClientLogic\IncidenciaDetalle\Index.js" />
+    <Content Include="ViewsClientLogic\Cuenta\Index.js" />
+    <Content Include="ViewsClientLogic\Home\Index.js" />
+    <Content Include="ViewsClientLogic\Proyectos\Index.js" />
+    <Content Include="ViewsClientLogic\TareaDetalle\Index.js" />
+    <Content Include="ViewsClientLogic\Tareas\Index.js" />
+    <Content Include="ViewsClientLogic\Usuarios\Index.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -727,8 +769,13 @@
     <None Include="Scripts\jquery-plugins\jquery-ui-1.8.19\development-bundle\demos\tabs\ajax\content3-slow.php" />
     <None Include="Scripts\jquery-plugins\jquery-ui-1.8.19\development-bundle\demos\tabs\ajax\content4-broken.php" />
     <None Include="Scripts\jquery-plugins\jquery-ui-1.8.19\development-bundle\package.json" />
-    <Content Include="Views\IncidenciaDetalle\Index.cshtml" />
-    <Content Include="Views\IncidenciaDetalle\PartialImagenPerfil.cshtml" />
+    <Content Include="Views\TareaDetalle\Index.cshtml" />
+    <Content Include="Views\TareaDetalle\PartialImagenPerfil.cshtml" />
+    <Content Include="Views\Metro\Index.cshtml" />
+    <Content Include="Views\Tareas\Index.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Proyectos\Index.cshtml" />
+    <Content Include="Views\Cuenta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bugzzinga.Model.Business\Bugzzinga.Model.Business.csproj">
@@ -740,8 +787,13 @@
       <Name>Bugzzinga.Model.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -757,7 +809,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2937</DevelopmentServerPort>
+          <DevelopmentServerPort>10934</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

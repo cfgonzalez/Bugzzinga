@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IProyecto
+    public interface IProyecto
     {
         void AgregarIntegrante(Usuario integrante);
         void AgregarVersion(Version version);

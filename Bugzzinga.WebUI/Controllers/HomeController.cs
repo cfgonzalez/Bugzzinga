@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Bugzzinga.Model.Entities;
 using Bugzzinga.Model.Business;
 
 namespace MvcApp.Controllers
@@ -21,7 +20,7 @@ namespace MvcApp.Controllers
 
         public ActionResult TraerProyectosJson(string sidx, string sord, int page, int rows)
         {          
-            List<Incidencia> proyectos = ServicioNegocio.TraerIncidencias();
+            List<ITarea> proyectos = ServicioNegocio.TraerTareas();
             int pageIndex = Convert.ToInt32(page) - 1;
             int pageSize = rows;
             int totalRecords = proyectos.Count();
@@ -33,14 +32,14 @@ namespace MvcApp.Controllers
                 page = page,
                 records = totalRecords,
                 rows = (
-                from question in proyectos
+                from tarea in proyectos
                 select new
                 {
-                    id = question.Nombre,
+                    id = tarea.FechaAlta,
                     cell = new string[] 
                     {
-                      question.Nombre.ToString(), 
-                      question.Descripcion.ToString() 
+                      tarea.FechaAlta.ToString(), 
+                      tarea.Descripcion.ToString() 
                     }
                 }).ToArray()
             };

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IArchivoAdjunto
+    public interface IArchivoAdjunto
     {
         string Descripcion { get; set; }
         string NombreArchivo { get; set; }

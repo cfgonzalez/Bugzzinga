@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IPerfil
+    public interface IPerfil
     {
         string Descripcion { get; set; }
         string Nombre { get; set; }

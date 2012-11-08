@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bugzzinga.Model.Business
 {
-    interface IEstadoTarea
+    public interface IEstadoTarea
     {
         void AgregarProximoEstado(EstadoTarea estado);
         string Denominacion { get; set; }

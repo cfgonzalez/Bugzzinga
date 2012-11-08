@@ -1,39 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title>
-    <script src="@Url.Content("~/Scripts/jquery-1.6.2-core/jquery-1.6.2.min.js")" type="text/javascript"></script>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />   
+    <meta name="viewport" content="width=device-width" />
+    <title>Bugzzinga</title>    
+    <script src="@Url.Content("~/Scripts/jquery-1.6.2-core/jquery-1.6.2.min.js")" type="text/javascript"></script>    
     <script src="@Url.Content("~/Scripts/Menu.js")" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/metro.css")" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   
 </head>
-<body>
-
-
-<div id="body_leftFrame">
-<div id="pmalogo"></div>
-<div id="leftframelinks"></div>
-<div id="databaseList"></div>
-<div id="left_tableList"></div>
-</div>
-
-    <div class="divmasterHeader">
-        <div class="divLogoCompany">
-            <img src="../../Content/Images/header.jpg" />
-        </div>
-        <div class="divRight">
-            @if (Request.IsAuthenticated)
-            {
-                <p align="right">@User.Identity.Name | @Html.ActionLink("Logout", "LogOff", "Login")</p>
-            }
+<body class="tutorial">
+    <div id="nav">
+        <div class="centered-container">
+            <div id="mainMenu" class="clearfix">
+                <a id="homelink" title="Bugzzinga">
+                    <div>Bugzzinga</div>                
+                </a>
+                <a id="homeMenu" class="minor" href="@Url.Action("Index", "Home")" title="Home">Home</a>
+                <a id="tareasMenu" class="minor" href="@Url.Action("Index", "Tareas")" title="Tareas disponibles">Tareas</a>
+                <a id="proyectosMenu" class="minor" href="@Url.Action("Index", "Proyectos")" title="Proyectos disponibles">Proyectos</a>
+                <a id="usuariosMenu" class="minor" href="@Url.Action("Index", "Usuarios")" title="Administración de usuarios">Usuarios</a>
+                <a id="cuentaMenu" class="minor" href="@Url.Action("Index", "Cuenta")" title="Administración de la cuenta">Cuenta</a>                
+            </div>
         </div>
     </div>
     <div>
-			<ul id="menu">
-			<li class="button">@Html.ActionLink("Home", "Index", "DatabaseAdministrator", new { @class = "current" })</li>
-            <li class="button"><a href="#" id="MenuItemEmailNotificationData">Email Notification Data</a></li>            
-			<li class="button">@Html.ActionLink("Error Logs", "Index", "Logs")</li>			
-			</ul>
-	</div>
-    @RenderBody()
+     @RenderBody()
+    </div>
 </body>
 </html>
