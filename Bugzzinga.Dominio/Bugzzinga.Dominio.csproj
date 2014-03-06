@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92297DFD-18F4-4641-9A63-2F610465578D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bugzzinga.Dominio</RootNamespace>
+    <AssemblyName>Bugzzinga.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Db4objects.Db4o">
+      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.CS">
+      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.CS.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Linq">
+      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.NativeQueries">
+      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bugtracker.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="Intefaces\IBugtracker.cs" />
+    <Compile Include="Intefaces\IEstado.cs" />
+    <Compile Include="Intefaces\IItem.cs" />
+    <Compile Include="Intefaces\IPerfil.cs" />
+    <Compile Include="Intefaces\IPrioridad.cs" />
+    <Compile Include="Intefaces\IProyecto.cs" />
+    <Compile Include="Intefaces\IRegistroLog.cs" />
+    <Compile Include="Intefaces\ITipoItem.cs" />
+    <Compile Include="Intefaces\IUsuario.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ModeloPersistente\BugtrackerPersistente.cs" />
+    <Compile Include="ModeloPersistente\DecoradorPersistente.cs" />
+    <Compile Include="RegistroLog.cs" />
+    <Compile Include="Perfil.cs" />
+    <Compile Include="Prioridad.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyecto.cs" />
+    <Compile Include="TipoItem.cs" />
+    <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagramas\Bugzzinga.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">
+      <Project>{ff84c920-f5d1-4344-9f5a-293c4f09769e}</Project>
+      <Name>Bugzzinga.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Repositorio\Bugzzinga.Persistencia.csproj">
+      <Project>{c4467170-695d-48c8-aab8-b2e28048b01e}</Project>
+      <Name>Bugzzinga.Persistencia</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
