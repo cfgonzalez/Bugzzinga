@@ -8,9 +8,9 @@ namespace Bugzzinga.Dominio.Intefaces
 {
     public interface IProyecto
     {
-        IEnumerable<IUsuario> Miembros { get; }
-        IEnumerable<ITipoItem> TiposDeItem { get; }
-        IEnumerable<IItem> Items { get; }
+        //IEnumerable<IUsuario> Miembros { get; }
+        //IEnumerable<ITipoItem> TiposDeItem { get; }
+        //IEnumerable<IItem> Items { get; }
 
 
         string Codigo { get; set; }

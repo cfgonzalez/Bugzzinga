@@ -8,21 +8,21 @@ namespace Bugzzinga.Dominio
 {
     public class Proyecto:IProyecto
     {
-        private IList<IUsuario> _miembros;
-        private IList<ITipoItem> _tiposDeItem;
-        private IList<IItem> _items;
+        //private IList<IUsuario> _miembros;
+        //private IList<ITipoItem> _tiposDeItem;
+        //private IList<IItem> _items;
 
-        public Proyecto()
-        {
-            this._miembros = new List<IUsuario>();
-            this._tiposDeItem = new List<ITipoItem>();
-            this._items = new List<IItem>();           
-        }
+        //public Proyecto()
+        //{
+        //    this._miembros = new List<IUsuario>();
+        //    this._tiposDeItem = new List<ITipoItem>();
+        //    this._items = new List<IItem>();           
+        //}
 
 
-        public IEnumerable<IUsuario> Miembros { get { return this._miembros; } }
-        public IEnumerable<ITipoItem> TiposDeItem { get {return this._tiposDeItem; } }
-        public IEnumerable<IItem> Items { get{ return this.Items;}}
+        //public IEnumerable<IUsuario> Miembros { get { return this._miembros; } }
+        //public IEnumerable<ITipoItem> TiposDeItem { get {return this._tiposDeItem; } }
+        //public IEnumerable<IItem> Items { get{ return this.Items;}}
 
 
         public string Codigo { get; set; }

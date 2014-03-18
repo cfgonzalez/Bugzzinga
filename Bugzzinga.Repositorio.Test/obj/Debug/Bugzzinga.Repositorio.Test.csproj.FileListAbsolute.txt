@@ -12,3 +12,17 @@ G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzz
 G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzzinga.Persistencia.pdb
 G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Repositorio.Test\obj\Debug\Bugzzinga.Persistencia.Test.dll
 G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Repositorio.Test\obj\Debug\Bugzzinga.Persistencia.Test.pdb
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzzinga.Persistencia.Test.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzzinga.Persistencia.Test.pdb
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzzinga.Persistencia.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Db4objects.Db4o.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Db4objects.Db4o.Linq.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\StructureMap.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Mono.Reflection.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Bugzzinga.Persistencia.pdb
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Db4objects.Db4o.xml
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\Db4objects.Db4o.Linq.xml
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\bin\Debug\StructureMap.xml
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\obj\Debug\Bugzzinga.Repositorio.Test.csprojResolveAssemblyReference.cache
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\obj\Debug\Bugzzinga.Persistencia.Test.dll
+D:\Projects\Bugzzinga\Bugzzinga.Repositorio.Test\obj\Debug\Bugzzinga.Persistencia.Test.pdb
