@@ -34,3 +34,21 @@ D:\Projects\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\StructureMap.xml
 D:\Projects\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.csprojResolveAssemblyReference.cache
 D:\Projects\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.dll
 D:\Projects\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.csprojResolveAssemblyReference.cache
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\obj\Debug\Bugzzinga.Dominio.Test.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Dominio.Test.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Dominio.Test.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Core.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Dominio.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Persistencia.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Db4objects.Db4o.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Db4objects.Db4o.Linq.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\StructureMap.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Mono.Reflection.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Core.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Dominio.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Bugzzinga.Persistencia.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Db4objects.Db4o.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\Db4objects.Db4o.Linq.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio.Test\bin\Debug\StructureMap.xml

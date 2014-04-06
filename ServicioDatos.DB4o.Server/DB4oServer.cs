@@ -1,5 +1,4 @@
-﻿using Db4objects.Db4o.CS;
-using Db4objects.Db4o.CS.Config;
+﻿
 using ServicioDatos.DB4o.Server.Interfaces;
 using System;
 using System.Collections.Generic;

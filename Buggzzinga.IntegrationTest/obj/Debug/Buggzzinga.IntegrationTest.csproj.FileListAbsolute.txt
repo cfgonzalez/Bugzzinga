@@ -3,3 +3,8 @@ D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\bin\Debug\Buggzzinga.Integratio
 D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.dll
 D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.pdb
 D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.csprojResolveAssemblyReference.cache
+D:\WF Git\Bugzzinga\Buggzzinga.IntegrationTest\bin\Debug\Buggzzinga.IntegrationTest.dll
+D:\WF Git\Bugzzinga\Buggzzinga.IntegrationTest\bin\Debug\Buggzzinga.IntegrationTest.pdb
+D:\WF Git\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.csprojResolveAssemblyReference.cache
+D:\WF Git\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.dll
+D:\WF Git\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.pdb

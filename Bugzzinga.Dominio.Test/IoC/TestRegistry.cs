@@ -1,5 +1,4 @@
 ﻿using Bugzzinga.Dominio.Intefaces;
-using Bugzzinga.Dominio.ModeloPersistente;
 using Bugzzinga.Persistencia;
 using Bugzzinga.Persistencia.Interfaces;
 using StructureMap.Configuration.DSL;
@@ -22,7 +21,7 @@ namespace Bugzzinga.Dominio.Test.IoC
 
         private void ConfigurarDomino()
         {
-            For<IBugtracker>().Use<BugtrackerPersistente>();
+            //For<IBugtracker>().Use<BugtrackerPersistente>();
         }
 
         private void ConfigurarPersistencia()

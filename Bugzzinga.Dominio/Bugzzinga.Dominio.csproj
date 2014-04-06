@@ -66,8 +66,6 @@
     <Compile Include="Intefaces\ITipoItem.cs" />
     <Compile Include="Intefaces\IUsuario.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="ModeloPersistente\BugtrackerPersistente.cs" />
-    <Compile Include="ModeloPersistente\DecoradorPersistente.cs" />
     <Compile Include="RegistroLog.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Prioridad.cs" />

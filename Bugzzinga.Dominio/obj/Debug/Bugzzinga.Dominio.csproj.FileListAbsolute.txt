@@ -82,3 +82,27 @@ D:\Projects\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.Instrumentatio
 D:\Projects\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.csprojResolveAssemblyReference.cache
 D:\Projects\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.dll
 D:\Projects\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Dominio.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Dominio.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Core.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Persistencia.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.CS.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.Linq.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.NativeQueries.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\StructureMap.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Mono.Reflection.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Cecil.FlowAnalysis.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Mono.Cecil.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.Instrumentation.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Core.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Bugzzinga.Persistencia.pdb
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.CS.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.Linq.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.NativeQueries.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\StructureMap.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\bin\Debug\Db4objects.Db4o.Instrumentation.xml
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.csprojResolveAssemblyReference.cache
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.dll
+D:\WF Git\Bugzzinga\Bugzzinga.Dominio\obj\Debug\Bugzzinga.Dominio.pdb

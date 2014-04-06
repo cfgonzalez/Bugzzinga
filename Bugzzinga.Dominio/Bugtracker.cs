@@ -7,45 +7,20 @@ using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
 using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Core;
+using Db4objects.Db4o.Collections;
 
 namespace Bugzzinga.Dominio
 {
     public  class Bugtracker: IBugtracker
     {
 
-        //public static void NuevoProyecto(Proyecto proyecto)
-        //{
-        //    IObjectContainer xx = Db4oFactory.OpenFile(@"C:\Desarrollo\TPBDLAP\Bugzzinga\Bugzzinga.yap");
-
-        //    xx.Store(proyecto);
-        //    xx.Commit();
-
-        //}
-
-        //public static Proyecto CargarProyecto(int id)
-        //{
-
-        //    IObjectContainer xx = Db4oFactory.OpenFile(@"C:\Desarrollo\TPBDLAP\Bugzzinga\Bugzzinga.yap");
-
-        //    var proyecto = (from Proyecto p in xx
-        //                    where p.Id == id
-        //                    select p).SingleOrDefault();
-
-        //    return proyecto;
-        //}
-
-        //public static IList<Proyecto> ListarProyectos()
-        //{
-        //    return null;
-        //}
-
-        private IList<IProyecto> _proyectos;
-        private IList<IUsuario> _usuarios;
-
+        private ArrayList4<IProyecto> _proyectos;
+        private ArrayList4<IUsuario> _usuarios;     
+        
         public Bugtracker()
         {
-            this._proyectos = new List<IProyecto>();
-            this._usuarios = new List<IUsuario>();
+            this._proyectos = new ArrayList4<IProyecto>();
+            this._usuarios = new ArrayList4<IUsuario>();
         }
 
 
