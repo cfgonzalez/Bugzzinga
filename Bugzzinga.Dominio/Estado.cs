@@ -23,6 +23,6 @@ namespace Bugzzinga.Dominio
         public string Nombre { get; internal set; }
         public string Descripcion { get; set; }
 
-        public IEnumerable<Estado> ProximosEstadosValidos { get { return this._proximosEstadosValidos} }
+        public IEnumerable<Estado> ProximosEstadosValidos { get { return this._proximosEstadosValidos; } }
     }
 }
