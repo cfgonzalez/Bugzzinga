@@ -11,36 +11,36 @@ namespace Bugzzinga.Dominio.Intefaces
         /// <summary>
         /// Retorna los proyectos registrados en el bugtracker
         /// </summary>
-        IEnumerable<IProyecto> Proyectos { get; }
+        IEnumerable<Proyecto> Proyectos { get; }
         /// <summary>
         /// Retorna los usuarios registrados en el bugtracker
         /// </summary>
-        IEnumerable<IUsuario> Usuarios { get ; }
+        IEnumerable<Usuario> Usuarios { get ; }
 
         /// <summary>
         /// Devuelve una nueva instancia de Proyecto
         /// </summary>
         /// <returns></returns>
-        IProyecto NuevoProyecto();
+        Proyecto NuevoProyecto();
 
         /// <summary>
         /// Registra un nuevo proyecto en el bugtracker
         /// </summary>
         /// <param name="proyecto"></param>
-        void RegistrarProyecto( IProyecto proyecto );        
+        void RegistrarProyecto( Proyecto proyecto );        
 
         /// <summary>
         /// Devuelve una instancia de proyecto en base a su nombre
         /// </summary>
         /// <param name="nombreProyecto">Nombre del proyecto</param>
         /// <returns></returns>
-        IProyecto ObtenerProyecto( string nombreProyecto );
+        Proyecto ObtenerProyecto( string nombreProyecto );
 
         /// <summary>
         /// Devuelve una nueva instancia de un usuario
         /// </summary>
         /// <returns></returns>
-        IUsuario NuevoUsuario();
+        Usuario NuevoUsuario();
 
         /// <summary>
         /// Registra los cambios en el sistema

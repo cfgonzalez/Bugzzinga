@@ -37,31 +37,31 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         #region "Proyectos"
 
-        public IEnumerable<IProyecto> Proyectos
+        public IEnumerable<Proyecto> Proyectos
         {
             get 
             {
-                IList<IProyecto> proyectos = (from IProyecto p in this._contenedor select p).ToList<IProyecto>();
+                IList<Proyecto> proyectos = (from Proyecto p in this._contenedor select p).ToList<Proyecto>();
 
                 return proyectos;
             }
         }
 
 
-        public IProyecto NuevoProyecto()
+        public Proyecto NuevoProyecto()
         {
             return new Proyecto();
         }
 
-        public void RegistrarProyecto( IProyecto proyecto )
+        public void RegistrarProyecto( Proyecto proyecto )
         {
             this._contenedor.Store( proyecto );
             this._contenedor.Commit();
         }
 
-        public IProyecto ObtenerProyecto( string nombreProyecto )
+        public Proyecto ObtenerProyecto( string nombreProyecto )
         {
-            IProyecto proyecto = (from IProyecto p in this._contenedor 
+            Proyecto proyecto = (from Proyecto p in this._contenedor 
                                     where p.Nombre.ToUpper() == nombreProyecto.ToUpper()
                                     select p).SingleOrDefault();
             return proyecto;
@@ -70,12 +70,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         #endregion
 
         #region "Usuarios"
-        public IEnumerable<IUsuario> Usuarios
+        public IEnumerable<Usuario> Usuarios
         {
             get { throw new NotImplementedException(); }
         }
 
-        public IUsuario NuevoUsuario()
+        public Usuario NuevoUsuario()
         {
             throw new NotImplementedException();
         }

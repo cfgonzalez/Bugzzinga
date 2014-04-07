@@ -8,12 +8,20 @@ using Bugzzinga.Core.Atributos;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Item:IItem
+    public class Item
     {
 
-        private IEnumerable<IRegistroLog> _registrosLog;
+        private IEnumerable<RegistroLog> _registrosLog;
+
+        /// <summary>
+        /// Constructor de prueba, solamente para los tests iniciales de db4o
+        /// </summary>
+        public Item()
+        { 
         
-        public Item(string nombre, string descripcion,ITipoItem tipo,IPrioridad prioridad)
+        }
+
+        public Item(string nombre, string descripcion, TipoItem tipo, Prioridad prioridad)
         {
             //throw new NotImplementedException("Hay que obtener el codigo con alguna inteligencia");
             
@@ -22,7 +30,7 @@ namespace Bugzzinga.Dominio
 
             this.Tipo = tipo;
             this.Prioridad = prioridad;
-            this._registrosLog = new List<IRegistroLog>();
+            this._registrosLog = new List<RegistroLog>();
         }
 
 
@@ -30,9 +38,9 @@ namespace Bugzzinga.Dominio
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        public IPrioridad Prioridad { get; internal set; }
-        public IEnumerable<IRegistroLog> RegistrosLog { get { return this._registrosLog; } }
-        public ITipoItem Tipo { get; internal set; }
-        public IUsuario Responsable { get; internal set; }
+        public Prioridad Prioridad { get; internal set; }
+        public IEnumerable<RegistroLog> RegistrosLog { get { return this._registrosLog; } }
+        public TipoItem Tipo { get; internal set; }
+        public Usuario Responsable { get; internal set; }
     }
 }

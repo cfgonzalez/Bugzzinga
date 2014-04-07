@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class TipoItem:ITipoItem
+    public class TipoItem
     {
 
-        private IList<IEstado> _estadosDisponibles;
+        private IList<Estado> _estadosDisponibles;
         
         public TipoItem(string nombre,string descripcion)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
 
-            this._estadosDisponibles = new List<IEstado>();
+            this._estadosDisponibles = new List<Estado>();
         }
 
         public string Nombre { get; internal set; }
         public string Descripcion { get; set; }
 
-        public IEnumerable<IEstado> EstadosDisponibles { get { return this._estadosDisponibles; } }
+        public IEnumerable<Estado> EstadosDisponibles { get { return this._estadosDisponibles; } }
     }
 }

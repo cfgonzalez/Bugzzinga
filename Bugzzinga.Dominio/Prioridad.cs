@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class Prioridad:IPrioridad
+    public class Prioridad
     {
 
         public Prioridad(string nombre, string descripcion)

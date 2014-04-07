@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class Usuario:IUsuario
+    public class Usuario
     {
         public Usuario()
         { 
@@ -17,6 +17,6 @@ namespace Bugzzinga.Dominio
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
-        public IPerfil Perfil { get; set; }
+        public Perfil Perfil { get; set; }
     }
 }

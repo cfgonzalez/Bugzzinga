@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class Perfil:IPerfil
+    public class Perfil
     {
     }
 }

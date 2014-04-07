@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class RegistroLog:IRegistroLog
+    public class RegistroLog
     {
         public RegistroLog()
         {
@@ -18,7 +18,7 @@ namespace Bugzzinga.Dominio
         public DateTime Fecha { get; internal set; }
         public string Comentarios { get; set; }
         
-        public IEstado Estado { get; internal set; }
-        public IUsuario Responsable { get; set; }
+        public Estado Estado { get; internal set; }
+        public Usuario Responsable { get; set; }
     }
 }

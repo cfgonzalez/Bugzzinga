@@ -14,20 +14,20 @@ namespace Bugzzinga.Dominio
     public  class Bugtracker
     {
 
-        private ArrayList4<IProyecto> _proyectos;
-        private ArrayList4<IUsuario> _usuarios;     
+        private ArrayList4<Proyecto> _proyectos;
+        private ArrayList4<Usuario> _usuarios;     
         
         public Bugtracker()
         {
-            this._proyectos = new ArrayList4<IProyecto>();
-            this._usuarios = new ArrayList4<IUsuario>();
+            this._proyectos = new ArrayList4<Proyecto>();
+            this._usuarios = new ArrayList4<Usuario>();
         }
 
 
-        public IEnumerable<IProyecto> Proyectos { get { return this._proyectos; } }
-        public IEnumerable<IUsuario> Usuarios { get { return this._usuarios; } }
+        public IEnumerable<Proyecto> Proyectos { get { return this._proyectos; } }
+        public IEnumerable<Usuario> Usuarios { get { return this._usuarios; } }
         
-        public IProyecto NuevoProyecto()
+        public Proyecto NuevoProyecto()
         {
             return new Proyecto();
         }
@@ -47,13 +47,13 @@ namespace Bugzzinga.Dominio
         }
 
 
-        public IProyecto ObtenerProyecto(string nombreProyecto)
+        public Proyecto ObtenerProyecto(string nombreProyecto)
         {
             return this.Proyectos.Where(x => x.Nombre.ToUpper() == nombreProyecto.ToUpper()).SingleOrDefault();
         }
 
 
-        public IUsuario NuevoUsuario()
+        public Usuario NuevoUsuario()
         {
             return new Usuario();
         }

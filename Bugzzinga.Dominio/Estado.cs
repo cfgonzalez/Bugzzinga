@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio
 {
-    public class Estado:IEstado
+    public class Estado
     {
-        private IList<IEstado> _proximosEstadosValidos;
+        private IList<Estado> _proximosEstadosValidos;
 
         public Estado(string nombre, string descripcion)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
 
-            this._proximosEstadosValidos = new List<IEstado>();
+            this._proximosEstadosValidos = new List<Estado>();
         }
 
         public string Nombre { get; internal set; }
         public string Descripcion { get; set; }
 
-        public IEnumerable<IEstado> ProximosEstadosValidos { get; set; }
+        public IEnumerable<Estado> ProximosEstadosValidos { get; set; }
     }
 }

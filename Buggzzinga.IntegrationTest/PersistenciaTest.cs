@@ -42,36 +42,6 @@ namespace Buggzzinga.IntegrationTest
             servidor.Iniciar(configuracion);
 
             return servidor;
-        }  
-
-        [TestMethod]
-        public void Test_AltaProyectos()
-        {
-            this.LimpiarArchivoBD();
-            
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
-            {
-                IProyecto p1 = bugzzinga.NuevoProyecto();
-                p1.Codigo = "P1";
-                p1.Nombre = "Proyecto1";
-                bugzzinga.RegistrarProyecto( p1 );
-
-                IProyecto p2 = bugzzinga.NuevoProyecto();
-                p2.Codigo = "P2";
-                p2.Nombre = "Proyecto2";
-                bugzzinga.RegistrarProyecto( p2 );
-
-                IProyecto p3 = bugzzinga.NuevoProyecto();
-                p3.Codigo = "P3";
-                p3.Nombre = "Proyecto3";
-                bugzzinga.RegistrarProyecto( p3 );               
-            }
-
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
-            {
-                IEnumerable<IProyecto> proyectos = bugzzinga.Proyectos;
-                IList<IProyecto> proyectosList = proyectos.ToList();
-            }
         }
 
         [TestMethod]
@@ -81,7 +51,7 @@ namespace Buggzzinga.IntegrationTest
 
             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
             {
-                IProyecto p = bugzzinga.NuevoProyecto();
+                Proyecto p = bugzzinga.NuevoProyecto();
                 p.Codigo = "P1";
                 p.Nombre = "Proyecto de prueba 1";
 
@@ -90,10 +60,66 @@ namespace Buggzzinga.IntegrationTest
 
             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
             {
-                IProyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
+                Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
                 p.Nombre = "Proyecto de prueba modificado";
             }
-        
+
+        }
+
+        [TestMethod]
+        public void Test_AltaProyectos()
+        {
+            this.LimpiarArchivoBD();
+            
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                Proyecto p1 = bugzzinga.NuevoProyecto();
+                p1.Codigo = "P1";
+                p1.Nombre = "Proyecto1";
+                bugzzinga.RegistrarProyecto( p1 );
+
+                Proyecto p2 = bugzzinga.NuevoProyecto();
+                p2.Codigo = "P2";
+                p2.Nombre = "Proyecto2";
+                bugzzinga.RegistrarProyecto( p2 );
+
+                Proyecto p3 = bugzzinga.NuevoProyecto();
+                p3.Codigo = "P3";
+                p3.Nombre = "Proyecto3";
+                bugzzinga.RegistrarProyecto( p3 );               
+            }
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                IEnumerable<Proyecto> proyectos = bugzzinga.Proyectos;
+                IList<Proyecto> proyectosList = proyectos.ToList();
+            }
+        }
+
+        [TestMethod]
+        public void Test_PersistenciaPorAlcance()
+        {
+             this.LimpiarArchivoBD();
+
+             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+             {
+                 Proyecto p1 = bugzzinga.NuevoProyecto();
+                 p1.Codigo = "P1";
+                 p1.Nombre = "Proyecto1";
+                 bugzzinga.RegistrarProyecto( p1 );
+             }
+
+             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+             {
+                 Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto1" );
+                 p.Nombre = "Proyecto de prueba modificado";
+
+                 Item item1 = new Item();                 
+                 item1.Nombre = "Primer item del proyecto";
+
+                 p.AgregarItem(item1);
+             }
+
         }
     }
 }

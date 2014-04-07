@@ -10,12 +10,18 @@ namespace Bugzzinga.Dominio.Intefaces
     {
         //IEnumerable<IUsuario> Miembros { get; }
         //IEnumerable<ITipoItem> TiposDeItem { get; }
-        //IEnumerable<IItem> Items { get; }
+        IEnumerable<IItem> Items { get; }
 
 
         string Codigo { get; set; }
         string Nombre { get; set; }
         string Descripcion { get; set; }
         DateTime FechaInicio { get; set; }
+
+        #region "Items"
+
+        void AgregarItem( IItem item );        
+
+        #endregion
     }
 }

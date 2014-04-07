@@ -9,27 +9,25 @@ using System.Text;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Proyecto:IProyecto
+    public class Proyecto
     {
-        //private IList<IUsuario> _miembros;
-        //private IList<ITipoItem> _tiposDeItem;
-        protected IList<Item> _items = new ArrayList4<Item>();
+        private IList<Usuario> _miembros = new ArrayList4<Usuario>();
+        private IList<TipoItem> _tiposDeItem = new ArrayList4<TipoItem>();
+        private IList<Item> _items =  new ArrayList4<Item>();
 
-        public Proyecto()
-        {
-        //    this._miembros = new List<IUsuario>();
-        //    this._tiposDeItem = new List<ITipoItem>();                       
-        }
-
-
-        //public IEnumerable<IUsuario> Miembros { get { return this._miembros; } }
-        //public IEnumerable<ITipoItem> TiposDeItem { get {return this._tiposDeItem; } }
-        public IEnumerable<IItem> Items { get { return this._items; } }
-
+        public IEnumerable<Usuario> Miembros { get { return this._miembros; } }
+        public IEnumerable<TipoItem> TiposDeItem { get {return this._tiposDeItem; } }
+        public IEnumerable<Item> Items { get { return this._items; } }
 
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaInicio { get; set; }
+
+        public void AgregarItem( Item item )
+        {
+            this._items.Add( item );
+        }
+
     }
 }

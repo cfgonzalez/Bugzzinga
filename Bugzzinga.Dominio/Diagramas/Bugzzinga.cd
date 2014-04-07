@@ -3,7 +3,7 @@
   <Interface Name="Bugzzinga.Dominio.Intefaces.IBugtracker">
     <Position X="0.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAgAAACAAwAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAgAAACAAwAAAAAAAAAkA=</HashCode>
       <FileName>Intefaces\IBugtracker.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -52,25 +52,11 @@
   </Interface>
   <Interface Name="Bugzzinga.Dominio.Intefaces.IProyecto">
     <Position X="4.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="Miembros" Type="Bugzzinga.Dominio.Intefaces.IUsuario" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.5" Y="1.588" />
-        <Point X="3.675" Y="1.588" />
-        <Point X="3.675" Y="2.505" />
-        <Point X="2" Y="2.505" />
-        <Point X="2" Y="3.5" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.794" Y="0.225" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQgACAAAIAAAgAABAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAACAAAAAAAgAABAgAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Intefaces\IProyecto.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Miembros" />
-      <Property Name="TiposDeItem" />
       <Property Name="Items" />
     </ShowAsCollectionAssociation>
   </Interface>
