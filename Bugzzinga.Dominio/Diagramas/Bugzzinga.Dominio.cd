@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bugzzinga.Dominio.Bugtracker">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAADAAAAAAAAAgAAAAgAAACAAwAAAAAAAAAkA=</HashCode>
+      <FileName>Bugtracker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Proyectos" />
+      <Property Name="Usuarios" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Proyecto">
+    <Position X="4.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQgACAAAIAAAgAABAhAgAAAAAAABgAAAAAA=</HashCode>
+      <FileName>Proyecto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Estado">
+    <Position X="11.75" Y="4" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ProximosEstadosValidos" Type="Bugzzinga.Dominio.Estado" ManuallyRouted="true">
+      <Path>
+        <Point X="12.544" Y="6.007" />
+        <Point X="12.544" Y="6.382" />
+        <Point X="13.222" Y="6.382" />
+        <Point X="13.222" Y="6.007" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAgAABAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Estado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ProximosEstadosValidos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Item">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Prioridad" Type="Bugzzinga.Dominio.Prioridad" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.812" Y="4.5" />
+        <Point X="5.812" Y="4.315" />
+        <Point X="7.094" Y="4.315" />
+        <Point X="7.094" Y="3.94" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAIACAAQAAAAAAAAAAgAABAAAAAACAAAAAAAAAAAQ=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Tipo" />
+      <Property Name="Prioridad" />
+      <Property Name="Responsable" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="RegistrosLog" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Perfil">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Perfil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Prioridad">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Prioridad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.RegistroLog">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <AssociationLine Name="Responsable" Type="Bugzzinga.Dominio.Usuario" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="7.25" />
+        <Point X="7.375" Y="7.25" />
+        <Point X="7.375" Y="7.188" />
+        <Point X="2" Y="7.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>RegistroLog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Responsable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.TipoItem">
+    <Position X="9" Y="2" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="EstadosDisponibles" Type="Bugzzinga.Dominio.Estado" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="2.5" />
+        <Point X="12.688" Y="2.5" />
+        <Point X="12.688" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.846" Y="0.527" Height="0.182" Width="1.795" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAgAAAAAAAAAgAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TipoItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="EstadosDisponibles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Bugzzinga.Dominio.Usuario">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAEAQAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Perfil" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -6,10 +6,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAgAAACAAwAAAAAAAAAkA=</HashCode>
       <FileName>Intefaces\IBugtracker.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Proyectos" />
-      <Property Name="Usuarios" />
-    </ShowAsCollectionAssociation>
   </Interface>
   <Interface Name="Bugzzinga.Dominio.Intefaces.IEstado">
     <Position X="11.5" Y="3.75" Width="1.5" />

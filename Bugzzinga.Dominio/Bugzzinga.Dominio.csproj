@@ -75,7 +75,8 @@
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Diagramas\Bugzzinga.cd" />
+    <None Include="Diagramas\Bugzzinga.Dominio.cd" />
+    <None Include="Diagramas\Bugzzinga.Interfaces.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">
@@ -103,5 +104,4 @@
   <Target Name="AfterBuild">
     <Db4oEnhancerMSBuildTask Assemblies="@(Db4oEnhance)" CommandLine="-debug -by-attribute:Bugzzinga.Core.Atributos.PersistedAttribute" />
   </Target>
-  
 </Project>
