@@ -121,5 +121,42 @@ namespace Buggzzinga.IntegrationTest
              }
 
         }
+
+        [TestMethod]
+        public void Test_AltaUsuarioConPerfiles()
+        {
+            this.LimpiarArchivoBD();
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.NuevoPerfil();
+                p1.Nombre = "Perfil 1";
+
+                Perfil p2 = bugzzinga.NuevoPerfil();
+                p2.Nombre = "Perfil 2";
+
+                bugzzinga.RegistrarPerfil( p1 );
+                bugzzinga.RegistrarPerfil( p2 );
+            }
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
+
+                Usuario usuario1 = bugzzinga.NuevoUsuario();
+                usuario1.Nombre = "Gabriel";
+                usuario1.Apellido = "Batistuta";
+                usuario1.Perfil = p1;
+
+                bugzzinga.RegistrarUsuario( usuario1 );
+            }
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
+                
+            }
+            
+        }
     }
 }
