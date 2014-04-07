@@ -1,10 +1,1 @@
 D:\Projects\Bugzzinga\ServicioDatos.DB4o.Server\obj\Debug\ServicioDatos.DB4o.Server.csprojResolveAssemblyReference.cache
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\obj\Debug\ServicioDatos.DB4o.Server.csprojResolveAssemblyReference.cache
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\ServicioDatos.DB4o.Server.dll
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\ServicioDatos.DB4o.Server.pdb
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\obj\Debug\ServicioDatos.DB4o.Server.dll
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\obj\Debug\ServicioDatos.DB4o.Server.pdb
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\Db4objects.Db4o.CS.dll
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\Db4objects.Db4o.dll
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\Db4objects.Db4o.xml
-D:\WF Git\Bugzzinga\ServicioDatos.DB4o.Server\bin\Debug\Db4objects.Db4o.CS.xml

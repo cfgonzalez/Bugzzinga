@@ -7,8 +7,3 @@ D:\Projects\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.dll
 D:\Projects\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.pdb
 D:\Projects\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.dll
 D:\Projects\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.pdb
-D:\WF Git\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.pdb
-D:\WF Git\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.csprojResolveAssemblyReference.cache
-D:\WF Git\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.pdb

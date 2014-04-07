@@ -22,15 +22,3 @@ D:\Projects\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\StructureMap.xml
 D:\Projects\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.dll
 D:\Projects\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.pdb
 D:\Projects\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.csprojResolveAssemblyReference.cache
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Bugzzinga.Persistencia.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Bugzzinga.Persistencia.pdb
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Db4objects.Db4o.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Db4objects.Db4o.Linq.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\StructureMap.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Mono.Reflection.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Db4objects.Db4o.xml
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\Db4objects.Db4o.Linq.xml
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\bin\Debug\StructureMap.xml
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.csprojResolveAssemblyReference.cache
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.dll
-D:\WF Git\Bugzzinga\Bugzzinga.Repositorio\obj\Debug\Bugzzinga.Persistencia.pdb
