@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bugzzinga.Core.Atributos;
 
 namespace Bugzzinga.Dominio
 {
+    [Persisted]
     public class RegistroLog
     {
         public RegistroLog()
-        {
-            throw new NotImplementedException("Obtener hora de un servicio  rr");
+        {            
 
         }
 

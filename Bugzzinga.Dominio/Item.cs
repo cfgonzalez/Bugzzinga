@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Bugzzinga.Core.Atributos;
+using Db4objects.Db4o.Collections;
 
 namespace Bugzzinga.Dominio
 {
@@ -11,7 +12,7 @@ namespace Bugzzinga.Dominio
     public class Item
     {
 
-        private IEnumerable<RegistroLog> _registrosLog;
+        private IList<RegistroLog> _registrosLog = new ArrayList4<RegistroLog>();
 
         /// <summary>
         /// Constructor de prueba, solamente para los tests iniciales de db4o
@@ -23,14 +24,11 @@ namespace Bugzzinga.Dominio
 
         public Item(string nombre, string descripcion, TipoItem tipo, Prioridad prioridad)
         {
-            //throw new NotImplementedException("Hay que obtener el codigo con alguna inteligencia");
-            
+            //throw new NotImplementedException("Hay que obtener el codigo con alguna inteligencia");            
             this.Nombre = nombre;
             this.Descripcion = descripcion;
-
             this.Tipo = tipo;
-            this.Prioridad = prioridad;
-            this._registrosLog = new List<RegistroLog>();
+            this.Prioridad = prioridad;            
         }
 
 
