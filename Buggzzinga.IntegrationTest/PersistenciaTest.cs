@@ -7,6 +7,9 @@ using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using System;
 using System.Linq;
+using System.IO;
+using Bugzzinga.Dominio.ModeloPersistente;
+
 
 namespace Buggzzinga.IntegrationTest
 {
@@ -14,9 +17,12 @@ namespace Buggzzinga.IntegrationTest
     public class PersistenciaTest
     {
 
+        private string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
+        private string _nombreBD = "BugzzingaTest.yap";
+
         private void LimpiarArchivoBD()
-        { 
-        
+        {   
+            File.Delete( Path.Combine(_directorioBD,_nombreBD ));
         }
 
         private IDB4oServer ObtenerServidorTest()
@@ -24,8 +30,8 @@ namespace Buggzzinga.IntegrationTest
             ConfiguracionServer configuracion = new ConfiguracionServer();            
 
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            configuracion.RutaArchivos = String.Concat(path, @"\..\..\..\BD\BDTest");
-            configuracion.NombreArchivoBD = "BugzzingaTest.yap";
+            configuracion.RutaArchivos = _directorioBD;
+            configuracion.NombreArchivoBD = _nombreBD;
             configuracion.Puerto = 0;
             configuracion.PersistenciaTransparente = true;
             configuracion.ActivacionTransparente = true;
@@ -38,7 +44,7 @@ namespace Buggzzinga.IntegrationTest
 
 
         [TestMethod]
-        public void TestMethod1()
+        public void Test_AltaProyecto()
         {
             this.LimpiarArchivoBD();
 
@@ -57,7 +63,7 @@ namespace Buggzzinga.IntegrationTest
         }
 
         [TestMethod]
-        public void Test2()
+        public void Test_ModificacionProyecto()
         {
             var servidor = this.ObtenerServidorTest();
             IObjectContainer contenedor = servidor.CrearConexion();
@@ -68,6 +74,28 @@ namespace Buggzzinga.IntegrationTest
 
             servidor.FinalizarConexion(contenedor);
             servidor.Finalizar();
+        }
+
+        [TestMethod]
+        public void Test_BugTrackerScope()
+        {
+            //this.LimpiarArchivoBD();
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                IProyecto p = bugzzinga.NuevoProyecto();
+                p.Codigo = "P1";
+                p.Nombre = "Proyecto de prueba 1";
+
+                bugzzinga.RegistrarProyecto( p );
+            }
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                IProyecto p =  bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
+                p.Nombre = "Proyecto de prueba modificado";
+            }
+        
         }
     }
 }

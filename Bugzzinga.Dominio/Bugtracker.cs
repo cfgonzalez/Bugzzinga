@@ -57,5 +57,14 @@ namespace Bugzzinga.Dominio
         {
             return new Usuario();
         }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

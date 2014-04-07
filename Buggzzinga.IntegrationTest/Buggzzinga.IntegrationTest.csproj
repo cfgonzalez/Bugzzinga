@@ -72,6 +72,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bugzzinga.Dominio.ModeloPersistente\Bugzzinga.Dominio.ModeloPersistente.csproj">
+      <Project>{3b3736ff-649b-4a54-8eaa-5168fd77bea3}</Project>
+      <Name>Bugzzinga.Dominio.ModeloPersistente</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Dominio\Bugzzinga.Dominio.csproj">
       <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
       <Name>Bugzzinga.Dominio</Name>

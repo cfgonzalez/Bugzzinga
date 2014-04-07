@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio.Intefaces
 {
-    public interface IBugtracker
+    public interface IBugtracker: IDisposable
     {
         /// <summary>
         /// Retorna los proyectos registrados en el bugtracker
@@ -27,7 +27,7 @@ namespace Bugzzinga.Dominio.Intefaces
         /// Registra un nuevo proyecto en el bugtracker
         /// </summary>
         /// <param name="proyecto"></param>
-        void RegistrarProyecto(IProyecto proyecto);
+        void RegistrarProyecto(IProyecto proyecto);        
 
         /// <summary>
         /// Devuelve una instancia de proyecto en base a su nombre
