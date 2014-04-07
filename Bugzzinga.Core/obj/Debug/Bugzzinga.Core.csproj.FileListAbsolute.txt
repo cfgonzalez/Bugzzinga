@@ -1,9 +1,0 @@
-G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.dll
-G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.pdb
-G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.dll
-G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.pdb
-G:\Devs\TPBDLAP\Repositorio\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.csprojResolveAssemblyReference.cache
-D:\Projects\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.dll
-D:\Projects\Bugzzinga\Bugzzinga.Core\bin\Debug\Bugzzinga.Core.pdb
-D:\Projects\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.dll
-D:\Projects\Bugzzinga\Bugzzinga.Core\obj\Debug\Bugzzinga.Core.pdb

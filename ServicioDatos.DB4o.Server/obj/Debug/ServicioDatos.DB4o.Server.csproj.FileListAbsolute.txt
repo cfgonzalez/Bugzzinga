@@ -1,1 +1,0 @@
-D:\Projects\Bugzzinga\ServicioDatos.DB4o.Server\obj\Debug\ServicioDatos.DB4o.Server.csprojResolveAssemblyReference.cache

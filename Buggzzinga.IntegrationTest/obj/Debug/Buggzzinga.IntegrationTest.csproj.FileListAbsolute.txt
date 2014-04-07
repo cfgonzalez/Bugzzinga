@@ -1,5 +1,0 @@
-D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\bin\Debug\Buggzzinga.IntegrationTest.dll
-D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\bin\Debug\Buggzzinga.IntegrationTest.pdb
-D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.dll
-D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.pdb
-D:\Projects\Bugzzinga\Buggzzinga.IntegrationTest\obj\Debug\Buggzzinga.IntegrationTest.csprojResolveAssemblyReference.cache
