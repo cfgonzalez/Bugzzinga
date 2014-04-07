@@ -11,10 +11,11 @@ namespace Bugzzinga.Dominio.Intefaces
         int Codigo { get;  }
         string Nombre { get; set; }
         string Descripcion { get; set; }
-
+        /*
         IPrioridad Prioridad { get;  }
         IEnumerable<IRegistroLog> RegistrosLog { get; }
         ITipoItem Tipo { get;  }
         IUsuario Responsable { get;  }
+         */
     }
 }

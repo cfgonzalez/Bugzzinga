@@ -95,4 +95,13 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!-- Build Step persistencia transparente -->
+  <UsingTask AssemblyFile=".\..\packages\db4o.8.0\Db4oTool.MSBuild.dll" TaskName="Db4oTool.MSBuild.Db4oEnhancerMSBuildTask" />
+  <ItemGroup>
+    <Db4oEnhance Include="$(TargetPath)" />
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <Db4oEnhancerMSBuildTask Assemblies="@(Db4oEnhance)" CommandLine="-debug -by-attribute:Bugzzinga.Core.Atributos.PersistedAttribute" />
+  </Target>
+  
 </Project>
