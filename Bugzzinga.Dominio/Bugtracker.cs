@@ -11,7 +11,7 @@ using Db4objects.Db4o.Collections;
 
 namespace Bugzzinga.Dominio
 {
-    public  class Bugtracker: IBugtracker
+    public  class Bugtracker
     {
 
         private ArrayList4<IProyecto> _proyectos;
@@ -61,6 +61,16 @@ namespace Bugzzinga.Dominio
         #region IDisposable Members
 
         public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IBugtracker Members
+
+
+        public void GuardarCambios()
         {
             throw new NotImplementedException();
         }

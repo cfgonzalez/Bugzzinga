@@ -13,19 +13,18 @@ namespace Bugzzinga.Dominio
     {
         //private IList<IUsuario> _miembros;
         //private IList<ITipoItem> _tiposDeItem;
-        private ArrayList4<IItem> _items;
+        protected IList<Item> _items = new ArrayList4<Item>();
 
         public Proyecto()
         {
         //    this._miembros = new List<IUsuario>();
-        //    this._tiposDeItem = new List<ITipoItem>();
-            this._items = new ArrayList4<IItem>();           
+        //    this._tiposDeItem = new List<ITipoItem>();                       
         }
 
 
         //public IEnumerable<IUsuario> Miembros { get { return this._miembros; } }
         //public IEnumerable<ITipoItem> TiposDeItem { get {return this._tiposDeItem; } }
-        public IEnumerable<IItem> Items { get{ return this.Items;}}
+        public IEnumerable<IItem> Items { get { return this._items; } }
 
 
         public string Codigo { get; set; }

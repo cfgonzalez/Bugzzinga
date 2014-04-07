@@ -9,6 +9,8 @@ using System;
 using System.Linq;
 using System.IO;
 using Bugzzinga.Dominio.ModeloPersistente;
+using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Buggzzinga.IntegrationTest
@@ -40,40 +42,36 @@ namespace Buggzzinga.IntegrationTest
             servidor.Iniciar(configuracion);
 
             return servidor;
-        }
-
+        }  
 
         [TestMethod]
-        public void Test_AltaProyecto()
+        public void Test_AltaProyectos()
         {
             this.LimpiarArchivoBD();
-
-            var servidor = this.ObtenerServidorTest();       
-            IObjectContainer contenedor = servidor.CrearConexion();
-
-            IBugtracker bugzzinga = new Bugtracker();
             
-            IProyecto proyecto1 = bugzzinga.NuevoProyecto();
-            proyecto1.Codigo = "P1";
-            proyecto1.Nombre = "Proyecto 1 de prueba";
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                IProyecto p1 = bugzzinga.NuevoProyecto();
+                p1.Codigo = "P1";
+                p1.Nombre = "Proyecto1";
+                bugzzinga.RegistrarProyecto( p1 );
 
-            contenedor.Store(proyecto1);           
-            servidor.FinalizarConexion(contenedor);
-            servidor.Finalizar();
-        }
+                IProyecto p2 = bugzzinga.NuevoProyecto();
+                p2.Codigo = "P2";
+                p2.Nombre = "Proyecto2";
+                bugzzinga.RegistrarProyecto( p2 );
 
-        [TestMethod]
-        public void Test_ModificacionProyecto()
-        {
-            var servidor = this.ObtenerServidorTest();
-            IObjectContainer contenedor = servidor.CrearConexion();
+                IProyecto p3 = bugzzinga.NuevoProyecto();
+                p3.Codigo = "P3";
+                p3.Nombre = "Proyecto3";
+                bugzzinga.RegistrarProyecto( p3 );               
+            }
 
-            var proyecto = (from Proyecto p in contenedor select p).SingleOrDefault();
-
-            proyecto.Nombre = "Proyecto modificado";
-
-            servidor.FinalizarConexion(contenedor);
-            servidor.Finalizar();
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                IEnumerable<IProyecto> proyectos = bugzzinga.Proyectos;
+                IList<IProyecto> proyectosList = proyectos.ToList();
+            }
         }
 
         [TestMethod]
@@ -92,7 +90,7 @@ namespace Buggzzinga.IntegrationTest
 
             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
             {
-                IProyecto p =  bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
+                IProyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
                 p.Nombre = "Proyecto de prueba modificado";
             }
         
