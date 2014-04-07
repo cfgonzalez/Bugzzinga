@@ -33,20 +33,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             this._contenedor = this._servidor.CrearConexion();
         }
 
-        #region IBugtracker Members
-
-        #region "Proyectos"
-
-        public IEnumerable<Proyecto> Proyectos
-        {
-            get 
-            {
-                IList<Proyecto> proyectos = (from Proyecto p in this._contenedor select p).ToList<Proyecto>();
-
-                return proyectos;
-            }
-        }
-
+        #region "Proyectos"        
 
         public Proyecto NuevoProyecto()
         {
@@ -59,6 +46,13 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             this._contenedor.Commit();
         }
 
+        public IEnumerable<Proyecto> Proyectos
+        {
+            get 
+            {
+                return  (from Proyecto p in this._contenedor select p).ToList<Proyecto>();                
+            }
+        }
         public Proyecto ObtenerProyecto( string nombreProyecto )
         {
             Proyecto proyecto = (from Proyecto p in this._contenedor 
@@ -70,38 +64,77 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         #endregion
 
         #region "Usuarios"
-        public IEnumerable<Usuario> Usuarios
-        {
-            get { throw new NotImplementedException(); }
-        }
+
 
         public Usuario NuevoUsuario()
         {
-            throw new NotImplementedException();
+            return new Usuario();
+        }
+
+        public void RegistrarUsuario( Usuario usuario )
+        {
+            this._contenedor.Store( usuario );
+            this._contenedor.Commit();
+        }
+
+        public IEnumerable<Usuario> Usuarios
+        {
+            get 
+            {
+                return (from Usuario u in this._contenedor select u).ToList<Usuario>();
+            }
+        }
+
+        public Usuario ObtenerUsuario( string nombreUsuario )
+        {
+            Usuario usuario = ( from Usuario u in this._contenedor
+                                where u.Nombre.ToUpper() == nombreUsuario.ToUpper()
+                                select u).SingleOrDefault();
+            return usuario;
         }
 
         #endregion
 
+        #region "Perfiles"
+
+        public Perfil NuevoPerfil()
+        {
+            return new Perfil();
+        }
+
+        public void RegistrarPerfil( Perfil perfil)
+        {
+            this._contenedor.Store(perfil);
+            this._contenedor.Commit();
+        }
+
+        public IEnumerable<Perfil> Perfiles 
+        { 
+            get 
+            {
+                return (from Perfil p in this._contenedor select p).ToList<Perfil>();
+            }
+        }
+
+        public Perfil ObtenerPerfil(string nombrePerfil)
+        {
+             Perfil perfil = (from Perfil p in this._contenedor 
+                                    where p.Nombre.ToUpper() == nombrePerfil.ToUpper()
+                                    select p).SingleOrDefault();
+            return perfil;
+        }
+
         #endregion
-
-        #region IDisposable Members
-
+        
         public void Dispose()
         {
             this._servidor.FinalizarConexion( this._contenedor );
             this._servidor.Finalizar();
-        }
-
-        #endregion
-
-        #region IBugtracker Members
-
+        }        
 
         public void GuardarCambios()
         {
             throw new NotImplementedException();
-        }
-
-        #endregion
+        }     
     }
 }
