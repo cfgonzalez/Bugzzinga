@@ -23,8 +23,7 @@ namespace Bugzzinga.Dominio
         }
 
         public Item(string nombre, string descripcion, TipoItem tipo, Prioridad prioridad)
-        {
-            //throw new NotImplementedException("Hay que obtener el codigo con alguna inteligencia");            
+        {                     
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Tipo = tipo;

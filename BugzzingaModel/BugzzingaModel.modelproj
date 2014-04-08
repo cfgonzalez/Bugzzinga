@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e2a5595a-99af-4ed9-a896-56b059e06fef}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>BugzzingaModel</Name>
+    <RootNamespace>BugzzingaModel</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Bugzzinga_Componentes.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Bugzzinga_Componentes.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Bugzzinga_Componentes.componentdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\BugzzingaModel.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bugzzinga.Contexto\Bugzzinga.Contexto.csproj">
+      <Name>Bugzzinga.Contexto</Name>
+      <Project>{e8ee26c5-215d-4aae-99b1-9196acaecb45}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">
+      <Name>Bugzzinga.Core</Name>
+      <Project>{ff84c920-f5d1-4344-9f5a-293c4f09769e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Dominio.ModeloPersistente\Bugzzinga.Dominio.ModeloPersistente.csproj">
+      <Name>Bugzzinga.Dominio.ModeloPersistente</Name>
+      <Project>{3b3736ff-649b-4a54-8eaa-5168fd77bea3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Dominio\Bugzzinga.Dominio.csproj">
+      <Name>Bugzzinga.Dominio</Name>
+      <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
+      <Name>ServicioDatos.DB4o.Server</Name>
+      <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

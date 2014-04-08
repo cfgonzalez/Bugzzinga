@@ -1,16 +1,16 @@
-﻿using Bugzzinga.Dominio;
-using Bugzzinga.Dominio.Intefaces;
-using Db4objects.Db4o;
-using Db4objects.Db4o.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ServicioDatos.DB4o.Server;
-using ServicioDatos.DB4o.Server.Interfaces;
-using System;
-using System.Linq;
-using System.IO;
-using Bugzzinga.Dominio.ModeloPersistente;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Bugzzinga.Contexto;
+using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using Bugzzinga.Dominio.ModeloPersistente;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ServicioDatos.DB4o.Server;
+using StructureMap;
 
 
 namespace Buggzzinga.IntegrationTest
@@ -18,43 +18,51 @@ namespace Buggzzinga.IntegrationTest
     [TestClass]
     public class PersistenciaTest
     {
-
         private string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
         private string _nombreBD = "BugzzingaTest.yap";
+
+        private void IniciarServidor()
+        { 
+            ObjectFactory.Configure( x => x.For<IContextoProceso>().Singleton().Use<ContextoProcesoDesktop>());
+            
+            ConfiguracionServer configuracionServidor = new ConfiguracionServer();
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            configuracionServidor.RutaArchivos = _directorioBD;
+            configuracionServidor.NombreArchivoBD = _nombreBD;
+            configuracionServidor.Puerto = 0;
+            configuracionServidor.PersistenciaTransparente = true;
+            configuracionServidor.ActivacionTransparente = true;
+
+            //ConfiguracionBugzzinga.SetearConfiguracionServidorBD( configuracionServidor );
+
+            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
+            contexto.ServidorBD.Iniciar( configuracionServidor );
+            
+        }
+
+        private void FinalizarServidor()
+        {
+            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
+            contexto.ServidorBD.Finalizar();
+        }
 
         private void LimpiarArchivoBD()
         {   
             File.Delete( Path.Combine(_directorioBD,_nombreBD ));
-        }
-
-        private IDB4oServer ObtenerServidorTest()
-        {
-            ConfiguracionServer configuracion = new ConfiguracionServer();            
-
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            configuracion.RutaArchivos = _directorioBD;
-            configuracion.NombreArchivoBD = _nombreBD;
-            configuracion.Puerto = 0;
-            configuracion.PersistenciaTransparente = true;
-            configuracion.ActivacionTransparente = true;
-
-            IDB4oServer servidor = new DB4oServer();
-            servidor.Iniciar(configuracion);
-
-            return servidor;
-        }
+        }      
 
         [TestMethod]
         public void Test_BugTrackerScope()
         {
-            //this.LimpiarArchivoBD();
+            this.LimpiarArchivoBD();
+            this.IniciarServidor();
 
             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
             {
                 Proyecto p = bugzzinga.NuevoProyecto();
                 p.Codigo = "P1";
                 p.Nombre = "Proyecto de prueba 1";
-
+                
                 bugzzinga.RegistrarProyecto( p );
             }
 
@@ -64,12 +72,14 @@ namespace Buggzzinga.IntegrationTest
                 p.Nombre = "Proyecto de prueba modificado";
             }
 
+            this.FinalizarServidor();
         }
 
         [TestMethod]
         public void Test_AltaProyectos()
         {
             this.LimpiarArchivoBD();
+            this.IniciarServidor();
             
             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
             {
@@ -94,12 +104,15 @@ namespace Buggzzinga.IntegrationTest
                 IEnumerable<Proyecto> proyectos = bugzzinga.Proyectos;
                 IList<Proyecto> proyectosList = proyectos.ToList();
             }
+
+            this.FinalizarServidor();
         }
 
         [TestMethod]
         public void Test_PersistenciaPorAlcance()
         {
              this.LimpiarArchivoBD();
+             this.IniciarServidor();
 
              using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
              {
@@ -120,12 +133,14 @@ namespace Buggzzinga.IntegrationTest
                  p.AgregarItem(item1);
              }
 
+             this.FinalizarServidor();
         }
 
         [TestMethod]
         public void Test_AltaUsuarioConPerfiles()
         {
             this.LimpiarArchivoBD();
+            this.IniciarServidor();
 
             using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
             {
@@ -154,10 +169,10 @@ namespace Buggzzinga.IntegrationTest
             using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
             {
                 Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
-                u.Nombre = "Roberto";
-                bugzzinga.GuardarCambios();
+                u.Nombre = "Roberto";              
             }
-            
+
+            this.FinalizarServidor();
         }
     }
 }

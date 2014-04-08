@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Dominio.Intefaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
 using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
+using StructureMap;
 
 namespace Bugzzinga.Dominio.ModeloPersistente
 {
     public class BugTrackerPersistente: IBugtracker
     {
-        private string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
-        private string _nombreBD = "BugzzingaTest.yap";
+        //private string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
+        //private string _nombreBD = "BugzzingaTest.yap";
 
-        private IDB4oServer _servidor;
+        //private IDB4oServer _servidor;
         private IObjectContainer _contenedor;
 
         public BugTrackerPersistente()
         {      
-            ConfiguracionServer configuracion = new ConfiguracionServer();
+            //ConfiguracionServer configuracion = new ConfiguracionServer();
 
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            configuracion.RutaArchivos = _directorioBD;
-            configuracion.NombreArchivoBD = _nombreBD;
-            configuracion.Puerto = 0;
-            configuracion.PersistenciaTransparente = true;
-            configuracion.ActivacionTransparente = true;
+            //string path = AppDomain.CurrentDomain.BaseDirectory;
+            //configuracion.RutaArchivos = _directorioBD;
+            //configuracion.NombreArchivoBD = _nombreBD;
+            //configuracion.Puerto = 0;
+            //configuracion.PersistenciaTransparente = true;
+            //configuracion.ActivacionTransparente = true;
 
-            this._servidor = new DB4oServer();
-            this._servidor.Iniciar( configuracion );
-            this._contenedor = this._servidor.CrearConexion();
+            //this._servidor = new DB4oServer();
+            //this._servidor.Iniciar( configuracion );
+            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
+            this._contenedor = contexto.ServidorBD.CrearConexion();            
         }
 
         #region "Proyectos"        
@@ -135,8 +138,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             {
                 this._contenedor.Rollback();
             }
-            this._servidor.FinalizarConexion( this._contenedor );
-            this._servidor.Finalizar();
+
+            this._contenedor.Close();
         }        
 
         public void GuardarCambios()

@@ -50,6 +50,9 @@
     <Reference Include="Db4objects.Db4o.NativeQueries">
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -72,6 +75,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bugzzinga.Contexto\Bugzzinga.Contexto.csproj">
+      <Project>{e8ee26c5-215d-4aae-99b1-9196acaecb45}</Project>
+      <Name>Bugzzinga.Contexto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">
+      <Project>{ff84c920-f5d1-4344-9f5a-293c4f09769e}</Project>
+      <Name>Bugzzinga.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Dominio.ModeloPersistente\Bugzzinga.Dominio.ModeloPersistente.csproj">
       <Project>{3b3736ff-649b-4a54-8eaa-5168fd77bea3}</Project>
       <Name>Bugzzinga.Dominio.ModeloPersistente</Name>

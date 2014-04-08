@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B3736FF-649B-4A54-8EAA-5168FD77BEA3}</ProjectGuid>
+    <ProjectGuid>{E8EE26C5-215D-4AAE-99B1-9196ACAECB45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bugzzinga.Dominio.ModeloPersistente</RootNamespace>
-    <AssemblyName>Bugzzinga.Dominio.ModeloPersistente</AssemblyName>
+    <RootNamespace>Bugzzinga.Contexto</RootNamespace>
+    <AssemblyName>Bugzzinga.Contexto</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,18 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Db4objects.Db4o">
-      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.dll</HintPath>
-    </Reference>
-    <Reference Include="Db4objects.Db4o.CS">
-      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.CS.dll</HintPath>
-    </Reference>
-    <Reference Include="Db4objects.Db4o.Linq">
-      <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,18 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BugTrackerPersistente.cs" />
+    <Compile Include="ContextoProcesoDesktop.cs" />
+    <Compile Include="ContextoProcesoWeb.cs" />
+    <Compile Include="Interfaces\IContextoProceso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bugzzinga.Contexto\Bugzzinga.Contexto.csproj">
-      <Project>{e8ee26c5-215d-4aae-99b1-9196acaecb45}</Project>
-      <Name>Bugzzinga.Contexto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bugzzinga.Dominio\Bugzzinga.Dominio.csproj">
-      <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
-      <Name>Bugzzinga.Dominio</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
