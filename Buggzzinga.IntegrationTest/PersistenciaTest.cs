@@ -218,5 +218,114 @@ namespace Buggzzinga.IntegrationTest
 
             this.FinalizarServidor();
         }
+
+        [TestMethod]
+        public void Test_DemoActivacionTransparente_ObjetosSimples()
+        {
+            this.LimpiarArchivoBD();
+            this.IniciarServidor();
+
+            // ------------------------------------------------------------------------------------
+            //Guardamos los cambios y persistimos en forma transparente
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.NuevoPerfil();
+                p1.Nombre = "Perfil 1";
+
+                Perfil p2 = bugzzinga.NuevoPerfil();
+                p2.Nombre = "Perfil 2";
+
+                bugzzinga.RegistrarPerfil( p1 );
+                bugzzinga.RegistrarPerfil( p2 );
+            }
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
+
+                Usuario usuario1 = bugzzinga.NuevoUsuario();
+                usuario1.Nombre = "Gabriel";
+                usuario1.Apellido = "Batistuta";
+                usuario1.Perfil = p1;
+
+                bugzzinga.RegistrarUsuario( usuario1 );
+            }
+            // ------------------------------------------------------------------------------------
+
+            Usuario usuarioActivado = null;
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                usuarioActivado = bugzzinga.ObtenerUsuario( "Gabriel" );
+            }
+            //El perfil no deberia tener datos, ya que lo solicite fuera del alcance del sistema
+            Perfil perfil = usuarioActivado.Perfil;
+
+            // ------------------------------------------------------------------------------------
+
+            usuarioActivado = null;
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                usuarioActivado = bugzzinga.ObtenerUsuario( "Gabriel" );
+                //Esta vez los datos del perfil se cargan ya que estoy dentro del contexto del sistema
+                Perfil perfilActivado = usuarioActivado.Perfil;
+            }
+            // ------------------------------------------------------------------------------------
+            this.FinalizarServidor();
+        }
+
+        [TestMethod]
+        public void Test_DemoActivacionTransparente_Colecciones()
+        {
+            this.LimpiarArchivoBD();
+            this.IniciarServidor();
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                Proyecto p = bugzzinga.NuevoProyecto();
+                p.Nombre = "Proyecto1";
+                                
+                Item item1 = new Item();
+                item1.Nombre = "Primer item del proyecto";
+
+                Item item2 = new Item();
+                item2.Nombre = "Segundo item del proyecto";
+
+                p.AgregarItem( item1 );
+                p.AgregarItem( item2 );
+
+                bugzzinga.RegistrarProyecto( p );
+            }
+
+            // ----------------------------------------------------------------------------------------------------
+
+            Proyecto proyecto = null;
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
+            }
+
+            //Al cargar esta instancia de pryecto de la BD, los items deberian estar en blanco
+            //ya que solo se van a activar de manera lazy pero ya estan fuera del contexto del sistema
+            IEnumerable<Item> items = proyecto.Items;
+
+            // ----------------------------------------------------------------------------------------------------
+
+            proyecto = null;
+
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
+
+                IEnumerable<Item> itemsActivados = proyecto.Items;
+            }      
+
+            // ----------------------------------------------------------------------------------------------------
+
+            this.FinalizarServidor();
+        }
     }
 }
