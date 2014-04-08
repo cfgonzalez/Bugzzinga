@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Bugzzinga.Dominio.Intefaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
@@ -128,6 +129,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         
         public void Dispose()
         {
+
+            bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
+            if ( isInException )
+            {
+                this._contenedor.Rollback();
+            }
             this._servidor.FinalizarConexion( this._contenedor );
             this._servidor.Finalizar();
         }        

@@ -154,7 +154,8 @@ namespace Buggzzinga.IntegrationTest
             using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
             {
                 Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
-                
+                u.Nombre = "Roberto";
+                bugzzinga.GuardarCambios();
             }
             
         }
