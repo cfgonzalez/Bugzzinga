@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Bugzzinga.Contexto;
 using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Dominio.ModeloPersistente;
@@ -171,6 +172,49 @@ namespace Buggzzinga.IntegrationTest
                 Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
                 u.Nombre = "Roberto";              
             }
+
+            this.FinalizarServidor();
+        }
+
+        [TestMethod]
+        public void Test_AltaUsuarioConPerfiles_EjemploException()
+        {
+            this.LimpiarArchivoBD();
+            this.IniciarServidor();
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.NuevoPerfil();
+                p1.Nombre = "Perfil 1";
+
+                Perfil p2 = bugzzinga.NuevoPerfil();
+                p2.Nombre = "Perfil 2";
+
+                bugzzinga.RegistrarPerfil( p1 );
+                bugzzinga.RegistrarPerfil( p2 );
+            }
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
+
+                Usuario usuario1 = bugzzinga.NuevoUsuario();
+                usuario1.Nombre = "Gabriel";
+                usuario1.Apellido = "Batistuta";
+                usuario1.Perfil = p1;
+
+                bugzzinga.RegistrarUsuario( usuario1 );
+            }
+
+            using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+            {
+                Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
+                u.Nombre = "Roberto";
+
+                //Como ocurrio una excepción, no deberia registrarse ningun cambio en la base de datos
+                throw new BugzzingaException("Error de la capa de dominio");
+            }
+
 
             this.FinalizarServidor();
         }
