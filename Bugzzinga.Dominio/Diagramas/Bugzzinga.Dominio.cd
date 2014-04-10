@@ -24,14 +24,14 @@
     </Compartments>
     <AssociationLine Name="Miembros" Type="Bugzzinga.Dominio.Usuario" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.953" Y="3.641" />
+        <Point X="4.953" Y="3.834" />
         <Point X="4.953" Y="4.625" />
         <Point X="4.125" Y="4.625" />
         <Point X="4.125" Y="5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQgACAAAIAAAgAABAhAgAAAAAAABgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQgACAAAIAAAgAABAhAgAAAAAAABgABAAAA=</HashCode>
       <FileName>Proyecto.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
