@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Bugzzinga.App_Start;
+using Bugzzinga.Inicializacion;
 
 namespace Bugzzinga
 {
@@ -24,8 +25,13 @@ namespace Bugzzinga
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            GestorAplicacion.IniciarAplicacion();
         }
 
-        
+        protected void Application_End()
+        {
+            GestorAplicacion.FinalizarAplicacion();
+        }
     }
 }

@@ -5,7 +5,7 @@ using StructureMap;
 
 namespace Bugzzinga.Contexto
 {
-    public class ContextoProcesoDesktop:IContextoProceso
+    public class ContextoProceso:IContextoProceso
     {        
         private IObjectContainer _contenedorObjetos;
 
@@ -22,6 +22,11 @@ namespace Bugzzinga.Contexto
 
                 return this._contenedorObjetos;
             }
+        }
+
+        public void Dispose()
+        {
+            this.ContenedorObjetos.Close();
         }
     }
 }

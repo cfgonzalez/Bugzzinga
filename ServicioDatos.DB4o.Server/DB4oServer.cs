@@ -18,6 +18,11 @@ namespace ServicioDatos.DB4o.Server
     public class DB4oServer:IDB4oServer
     {
 
+        public DB4oServer()
+        {
+
+        }
+
         /// <summary>
         /// Representa la instancia del servidor de base de datos.
         /// </summary>

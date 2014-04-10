@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Bugzzinga.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DirectorioBD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\WF Git\Bugzzinga\BD</Value>
+    </Setting>
+    <Setting Name="NombreBD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Bugzzinga.yap</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

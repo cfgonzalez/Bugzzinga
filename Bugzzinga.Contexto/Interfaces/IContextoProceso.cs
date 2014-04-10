@@ -9,7 +9,7 @@ using ServicioDatos.DB4o.Server.Interfaces;
 
 namespace Bugzzinga.Contexto.Interfaces
 {
-    public interface IContextoProceso
+    public interface IContextoProceso: IDisposable
     {
         IObjectContainer ContenedorObjetos{get;}
 

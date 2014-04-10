@@ -15,7 +15,7 @@ namespace Bugzzinga.Contexto.IoC
         public RegistryDesktop()
         {
             For<IDB4oServer>().Singleton().Use<DB4oServer>();
-            For<IContextoProceso>().Singleton().Use<ContextoProcesoDesktop>();            
+            For<IContextoProceso>().Singleton().Use<ContextoProceso>();            
         }
     }
 }

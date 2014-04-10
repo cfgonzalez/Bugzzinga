@@ -50,8 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextoProcesoDesktop.cs" />
-    <Compile Include="ContextoProcesoWeb.cs" />
+    <Compile Include="ContextoProceso.cs" />
     <Compile Include="Interfaces\IContextoProceso.cs" />
     <Compile Include="IoC\RegistryDesktop.cs" />
     <Compile Include="IoC\RegistryWeb.cs" />
