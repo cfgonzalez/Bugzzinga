@@ -6,8 +6,7 @@ using StructureMap;
 namespace Bugzzinga.Contexto
 {
     public class ContextoProcesoDesktop:IContextoProceso
-    {
-        private IDB4oServer _servidor;
+    {        
         private IObjectContainer _contenedorObjetos;
 
         private IDB4oServer Servidor { get { return  ObjectFactory.GetInstance<IDB4oServer>(); } }
