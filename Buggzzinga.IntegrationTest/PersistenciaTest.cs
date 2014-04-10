@@ -5,12 +5,14 @@ using System.IO;
 using System.Linq;
 using Bugzzinga.Contexto;
 using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Dominio.ModeloPersistente;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServicioDatos.DB4o.Server;
+using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap;
 
 
@@ -23,9 +25,9 @@ namespace Buggzzinga.IntegrationTest
         private string _nombreBD = "BugzzingaTest.yap";
 
         private void IniciarServidor()
-        { 
-            ObjectFactory.Configure( x => x.For<IContextoProceso>().Singleton().Use<ContextoProcesoDesktop>());
-            
+        {
+            ObjectFactory.Initialize( x => x.AddRegistry( new RegistryDesktop() ) );
+
             ConfiguracionServer configuracionServidor = new ConfiguracionServer();
             string path = AppDomain.CurrentDomain.BaseDirectory;
             configuracionServidor.RutaArchivos = _directorioBD;
@@ -34,17 +36,14 @@ namespace Buggzzinga.IntegrationTest
             configuracionServidor.PersistenciaTransparente = true;
             configuracionServidor.ActivacionTransparente = true;
 
-            //ConfiguracionBugzzinga.SetearConfiguracionServidorBD( configuracionServidor );
-
-            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
-            contexto.ServidorBD.Iniciar( configuracionServidor );
-            
+            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            servidorBD.Iniciar( configuracionServidor );
         }
 
         private void FinalizarServidor()
         {
-            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
-            contexto.ServidorBD.Finalizar();
+            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            servidorBD.Finalizar();
         }
 
         private void LimpiarArchivoBD()

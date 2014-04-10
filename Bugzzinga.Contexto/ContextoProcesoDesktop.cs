@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bugzzinga.Contexto.Interfaces;
-using ServicioDatos.DB4o.Server;
+﻿using Bugzzinga.Contexto.Interfaces;
+using Db4objects.Db4o;
 using ServicioDatos.DB4o.Server.Interfaces;
+using StructureMap;
 
 namespace Bugzzinga.Contexto
 {
     public class ContextoProcesoDesktop:IContextoProceso
     {
         private IDB4oServer _servidor;
+        private IObjectContainer _contenedorObjetos;
 
-        public ContextoProcesoDesktop()
-        {
-            this._servidor = new DB4oServer();
-        }        
+        private IDB4oServer Servidor { get { return  ObjectFactory.GetInstance<IDB4oServer>(); } }
 
-        public IDB4oServer ServidorBD
+        public IObjectContainer ContenedorObjetos
         {
-            get { return this._servidor; }
+            get
+            {
+                if ( this._contenedorObjetos == null )
+                {
+                    this._contenedorObjetos = this.Servidor.CrearConexion();
+                }
+
+                return this._contenedorObjetos;
+            }
         }
-
-        
     }
 }

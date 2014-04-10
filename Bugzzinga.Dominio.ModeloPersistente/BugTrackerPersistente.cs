@@ -14,28 +14,16 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 {
     public class BugTrackerPersistente: IBugtracker
     {
-        //private string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
-        //private string _nombreBD = "BugzzingaTest.yap";
 
-        //private IDB4oServer _servidor;
-        private IObjectContainer _contenedor;
-
-        public BugTrackerPersistente()
-        {      
-            //ConfiguracionServer configuracion = new ConfiguracionServer();
-
-            //string path = AppDomain.CurrentDomain.BaseDirectory;
-            //configuracion.RutaArchivos = _directorioBD;
-            //configuracion.NombreArchivoBD = _nombreBD;
-            //configuracion.Puerto = 0;
-            //configuracion.PersistenciaTransparente = true;
-            //configuracion.ActivacionTransparente = true;
-
-            //this._servidor = new DB4oServer();
-            //this._servidor.Iniciar( configuracion );
-            IContextoProceso contexto = ObjectFactory.GetInstance<IContextoProceso>();
-            this._contenedor = contexto.ServidorBD.CrearConexion();            
+        private IObjectContainer ContenedorObjetos
+        {
+            get
+            {
+                IContextoProceso contextoProceso = ObjectFactory.GetInstance<IContextoProceso>();
+                return contextoProceso.ContenedorObjetos;
+            }
         }
+
 
         #region "Proyectos"        
 
@@ -46,20 +34,20 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarProyecto( Proyecto proyecto )
         {
-            this._contenedor.Store( proyecto );
-            this._contenedor.Commit();
+            this.ContenedorObjetos.Store( proyecto );
+            this.ContenedorObjetos.Commit();
         }
 
         public IEnumerable<Proyecto> Proyectos
         {
             get 
             {
-                return  (from Proyecto p in this._contenedor select p).ToList<Proyecto>();                
+                return (from Proyecto p in this.ContenedorObjetos select p).ToList<Proyecto>();                
             }
         }
         public Proyecto ObtenerProyecto( string nombreProyecto )
         {
-            Proyecto proyecto = (from Proyecto p in this._contenedor 
+            Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
                                     where p.Nombre.ToUpper() == nombreProyecto.ToUpper()
                                     select p).SingleOrDefault();
             return proyecto;
@@ -77,21 +65,21 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarUsuario( Usuario usuario )
         {
-            this._contenedor.Store( usuario );
-            this._contenedor.Commit();
+            this.ContenedorObjetos.Store( usuario );
+            this.ContenedorObjetos.Commit();
         }
 
         public IEnumerable<Usuario> Usuarios
         {
             get 
             {
-                return (from Usuario u in this._contenedor select u).ToList<Usuario>();
+                return (from Usuario u in this.ContenedorObjetos select u).ToList<Usuario>();
             }
         }
 
         public Usuario ObtenerUsuario( string nombreUsuario )
         {
-            Usuario usuario = ( from Usuario u in this._contenedor
+            Usuario usuario = (from Usuario u in this.ContenedorObjetos
                                 where u.Nombre.ToUpper() == nombreUsuario.ToUpper()
                                 select u).SingleOrDefault();
             return usuario;
@@ -108,21 +96,21 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarPerfil( Perfil perfil)
         {
-            this._contenedor.Store(perfil);
-            this._contenedor.Commit();
+            this.ContenedorObjetos.Store( perfil );
+            this.ContenedorObjetos.Commit();
         }
 
         public IEnumerable<Perfil> Perfiles 
         { 
             get 
             {
-                return (from Perfil p in this._contenedor select p).ToList<Perfil>();
+                return (from Perfil p in this.ContenedorObjetos select p).ToList<Perfil>();
             }
         }
 
         public Perfil ObtenerPerfil(string nombrePerfil)
         {
-             Perfil perfil = (from Perfil p in this._contenedor 
+            Perfil perfil = (from Perfil p in this.ContenedorObjetos 
                                     where p.Nombre.ToUpper() == nombrePerfil.ToUpper()
                                     select p).SingleOrDefault();
             return perfil;
@@ -132,14 +120,14 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         
         public void Dispose()
         {
-
             bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
+            
             if ( isInException )
             {
-                this._contenedor.Rollback();
+                this.ContenedorObjetos.Rollback();
             }
 
-            this._contenedor.Close();
+            //this._contenedor.Close();
         }        
 
         public void GuardarCambios()

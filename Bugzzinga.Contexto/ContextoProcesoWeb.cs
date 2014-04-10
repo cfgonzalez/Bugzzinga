@@ -12,7 +12,7 @@ namespace Bugzzinga.Contexto
 
         #region IContextoProceso Members
 
-        public ServicioDatos.DB4o.Server.Interfaces.IDB4oServer ServidorBD
+        public Db4objects.Db4o.IObjectContainer ContenedorObjetos
         {
             get { throw new NotImplementedException(); }
         }
