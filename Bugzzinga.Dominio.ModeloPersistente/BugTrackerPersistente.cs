@@ -121,10 +121,14 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         public void Dispose()
         {
             bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
-            
+
             if ( isInException )
             {
                 this.ContenedorObjetos.Rollback();
+            }
+            else
+            {
+                this.ContenedorObjetos.Commit();
             }
 
             //this._contenedor.Close();
