@@ -15,17 +15,23 @@ namespace Bugzzinga.Dominio
     {
 
         private ArrayList4<Proyecto> _proyectos;
-        private ArrayList4<Usuario> _usuarios;     
+        private ArrayList4<Usuario> _usuarios;
+        private ArrayList4<Perfil> _perfiles;
+        private ArrayList4<PlantillaProyecto> _plantillas;    
         
         public Bugtracker()
         {
             this._proyectos = new ArrayList4<Proyecto>();
             this._usuarios = new ArrayList4<Usuario>();
+            this._perfiles = new ArrayList4<Perfil>();
+            this._plantillas = new ArrayList4<PlantillaProyecto>();
         }
 
 
         public IEnumerable<Proyecto> Proyectos { get { return this._proyectos; } }
         public IEnumerable<Usuario> Usuarios { get { return this._usuarios; } }
+        public IEnumerable<Perfil> Perfiles { get { return this._perfiles; } }
+        public IEnumerable<PlantillaProyecto> Plantillas { get { return this._plantillas; } }
         
         public Proyecto NuevoProyecto()
         {

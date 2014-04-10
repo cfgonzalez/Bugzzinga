@@ -66,6 +66,7 @@
     <Compile Include="Intefaces\ITipoItem.cs" />
     <Compile Include="Intefaces\IUsuario.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="PlantillaProyecto.cs" />
     <Compile Include="RegistroLog.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Prioridad.cs" />
