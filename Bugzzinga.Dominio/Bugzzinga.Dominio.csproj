@@ -83,10 +83,6 @@
       <Project>{ff84c920-f5d1-4344-9f5a-293c4f09769e}</Project>
       <Name>Bugzzinga.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bugzzinga.Repositorio\Bugzzinga.Persistencia.csproj">
-      <Project>{c4467170-695d-48c8-aab8-b2e28048b01e}</Project>
-      <Name>Bugzzinga.Persistencia</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
