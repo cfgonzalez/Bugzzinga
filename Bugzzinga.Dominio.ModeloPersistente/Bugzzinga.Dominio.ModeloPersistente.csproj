@@ -55,6 +55,7 @@
     <Compile Include="Administradores\AdministradorPerfiles.cs" />
     <Compile Include="BugTrackerPersistente.cs" />
     <Compile Include="Interfaces\IAdministradorEntidad.cs" />
+    <Compile Include="IoC\RegistryBugzzingaDominioModeloPersistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

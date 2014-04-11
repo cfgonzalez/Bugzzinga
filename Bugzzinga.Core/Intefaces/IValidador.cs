@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Core.Intefaces
 {
-    interface IValidador
+    public interface IValidadorEntidad<Entidad>
     {
+        IResultadoValidacion Validar(Entidad entidad);
     }
 }

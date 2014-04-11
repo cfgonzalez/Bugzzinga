@@ -71,6 +71,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\HelperTestSistema.cs" />
+    <Compile Include="PerfilesTest.cs" />
     <Compile Include="PersistenciaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

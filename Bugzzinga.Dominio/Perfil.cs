@@ -1,5 +1,6 @@
 ﻿using Bugzzinga.Core.Atributos;
 using Bugzzinga.Core.Intefaces;
+using StructureMap;
 
 namespace Bugzzinga.Dominio
 {
@@ -8,11 +9,12 @@ namespace Bugzzinga.Dominio
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+             
 
-        
         public IResultadoValidacion Validar()
         {
-            throw new System.NotImplementedException();
+            IValidadorEntidad<Perfil> validador = ObjectFactory.GetInstance<IValidadorEntidad<Perfil>>();
+            return validador.Validar( this );
         }        
     }
 }

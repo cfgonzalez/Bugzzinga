@@ -4,19 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bugzzinga.Core.Intefaces;
+using Bugzzinga.Core.Validaciones;
 
 namespace Bugzzinga.Dominio.Validadores
 {
-    internal class ValidadorPerfil: IEntidadValidable
+    internal class ValidadorPerfil: IValidadorEntidad<Perfil>
     {
-
-        #region IValidable Members
-
-        public IResultadoValidacion Validar()
+        public IResultadoValidacion Validar( Perfil entidad )
         {
-            throw new NotImplementedException();
+            IResultadoValidacion resultadoValidacion = new ResultadoValidacion();                       
+            
+            if ( entidad.Nombre == string.Empty )
+            {
+                resultadoValidacion.AgregarError("El nombre no puede quedar en blanco" );
+            }
+
+            return resultadoValidacion;
         }
 
-        #endregion
+
     }
 }
