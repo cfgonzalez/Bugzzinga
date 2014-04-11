@@ -6,8 +6,6 @@ using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Dominio.Intefaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
-using ServicioDatos.DB4o.Server;
-using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap;
 
 namespace Bugzzinga.Dominio.ModeloPersistente

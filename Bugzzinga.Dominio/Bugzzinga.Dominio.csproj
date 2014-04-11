@@ -57,14 +57,6 @@
     <Compile Include="Bugtracker.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Intefaces\IBugtracker.cs" />
-    <Compile Include="Intefaces\IEstado.cs" />
-    <Compile Include="Intefaces\IItem.cs" />
-    <Compile Include="Intefaces\IPerfil.cs" />
-    <Compile Include="Intefaces\IPrioridad.cs" />
-    <Compile Include="Intefaces\IProyecto.cs" />
-    <Compile Include="Intefaces\IRegistroLog.cs" />
-    <Compile Include="Intefaces\ITipoItem.cs" />
-    <Compile Include="Intefaces\IUsuario.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="PlantillaProyecto.cs" />
     <Compile Include="RegistroLog.cs" />
@@ -77,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagramas\Bugzzinga.Dominio.cd" />
-    <None Include="Diagramas\Bugzzinga.Interfaces.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">

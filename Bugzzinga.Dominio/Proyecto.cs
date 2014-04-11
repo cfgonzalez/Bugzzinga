@@ -1,10 +1,7 @@
-﻿using Bugzzinga.Core.Atributos;
-using Bugzzinga.Dominio.Intefaces;
-using Db4objects.Db4o.Collections;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Bugzzinga.Core.Atributos;
+using Db4objects.Db4o.Collections;
 
 namespace Bugzzinga.Dominio
 {

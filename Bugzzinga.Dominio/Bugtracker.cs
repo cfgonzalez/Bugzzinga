@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Db4objects.Db4o;
-using Db4objects.Db4o.Linq;
-using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Core;
 using Db4objects.Db4o.Collections;
 
@@ -39,7 +34,7 @@ namespace Bugzzinga.Dominio
         }
 
 
-        public void RegistrarProyecto(IProyecto proyecto)
+        public void RegistrarProyecto(Proyecto proyecto)
         {
             if(this.ObtenerProyecto(proyecto.Nombre) == null)
             {
