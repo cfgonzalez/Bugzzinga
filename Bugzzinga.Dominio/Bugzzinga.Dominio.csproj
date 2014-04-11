@@ -66,6 +66,7 @@
     <Compile Include="Proyecto.cs" />
     <Compile Include="TipoItem.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="Validadores\ValidadorPerfil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagramas\Bugzzinga.Dominio.cd" />
@@ -89,6 +90,7 @@
   <ItemGroup>
     <Db4oEnhance Include="$(TargetPath)" />
   </ItemGroup>
+  <ItemGroup />
   <Target Name="AfterBuild">
     <Db4oEnhancerMSBuildTask Assemblies="@(Db4oEnhance)" CommandLine="-debug -by-attribute:Bugzzinga.Core.Atributos.PersistedAttribute" />
   </Target>
