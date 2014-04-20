@@ -55,7 +55,6 @@
     <Compile Include="Administradores\AdministradorPerfiles.cs" />
     <Compile Include="BugTrackerPersistente.cs" />
     <Compile Include="Interfaces\IAdministradorEntidad.cs" />
-    <Compile Include="IoC\RegistryBugzzingaDominioModeloPersistente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +74,9 @@
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -57,7 +57,6 @@
     <Compile Include="Bugtracker.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Intefaces\IBugtracker.cs" />
-    <Compile Include="IoC\RegistryBugzzingaDominio.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="PlantillaProyecto.cs" />
     <Compile Include="RegistroLog.cs" />
@@ -91,7 +90,9 @@
   <ItemGroup>
     <Db4oEnhance Include="$(TargetPath)" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="IoC\" />
+  </ItemGroup>
   <Target Name="AfterBuild">
     <Db4oEnhancerMSBuildTask Assemblies="@(Db4oEnhance)" CommandLine="-debug -by-attribute:Bugzzinga.Core.Atributos.PersistedAttribute" />
   </Target>

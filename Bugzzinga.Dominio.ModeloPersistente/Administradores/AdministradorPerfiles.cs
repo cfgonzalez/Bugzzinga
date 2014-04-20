@@ -18,7 +18,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
             if ( p == null )
             {
-                entidad.Validar();
+                //entidad.Validar();
                 base.RegistrarNuevo( entidad );
             }
             else
