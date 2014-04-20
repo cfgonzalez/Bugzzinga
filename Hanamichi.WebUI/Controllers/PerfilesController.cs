@@ -19,12 +19,12 @@ namespace Hanamichi.WebUI.Controllers
             return perfiles;
         }
 
-        public Perfil Get( string nombrePerfil )
+        public Perfil Get( string id )
         {
             Perfil perfil = new Perfil()
             {
-                Nombre = nombrePerfil,
-                Descripcion = String.Format( "Descripcion del perfil {0}", nombrePerfil )
+                Nombre = "perfil a modificar",
+                Descripcion = String.Format( "Descripcion del perfil {0}", "perfil a modificar" )
             };
 
             return perfil;
@@ -39,7 +39,7 @@ namespace Hanamichi.WebUI.Controllers
         { 
         }
 
-        public void Delete( Perfil perfil )
+        public void Delete( string nombrePerfil )
         { 
         
         }

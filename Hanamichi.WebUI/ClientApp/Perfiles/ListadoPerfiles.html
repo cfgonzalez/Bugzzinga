@@ -5,9 +5,14 @@
         <th><a href="#/new"><i class="glyphicon glyphicon-plus"></i></a></th>
     </thead>
     <tbody>
-        <tr ng-repeat="perfil in perfiles">
+        <tr ng-repeat="perfil in perfiles" id="item_{{perfil.Nombre}}">
             <td>{{perfil.Nombre}}</td>
-            <td>{{perfil.Descripcion}}</td>            
+            <td>{{perfil.Descripcion}}</td>
+            <td>
+                <a href="#/edit/{{perfil.Nombre}}">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            <a ng-click="eliminar()"><i class="glyphicon glyphicon-remove"></i></a> </td>           
         </tr>
     </tbody>
 </table>
