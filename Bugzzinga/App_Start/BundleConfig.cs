@@ -9,11 +9,19 @@ namespace Bugzzinga.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/Scripts/thirdParty").Include("~/Scripts/ThirdParty/*.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/thirdParty").Include(                                
+                                "~/Scripts/ThirdParty/angular.js",
+                                "~/Scripts/ThirdParty/jquery*",
+                                "~/Scripts/ThirdParty/ui-bootstrap-tpls-0.6.0.js",
+                                "~/Scripts/App/*.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/viewModels").Include("~/Scripts/ViewModels/*.js"));
+            //bundles.Add(new ScriptBundle("~/Scripts/thirdParty").Include(
+            //                   "~/Scripts/ThirdParty/*.js",
+            //                   "~/Scripts/App/*.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/*.css"));
+
+            BundleTable.EnableOptimizations = false; 
         }
     }
 }
