@@ -51,13 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administradores\AdministradorEntidad.cs" />
+    <Compile Include="Administradores\AdministradorPerfiles.cs" />
     <Compile Include="BugTrackerPersistente.cs" />
+    <Compile Include="Interfaces\IAdministradorEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bugzzinga.Contexto\Bugzzinga.Contexto.csproj">
       <Project>{e8ee26c5-215d-4aae-99b1-9196acaecb45}</Project>
       <Name>Bugzzinga.Contexto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.Core\Bugzzinga.Core.csproj">
+      <Project>{ff84c920-f5d1-4344-9f5a-293c4f09769e}</Project>
+      <Name>Bugzzinga.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bugzzinga.Dominio\Bugzzinga.Dominio.csproj">
       <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
@@ -67,6 +74,9 @@
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,4 @@
-﻿using Bugzzinga.Dominio.Intefaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Bugzzinga.Core.Atributos;
 using Db4objects.Db4o.Collections;
 

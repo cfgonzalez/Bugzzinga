@@ -41,7 +41,13 @@
   <ItemGroup>
     <Compile Include="Atributos\Persisted.cs" />
     <Compile Include="BugzzingaException.cs" />
+    <Compile Include="Intefaces\IEntidadValidable.cs" />
+    <Compile Include="Intefaces\IResultadoValidacion.cs" />
+    <Compile Include="Intefaces\IValidador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

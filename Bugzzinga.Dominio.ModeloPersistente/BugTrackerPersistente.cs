@@ -4,16 +4,18 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Dominio.Intefaces;
+using Bugzzinga.Dominio.ModeloPersistente.Administradores;
+using Bugzzinga.Dominio.ModeloPersistente.Interfaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
-using ServicioDatos.DB4o.Server;
-using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap;
 
 namespace Bugzzinga.Dominio.ModeloPersistente
 {
     public class BugTrackerPersistente: IBugtracker
     {
+
+        private IAdministradorEntidad<Perfil> _administradorPerfiles = ObjectFactory.GetInstance<IAdministradorEntidad<Perfil>>();
 
         private IObjectContainer ContenedorObjetos
         {
@@ -91,29 +93,25 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public Perfil NuevoPerfil()
         {
-            return new Perfil();
+            return this._administradorPerfiles.Nuevo();
         }
 
         public void RegistrarPerfil( Perfil perfil)
         {
-            this.ContenedorObjetos.Store( perfil );
-            this.ContenedorObjetos.Commit();
+            this._administradorPerfiles.RegistrarNuevo( perfil );
         }
 
         public IEnumerable<Perfil> Perfiles 
-        { 
-            get 
+        {
+            get
             {
-                return (from Perfil p in this.ContenedorObjetos select p).ToList<Perfil>();
+                return this._administradorPerfiles.ListarTodos();
             }
         }
 
         public Perfil ObtenerPerfil(string nombrePerfil)
         {
-            Perfil perfil = (from Perfil p in this.ContenedorObjetos 
-                                    where p.Nombre.ToUpper() == nombrePerfil.ToUpper()
-                                    select p).SingleOrDefault();
-            return perfil;
+            return this._administradorPerfiles.ObtenerPorNombre( nombrePerfil );
         }
 
         #endregion

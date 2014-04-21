@@ -42,6 +42,19 @@ namespace Bugzzinga.Dominio.Intefaces
         /// <returns></returns>
         Usuario NuevoUsuario();
 
+        #region "Perfiles"
+
+        Perfil NuevoPerfil();
+        void RegistrarPerfil( Perfil perfil );
+
+        Perfil ObtenerPerfil( string nombrePerfil );
+
+        IEnumerable<Perfil> Perfiles { get; }
+
+
+
+        #endregion
+
         /// <summary>
         /// Registra los cambios en el sistema
         /// </summary>
