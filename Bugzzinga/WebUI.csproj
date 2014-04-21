@@ -174,13 +174,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infraestructura\Html\ColumnSpan.cs" />
-    <Compile Include="Infraestructura\Html\DataBindedExtensions.cs" />
-    <Compile Include="Infraestructura\Html\FormComponents.cs" />
     <Compile Include="Inicializacion\GestorAplicacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -201,14 +198,39 @@
     <Content Include="Content\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <TypeScriptCompile Include="Scripts\ViewModels\ProyectoViewModel.ts" />
-    <TypeScriptCompile Include="Scripts\ViewModels\Common.d.ts" />
-    <Content Include="Scripts\ViewModels\Common.js">
-      <DependentUpon>Common.d.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\ViewModels\Common.min.js">
-      <DependentUpon>Common.d.ts</DependentUpon>
-    </Content>
+    <Content Include="Scripts\App\1_modulo.js" />
+    <Content Include="Scripts\App\usuario.js" />
+    <Content Include="Scripts\ThirdParty\angular-animate.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-animate.js" />
+    <Content Include="Scripts\ThirdParty\angular-animate.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-cookies.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-cookies.js" />
+    <Content Include="Scripts\ThirdParty\angular-cookies.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-csp.css" />
+    <Content Include="Scripts\ThirdParty\angular-loader.js" />
+    <Content Include="Scripts\ThirdParty\angular-loader.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-locale_es-ar.js" />
+    <Content Include="Scripts\ThirdParty\angular-mocks.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-mocks.js" />
+    <Content Include="Scripts\ThirdParty\angular-resource.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-resource.js" />
+    <Content Include="Scripts\ThirdParty\angular-resource.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-route.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-route.js" />
+    <Content Include="Scripts\ThirdParty\angular-route.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-sanitize.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-sanitize.js" />
+    <Content Include="Scripts\ThirdParty\angular-sanitize.min.js" />
+    <Content Include="Scripts\ThirdParty\angular-scenario.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular-scenario.js" />
+    <Content Include="Scripts\ThirdParty\angular-touch.js" />
+    <Content Include="Scripts\ThirdParty\angular-touch.min.js" />
+    <Content Include="Scripts\ThirdParty\angular.d.ts" />
+    <Content Include="Scripts\ThirdParty\angular.js" />
+    <Content Include="Scripts\ThirdParty\angular.min.js" />
+    <Content Include="Scripts\ThirdParty\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="Scripts\ThirdParty\version.json" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Scripts\ThirdParty\bootstrap-datepicker.js" />
     <Content Include="Scripts\ThirdParty\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\ThirdParty\bootstrap-modal.d.ts" />
@@ -221,6 +243,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\ThirdParty\errors.json" />
+    <Content Include="Scripts\ThirdParty\angular-animate.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-cookies.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-loader.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-resource.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-route.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular-touch.min.js.map" />
+    <Content Include="Scripts\ThirdParty\angular.min.js.map" />
     <None Include="Scripts\ThirdParty\jquery-2.0.1.intellisense.js" />
     <Content Include="Scripts\ThirdParty\jquery-2.0.1.js" />
     <Content Include="Scripts\ThirdParty\jquery-2.0.1.min.js" />
@@ -229,45 +260,9 @@
     <Content Include="Scripts\ThirdParty\jquery-2.0.3.min.js" />
     <Content Include="Scripts\ThirdParty\jquery-ui-1.10.3.custom.js" />
     <Content Include="Scripts\ThirdParty\jquery.blockUI.js" />
-    <Content Include="Scripts\ThirdParty\jquery.d.js" />
-    <Content Include="Scripts\ThirdParty\jquery.d.ts" />
-    <Content Include="Scripts\ThirdParty\jquery.filedrop.config.js" />
-    <Content Include="Scripts\ThirdParty\jquery.filedrop.js" />
-    <Content Include="Scripts\ThirdParty\jquery.maskedinput.js" />
-    <Content Include="Scripts\ThirdParty\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\ThirdParty\jquery.unobtrusive-ajax.min.js" />
-    <None Include="Scripts\ThirdParty\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\ThirdParty\jquery.validate.js" />
-    <Content Include="Scripts\ThirdParty\jquery.validate.min.js" />
-    <Content Include="Scripts\ThirdParty\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\ThirdParty\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\ThirdParty\jquery.validation.d.ts" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.0.debug.js" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.0.js" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.1.debug.js" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.1.js" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.d.js" />
-    <Content Include="Scripts\ThirdParty\knockout-2.2.d.ts" />
-    <Content Include="Scripts\ThirdParty\knockout-bootstrap.min.js" />
-    <Content Include="Scripts\ThirdParty\knockout-postbox.js" />
-    <Content Include="Scripts\ThirdParty\knockout-postbox.min.js" />
-    <Content Include="Scripts\ThirdParty\knockout.mapping-latest.debug.js" />
-    <Content Include="Scripts\ThirdParty\knockout.mapping-latest.js" />
-    <Content Include="Scripts\ThirdParty\knockout.mapping.d.ts" />
-    <Content Include="Scripts\ThirdParty\koGrid-2.1.1.debug.js" />
-    <Content Include="Scripts\ThirdParty\koGrid-2.1.1.js" />
-    <Content Include="Scripts\ThirdParty\typehead.d.ts" />
-    <Content Include="Scripts\ThirdParty\URI.d.js" />
     <Content Include="Scripts\ThirdParty\URI.d.ts" />
     <Content Include="Scripts\ThirdParty\URI.js" />
     <Content Include="Scripts\ThirdParty\URI.min.js" />
-    <Content Include="Scripts\ViewModels\ProyectoViewModel.js">
-      <DependentUpon>ProyectoViewModel.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\ViewModels\ProyectoViewModel.min.js">
-      <DependentUpon>ProyectoViewModel.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\ThirdParty\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -276,17 +271,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Proyecto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infraestructura\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
