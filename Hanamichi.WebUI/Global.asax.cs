@@ -15,9 +15,12 @@ namespace Hanamichi.WebUI
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure( WebApiConfig.Register );
+            GlobalConfiguration.Configuration.Formatters.Remove( GlobalConfiguration.Configuration.Formatters.XmlFormatter );
+            GlobalConfiguration.Configuration.Formatters.Add( GlobalConfiguration.Configuration.Formatters.JsonFormatter );
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = true;
             FilterConfig.RegisterGlobalFilters( GlobalFilters.Filters );
             RouteConfig.RegisterRoutes( RouteTable.Routes );
-            BundleConfig.RegisterBundles( BundleTable.Bundles );
+            BundleConfig.RegisterBundles( BundleTable.Bundles );  
         }
     }
 }
