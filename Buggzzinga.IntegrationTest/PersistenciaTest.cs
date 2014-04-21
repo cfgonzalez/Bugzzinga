@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Buggzzinga.IntegrationTest.Helpers;
-using Bugzzinga.Contexto;
-using Bugzzinga.Contexto.Interfaces;
-using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Dominio.ModeloPersistente;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ServicioDatos.DB4o.Server;
-using ServicioDatos.DB4o.Server.Interfaces;
-using StructureMap;
 
 
 namespace Buggzzinga.IntegrationTest

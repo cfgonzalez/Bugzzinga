@@ -8,6 +8,6 @@ namespace Bugzzinga.Core.Intefaces
 {
     public interface IValidadorEntidad<Entidad>
     {
-        IResultadoValidacion Validar(Entidad entidad);
+        //IResultadoValidacion Validar(Entidad entidad);
     }
 }

@@ -72,7 +72,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Helpers\HelperTestSistema.cs" />
-    <Compile Include="PerfilesTest.cs" />
     <Compile Include="PersistenciaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,6 +97,7 @@
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
