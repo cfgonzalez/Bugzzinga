@@ -1,38 +1,28 @@
-﻿<h2>Datos perfil</h2>
-
-<form name="form" class="form-horizontal" role="form">
-    <div class="form-group">
-        <label for="Nombre" class="col-sm-2 control-label">Nombre</label>
-        <div class="col-sm-10">
-            <input type="text" ng-model="perfil.Nombre" id="NombrePerfil" name="NombrePerfil" class="form-control">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Descripcion" class="col-sm-2 control-label">Descripcion</label>
-        <div class="col-sm-10">
-            <input type="text" ng-model="perfil.Descripcion" id="DescripcionPerfil" name="DescripcionPerfil" class="form-control">
-        </div>
-    </div>
-    
-            <!-- ---------------------------------------------- -->
-
-        <!--<div class="control-group" ng-class="{error: form.Nombre.$invalid}">
-            <label class="control-label" for="Nombre">Nombre</label>
-            <div class="controls">
-                <input type="text" ng-model="perfil.Nombre" id="NombrePerfil" name="NombrePerfil">
+﻿<form name="form" class="form-horizontal" role="form">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Datos Perfil</h3></div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="Nombre" class="col-sm-2 control-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="perfil.Nombre" id="NombrePerfil" name="NombrePerfil" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Descripcion" class="col-sm-2 control-label">Descripcion</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="perfil.Descripcion" id="DescripcionPerfil" name="DescripcionPerfil" class="form-control">
+                </div>
             </div>
         </div>
-        <div class="control-group" ng-class="{error: form.Descripcion.$invalid}">
-            <label class="control-label" for="Descripcion">Descripcion</label>
-            <div class="controls">
-                <input type="text" ng-model="perfil.Descripcion" id="DescripcionPerfil" name="DescripcionPefil">
+        <div class="panel-footer">
+            <div class="form-actions">
+                <button class="btn btn-primary active" ng-click=" guardar(perfil)">
+                    Guardar
+                </button>
+                <a href="#/" class="btn btn-default active">Cancelar</a>
             </div>
-        </div>-->
 
-        <div class="form-actions">
-            <button class="btn btn-primary active" ng-click=" guardar(perfil)">
-                Guardar
-            </button>
-            <a href="#/" class="btn btn-default active">Cancelar</a>
         </div>
+    </div>  
 </form>

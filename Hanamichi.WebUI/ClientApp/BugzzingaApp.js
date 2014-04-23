@@ -40,8 +40,10 @@ var PerfilesController = BugzzingaApp.controller('PerfilesController', function 
         else {
             PerfilesFactory.update(perfil, function () {
                 $location.path('/');
-            });
+            });           
         }
+
+        $(".alert").alert()
     }
 
     $scope.eliminar = function () {
