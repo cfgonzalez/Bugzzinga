@@ -199,6 +199,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\1_modulo.js" />
+    <Content Include="modal-usuario.html" />
+    <Content Include="Scripts\App\modal.js" />
     <Content Include="Scripts\App\usuario.js" />
     <Content Include="Scripts\ThirdParty\angular-animate.d.ts" />
     <Content Include="Scripts\ThirdParty\angular-animate.js" />

@@ -1,0 +1,36 @@
+﻿ <script type="text/ng-template" id="modal-usuario.html">        
+        <div class="modal-header">
+            <h3>Usuario</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row-fluid">
+                <div class="span6">
+                    Código:
+                </div>
+                <div class="span6">        
+                    {{ entidadSeleccionada.Codigo }}
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    Nombre:
+                </div>
+                <div class="span6">
+                    <input type='text' ng-model='entidadSeleccionada.Nombre' />
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    Apellido:
+                </div>
+                <div class="span6">
+                    <input type='text' ng-model='entidadSeleccionada.Apellido' />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+        </div>
+    
+    </script>
