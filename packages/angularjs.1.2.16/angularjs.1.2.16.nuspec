@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>angularjs</id>
     <version>1.2.16</version>
@@ -12,6 +12,5 @@
     <description>AngularJS. HTML enhanced for web apps!</description>
     <copyright />
     <tags>angular angularjs SPA</tags>
-    <references />
   </metadata>
 </package>

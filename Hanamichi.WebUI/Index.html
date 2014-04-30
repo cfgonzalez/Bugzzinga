@@ -5,9 +5,11 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/Bootstrap.js"></script>
     <script src="ClientApp/BugzzingaApp.js"></script>
-    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    
 
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
     <title>Bugzzinga</title>
 </head>
 <body>
@@ -16,6 +18,9 @@
         <div ng-view></div>
     </div>
 
-    <p class="bg-success"><br /> joJOjo! <br /></p>
+    <div id="mensaje" class="alert alert-success fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <br /> joJOjo! <br />
+    </div>
 </body>
 </html>
