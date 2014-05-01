@@ -1,1 +1,0 @@
-﻿var bugzzinga = angular.module('bugzzinga', ['ui.bootstrap']);

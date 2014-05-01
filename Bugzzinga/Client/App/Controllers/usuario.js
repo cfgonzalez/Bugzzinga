@@ -2,7 +2,7 @@
 
     return {
         traerUsuarios: function () {
-            return $http.post('Usuarios/TraerTodos');
+            return $http.get('/Api/Usuarios');
         }
     };
 
@@ -13,7 +13,7 @@ bugzzinga.controller('usuarioCtrl', ['$scope', '$http', 'usuarioServicio', funct
     $scope.codigoEntidadSeleccionada = 0;
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
-    $scope.servicioPersistencia = "/Usuarios/Grabar";
+    $scope.servicioPersistencia = '/Api/Usuarios';
 
     usuarioServicio.traerUsuarios().success(function (data) {
         $scope.coleccion = data;

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="bugzzinga" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+
+    <script src="Client/ThirdParty/jquery-2.0.1.js"></script>
+    <script src="Client/ThirdParty/angular.js"></script>
+    <script src="Client/ThirdParty/angular-route.js"></script>
+    <script src="Client/ThirdParty/angular-resource.js"></script>
+    <script src="Client/ThirdParty/bootstrap.js"></script>
+    <script src="Client/ThirdParty/ui-bootstrap-tpls-0.6.0.js"></script>
+
+    <script src="Client/App/Config/appconfig.js"></script>
+    <script src="Client/App/Common/modal.js"></script>
+    <script src="Client/App/Controllers/usuario.js"></script>
+    <title>Bugzzinga</title>
+</head>
+<body>
+    <h1>Bugzzinga BugTracker</h1>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <div id="mensaje" class="alert alert-success fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <br /> joJOjo! <br />
+    </div>
+</body>
+</html>
+

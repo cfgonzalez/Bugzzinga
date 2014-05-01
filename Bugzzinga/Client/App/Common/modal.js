@@ -7,12 +7,12 @@ bugzzinga.directive('modalPopup', function () {
         
         //Vincula una propiedad del scope parent con el valor del atributo 'template' de la directiva
         link: function (scope, element, attrs) {
-            scope.modalTemplate = attrs.template;
+            scope.modalTemplate = 'Client/App/Vistas/' + attrs.template;
         },
         
         //Toma el valor del atributo 'template' y lo setea como templateUrl
         templateUrl: function ($node, attrs) {
-            return attrs.template;
+            return 'Client/App/Vistas/' + attrs.template;
         }
     };
 });

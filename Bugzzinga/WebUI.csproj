@@ -168,13 +168,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\UsuariosController.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +186,59 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\App\Common\modal.js" />
+    <Content Include="Client\App\Config\appconfig.js" />
+    <Content Include="Client\App\Controllers\usuario.js" />
+    <Content Include="Client\App\Vistas\usuario-modal.html" />
+    <Content Include="Client\App\Vistas\usuarios.html" />
+    <Content Include="Client\ThirdParty\angular-animate.d.ts" />
+    <Content Include="Client\ThirdParty\angular-animate.js" />
+    <Content Include="Client\ThirdParty\angular-animate.min.js" />
+    <Content Include="Client\ThirdParty\angular-cookies.d.ts" />
+    <Content Include="Client\ThirdParty\angular-cookies.js" />
+    <Content Include="Client\ThirdParty\angular-cookies.min.js" />
+    <Content Include="Client\ThirdParty\angular-csp.css" />
+    <Content Include="Client\ThirdParty\angular-loader.js" />
+    <Content Include="Client\ThirdParty\angular-loader.min.js" />
+    <Content Include="Client\ThirdParty\angular-locale_es-ar.js" />
+    <Content Include="Client\ThirdParty\angular-mocks.d.ts" />
+    <Content Include="Client\ThirdParty\angular-mocks.js" />
+    <Content Include="Client\ThirdParty\angular-resource.d.ts" />
+    <Content Include="Client\ThirdParty\angular-resource.js" />
+    <Content Include="Client\ThirdParty\angular-resource.min.js" />
+    <Content Include="Client\ThirdParty\angular-route.d.ts" />
+    <Content Include="Client\ThirdParty\angular-route.js" />
+    <Content Include="Client\ThirdParty\angular-route.min.js" />
+    <Content Include="Client\ThirdParty\angular-sanitize.d.ts" />
+    <Content Include="Client\ThirdParty\angular-sanitize.js" />
+    <Content Include="Client\ThirdParty\angular-sanitize.min.js" />
+    <Content Include="Client\ThirdParty\angular-scenario.d.ts" />
+    <Content Include="Client\ThirdParty\angular-scenario.js" />
+    <Content Include="Client\ThirdParty\angular-touch.js" />
+    <Content Include="Client\ThirdParty\angular-touch.min.js" />
+    <Content Include="Client\ThirdParty\angular.d.ts" />
+    <Content Include="Client\ThirdParty\angular.js" />
+    <Content Include="Client\ThirdParty\angular.min.js" />
+    <Content Include="Client\ThirdParty\bootstrap-datepicker.js" />
+    <Content Include="Client\ThirdParty\bootstrap-datepicker.min.js" />
+    <Content Include="Client\ThirdParty\bootstrap-modal.d.ts" />
+    <Content Include="Client\ThirdParty\bootstrap-tabdrop.js" />
+    <Content Include="Client\ThirdParty\bootstrap-typeahead.js" />
+    <Content Include="Client\ThirdParty\bootstrap-typeahead.min.js" />
+    <Content Include="Client\ThirdParty\bootstrap.js" />
+    <Content Include="Client\ThirdParty\bootstrap.min.js" />
+    <None Include="Client\ThirdParty\jquery-2.0.1.intellisense.js" />
+    <Content Include="Client\ThirdParty\jquery-2.0.1.js" />
+    <Content Include="Client\ThirdParty\jquery-2.0.1.min.js" />
+    <None Include="Client\ThirdParty\jquery-2.0.3.intellisense.js" />
+    <Content Include="Client\ThirdParty\jquery-2.0.3.js" />
+    <Content Include="Client\ThirdParty\jquery-2.0.3.min.js" />
+    <Content Include="Client\ThirdParty\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Client\ThirdParty\jquery.blockUI.js" />
+    <Content Include="Client\ThirdParty\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="Client\ThirdParty\URI.d.ts" />
+    <Content Include="Client\ThirdParty\URI.js" />
+    <Content Include="Client\ThirdParty\URI.min.js" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-responsive.css" />
@@ -198,73 +250,22 @@
     <Content Include="Content\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\App\1_modulo.js" />
-    <Content Include="modal-usuario.html" />
-    <Content Include="Scripts\App\modal.js" />
-    <Content Include="Scripts\App\usuario.js" />
-    <Content Include="Scripts\ThirdParty\angular-animate.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-animate.js" />
-    <Content Include="Scripts\ThirdParty\angular-animate.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-cookies.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-cookies.js" />
-    <Content Include="Scripts\ThirdParty\angular-cookies.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-csp.css" />
-    <Content Include="Scripts\ThirdParty\angular-loader.js" />
-    <Content Include="Scripts\ThirdParty\angular-loader.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-locale_es-ar.js" />
-    <Content Include="Scripts\ThirdParty\angular-mocks.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-mocks.js" />
-    <Content Include="Scripts\ThirdParty\angular-resource.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-resource.js" />
-    <Content Include="Scripts\ThirdParty\angular-resource.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-route.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-route.js" />
-    <Content Include="Scripts\ThirdParty\angular-route.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-sanitize.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-sanitize.js" />
-    <Content Include="Scripts\ThirdParty\angular-sanitize.min.js" />
-    <Content Include="Scripts\ThirdParty\angular-scenario.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular-scenario.js" />
-    <Content Include="Scripts\ThirdParty\angular-touch.js" />
-    <Content Include="Scripts\ThirdParty\angular-touch.min.js" />
-    <Content Include="Scripts\ThirdParty\angular.d.ts" />
-    <Content Include="Scripts\ThirdParty\angular.js" />
-    <Content Include="Scripts\ThirdParty\angular.min.js" />
-    <Content Include="Scripts\ThirdParty\ui-bootstrap-tpls-0.6.0.js" />
-    <Content Include="Scripts\ThirdParty\version.json" />
-    <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Scripts\ThirdParty\bootstrap-datepicker.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap-datepicker.min.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap-modal.d.ts" />
-    <Content Include="Scripts\ThirdParty\bootstrap-tabdrop.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap-typeahead.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap-typeahead.min.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap.js" />
-    <Content Include="Scripts\ThirdParty\bootstrap.min.js" />
+    <Content Include="Index.html" />
+    <Content Include="Client\ThirdParty\angular-animate.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-cookies.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-loader.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-resource.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-route.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-sanitize.min.js.map" />
+    <Content Include="Client\ThirdParty\angular-touch.min.js.map" />
+    <Content Include="Client\ThirdParty\angular.min.js.map" />
+    <Content Include="Client\ThirdParty\bootstrap-typeahead.min.js.map" />
+    <Content Include="Client\ThirdParty\errors.json" />
+    <Content Include="Client\ThirdParty\version.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Scripts\ThirdParty\errors.json" />
-    <Content Include="Scripts\ThirdParty\angular-animate.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-cookies.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-loader.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-resource.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-route.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-sanitize.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular-touch.min.js.map" />
-    <Content Include="Scripts\ThirdParty\angular.min.js.map" />
-    <None Include="Scripts\ThirdParty\jquery-2.0.1.intellisense.js" />
-    <Content Include="Scripts\ThirdParty\jquery-2.0.1.js" />
-    <Content Include="Scripts\ThirdParty\jquery-2.0.1.min.js" />
-    <None Include="Scripts\ThirdParty\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\ThirdParty\jquery-2.0.3.js" />
-    <Content Include="Scripts\ThirdParty\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\ThirdParty\jquery-ui-1.10.3.custom.js" />
-    <Content Include="Scripts\ThirdParty\jquery.blockUI.js" />
-    <Content Include="Scripts\ThirdParty\URI.d.ts" />
-    <Content Include="Scripts\ThirdParty\URI.js" />
-    <Content Include="Scripts\ThirdParty\URI.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -272,14 +273,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infraestructura\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -301,9 +297,6 @@
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\ThirdParty\bootstrap-typeahead.min.js.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

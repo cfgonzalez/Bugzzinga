@@ -1,31 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Bugzzinga.Dominio;
 
-namespace Bugzzinga.Controllers
+namespace Bugzzinga.Api
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : ApiController
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult TraerTodos()
+        public IEnumerable<Usuario> Get()
         {
             var listaUsuarios = TraerListaUsuariosDummy();
 
-            return Json(listaUsuarios);
+            return listaUsuarios;
         }
 
-        public ActionResult Grabar(Usuario usuario)
+        public Usuario Post(Usuario usuario)
         {
-            //Acá se graba el usuario
-
-            return Json(usuario);
+            return usuario;
         }
 
         private List<Usuario> TraerListaUsuariosDummy()
