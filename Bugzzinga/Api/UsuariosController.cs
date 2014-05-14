@@ -13,6 +13,11 @@ namespace Bugzzinga.Api
             return listaUsuarios;
         }
 
+        public Usuario Put( Usuario usuario )
+        {
+            return usuario;
+        }
+
         public Usuario Post(Usuario usuario)
         {
             return usuario;

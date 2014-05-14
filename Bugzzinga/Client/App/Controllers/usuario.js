@@ -1,23 +1,24 @@
-﻿bugzzinga.factory('usuarioServicio', ['$http', function ($http) {
+﻿
+var usuarioServicio = bugzzinga.factory('usuarioServicio', function ($resource) {
 
-    return {
-        traerUsuarios: function () {
-            return $http.get('/Api/Usuarios');
-        }
-    };
+    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' } });
+});
 
-}]);
+var perfilServicio = bugzzinga.factory('perfilServicio', function ($resource) {
 
-bugzzinga.controller('usuarioCtrl', ['$scope', '$http', 'usuarioServicio', function ($scope, $http, usuarioServicio, $dialogs) {
+    return $resource('/api/Perfiles/:id', { id: '@id' }, { update: { method: 'PUT' } });
+});
+
+bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServicio, perfilServicio ) {
 
     $scope.codigoEntidadSeleccionada = 0;
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
-    $scope.servicioPersistencia = '/Api/Usuarios';
+    $scope.servicioPersistencia = usuarioServicio;
+    
+    $scope.coleccion = usuarioServicio.query();
 
-    usuarioServicio.traerUsuarios().success(function (data) {
-        $scope.coleccion = data;
-    });
-}]);
+    
+});
 
 

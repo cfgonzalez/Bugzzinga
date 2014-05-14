@@ -38,12 +38,7 @@ var modalCtrl = function ($scope, $modal, $http) {
 
         //Sucede después de aceptar el popup
         modalInstance.result.then(function (entidad) {
-            $http.post($scope.servicioPersistencia,
-                $.param(entidad),
-                {
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
-                }
-            ).success(function (response) {
+            $scope.servicioPersistencia.update(entidad, function (response) {
 
                 //Actualiza la referencia de la entidad modificada, para que te actualice el binding y se refresque la grilla
                 var entidadesModificadas = $.grep($scope.coleccion, function (entidad) { return entidad.Codigo == response.Codigo; });
