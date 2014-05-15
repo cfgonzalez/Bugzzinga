@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Bugzzinga.Atributos;
+using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 
 namespace Bugzzinga.Api
 {
+    [AtributoGestorExcepciones]
     public class UsuariosController : ApiController
     {
         public IEnumerable<Usuario> Get()
         {
             var listaUsuarios = TraerListaUsuariosDummy();
-
+            throw new BugzzingaException( "Tu vieja !" );
             return listaUsuarios;
         }
 
