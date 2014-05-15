@@ -12,7 +12,7 @@ namespace Bugzzinga.Api
         public IEnumerable<Usuario> Get()
         {
             var listaUsuarios = TraerListaUsuariosDummy();
-            throw new BugzzingaException( "Tu vieja !" );
+            //throw new BugzzingaException( "Tu vieja !" );
             return listaUsuarios;
         }
 
@@ -34,9 +34,12 @@ namespace Bugzzinga.Api
             {
                 var usuario = new Usuario();
 
+                var perfil = new Perfil() { Nombre = "Perfil" + (i + 1).ToString() };
+                
                 usuario.Apellido = "Apellido" + (i + 1).ToString();
                 usuario.Nombre = "Nombre" + (i + 1).ToString();
                 usuario.Codigo = i + 1;
+                usuario.Perfil = perfil;
 
                 listaUsuarios.Add(usuario);
             }
