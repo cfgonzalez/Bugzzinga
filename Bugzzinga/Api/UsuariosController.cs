@@ -27,7 +27,7 @@ namespace Bugzzinga.Api
         {
             var listaUsuarios = new List<Usuario>();
 
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 2; i++)
             {
                 var usuario = new Usuario();
 

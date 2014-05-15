@@ -9,15 +9,31 @@ var perfilServicio = bugzzinga.factory('perfilServicio', function ($resource) {
     return $resource('/api/Perfiles/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
 
-function AccionCargarPerfiles ($scope, perfilServicio) {
+function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
 
     this.perfilServicio = perfilServicio;
+    this.usuarioServicio = usuarioServicio;
     
-     this.ejecutar = function ()
+    this.setearScope = function (scope)
     {
-        return  perfilServicio.query();
+        this.scope = scope;
     }
 
+    this.ejecutar = function ()
+    {
+        this.scope.coleccionPerfiles = this.cargarPerfiles();
+        this.scope.coleccionUsuarios = this.cargarUsuarios();
+    }
+
+    this.cargarPerfiles = function()
+    {        
+        return this.perfilServicio.query();
+    }
+
+    this.cargarUsuarios = function()
+    {
+        return this.usuarioServicio.query();
+    }
 }
 
 
@@ -29,7 +45,7 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
     
     $scope.coleccion = usuarioServicio.query();
 
-    $scope.accionCargarPerfiles = new AccionCargarPerfiles($scope, perfilServicio);
+    $scope.accionCargarPerfiles = new AccionCargarPerfiles($scope, perfilServicio, usuarioServicio);
     
 });
 

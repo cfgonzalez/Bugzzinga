@@ -42,6 +42,21 @@
              </tr>
          </tbody>
         </table>
+
+     <table class="table table-hover table-bordered table-striped">
+         <thead>
+             <tr>
+                 <th class="span3 ">Nombre</th>
+                 <th class="span3 ">Descripcion</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr ng-repeat="rol in coleccionUsuarios" class="info">
+                 <td class="span3 info">{{rol.Nombre}}</td>
+                 <td class="span3 info">{{rol.Apellido}}</td>
+             </tr>
+         </tbody>
+     </table>
          <div class="modal-footer">
              <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
              <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>

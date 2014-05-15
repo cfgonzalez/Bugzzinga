@@ -60,7 +60,8 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, 
 
     //Setea el scope que se bindeará al template
     $scope.entidadSeleccionada = entidadSeleccionada;
-    $scope.coleccionPerfiles =  accionComplementaria.ejecutar();
+    accionComplementaria.setearScope($scope);
+    accionComplementaria.ejecutar();
 
     $scope.ok = function () {
         $modalInstance.close(entidadSeleccionada);
