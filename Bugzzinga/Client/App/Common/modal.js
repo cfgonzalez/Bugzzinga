@@ -29,9 +29,16 @@ var modalCtrl = function ($scope, $modal, $http) {
             templateUrl: $scope.modalTemplate,
             controller: ModalInstanciaCtrl,
             resolve: {
+
+                
                 //Sucede antes de abrir el popup. Devuelve el objeto que se inyecta en ModalInstanciaCtrl
                 entidadSeleccionada: function () {
+                    
                     return entidadesSeleccionadas[0];
+                },
+
+                accionComplementaria: function(){
+                    return $scope.accionCargarPerfiles;
                 }
             }
         });
@@ -49,10 +56,11 @@ var modalCtrl = function ($scope, $modal, $http) {
 };
 
 //Sucede antes de abrir el popup
-var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada) {
+var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, accionComplementaria) {
 
     //Setea el scope que se bindeará al template
     $scope.entidadSeleccionada = entidadSeleccionada;
+    $scope.coleccionPerfiles =  accionComplementaria.ejecutar();
 
     $scope.ok = function () {
         $modalInstance.close(entidadSeleccionada);
