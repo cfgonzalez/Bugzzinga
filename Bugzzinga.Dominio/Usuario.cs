@@ -9,6 +9,6 @@ namespace Bugzzinga.Dominio
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
-        //public Perfil Perfil { get; set; }
+        public Perfil Perfil { get; set; }
     }
 }
