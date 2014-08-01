@@ -6,23 +6,23 @@
     <table class="table table-hover table-bordered table-striped">
         <thead>
             <tr>
-                <th class="span3 "></th>
-                <th class="span3 ">Código</th>
-                <th class="span3 ">Nombre</th>
-                <th class="span3 ">Apellido</th>
+              <!--  <th class="span3 "></th>-->
+                <th class="span4 ">Código</th>
+                <th class="span4 ">Nombre</th>
+                <th class="span4 ">Apellido</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="usuario in coleccion" class="info">
-                <td class="span3 info">
+            <tr ng-repeat="usuario in coleccion" ng-click="seleccionar(usuario)" data-ng-class="estiloFila(usuario)">
+               <!-- <td class="span3 info">
                     <input type="radio"
                            ng-model="$parent.codigoEntidadSeleccionada"
                            value="{{usuario.Codigo}}"
                            name="radioCodigo">
-                </td>
-                <td class="span3 info">{{usuario.Codigo}}</td>
-                <td class="span3 info">{{usuario.Nombre}}</td>
-                <td class="span3 info">{{usuario.Apellido}}</td>
+                </td>-->
+                <td class="span4 info">{{usuario.Codigo}}</td>
+                <td class="span4 info">{{usuario.Nombre}}</td>
+                <td class="span4 info">{{usuario.Apellido}}</td>
             </tr>
         </tbody>
     </table>

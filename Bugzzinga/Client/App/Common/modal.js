@@ -30,7 +30,6 @@ var modalCtrl = function ($scope, $modal, $http) {
             controller: ModalInstanciaCtrl,
             resolve: {
 
-                
                 //Sucede antes de abrir el popup. Devuelve el objeto que se inyecta en ModalInstanciaCtrl
                 entidadSeleccionada: function () {
                     

@@ -13,29 +13,24 @@ function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
 
     this.perfilServicio = perfilServicio;
     this.usuarioServicio = usuarioServicio;
-    
-    this.setearScope = function (scope)
-    {
-        this.scope = scope;
-    }
 
-    this.ejecutar = function ()
-    {
+    this.setearScope = function(scope) {
+        this.scope = scope;
+    };
+
+    this.ejecutar = function() {
         this.scope.coleccionPerfiles = this.cargarPerfiles();
         this.scope.coleccionUsuarios = this.cargarUsuarios();
-    }
+    };
 
-    this.cargarPerfiles = function()
-    {        
+    this.cargarPerfiles = function() {
         return this.perfilServicio.query();
-    }
+    };
 
-    this.cargarUsuarios = function()
-    {
+    this.cargarUsuarios = function() {
         return this.usuarioServicio.query();
-    }
+    };
 }
-
 
 bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServicio, perfilServicio ) {
 
@@ -46,7 +41,24 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
     $scope.coleccion = usuarioServicio.query();
 
     $scope.accionCargarPerfiles = new AccionCargarPerfiles($scope, perfilServicio, usuarioServicio);
+
+    $scope.seleccionar = function (usuario) {
+        $scope.codigoEntidadSeleccionada = usuario.Codigo;
+        this.selected = 'selected';
+    };
     
+    $scope.estiloFila = function (usuario) {
+
+        var estilo = { info: true };
+
+        //Si la fila está seleccionada, le pone el estilo 'success'
+        if ($scope.codigoEntidadSeleccionada == usuario.Codigo) {
+
+            estilo = { success: true };
+        }
+
+        return estilo;
+    };
 });
 
 
