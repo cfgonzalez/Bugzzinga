@@ -13,8 +13,9 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<Perfil> Get()
         {
-            Perfil p1 = new Perfil() { Nombre = "p1"};
-            Perfil p2 = new Perfil() { Nombre = "p2" };
+            var p1 = new Perfil() { Nombre = "p1", Descripcion = "Perfil1"};
+
+            var p2 = new Perfil() { Nombre = "p2", Descripcion = "Perfil2" };
 
             return new List<Perfil>() { p1, p2 };
         }

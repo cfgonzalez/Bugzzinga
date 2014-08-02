@@ -1,5 +1,4 @@
 ﻿var bugzzinga = angular.module('bugzzinga', ['ui.bootstrap', 'ngRoute', 'ngResource'], function ($routeProvider, $locationProvider, $httpProvider)
-
 {
     var interceptor = ['$rootScope', '$q', function (scope, $q) {
 
@@ -22,12 +21,9 @@
         return function (promise) {
             return promise.then(success, error);
         }
-
     }];
     $httpProvider.responseInterceptors.push(interceptor);
-}
-
-);
+});
 
 bugzzinga.config(function ($routeProvider) {
     $routeProvider.

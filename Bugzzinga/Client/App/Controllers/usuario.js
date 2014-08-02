@@ -35,19 +35,21 @@ function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
 bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServicio, perfilServicio ) {
 
     $scope.codigoEntidadSeleccionada = 0;
+    
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = usuarioServicio;
-    
+
     $scope.coleccion = usuarioServicio.query();
 
+    //GET de los perfiles
     $scope.accionCargarPerfiles = new AccionCargarPerfiles($scope, perfilServicio, usuarioServicio);
 
-    $scope.seleccionar = function (usuario) {
+    $scope.seleccionarUsuario = function (usuario) {
         $scope.codigoEntidadSeleccionada = usuario.Codigo;
         this.selected = 'selected';
     };
     
-    $scope.estiloFila = function (usuario) {
+    $scope.estiloFilaUsuario = function (usuario) {
 
         var estilo = { info: true };
 

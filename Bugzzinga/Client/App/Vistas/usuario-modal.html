@@ -32,39 +32,30 @@
                     Perfil:
                 </div>
                 <div class="span6">
-                    <input type='text' ng-model='entidadSeleccionada.Perfil.Nombre' />
+                    <span ng-bind="entidadSeleccionada.Perfil.Nombre" />               
                 </div>
             </div>
         </div>
+        <div class="span12">
+            <span>Seleccione un elemento en la grilla para actualizar el perfil del usuario</span>               
+        </div>
         <table class="table table-hover table-bordered table-striped">
          <thead>
-             <tr>        
+             <tr>                       
                  <th class="span3 ">Nombre</th>
                  <th class="span3 ">Descripcion</th>
              </tr>
          </thead>
-         <tbody>
-             <tr ng-repeat="perfil in coleccionPerfiles" class="info">
+         <tbody>   
+             <tr ng-repeat="perfil in coleccionPerfiles">              
+                <td class="span3 info">                 
+                    <input type="radio" ng-change="entidadSeleccionada.Perfil = perfil" ng-model="entidadSeleccionada.Perfil" ng-value="perfil" value="{{perfil.Nombre}}"></input>           
+                </td>
                  <td class="span3 info">{{perfil.Nombre}}</td>
                  <td class="span3 info">{{perfil.Descripcion}}</td>
              </tr>
          </tbody>
         </table>
-
-     <table class="table table-hover table-bordered table-striped">
-         <thead>
-             <tr>
-                 <th class="span3 ">Nombre</th>
-                 <th class="span3 ">Descripcion</th>
-             </tr>
-         </thead>
-         <tbody>
-             <tr ng-repeat="rol in coleccionUsuarios" class="info">
-                 <td class="span3 info">{{rol.Nombre}}</td>
-                 <td class="span3 info">{{rol.Apellido}}</td>
-             </tr>
-         </tbody>
-     </table>
          <div class="modal-footer">
              <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
              <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>

@@ -18,7 +18,7 @@ bugzzinga.directive('modalPopup', function () {
 });
 
 //Controller del Modal
-var modalCtrl = function ($scope, $modal, $http) {
+var modalCtrl = function ($scope, $modal) {
 
     $scope.open = function () {
 
