@@ -74,6 +74,10 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
 
         return estilo;
     };
+
+    $scope.eliminar = function(usuario) {
+        alert(usuario.Codigo);
+    };
 });
 
 //Definición de la clase y factory del usuario vacío
