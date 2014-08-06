@@ -1,7 +1,8 @@
 ﻿
 var usuarioServicio = bugzzinga.factory('usuarioServicio', function ($resource) {
 
-    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' } });
+    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' } });
+
 });
 
 var perfilServicio = bugzzinga.factory('perfilServicio', function ($resource) {
@@ -9,7 +10,8 @@ var perfilServicio = bugzzinga.factory('perfilServicio', function ($resource) {
     return $resource('/api/Perfiles/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
 
-function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
+//Delegado que se ejecuta luego de la creación del Modal
+function AccionComplementariaModal($scope, perfilServicio, usuarioServicio) {
 
     this.perfilServicio = perfilServicio;
     this.usuarioServicio = usuarioServicio;
@@ -18,7 +20,7 @@ function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
         this.scope = scope;
     };
 
-    this.ejecutar = function() {
+    this.popular = function() {
         this.scope.coleccionPerfiles = this.cargarPerfiles();
         this.scope.coleccionUsuarios = this.cargarUsuarios();
     };
@@ -27,8 +29,18 @@ function AccionCargarPerfiles($scope, perfilServicio, usuarioServicio) {
         return this.perfilServicio.query();
     };
 
-    this.cargarUsuarios = function() {
+    this.cargarUsuarios = function () {
+        
         return this.usuarioServicio.query();
+    };
+    
+    //Crea una nueva instancia de Usuario cuando es un alta
+    this.crearNuevoUsuario = function () {
+
+        //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server
+        var codigo = Math.floor(Math.random() * 3000) + 1;
+
+        return UsuarioFactory.Nuevo(codigo);
     };
 }
 
@@ -41,11 +53,12 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
 
     $scope.coleccion = usuarioServicio.query();
 
-    //GET de los perfiles
-    $scope.accionCargarPerfiles = new AccionCargarPerfiles($scope, perfilServicio, usuarioServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModal($scope, perfilServicio, usuarioServicio);
 
     $scope.seleccionarUsuario = function (usuario) {
+        
         $scope.codigoEntidadSeleccionada = usuario.Codigo;
+        
         this.selected = 'selected';
     };
     
@@ -63,4 +76,21 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
     };
 });
 
+//Definición de la clase y factory del usuario vacío
+function usuario(codigo) {
+    
+    this.Codigo = codigo;
+    
+    this.Nombre = "";
+    
+    this.Apellido = "";
+    
+    this.Perfil = "";
+    
+}
 
+var UsuarioFactory = {
+    Nuevo: function (codigo) {
+        return new usuario(codigo);;
+    }
+};

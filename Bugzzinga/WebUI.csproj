@@ -190,6 +190,7 @@
   <ItemGroup>
     <Content Include="Client\App\Common\modal.js" />
     <Content Include="Client\App\Config\appconfig.js" />
+    <Content Include="Client\App\Controllers\perfil.js" />
     <Content Include="Client\App\Controllers\usuario.js" />
     <Content Include="Client\App\Vistas\usuario-modal.html" />
     <Content Include="Client\App\Vistas\usuarios.html" />
