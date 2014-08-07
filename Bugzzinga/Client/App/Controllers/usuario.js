@@ -76,9 +76,9 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
     };
 
     $scope.eliminar = function (usuario) {
-
-        //Invoca al servicio
-        usuarioServicio.remove(usuario, function () {
+        
+        ////Invoca al servicio
+        usuarioServicio.remove({ codigo: usuario.Codigo }, function () {
 
             //Si no hubo problemas, elimina el objeto del array
             $scope.coleccion = $scope.coleccion.filter(function (e) {

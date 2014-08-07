@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="usuario in coleccion" ng-click="seleccionarUsuario(usuario)" data-ng-class="estiloFilaUsuario(usuario)">
+            <tr ng-repeat="usuario in coleccion track by usuario.Codigo" ng-click="seleccionarUsuario(usuario)" data-ng-class="estiloFilaUsuario(usuario)">
                 <td class="span3 info">{{usuario.Codigo}}</td>
                 <td class="span3 info">{{usuario.Nombre}}</td>
                 <td class="span3 info">{{usuario.Apellido}}</td>

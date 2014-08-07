@@ -16,7 +16,7 @@ namespace Bugzzinga.Api
             return listaUsuarios;
         }
 
-        public Usuario Put( Usuario usuario )
+        public Usuario Put(Usuario usuario)
         {
             return usuario;
         }
@@ -26,7 +26,7 @@ namespace Bugzzinga.Api
             return usuario;
         }
 
-        public bool Delete(Usuario usuario)
+        public bool Delete(int codigo)
         {
             return true;
         }
