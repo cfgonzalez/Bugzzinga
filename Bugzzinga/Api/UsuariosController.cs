@@ -26,6 +26,11 @@ namespace Bugzzinga.Api
             return usuario;
         }
 
+        public bool Delete(Usuario usuario)
+        {
+            return true;
+        }
+
         private List<Usuario> TraerListaUsuariosDummy()
         {
             var listaUsuarios = new List<Usuario>();

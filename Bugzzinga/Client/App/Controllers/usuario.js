@@ -1,7 +1,7 @@
 ﻿
 var usuarioServicio = bugzzinga.factory('usuarioServicio', function ($resource) {
 
-    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' } });
+    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE'} });
 
 });
 
@@ -75,8 +75,16 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
         return estilo;
     };
 
-    $scope.eliminar = function(usuario) {
-        alert(usuario.Codigo);
+    $scope.eliminar = function (usuario) {
+
+        //Invoca al servicio
+        usuarioServicio.remove(usuario, function () {
+
+            //Si no hubo problemas, elimina el objeto del array
+            $scope.coleccion = $scope.coleccion.filter(function (e) {
+                return e.Codigo != usuario.Codigo;
+            });
+        });
     };
 });
 
@@ -98,3 +106,13 @@ var UsuarioFactory = {
         return new usuario(codigo);;
     }
 };
+
+//Encuentra el indice en el array dado el valor de una propiedad
+function findIndexByKeyValue(obj, key, value) {
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i][key] == value) {
+            return i;
+        }
+    }
+    return null;
+}
