@@ -2,6 +2,7 @@
 <html ng-app="bugzzinga" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Content/font-awesome.css" />
 
     <script src="Client/ThirdParty/jquery-2.0.1.js"></script>
     <script src="Client/ThirdParty/angular.js"></script>
@@ -15,17 +16,105 @@
     <script src="Client/App/Controllers/usuario.js"></script>
     <script src="Client/App/Controllers/perfil.js"></script>
     <title>Bugzzinga</title>
+
+    <style>
+        .left-panel {
+            background-color: #ccc;
+            width: 10%;
+            height: 100%;
+            float: left;
+        }
+
+        .right-panel {
+            background-color: white;
+            width: 90%;
+            height: 100%;
+            float: left;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #button {
+            width: 12em;
+            border-right: 1px solid #000;
+            padding: 0 0 1em 0;
+            margin-bottom: 1em;
+            font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
+            background-color: #90bade;
+            color: #333;
+        }
+
+            #button ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+
+            #button li {
+                border-bottom: 1px solid #90bade;
+                margin: 0;
+                list-style: none;
+                list-style-image: none;
+            }
+
+                #button li a {
+                    display: block;
+                    padding: 5px 5px 5px 0.5em;
+                    
+                    border-right: 10px solid #508fc4;
+                    background-color: #2175bc;
+                    color: #fff;
+                    text-decoration: none;
+                    width: 100%;
+                }
+
+                html > body #button li a {
+                    width: auto;
+                }
+
+                    #button li a:hover {
+                        
+                        border-right: 10px solid #5ba3e0;
+                        background-color: #2586d7;
+                        color: #fff;
+                    }
+    </style>
 </head>
 <body>
-  <!--  <h1>Bugzzinga BugTracker</h1>-->
-    <div class="container">
+    <h1>Bugzzinga BugTracker</h1>
+    <div class="left-panel">
+        <div id="button">
+            <ul>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="#">Perfiles</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-panel container">
         <div ng-view></div>
     </div>
 
-    <div id="mensaje" class="alert alert-success fade in">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <br /> joJOjo! <br />
-    </div>
+    <!--  <h1>Bugzzinga BugTracker</h1>-->
+    <!-- <div class="container">
+                 <div ng-view></div>
+             </div>-->
+
+    <!-- <div id="mensaje" class="alert alert-success fade in">
+                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <br />
+                 joJOjo!
+                 <br />
+             </div>-->
+
 </body>
 </html>
+
+
+
+
+
 
