@@ -191,7 +191,10 @@
     <Content Include="Client\App\Common\modal.js" />
     <Content Include="Client\App\Config\appconfig.js" />
     <Content Include="Client\App\Controllers\perfil.js" />
+    <Content Include="Client\App\Controllers\proyecto.js" />
     <Content Include="Client\App\Controllers\usuario.js" />
+    <Content Include="Client\App\Vistas\perfiles.html" />
+    <Content Include="Client\App\Vistas\proyectos.html" />
     <Content Include="Client\App\Vistas\usuario-modal.html" />
     <Content Include="Client\App\Vistas\usuarios.html" />
     <Content Include="Client\ThirdParty\angular-animate.d.ts" />
@@ -222,6 +225,7 @@
     <Content Include="Client\ThirdParty\angular.d.ts" />
     <Content Include="Client\ThirdParty\angular.js" />
     <Content Include="Client\ThirdParty\angular.min.js" />
+    <Content Include="Client\ThirdParty\bootstrap-confirmation.js" />
     <Content Include="Client\ThirdParty\bootstrap-datepicker.js" />
     <Content Include="Client\ThirdParty\bootstrap-datepicker.min.js" />
     <Content Include="Client\ThirdParty\bootstrap-modal.d.ts" />
@@ -249,10 +253,14 @@
     <Content Include="Content\bootstrap-typeahead.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\bugzzinga.css" />
+    <Content Include="Content\gh-fork-ribbon.css" />
     <Content Include="Content\Images\DeleteRed.png" />
     <Content Include="Content\KoGrid.css" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\pace-center-radar.css" />
+    <Content Include="Content\pace-corner-indicator.css" />
+    <Content Include="Content\pace-simple-center.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
@@ -267,6 +275,7 @@
     <Content Include="Client\ThirdParty\bootstrap-typeahead.min.js.map" />
     <Content Include="Client\ThirdParty\errors.json" />
     <Content Include="Client\ThirdParty\version.json" />
+    <Content Include="Client\ThirdParty\pace.min.js" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

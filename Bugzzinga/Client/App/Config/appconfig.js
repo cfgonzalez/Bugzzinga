@@ -27,6 +27,12 @@
 
 bugzzinga.config(function ($routeProvider) {
     $routeProvider.
-        when('/', { controller: 'usuarioCtrl', templateUrl: 'Client/App/Vistas/usuarios.html' }).
+        when('/usuarios', { controller: 'usuarioCtrl', templateUrl: 'Client/App/Vistas/usuarios.html' }).
+        when('/perfiles', { controller: 'perfilCtrl', templateUrl: 'Client/App/Vistas/perfiles.html' }).
+        when('/proyectos', { controller: 'proyectoCtrl', templateUrl: 'Client/App/Vistas/proyectos.html' }).
         otherwise({ redirectTo: '/' });
+});
+
+bugzzinga.config(function ($logProvider) {
+    $logProvider.debugEnabled(true);
 });

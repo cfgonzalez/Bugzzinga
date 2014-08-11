@@ -77,13 +77,23 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
 
     $scope.eliminar = function (usuario) {
         
-        ////Invoca al servicio
-        usuarioServicio.remove({ codigo: usuario.Codigo }, function () {
+        //Mensaje de confirmación
+        $('#lnkUsuario' + usuario.Codigo).confirmation({
+            animation: true,
+            singleton:true,
+            title: '¿Confirma eliminación?',
+            onConfirm: function () {
+                ////Invoca al servicio
+                usuarioServicio.remove({ codigo: usuario.Codigo }, function () {
 
-            //Si no hubo problemas, elimina el objeto del array
-            $scope.coleccion = $scope.coleccion.filter(function (e) {
-                return e.Codigo != usuario.Codigo;
-            });
+                    //Si no hubo problemas, elimina el objeto del array
+                    $scope.coleccion = $scope.coleccion.filter(function (e) {
+                        return e.Codigo != usuario.Codigo;
+                    });
+                });
+                
+                return false;
+            }
         });
     };
 });
@@ -106,13 +116,3 @@ var UsuarioFactory = {
         return new usuario(codigo);;
     }
 };
-
-//Encuentra el indice en el array dado el valor de una propiedad
-function findIndexByKeyValue(obj, key, value) {
-    for (var i = 0; i < obj.length; i++) {
-        if (obj[i][key] == value) {
-            return i;
-        }
-    }
-    return null;
-}
