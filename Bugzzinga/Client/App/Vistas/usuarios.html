@@ -22,10 +22,10 @@
             </tbody>
         </table>
         <div style="display: none">
-            <modal-popup template="usuario-modal.html"></modal-popup>
+            <modal-popup filter-criteria="Codigo" template="usuario-modal.html"></modal-popup>
         </div>
         <button class="btn btn-primary" ng-click="mostrarPopupAgregar()">Agregar</button>
-        <button class="btn btn-primary" ng-disabled="codigoEntidadSeleccionada == 0" ng-click="mostrarPopupEditar()">Editar</button>
+        <button class="btn btn-primary" ng-disabled="idEntidadSeleccionada == 0" ng-click="mostrarPopupEditar()">Editar</button>
 
     </div>
 </div>

@@ -46,7 +46,7 @@ function AccionComplementariaModal($scope, perfilServicio, usuarioServicio) {
 
 bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServicio, perfilServicio ) {
 
-    $scope.codigoEntidadSeleccionada = 0;
+    $scope.idEntidadSeleccionada = 0;
     
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = usuarioServicio;
@@ -57,7 +57,7 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
 
     $scope.seleccionarUsuario = function (usuario) {
         
-        $scope.codigoEntidadSeleccionada = usuario.Codigo;
+        $scope.idEntidadSeleccionada = usuario.Codigo;
         
         this.selected = 'selected';
     };
@@ -67,7 +67,7 @@ bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServi
         var estilo = { info: true };
 
         //Si la fila está seleccionada, le pone el estilo 'success'
-        if ($scope.codigoEntidadSeleccionada == usuario.Codigo) {
+        if ($scope.idEntidadSeleccionada == usuario.Codigo) {
 
             estilo = { success: true };
         }

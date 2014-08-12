@@ -4,14 +4,16 @@ bugzzinga.directive('modalPopup', function () {
     return {
         restrict: 'E',
         controller: modalCtrl,
+        transclude: true,
         
         //Vincula una propiedad del scope parent con el valor del atributo 'template' de la directiva
-        link: function (scope, element, attrs) {
+        link: function(scope, element, attrs) {
+            scope.filterCriteria = attrs.filterCriteria;
             scope.modalTemplate = 'Client/App/Vistas/' + attrs.template;
         },
-        
+   
         //Toma el valor del atributo 'template' y lo setea como templateUrl
-        templateUrl: function ($node, attrs) {
+        templateUrl: function($node, attrs) {
             return 'Client/App/Vistas/' + attrs.template;
         }
     };
@@ -23,7 +25,9 @@ var modalCtrl = function ($scope, $modal) {
     $scope.mostrarPopupEditar = function () {
 
         //Filtra la colección de usuarios según el Código elegido en la grilla.
-        var entidadesSeleccionadas = $.grep($scope.coleccion, function (entidad) { return entidad.Codigo == $scope.codigoEntidadSeleccionada; });
+        var entidadesSeleccionadas = $.grep($scope.coleccion, function(entidad) {
+            return eval('entidad.' + $scope.filterCriteria) == $scope.idEntidadSeleccionada;
+        });
 
         var modalInstance = $modal.open({
             templateUrl: $scope.modalTemplate,
@@ -46,7 +50,9 @@ var modalCtrl = function ($scope, $modal) {
             $scope.servicioPersistencia.update(entidad, function (response) {
 
                 //Actualiza la referencia de la entidad modificada, para que se actualice el binding y se refresque la grilla
-                var entidadesModificadas = $.grep($scope.coleccion, function (entidad) { return entidad.Codigo == response.Codigo; });
+                var entidadesModificadas = $.grep($scope.coleccion, function(entidad) {
+                     return eval('entidad.' + $scope.filterCriteria) == eval('response.' + $scope.filterCriteria);
+                });
                 entidadesModificadas[0] = response;
             });
         });
