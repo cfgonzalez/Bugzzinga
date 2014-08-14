@@ -92,7 +92,7 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, 
 
     //Si es un alta. (esto está bastante feo)
     if (entidadSeleccionada == null) {
-        entidadSeleccionada = accionComplementaria.crearNuevoUsuario();
+        entidadSeleccionada = accionComplementaria.crearNuevo();
     }
 
     //Setea el scope que se bindeará al template

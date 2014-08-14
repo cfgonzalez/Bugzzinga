@@ -20,25 +20,19 @@ namespace Bugzzinga.Api
             return new List<Perfil>() { p1, p2 };
         }
 
-        // GET api/<controller>/5
-        public string Get( int id )
+        public Perfil Put(Perfil perfil)
         {
-            return "value";
+            return perfil;
         }
 
-        // POST api/<controller>
-        public void Post( [FromBody]string value )
+        public Perfil Post(Perfil perfil)
         {
+            return perfil;
         }
 
-        // PUT api/<controller>/5
-        public void Put( int id, [FromBody]string value )
+        public bool Delete(string nombre)
         {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete( int id )
-        {
+            return true;
         }
     }
 }

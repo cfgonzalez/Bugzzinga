@@ -189,10 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\App\Common\modal.js" />
+    <Content Include="Client\App\Common\servicios.js" />
     <Content Include="Client\App\Config\appconfig.js" />
     <Content Include="Client\App\Controllers\perfil.js" />
     <Content Include="Client\App\Controllers\proyecto.js" />
     <Content Include="Client\App\Controllers\usuario.js" />
+    <Content Include="Client\App\Vistas\perfil-modal.html" />
     <Content Include="Client\App\Vistas\perfiles.html" />
     <Content Include="Client\App\Vistas\proyectos.html" />
     <Content Include="Client\App\Vistas\usuario-modal.html" />
