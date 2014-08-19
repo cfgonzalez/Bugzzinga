@@ -7,14 +7,14 @@
     
     $scope.accionComplementariaModal = new AccionComplementariaModalPerfil($scope, perfilServicio);
     
-    $scope.seleccionarPerfil = function (perfil) {
+    $scope.seleccionar = function (perfil) {
 
         $scope.idEntidadSeleccionada = perfil.Nombre;
 
         this.selected = 'selected';
     };
 
-    $scope.estiloFilaPerfil = function (perfil) {
+    $scope.estiloFila = function (perfil) {
 
         var estilo = { info: true };
 
@@ -27,7 +27,7 @@
         return estilo;
     };
     
-    //Crea una nueva instancia de Usuario cuando es un alta
+    //Crea una nueva instancia de Perfil cuando es un alta
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server

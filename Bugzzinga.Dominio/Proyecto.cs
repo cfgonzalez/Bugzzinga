@@ -21,16 +21,20 @@ namespace Bugzzinga.Dominio
             get { return this._prioridades; }
         }
 
-
         public string Codigo { get; set; }
+        public string Fecha { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaInicio { get; set; }
 
-        public void AgregarItem( Item item )
+        public void AgregarItem(Item item)
         {
-            this._items.Add( item );
+            this._items.Add(item);
         }
 
+        public void AgregarMiembro(Usuario usuario)
+        {
+            this._miembros.Add(usuario);
+        }
     }
 }

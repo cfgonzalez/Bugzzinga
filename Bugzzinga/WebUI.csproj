@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.CS.dll</HintPath>
     </Reference>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -169,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\PerfilesController.cs" />
+    <Compile Include="Api\ProyectosController.cs" />
     <Compile Include="Api\UsuariosController.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -196,6 +201,7 @@
     <Content Include="Client\App\Controllers\usuario.js" />
     <Content Include="Client\App\Vistas\perfil-modal.html" />
     <Content Include="Client\App\Vistas\perfiles.html" />
+    <Content Include="Client\App\Vistas\proyecto-modal.html" />
     <Content Include="Client\App\Vistas\proyectos.html" />
     <Content Include="Client\App\Vistas\usuario-modal.html" />
     <Content Include="Client\App\Vistas\usuarios.html" />

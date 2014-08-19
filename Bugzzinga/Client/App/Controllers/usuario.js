@@ -9,14 +9,14 @@
 
     $scope.accionComplementariaModal = new AccionComplementariaModalUsuario($scope, perfilServicio, usuarioServicio);
 
-    $scope.seleccionarUsuario = function (usuario) {
+    $scope.seleccionar = function (usuario) {
         
         $scope.idEntidadSeleccionada = usuario.Codigo;
         
         this.selected = 'selected';
     };
     
-    $scope.estiloFilaUsuario = function (usuario) {
+    $scope.estiloFila = function (usuario) {
 
         var estilo = { info: true };
 

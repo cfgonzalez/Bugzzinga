@@ -36,3 +36,11 @@ bugzzinga.config(function ($routeProvider) {
 bugzzinga.config(function ($logProvider) {
     $logProvider.debugEnabled(true);
 });
+
+bugzzinga.filter('fechaFormateada', function($filter) {
+    return function (input) {
+        if (input == null) { return ""; }
+        var _date = $filter('date')(new Date(parseInt(input.substr(6))), 'dd/MM/yyyy');
+        return _date.toUpperCase();
+    };
+});
