@@ -5,6 +5,11 @@
 
     $scope.coleccion = proyectoServicio.query();
 
+    $.each($scope.coleccion, function (index,value) {
+            value.FechaInicio = $filter('date')(value.FechaInicio, "dd/MM/yyyy");
+        }
+    );
+
     $scope.accionComplementariaModal = new AccionComplementariaModalProyecto($scope, proyectoServicio);
 
     $scope.seleccionar = function (proyecto) {
@@ -35,7 +40,7 @@
         return ProyectoFactory.Nuevo(proyecto);
     };
 
-    $scope.eliminar = function (perfil) {
+    $scope.eliminar = function (proyecto) {
 
         //Mensaje de confirmación
         $('#lnkProyecto' + proyecto.Codigo).confirmation({

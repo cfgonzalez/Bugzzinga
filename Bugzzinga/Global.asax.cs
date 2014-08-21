@@ -11,6 +11,9 @@ using Bugzzinga.Inicializacion;
 
 namespace Bugzzinga
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -20,15 +23,23 @@ namespace Bugzzinga
         {
             AreaRegistration.RegisterAllAreas();
 
+
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            var jsonFormatter = formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            jsonFormatter.UseDataContractJsonSerializer = false;
+            settings.Converters.Add(new IsoDateTimeConverter());
+            settings.Formatting = Formatting.Indented;
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            GlobalConfiguration.Configuration.Formatters.Remove( GlobalConfiguration.Configuration.Formatters.XmlFormatter );
-            GlobalConfiguration.Configuration.Formatters.Add( GlobalConfiguration.Configuration.Formatters.JsonFormatter );
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = true;
+            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+            GlobalConfiguration.Configuration.Formatters.Add(jsonFormatter);
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
+            
             GestorAplicacion.IniciarAplicacion();
         }
 

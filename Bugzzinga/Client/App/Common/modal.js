@@ -36,6 +36,7 @@ var modalCtrl = function ($scope, $modal) {
 
                 //Sucede antes de abrir el popup. Devuelve el objeto que se inyecta en ModalInstanciaCtrl
                 entidadSeleccionada: function () {
+                    //formatea todas las propiedades Fecha de la entidad
                     return entidadesSeleccionadas[0];
                 },
 
@@ -108,6 +109,3 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, 
         $modalInstance.dismiss('cancel');
     };
 };
-
-
-

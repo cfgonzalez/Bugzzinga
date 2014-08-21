@@ -1,4 +1,4 @@
-﻿ <script type="text/ng-template" id="Client/App/Vistas/proyecto-modal.html">        
+﻿<script type="text/ng-template" id="Client/App/Vistas/proyecto-modal.html">        
         <div class="modal-header">
             <h3>Proyecto</h3>
         </div>
@@ -13,7 +13,7 @@
             </div>
             <div class="row-fluid">
                 <div class="span6">
-                    Código:
+                    Nombre:
                 </div>
                 <div class="span6">        
                     {{ entidadSeleccionada.Nombre }}
@@ -21,7 +21,7 @@
             </div>
             <div class="row-fluid">
                 <div class="span6">
-                    Nombre:
+                    Descripción:
                 </div>
                 <div class="span6">
                     <input type='text' ng-model='entidadSeleccionada.Descripcion' />
@@ -31,9 +31,13 @@
                 <div class="span6">
                     Fecha de Inicio:
                 </div>
-                <div class="span6">
-                    <input type='text' ng-model='entidadSeleccionada.FechaInicio' />
-                </div>
+                <div class="span6">                   
+                    <div class="col-md-6">
+                        <p class="input-group">
+                          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="entidadSeleccionada.FechaInicio" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />                          
+                        </p>
+                    </div>
+                </div>                                
             </div>                 
         </div>       
          <div class="modal-footer">

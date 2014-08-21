@@ -831,7 +831,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.position'])
 
 .constant('datepickerConfig', {
   dayFormat: 'dd',
-  monthFormat: 'MMMM',
+  monthFormat: 'MM',
   yearFormat: 'yyyy',
   dayHeaderFormat: 'EEE',
   dayTitleFormat: 'MMMM yyyy',

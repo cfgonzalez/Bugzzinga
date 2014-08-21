@@ -15,7 +15,6 @@
             }
             // otherwise
             return $q.reject(response);
-
         }
 
         return function (promise) {
@@ -39,8 +38,29 @@ bugzzinga.config(function ($logProvider) {
 
 bugzzinga.filter('fechaFormateada', function($filter) {
     return function (input) {
-        if (input == null) { return ""; }
-        var _date = $filter('date')(new Date(parseInt(input.substr(6))), 'dd/MM/yyyy');
-        return _date.toUpperCase();
+        if(input)
+        {
+            if (!isNaN(Date.parse(input))) {
+                input = $filter('date')(new Date(input), 'dd-MM-yyyy');
+            }
+
+            return input;
+        }
     };
 });
+
+//bugzzinga.directive('mostrarFechaFormateada', function ($filter) {
+//    return {
+//        link: function(scope, element, attrs, ctrl) {
+//            ctrl.$formatters.unshift(function(modelValue) {
+//                return $filter('date')(modelValue, 'dd-MM-yyyy');
+//            });
+
+//            ctrl.$parsers.unshift(function(viewValue) {
+//                return $filter('date')(viewValue, 'dd-MM-yyyy');
+//            });
+//        },
+//        restrict: 'A',
+//        require: 'ngModel'
+//    };
+//});

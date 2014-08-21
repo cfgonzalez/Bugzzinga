@@ -25,17 +25,17 @@ namespace Bugzzinga.Api
             return proyectos;
         }
 
-        public Perfil Put(Perfil perfil)
+        public Proyecto Put(Proyecto proyecto)
         {
-            return perfil;
+            return proyecto;
         }
 
-        public Perfil Post(Perfil perfil)
+        public Proyecto Post(Proyecto proyecto)
         {
-            return perfil;
+            return proyecto;
         }
 
-        public bool Delete(string nombre)
+        public bool Delete(string codigo)
         {
             return true;
         }
