@@ -1,4 +1,4 @@
-﻿bugzzinga.controller('proyectoCtrl', function ($scope, $routeParams, proyectoServicio) {
+﻿bugzzinga.controller('proyectoCtrl', function ($scope, $routeParams, $location, $modal, proyectoServicio) {
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = proyectoServicio;
@@ -31,7 +31,7 @@
 
         return estilo;
     };
-    
+
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server

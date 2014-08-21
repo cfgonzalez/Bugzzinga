@@ -1,5 +1,5 @@
-﻿<script type="text/ng-template" id="Client/App/Vistas/proyecto-modal.html">        
-        <div class="modal-header">
+﻿<script type="text/ng-template" id="Client/App/Vistas/proyecto-modal.html">   
+       <div class="modal-header">
             <h3>Proyecto</h3>
         </div>
         <div class="modal-body">
@@ -38,10 +38,14 @@
                         </p>
                     </div>
                 </div>                                
-            </div>                 
-        </div>       
-         <div class="modal-footer">
-             <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
-             <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
-         </div>
+            </div>                                               
+     </div>                   
+    <div>
+        <a data-toggle="tooltip" title="Items" ng-click="navegar('items',entidadSeleccionada.Codigo)"><img src="../../../Content/Images/item.jpg" width='40' height='40' style="cursor: pointer" /></a>                  
+        <a data-toggle="tooltip" title="Tipos de item" ng-click="navegar('tiposItem',entidadSeleccionada.Codigo)"><img src="../../../Content/Images/itemType.png" width='40' height='40' style="cursor: pointer" /></a>                          
+    </div>   
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>        
+    </div>    
 </script>

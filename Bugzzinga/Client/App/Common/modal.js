@@ -21,7 +21,7 @@ bugzzinga.directive('modalPopup', function () {
 
 //Controller del Modal
 var modalCtrl = function ($scope, $modal) {
-
+    
     $scope.mostrarPopupEditar = function () {
 
         //Filtra la colección de usuarios según el Código elegido en la grilla.
@@ -89,7 +89,7 @@ var modalCtrl = function ($scope, $modal) {
 };
 
 //Sucede antes de abrir el popup
-var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, accionComplementaria) {
+var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSeleccionada, accionComplementaria) {
 
     //Si es un alta. (esto está bastante feo)
     if (entidadSeleccionada == null) {
@@ -107,5 +107,10 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, entidadSeleccionada, 
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
+    };
+    
+    $scope.navegar = function (vista, parametro) {
+        $modalInstance.dismiss('cancel');
+        $location.path('/' + vista + '/' + parametro);
     };
 };
