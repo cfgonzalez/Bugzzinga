@@ -99,7 +99,7 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSel
     //Setea el scope que se bindeará al template
     $scope.entidadSeleccionada = entidadSeleccionada;
     accionComplementaria.setearScope($scope);
-    accionComplementaria.popular();
+    accionComplementaria.popular(entidadSeleccionada);
 
     $scope.ok = function () {
         $modalInstance.close(entidadSeleccionada);

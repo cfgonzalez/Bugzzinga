@@ -62,9 +62,9 @@ function AccionComplementariaModalUsuario($scope, perfilServicio, usuarioServici
         this.scope = scope;
     };
 
-    this.popular = function () {
+    this.popular = function (usuario) {
         this.scope.coleccionPerfiles = this.cargarPerfiles();
-    };
+u    };
 
     this.cargarPerfiles = function () {
         return this.perfilServicio.query();
@@ -90,7 +90,6 @@ function usuario(codigo) {
     this.Apellido = "";
     
     this.Perfil = "";
-    
 }
 
 var UsuarioFactory = {

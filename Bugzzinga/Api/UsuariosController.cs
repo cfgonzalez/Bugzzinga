@@ -16,6 +16,12 @@ namespace Bugzzinga.Api
             return listaUsuarios;
         }
 
+        //Trae los usuarios para un proyecto 
+        public IEnumerable<Usuario> Get(int codigoProyecto)
+        {
+            return TraerListaUsuariosDummy();
+        }
+
         public Usuario Put(Usuario usuario)
         {
             return usuario;

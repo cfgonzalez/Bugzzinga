@@ -1,7 +1,5 @@
 ﻿var usuarioServicio = bugzzinga.factory('usuarioServicio', function ($resource) {
-
-    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' } });
-
+    return $resource('/api/Usuarios/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
 });
 
 var perfilServicio = bugzzinga.factory('perfilServicio', function ($resource) {

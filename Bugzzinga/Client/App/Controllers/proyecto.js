@@ -1,16 +1,11 @@
-﻿bugzzinga.controller('proyectoCtrl', function ($scope, $routeParams, $location, $modal, proyectoServicio) {
+﻿bugzzinga.controller('proyectoCtrl', function ($scope, $routeParams, $location, $modal, proyectoServicio, usuarioServicio) {
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = proyectoServicio;
 
     $scope.coleccion = proyectoServicio.query();
 
-    $.each($scope.coleccion, function (index,value) {
-            value.FechaInicio = $filter('date')(value.FechaInicio, "dd/MM/yyyy");
-        }
-    );
-
-    $scope.accionComplementariaModal = new AccionComplementariaModalProyecto($scope, proyectoServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModalProyecto($scope, proyectoServicio, usuarioServicio);
 
     $scope.seleccionar = function (proyecto) {
 
@@ -64,21 +59,26 @@
 });
 
 //Delegado que se ejecuta luego de la creación del Modal
-function AccionComplementariaModalProyecto($scope, proyectoServicio) {
+function AccionComplementariaModalProyecto($scope, proyectoServicio, usuarioServicio) {
 
     this.proyectoServicio = proyectoServicio;
+    this.usuarioServicio = usuarioServicio;
 
     this.setearScope = function (scope) {
         this.scope = scope;
     };
 
-    //no hay dependencias a popular en el modal
-    this.popular = function () {
-        return null;
+    //Dependencias a popular en el modal
+    this.popular = function (proyecto) {
+        this.scope.coleccionUsuarios = this.cargarUsuarios(proyecto.Codigo);
     };
 
     this.cargarProyectos = function () {
         return this.proyectoServicio.query();
+    };
+    
+    this.cargarUsuarios = function (codigoProyecto) {
+        return this.usuarioServicio.get({ codigoProyecto: codigoProyecto });
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta
