@@ -48,14 +48,6 @@ namespace Bugzzinga.Api
 
             var prioridad = new Prioridad(Nombre<Prioridad>(codigo), Descripcion<Prioridad>(codigo));
 
-            var usuario = new Usuario();
-
-            usuario.Nombre = Nombre<Usuario>(codigo);
-
-            usuario.Apellido = Descripcion<Usuario>(codigo);
-
-            usuario.Codigo = codigo;
-
             var proyecto = new Proyecto();
 
             proyecto.Codigo = codigo.ToString();
@@ -69,6 +61,14 @@ namespace Bugzzinga.Api
             for (int j = 1; j < 4; j++)
             {
                 proyecto.AgregarItem(new Item(Nombre<Item>(codigo), Descripcion<Item>(codigo), tipoItem, prioridad));
+
+                var usuario = new Usuario();
+
+                usuario.Nombre = Nombre<Usuario>(j);
+
+                usuario.Apellido = Descripcion<Usuario>(j);
+
+                usuario.Codigo = j;
 
                 proyecto.AgregarMiembro(usuario);
             }

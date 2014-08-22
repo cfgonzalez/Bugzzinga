@@ -91,7 +91,7 @@ var modalCtrl = function ($scope, $modal) {
 //Sucede antes de abrir el popup
 var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSeleccionada, accionComplementaria) {
 
-    //Si es un alta. (esto está bastante feo)
+   //Si es un alta. (esto está bastante feo)
     if (entidadSeleccionada == null) {
         entidadSeleccionada = accionComplementaria.crearNuevo();
     }
@@ -100,7 +100,7 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSel
     $scope.entidadSeleccionada = entidadSeleccionada;
     accionComplementaria.setearScope($scope);
     accionComplementaria.popular(entidadSeleccionada);
-
+    
     $scope.ok = function () {
         $modalInstance.close(entidadSeleccionada);
     };
@@ -112,5 +112,22 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSel
     $scope.navegar = function (vista, parametro) {
         $modalInstance.dismiss('cancel');
         $location.path('/' + vista + '/' + parametro);
+    };
+    
+    //Método para manejar la selección múltiple de elementos (C) de una colección (B) que son propiedad de otro objeto(A)
+    //entidad: hace referencia al objeto A
+    //entidad[coleccion]: hace referencia  la colección B
+    //hijo: hace referencia a la entidad C, es decir a la entidad que pertenece a la colección que a su vez pertenece al objeto tratado.
+    //filtro: Es la propiedad por la cual se busca al objeto en la colección.
+    $scope.seleccionarListaMultiple = function (entidad, coleccion, hijo, filtro) {
+        if (hijo.selected) {
+            entidad[coleccion].push(hijo);
+        } else {
+            //busca en la colección parent a la entidad hija seleccionada en la lista
+            var resultado = $.grep(entidad[coleccion], function (e) { return e[filtro] == hijo[filtro]; });
+            if (resultado.length > 0) {
+                entidad[coleccion].splice(entidad[coleccion].indexOf(resultado), 1);
+            }
+        }
     };
 };
