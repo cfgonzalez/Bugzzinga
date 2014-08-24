@@ -123,11 +123,8 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSel
         if (hijo.selected) {
             entidad[coleccion].push(hijo);
         } else {
-            //busca en la colección parent a la entidad hija seleccionada en la lista
-            var resultado = $.grep(entidad[coleccion], function (e) { return e[filtro] == hijo[filtro]; });
-            if (resultado.length > 0) {
-                entidad[coleccion].splice(entidad[coleccion].indexOf(resultado), 1);
-            }
+            //busca en la colección parent a la entidad hija seleccionada en la lista y la elimina
+            entidad[coleccion] = $.grep(entidad[coleccion], function (e) { return e[filtro] != hijo[filtro]; });
         }
     };
 };

@@ -8,8 +8,6 @@ using Bugzzinga.Dominio;
 
 namespace Bugzzinga.Api
 {
-    using FizzWare.NBuilder;
-
     public class ProyectosController : ApiController
     {
         // GET api/<controller>
@@ -58,20 +56,20 @@ namespace Bugzzinga.Api
 
             proyecto.FechaInicio = DateTime.Now;
 
-            for (int j = 1; j < 4; j++)
-            {
-                proyecto.AgregarItem(new Item(Nombre<Item>(codigo), Descripcion<Item>(codigo), tipoItem, prioridad));
+            //for (int j = 1; j < 4; j++)
+            //{
+            //    proyecto.AgregarItem(new Item(Nombre<Item>(codigo), Descripcion<Item>(codigo), tipoItem, prioridad));
 
-                var usuario = new Usuario();
+            //    var usuario = new Usuario();
 
-                usuario.Nombre = Nombre<Usuario>(j);
+            //    usuario.Nombre = Nombre<Usuario>(j);
 
-                usuario.Apellido = Descripcion<Usuario>(j);
+            //    usuario.Apellido = Descripcion<Usuario>(j);
 
-                usuario.Codigo = j;
+            //    usuario.Codigo = j;
 
-                proyecto.AgregarMiembro(usuario);
-            }
+            //    proyecto.AgregarMiembro(usuario);
+            //}
 
             return proyecto;
         }

@@ -70,15 +70,17 @@ function AccionComplementariaModalProyecto($scope, proyectoServicio, usuarioServ
 
     //Dependencias a popular en el modal
     this.popular = function (proyecto) {
-        this.scope.coleccionUsuarios = this.cargarUsuarios(proyecto.Codigo);
+        this.scope.coleccionUsuarios = this.cargarUsuarios(proyecto);
     };
 
     this.cargarProyectos = function () {
         return this.proyectoServicio.query();
     };
     
-    this.cargarUsuarios = function (codigoProyecto) {
-        return this.usuarioServicio.get({ codigoProyecto: codigoProyecto });
+    this.cargarUsuarios = function (proyecto) {
+        return this.usuarioServicio.get({ codigoProyecto: proyecto.Codigo }, function (response) {
+            proyecto.Miembros = response;
+        });
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta
