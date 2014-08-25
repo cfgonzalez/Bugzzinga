@@ -170,6 +170,7 @@
   <ItemGroup>
     <Compile Include="Api\PerfilesController.cs" />
     <Compile Include="Api\ProyectosController.cs" />
+    <Compile Include="Api\TiposItemController.cs" />
     <Compile Include="Api\UsuariosController.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

@@ -13,6 +13,20 @@ var proyectoServicio = bugzzinga.factory('proyectoServicio', function ($resource
 });
 
 
+var perfilServicio = bugzzinga.factory('tipoItemServicio', function ($resource) {
+
+    return $resource('/api/TiposItem/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' } });
+});
+
+var perfilServicio = bugzzinga.factory('estadoServicio', function ($resource) {
+
+    return $resource('/api/Estados/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' } });
+});
+
+
+
+
+
 //Chequea las propiedades de tipo Fecha en un objeto, y las formatea correctamente
 //var formateadorServicio = bugzzinga.factory('formateadorServicio', function ($filter) {
 //    return {
