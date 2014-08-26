@@ -9,6 +9,8 @@ namespace Bugzzinga.Dominio
     {
         private IList<Estado> _proximosEstadosValidos = new ArrayList4<Estado>();
 
+        private IList<Estado> _anterioresEstadosValidos = new ArrayList4<Estado>();
+
         public Estado(string nombre, string descripcion)
         {
             this.Nombre = nombre;
@@ -19,5 +21,7 @@ namespace Bugzzinga.Dominio
         public string Descripcion { get; set; }
 
         public IEnumerable<Estado> ProximosEstadosValidos { get { return this._proximosEstadosValidos; } }
+
+        public IEnumerable<Estado> AnterioresEstadosValidos { get { return this._anterioresEstadosValidos; } }
     }
 }

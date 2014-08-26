@@ -18,7 +18,21 @@
                 <div class="span6">
                     <input type='text' ng-model='entidadSeleccionada.Descripcion' />
                 </div>
-            </div>            
+            </div>     
+            <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>                       
+                    <th class="span12 ">Estados disponibles</th>                     
+                </tr>
+            </thead>
+            <tbody>   
+                <tr ng-repeat="estado in coleccionEstados">              
+                   <td class="span12 info">       
+                       <input type="checkbox" ng-checked="true" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'EstadosDisponibles', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}
+                   </td>                    
+                </tr>
+            </tbody>
+            </table>            
         </div>       
          <div class="modal-footer">
              <button class="btn btn-primary" ng-click="ok()">Aceptar</button>

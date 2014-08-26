@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\EstadosController.cs" />
     <Compile Include="Api\PerfilesController.cs" />
     <Compile Include="Api\ProyectosController.cs" />
     <Compile Include="Api\TiposItemController.cs" />

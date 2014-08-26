@@ -6,7 +6,7 @@
 
     $scope.coleccion = tipoItemServicio.query();
 
-    $scope.accionComplementariaModal = new AccionComplementariaModalTipoItem($scope, tipoItemServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModalTipoItem($scope, tipoItemServicio, estadoServicio);
 
     $scope.seleccionar = function (tipoItem) {
 
@@ -61,21 +61,28 @@
 });
 
 //Delegado que se ejecuta luego de la creación del Modal
-function AccionComplementariaModalTipoItem($scope, tipoItemServicio) {
+function AccionComplementariaModalTipoItem($scope, tipoItemServicio, estadoServicio) {
 
-    this.tipoItem = tipoItemServicio;
+    this.tipoItemServicio = tipoItemServicio;
+    this.estadoServicio = estadoServicio;
 
     this.setearScope = function (scope) {
         this.scope = scope;
     };
-
-    //no hay dependencias a popular en el modal
-    this.popular = function () {
-        return null;
-    };
-
+    
     this.cargarTiposItem = function () {
         return this.tipoItemServicio.query();
+    };
+    
+    //dependencias
+    this.popular = function (tipoItem) {
+        this.scope.coleccionEstados = this.cargarEstados(tipoItem);
+    };
+    
+    this.cargarEstados = function (tipoItem) {
+        return this.estadoServicio.get({ tipoItemNombre: tipoItem.Nombre }, function (response) {
+            tipoItem.EstadosDisponibles = response;
+        });
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta

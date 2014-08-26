@@ -45,17 +45,18 @@
     <AssociationLine Name="ProximosEstadosValidos" Type="Bugzzinga.Dominio.Estado" ManuallyRouted="true">
       <Path>
         <Point X="15.044" Y="6.007" />
-        <Point X="15.044" Y="6.382" />
-        <Point X="15.722" Y="6.382" />
+        <Point X="15.044" Y="6.257" />
+        <Point X="15.722" Y="6.257" />
         <Point X="15.722" Y="6.007" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAgAABAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAEAgAQBAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Estado.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="ProximosEstadosValidos" />
+      <Property Name="AnterioresEstadosValidos" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Bugzzinga.Dominio.Item">
