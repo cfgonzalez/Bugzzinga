@@ -40,7 +40,7 @@
     $scope.eliminar = function (tipoItem) {
 
         //Mensaje de confirmación
-        $('#lnkPerfil' + tipoItem.Nombre).confirmation({
+        $('#lnkTipoItem' + tipoItem.Nombre).confirmation({
             animation: true,
             singleton: true,
             title: '¿Confirma eliminación?',
@@ -82,7 +82,7 @@ function AccionComplementariaModalTipoItem($scope, tipoItemServicio) {
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que valide el nombre del perfil en el server
-        var nombre = "Perfil" + Math.floor(Math.random() * 3000) + 1;
+        var nombre = "TipoItem" + Math.floor(Math.random() * 3000) + 1;
 
         return TipoItemFactory.Nuevo(nombre, "");;
     };

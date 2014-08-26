@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="perfil in coleccion" ng-click="seleccionarPerfil(perfil)" data-ng-class="estiloFilaPerfil(perfil)">
+                <tr ng-repeat="perfil in coleccion" ng-click="seleccionar(perfil)" data-ng-class="estiloFila(perfil)">
                     <td class="span4 info">{{perfil.Nombre}}</td>
                     <td class="span4 info">{{perfil.Descripcion}}</td>
                     <td class="span4 info">

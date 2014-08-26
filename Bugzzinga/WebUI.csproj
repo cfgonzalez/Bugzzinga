@@ -203,6 +203,7 @@
     <Content Include="Client\App\Vistas\perfiles.html" />
     <Content Include="Client\App\Vistas\proyecto-modal.html" />
     <Content Include="Client\App\Vistas\proyectos.html" />
+    <Content Include="Client\App\Vistas\tipoItem-modal.html" />
     <Content Include="Client\App\Vistas\tiposItem.html" />
     <Content Include="Client\App\Vistas\usuario-modal.html" />
     <Content Include="Client\App\Vistas\usuarios.html" />
