@@ -78,8 +78,37 @@ function AccionComplementariaModalProyecto($scope, proyectoServicio, usuarioServ
     };
     
     this.cargarUsuarios = function (proyecto) {
-        return this.usuarioServicio.get({ codigoProyecto: proyecto.Codigo }, function (response) {
-            proyecto.Miembros = response;
+
+        var self = this;
+
+        //Trae todos los usuarios
+        var todosUsuarios = usuarioServicio.query({}, function (todos) {
+            
+            //Setea a todos en selected=false por default
+            $.each(todos, function (index, value) {
+                todos[index].selected = false;
+            });
+
+            //Trae los miembros del proyecto
+            var miembros = self.usuarioServicio.get({ codigoProyecto: proyecto.Codigo }, function (response) {
+
+                proyecto.Miembros = response;
+               
+                //Setea a todos en selected=false por default
+                $.each(proyecto.Miembros, function (index, value) {
+                    proyecto.Miembros[index].selected = false;
+                });
+
+                _.map(proyecto.Miembros, function (obj) {
+                     _.extend(_.clone(todos), obj);
+                });
+
+                //Marca a los usuarios que son miembros del proyecto como selected=true
+                for (var seleccionado in proyecto.Miembros) {
+                    var esMiembro = todos.filter(function (o) { return o.Codigo == proyecto.Miembros[seleccionado].Codigo; });
+                    esMiembro.selected = true;
+                }
+            });
         });
     };
 

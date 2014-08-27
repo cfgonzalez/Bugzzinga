@@ -254,6 +254,7 @@
     <Content Include="Client\ThirdParty\jquery-ui-1.10.3.custom.js" />
     <Content Include="Client\ThirdParty\jquery.blockUI.js" />
     <Content Include="Client\ThirdParty\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="Client\ThirdParty\underscore-1.7.0.js" />
     <Content Include="Client\ThirdParty\URI.d.ts" />
     <Content Include="Client\ThirdParty\URI.js" />
     <Content Include="Client\ThirdParty\URI.min.js" />

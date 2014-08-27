@@ -19,7 +19,12 @@ namespace Bugzzinga.Api
         //Trae los usuarios para un proyecto 
         public IEnumerable<Usuario> Get(int codigoProyecto)
         {
-            return TraerListaUsuariosDummy();
+            //Devuelve una sublista dummy del total de usuarios
+            var lista = TraerListaUsuariosDummy();
+
+            lista.RemoveAt(1);
+
+            return lista;
         }
 
         public Usuario Put(Usuario usuario)
@@ -41,7 +46,7 @@ namespace Bugzzinga.Api
         {
             var listaUsuarios = new List<Usuario>();
 
-            for (var i = 0; i < 2; i++)
+            for (var i = 0; i < 3; i++)
             {
                 var usuario = new Usuario();
 

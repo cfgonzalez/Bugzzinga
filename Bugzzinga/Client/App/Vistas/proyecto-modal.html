@@ -48,7 +48,7 @@
              <tbody>   
                  <tr ng-repeat="usuario in coleccionUsuarios">              
                     <td class="span12 info">       
-                        <input type="checkbox" ng-checked="true" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'Miembros', usuario, 'Codigo')" ng-model="usuario.selected" />{{usuario.Codigo}}<span>-{{usuario.Nombre}}</span><span>&nbsp{{usuario.Apellido}}</span>                                         
+                        <input type="checkbox" ng-checked="usuario.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'Miembros', usuario, 'Codigo')" ng-model="usuario.selected" />{{usuario.Codigo}}<span>-{{usuario.Nombre}}</span><span>&nbsp{{usuario.Apellido}}</span>                                         
                     </td>                    
                  </tr>
              </tbody>
