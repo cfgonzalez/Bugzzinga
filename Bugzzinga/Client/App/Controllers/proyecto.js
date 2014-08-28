@@ -27,26 +27,16 @@
         return estilo;
     };
 
-    this.crearNuevo = function () {
-
-        //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server
-        var codigo = Math.floor(Math.random() * 3000) + 1;
-
-        return ProyectoFactory.Nuevo(proyecto);
-    };
-
     $scope.eliminar = function (proyecto) {
-
-        //Mensaje de confirmación
+        
         $('#lnkProyecto' + proyecto.Codigo).confirmation({
             animation: true,
             singleton: true,
             title: '¿Confirma eliminación?',
             onConfirm: function () {
-                ////Invoca al servicio
+                
                 proyectoServicio.remove({ codigo: proyecto.Codigo }, function () {
-
-                    //Si no hubo problemas, elimina el objeto del array
+                    
                     $scope.coleccion = $scope.coleccion.filter(function (e) {
                         return e.Nombre != proyecto.Codigo;
                     });
@@ -81,35 +71,44 @@ function AccionComplementariaModalProyecto($scope, proyectoServicio, usuarioServ
 
         var self = this;
 
-        //Trae todos los usuarios
-        var todosUsuarios = usuarioServicio.query({}, function (todos) {
-            
+        //Trae la lista completa de usuarios
+        var listaCompleta = usuarioServicio.query({}, function (todos) {
+
+            proyecto.Miembros = [];
+
+            //todos => todos los usuarios
+
             //Setea a todos en selected=false por default
             $.each(todos, function (index, value) {
                 todos[index].selected = false;
             });
 
-            //Trae los miembros del proyecto
-            var miembros = self.usuarioServicio.get({ codigoProyecto: proyecto.Codigo }, function (response) {
+            //Si está editando
+            if (self.scope.entidadSeleccionada.Nombre != "") {
 
-                proyecto.Miembros = response;
-               
-                //Setea a todos en selected=false por default
-                $.each(proyecto.Miembros, function (index, value) {
-                    proyecto.Miembros[index].selected = false;
+                //Trae los miembros del proyecto, los mergea con el total de usuarios y los marca como selected=true
+                return self.usuarioServicio.get({ codigoProyecto: proyecto.Codigo }, function(miembros) {
+                    
+                    proyecto.Miembros = miembros;
+
+                    //Copia auxiliar de miembros para que no se pierda en el merge
+                    var auxMiembros = miembros.slice();
+                    
+                    $.each(proyecto.Miembros, function(index, value) {
+                        proyecto.Miembros[index].selected = true;
+                    });
+                    
+                    mergearColeccionPorPropiedad(proyecto.Miembros, todos, 'Codigo');
+
+                    //restaura los miembros originales luego del merge
+                    proyecto.Miembros = auxMiembros;
+
+                    return todos;
                 });
-
-                _.map(proyecto.Miembros, function (obj) {
-                     _.extend(_.clone(todos), obj);
-                });
-
-                //Marca a los usuarios que son miembros del proyecto como selected=true
-                for (var seleccionado in proyecto.Miembros) {
-                    var esMiembro = todos.filter(function (o) { return o.Codigo == proyecto.Miembros[seleccionado].Codigo; });
-                    esMiembro.selected = true;
-                }
-            });
+            }
         });
+
+        return listaCompleta;
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta

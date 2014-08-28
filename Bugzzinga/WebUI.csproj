@@ -191,6 +191,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\App\Common\common.js" />
     <Content Include="Client\App\Common\modal.js" />
     <Content Include="Client\App\Common\servicios.js" />
     <Content Include="Client\App\Config\appconfig.js" />
