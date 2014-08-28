@@ -49,7 +49,7 @@
          <tbody>   
              <tr ng-repeat="perfil in coleccionPerfiles">              
                 <td class="span3 info">                 
-                    <input type="radio" ng-change="entidadSeleccionada.Perfil = perfil" ng-model="entidadSeleccionada.Perfil" ng-value="perfil" value="{{perfil.Nombre}}"></input>           
+                      <input type="radio" ng-model="entidadSeleccionada.Perfil.Nombre" value="{{perfil.Nombre}}"></input>   
                 </td>
                  <td class="span3 info">{{perfil.Nombre}}</td>
                  <td class="span3 info">{{perfil.Descripcion}}</td>

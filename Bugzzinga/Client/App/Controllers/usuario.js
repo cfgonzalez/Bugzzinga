@@ -63,11 +63,11 @@ function AccionComplementariaModalUsuario($scope, perfilServicio, usuarioServici
     };
 
     this.popular = function (usuario) {
-        this.scope.coleccionPerfiles = this.cargarPerfiles();
-u    };
+        this.scope.coleccionPerfiles = this.cargarPerfiles(usuario);
+    };
 
     this.cargarPerfiles = function () {
-        return this.perfilServicio.query();
+        return perfilServicio.query();
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta
