@@ -11,12 +11,22 @@ namespace Bugzzinga.Api
 
     public class EstadosController : ApiController
     {
-        //Trae los estados para un tipo de item
-        public IEnumerable<Estado> Get(string tipoItemNombre)
+        public IEnumerable<Estado> Get()
         {
             return TraerListaEstadosDummy();
         }
 
+        //Trae los estados para un tipo de item
+        public IEnumerable<Estado> Get(string nombreTipoItem)
+        {
+            var lista = TraerListaEstadosDummy().ToList();
+
+            lista.RemoveAt(1);
+            lista.RemoveAt(2);
+
+            return lista;
+        }
+       
         private IEnumerable<Estado> TraerListaEstadosDummy()
         {
             var estados = new List<Estado>();
@@ -28,5 +38,21 @@ namespace Bugzzinga.Api
 
             return estados;
         }
+
+        public Estado Put(Estado estado)
+        {
+            return estado;
+        }
+
+        public Estado Post(Estado estado)
+        {
+            return estado;
+        }
+
+        public bool Delete(string nombre)
+        {
+            return true;
+        }
+
     }
 }

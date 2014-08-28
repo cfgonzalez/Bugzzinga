@@ -38,7 +38,7 @@
                 proyectoServicio.remove({ codigo: proyecto.Codigo }, function () {
                     
                     $scope.coleccion = $scope.coleccion.filter(function (e) {
-                        return e.Nombre != proyecto.Codigo;
+                        return e.Codigo != proyecto.Codigo;
                     });
                 });
 

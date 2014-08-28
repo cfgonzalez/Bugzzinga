@@ -80,9 +80,47 @@ function AccionComplementariaModalTipoItem($scope, tipoItemServicio, estadoServi
     };
     
     this.cargarEstados = function (tipoItem) {
-        return this.estadoServicio.get({ tipoItemNombre: tipoItem.Nombre }, function (response) {
-            tipoItem.EstadosDisponibles = response;
+        
+        var self = this;
+
+        //Trae la lista completa de uestados
+        var listaCompleta = this.estadoServicio.query({}, function (todos) {
+
+            tipoItem.EstadosDisponibles = [];
+
+            //todos => todos los estados
+
+            //Setea a todos en selected=false por default
+            $.each(todos, function (index, value) {
+                todos[index].selected = false;
+            });
+
+            //Si está editando
+            if (self.scope.entidadSeleccionada.Descripcion != "") {
+
+                //Trae los estados del tipo de item en curso, los mergea con el total y los marca como selected=true
+                return self.estadoServicio.get({ nombreTipoItem: tipoItem.Nombre }, function (estados) {
+
+                    tipoItem.EstadosDisponibles = estados;
+
+                    //Copia auxiliar para que no se pierda en el merge
+                    var auxEstados = estados.slice();
+
+                    $.each(tipoItem.EstadosDisponibles, function (index, value) {
+                        tipoItem.EstadosDisponibles[index].selected = true;
+                    });
+
+                    mergearColeccionPorPropiedad(tipoItem.EstadosDisponibles, todos, 'Nombre');
+
+                    //restaura los miembros originales luego del merge
+                    tipoItem.EstadosDisponibles = auxEstados;
+
+                    return todos;
+                });
+            }
         });
+
+        return listaCompleta;
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta
