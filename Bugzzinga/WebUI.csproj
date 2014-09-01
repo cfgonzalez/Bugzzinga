@@ -194,11 +194,14 @@
     <Content Include="Client\App\Common\modal.js" />
     <Content Include="Client\App\Common\servicios.js" />
     <Content Include="Client\App\Config\appconfig.js" />
+    <Content Include="Client\App\Controllers\estado.js" />
     <Content Include="Client\App\Controllers\item.js" />
     <Content Include="Client\App\Controllers\perfil.js" />
     <Content Include="Client\App\Controllers\proyecto.js" />
     <Content Include="Client\App\Controllers\tipoItem.js" />
     <Content Include="Client\App\Controllers\usuario.js" />
+    <Content Include="Client\App\Vistas\estado-modal.html" />
+    <Content Include="Client\App\Vistas\estados.html" />
     <Content Include="Client\App\Vistas\items.html" />
     <Content Include="Client\App\Vistas\perfil-modal.html" />
     <Content Include="Client\App\Vistas\perfiles.html" />
