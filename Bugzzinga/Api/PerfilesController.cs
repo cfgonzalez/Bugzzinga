@@ -20,6 +20,12 @@ namespace Bugzzinga.Api
             return new List<Perfil>() { p1, p2 };
         }
 
+        //Trae el perfil para un usuario
+        public Perfil Get(int codigoUsuario)
+        {
+            return new Perfil() { Nombre = "p2", Descripcion = "Perfil2" }; ;
+        }
+
         public Perfil Put(Perfil perfil)
         {
             return perfil;

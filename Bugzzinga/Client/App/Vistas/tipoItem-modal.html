@@ -5,7 +5,7 @@
         <div class="modal-body">
             <div class="row-fluid">
                 <div class="span6">
-                    Código:
+                    Nombre:
                 </div>
                 <div class="span6">        
                     {{ entidadSeleccionada.Nombre }}
@@ -13,7 +13,7 @@
             </div>
             <div class="row-fluid">
                 <div class="span6">
-                    Nombre:
+                    Descripción:
                 </div>
                 <div class="span6">
                     <input type='text' ng-model='entidadSeleccionada.Descripcion' />
@@ -28,7 +28,7 @@
             <tbody>   
                 <tr ng-repeat="estado in coleccionEstados">              
                    <td class="span12 info">       
-                       <input type="checkbox" ng-checked="true" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'EstadosDisponibles', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}
+                       <input type="checkbox" ng-checked="estado.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'EstadosDisponibles', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}                      
                    </td>                    
                 </tr>
             </tbody>

@@ -23,7 +23,7 @@ bugzzinga.directive('modalPopup', function () {
 var modalCtrl = function ($scope, $modal) {
     
     $scope.mostrarPopupEditar = function () {
-
+      
         //Filtra la colección de usuarios según el Código elegido en la grilla.
         var entidadesSeleccionadas = $.grep($scope.coleccion, function(entidad) {
             return eval('entidad.' + $scope.filterCriteria) == $scope.idEntidadSeleccionada;
@@ -36,7 +36,6 @@ var modalCtrl = function ($scope, $modal) {
 
                 //Sucede antes de abrir el popup. Devuelve el objeto que se inyecta en ModalInstanciaCtrl
                 entidadSeleccionada: function () {
-                    //formatea todas las propiedades Fecha de la entidad
                     return entidadesSeleccionadas[0];
                 },
 
@@ -120,10 +119,11 @@ var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSel
     //hijo: hace referencia a la entidad C, es decir a la entidad que pertenece a la colección que a su vez pertenece al objeto tratado.
     //filtro: Es la propiedad por la cual se busca al objeto en la colección.
     $scope.seleccionarListaMultiple = function (entidad, coleccion, hijo, filtro) {
+        
         if (hijo.selected) {
             entidad[coleccion].push(hijo);
         } else {
-            //busca en la colección parent a la entidad hija seleccionada en la lista y la elimina
+            //La elimina de la colección
             entidad[coleccion] = $.grep(entidad[coleccion], function (e) { return e[filtro] != hijo[filtro]; });
         }
     };
