@@ -71,43 +71,48 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
         this.scope.proximosEstadosValidos = this.cargarProximosEstadosValidos(estado);
     };
 
-    //this.cargarProyectos = function () {
-    //    return this.proyectoServicio.query();
-    //};
-
     this.cargarProximosEstadosValidos = function (estado) {
 
         var self = this;
 
-        //Trae todos los estados
-        return estadoServicio.query({}, function (todos) {
+        //Trae la lista completa de usuarios
+        var listaCompleta = estadoServicio.query({}, function (todos) {
+
+            estado.ProximosEstadosValidos = [];
+
+            //todos => todos los estados
 
             //Setea a todos en selected=false por default
             $.each(todos, function (index, value) {
                 todos[index].selected = false;
             });
 
-            //Trae los miembros del proyecto
-            var proximosEstadosValidos = self.estadoServicio.get({ nombre: estado.Nombre }, function (response) {
+            //Si está editando
+            if (self.scope.entidadSeleccionada.Descripcion != "") {
 
-                estado.ProximosEstadosValidos = response;
+                //Trae los miembros del proyecto, los mergea con el total de usuarios y los marca como selected=true
+                return self.estadoServicio.get({ nombre: estado.Nombre }, function (estados) {
 
-                //Setea a todos en selected=false por default
-                $.each(estado.ProximosEstadosValidos, function (index, value) {
-                    estado.ProximosEstadosValidos[index].selected = false;
+                    estado.ProximosEstadosValidos = estados;
+
+                    //Copia auxiliar de miembros para que no se pierda en el merge
+                    var auxProximosEstadosValidos = estados.slice();
+
+                    $.each(estado.ProximosEstadosValidos, function (index, value) {
+                        estado.ProximosEstadosValidos[index].selected = true;
+                    });
+
+                    mergearColeccionPorPropiedad(estado.ProximosEstadosValidos, todos, 'Nombre');
+                    
+                    //restaura los miembros originales luego del merge
+                    estado.ProximosEstadosValidos = auxProximosEstadosValidos;
+
+                    return todos;
                 });
-
-                _.map(estado.ProximosEstadosValidos, function (obj) {
-                    _.extend(_.clone(todos), obj);
-                });
-
-                //Marca a los estados previamente elegidos como selected=true
-                for (var seleccionado in estado.ProximosEstadosValidos) {
-                    var elegido = todos.filter(function (o) { return o.Nombre == estado.ProximosEstadosValidos[seleccionado].Nombre; });
-                    elegido.selected = true;
-                }
-            });
+            }
         });
+
+        return listaCompleta;
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta
