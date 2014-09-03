@@ -1,6 +1,6 @@
 ﻿<script type="text/ng-template" id="Client/App/Vistas/estado-modal.html">   
        <div class="modal-header">
-            <h3>Proyecto</h3>
+            <h3>Estado</h3>
         </div>
         <div class="modal-body">
             <div class="row-fluid">
@@ -16,22 +16,45 @@
                     Descripción:
                 </div>
                 <div class="span6">        
-                    {{ entidadSeleccionada.Descripcion }}
+                    <input type='text' ng-model='entidadSeleccionada.Descripcion' />                  
                 </div>
             </div>            
           <table class="table table-hover table-bordered table-striped">
-             <thead>
-                 <tr>                       
-                     <th class="span12 ">Próximos estados válidos</th>                     
-                 </tr>
-             </thead>
-             <tbody>   
-                 <tr ng-repeat="estado in proximosEstadosValidos">              
-                    <td class="span12 info">       
-                        <input type="checkbox" ng-checked="estado.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'ProximosEstadosValidos', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}
-                    </td>                    
-                 </tr>
-             </tbody>
+            <tr>
+                <td class="span6 info">
+                    <table class="table table-hover table-bordered table-striped">
+                         <thead>
+                             <tr>                       
+                                 <th class="span12">Estados válidos anteriores</th>                                                     
+                             </tr>
+                         </thead>
+                         <tbody>   
+                             <tr ng-repeat="estado in anterioresEstadosValidos">              
+                                <td class="span12 info">       
+                                    <input type="checkbox" ng-checked="estado.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'AnterioresEstadosValidos', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}
+                                </td>                                                 
+                             </tr>
+                         </tbody>
+                    </table>    
+                </td>
+                 <td class="span6 info">
+                    <table class="table table-hover table-bordered table-striped">
+                         <thead>
+                             <tr>                       
+                                 <th class="span12">Próximos estados válidos</th>                                                     
+                             </tr>
+                         </thead>
+                         <tbody>   
+                             <tr ng-repeat="estado in proximosEstadosValidos">              
+                                <td class="span12 info">       
+                                    <input type="checkbox" ng-checked="estado.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'ProximosEstadosValidos', estado, 'Nombre')" ng-model="estado.selected" />{{estado.Nombre}}
+                                </td>                                                 
+                             </tr>
+                         </tbody>
+                    </table>    
+                </td>
+            </tr>           
+            </tbody>
           </table>         
      </div>                      
     <div class="modal-footer">

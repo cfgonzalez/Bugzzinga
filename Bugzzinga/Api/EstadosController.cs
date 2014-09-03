@@ -16,14 +16,23 @@ namespace Bugzzinga.Api
             return TraerListaEstadosDummy();
         }
 
-        //Trae los próximos estados válidos para un estado
-        public IEnumerable<Estado> Get(string nombre)
+        //Trae los anteriores y próximos estados válidos para un estado
+        public IEnumerable<Estado> Get(string nombreEstado, string tipo)
         {
-            //Devuelve una sublista dummy del total de estados disponibles
-            var lista = TraerListaEstadosDummy();
+           var lista = TraerListaEstadosDummy();
 
-            lista.RemoveAt(1);
-            lista.RemoveAt(2);
+            //Esto está medio feo. ¿Vale la pena hacer otro controller para traer diferentes colecciones de la misma entidad?
+            if (tipo.Contains("anteriores"))
+            {
+                //Una lista dummy de anteriores estados validos
+                lista.RemoveAt(1);
+                lista.RemoveAt(2);
+            }
+            else if (tipo.Contains("proximos"))
+            {
+                //Una lista dummy de proximos estados validos
+                lista.RemoveAt(0);
+            }
 
             return lista;
         }

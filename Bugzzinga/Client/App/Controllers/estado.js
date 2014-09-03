@@ -29,9 +29,9 @@
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server
-        var codigo = Math.floor(Math.random() * 3000) + 1;
+        var nombre = "Estado" +  Math.floor(Math.random() * 3000) + 1;
 
-        return EstadoFactory.Nuevo(estado);
+        return EstadoFactory.Nuevo(nombre);
     };
 
     $scope.eliminar = function (estado) {
@@ -68,17 +68,18 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
 
     //Dependencias a popular en el modal
     this.popular = function (estado) {
-        this.scope.proximosEstadosValidos = this.cargarProximosEstadosValidos(estado);
+        this.scope.proximosEstadosValidos = this.cargarEstadosValidos(estado, 'proximos', 'ProximosEstadosValidos');
+        this.scope.anterioresEstadosValidos = this.cargarEstadosValidos(estado, 'anteriores', 'AnterioresEstadosValidos');
     };
 
-    this.cargarProximosEstadosValidos = function (estado) {
+    this.cargarEstadosValidos = function (estado, tipo, coleccionScope) {
 
         var self = this;
 
-        //Trae la lista completa de usuarios
+        //Trae la lista completa de estados
         var listaCompleta = estadoServicio.query({}, function (todos) {
 
-            estado.ProximosEstadosValidos = [];
+            estado[coleccionScope] = [];
 
             //todos => todos los estados
 
@@ -91,21 +92,21 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
             if (self.scope.entidadSeleccionada.Descripcion != "") {
 
                 //Trae los miembros del proyecto, los mergea con el total de usuarios y los marca como selected=true
-                return self.estadoServicio.get({ nombre: estado.Nombre }, function (estados) {
+                return self.estadoServicio.get({ nombreEstado: estado.Nombre, tipo: tipo }, function (estados) {
 
-                    estado.ProximosEstadosValidos = estados;
+                    estado[coleccionScope] = estados;
 
                     //Copia auxiliar de miembros para que no se pierda en el merge
-                    var auxProximosEstadosValidos = estados.slice();
+                    var auxEstadosValidos = estados.slice();
 
-                    $.each(estado.ProximosEstadosValidos, function (index, value) {
-                        estado.ProximosEstadosValidos[index].selected = true;
+                    $.each(estado[coleccionScope], function (index, value) {
+                        estado[coleccionScope][index].selected = true;
                     });
 
-                    mergearColeccionPorPropiedad(estado.ProximosEstadosValidos, todos, 'Nombre');
+                    mergearColeccionPorPropiedad(estado[coleccionScope], todos, 'Nombre');
                     
                     //restaura los miembros originales luego del merge
-                    estado.ProximosEstadosValidos = auxProximosEstadosValidos;
+                    estado[coleccionScope] = auxEstadosValidos;
 
                     return todos;
                 });
@@ -114,7 +115,7 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
 
         return listaCompleta;
     };
-
+    
     //Crea una nueva instancia de Usuario cuando es un alta
     this.crearNuevo = function () {
 

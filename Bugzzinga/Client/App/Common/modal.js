@@ -24,9 +24,9 @@ var modalCtrl = function ($scope, $modal) {
     
     $scope.mostrarPopupEditar = function () {
       
-        //Filtra la colección de usuarios según el Código elegido en la grilla.
+        //Filtra la colección según el criterio de filtro.
         var entidadesSeleccionadas = $.grep($scope.coleccion, function(entidad) {
-            return eval('entidad.' + $scope.filterCriteria) == $scope.idEntidadSeleccionada;
+            return entidad[$scope.filterCriteria] == $scope.idEntidadSeleccionada;
         });
 
         var modalInstance = $modal.open({
@@ -50,8 +50,8 @@ var modalCtrl = function ($scope, $modal) {
             $scope.servicioPersistencia.update(entidad, function (response) {
 
                 //Actualiza la referencia de la entidad modificada, para que se actualice el binding y se refresque la grilla
-                var entidadesModificadas = $.grep($scope.coleccion, function(entidad) {
-                     return eval('entidad.' + $scope.filterCriteria) == eval('response.' + $scope.filterCriteria);
+                var entidadesModificadas = $.grep($scope.coleccion, function(entidadModificada) {
+                    return entidadModificada[$scope.filterCriteria] == response[$scope.filterCriteria];
                 });
                 entidadesModificadas[0] = response;
             });
