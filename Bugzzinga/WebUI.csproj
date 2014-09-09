@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\EstadosController.cs" />
+    <Compile Include="Api\ItemsController.cs" />
     <Compile Include="Api\PerfilesController.cs" />
     <Compile Include="Api\ProyectosController.cs" />
     <Compile Include="Api\TiposItemController.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Client\App\Controllers\usuario.js" />
     <Content Include="Client\App\Vistas\estado-modal.html" />
     <Content Include="Client\App\Vistas\estados.html" />
+    <Content Include="Client\App\Vistas\item-modal.html" />
     <Content Include="Client\App\Vistas\items.html" />
     <Content Include="Client\App\Vistas\perfil-modal.html" />
     <Content Include="Client\App\Vistas\perfiles.html" />

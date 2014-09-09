@@ -27,7 +27,7 @@ namespace Bugzzinga.Dominio
         }
 
 
-        public int Codigo { get; internal set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 

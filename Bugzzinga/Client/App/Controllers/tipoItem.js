@@ -1,4 +1,5 @@
 ﻿bugzzinga.controller('tipoItemCtrl', function ($scope, $routeParams,tipoItemServicio, estadoServicio) {
+
     $scope.CodigoProyecto = $routeParams.Codigo;
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal

@@ -18,6 +18,11 @@ var tipoItemServicio = bugzzinga.factory('tipoItemServicio', function ($resource
     return $resource('/api/TiposItem/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
 });
 
+var itemServicio = bugzzinga.factory('itemServicio', function ($resource) {
+
+    return $resource('/api/Items/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
+});
+
 var estadoServicio = bugzzinga.factory('estadoServicio', function ($resource) {
 
     return $resource('/api/Estados/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
