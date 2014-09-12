@@ -171,6 +171,7 @@
     <Compile Include="Api\EstadosController.cs" />
     <Compile Include="Api\ItemsController.cs" />
     <Compile Include="Api\PerfilesController.cs" />
+    <Compile Include="Api\PrioridadesController.cs" />
     <Compile Include="Api\ProyectosController.cs" />
     <Compile Include="Api\TiposItemController.cs" />
     <Compile Include="Api\UsuariosController.cs" />

@@ -34,6 +34,6 @@ namespace Bugzzinga.Dominio
         public Prioridad Prioridad { get; internal set; }
         public IEnumerable<RegistroLog> RegistrosLog { get { return this._registrosLog; } }
         public TipoItem Tipo { get; internal set; }
-        public Usuario Responsable { get; internal set; }
+        public Usuario Responsable { get; set; }
     }
 }

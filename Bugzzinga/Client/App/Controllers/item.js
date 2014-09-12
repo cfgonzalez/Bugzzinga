@@ -1,5 +1,5 @@
 ﻿
- bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio) {
+bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
 
     $scope.CodigoProyecto = $routeParams.Codigo;
 
@@ -10,7 +10,7 @@
 
     $scope.coleccion = itemServicio.get({ codigoProyecto: $scope.CodigoProyecto });
 
-    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio);
 
     $scope.seleccionar = function (item) {
 
@@ -56,7 +56,7 @@
 });
 
 //Delegado que se ejecuta luego de la creación del Modal
- function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio) {
+ function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
 
      this.itemServicio = itemServicio;
      this.tipoItemServicio = tipoItemServicio;
@@ -67,10 +67,20 @@
 
     this.popular = function (item) {
         this.scope.coleccionTiposItem = this.cargarTiposItem(item);
+        this.scope.coleccionPrioridades = this.cargarPrioridades(item);
+        this.scope.coleccionUsuarios = this.cargarUsuarios(item);
     };
 
     this.cargarTiposItem = function (item) {
         return tipoItemServicio.query();
+    };
+     
+    this.cargarPrioridades = function (item) {
+        return prioridadServicio.query();
+    };
+     
+    this.cargarUsuarios = function (item) {
+        return usuarioServicio.query();
     };
 
     //Crea una nueva instancia de Usuario cuando es un alta

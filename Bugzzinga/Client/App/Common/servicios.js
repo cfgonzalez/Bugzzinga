@@ -28,6 +28,12 @@ var estadoServicio = bugzzinga.factory('estadoServicio', function ($resource) {
     return $resource('/api/Estados/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
 });
 
+var prioridadServicio = bugzzinga.factory('prioridadServicio', function ($resource) {
+
+    return $resource('/api/Prioridades/:id', { id: '@id' }, { update: { method: 'PUT' }, add: { method: 'POST' }, remove: { method: 'DELETE' }, get: { method: 'GET', isArray: true } });
+});
+
+
 
 //Chequea las propiedades de tipo Fecha en un objeto, y las formatea correctamente
 //var formateadorServicio = bugzzinga.factory('formateadorServicio', function ($filter) {
