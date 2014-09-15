@@ -58,9 +58,6 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
 //Delegado que se ejecuta luego de la creación del Modal
  function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
 
-     this.itemServicio = itemServicio;
-     this.tipoItemServicio = tipoItemServicio;
-
     this.setearScope = function (scope) {
         this.scope = scope;
     };
@@ -102,7 +99,11 @@ function item(codigo) {
 
     this.Apellido = "";
 
-    this.TipoItem = "";
+    this.Tipo = null;
+    
+    this.Responsable = null;
+    
+    this.Prioridad = null;
 }
 
 var ItemFactory = {

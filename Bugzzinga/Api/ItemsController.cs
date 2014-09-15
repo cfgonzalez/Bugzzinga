@@ -50,5 +50,19 @@ namespace Bugzzinga.Api
 
             return listaItems;
         }
+        public Item Put(Item item)
+        {
+            return item;
+        }
+
+        public Item Post(Item item)
+        {
+            return item;
+        }
+
+        public bool Delete(int codigo)
+        {
+            return true;
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace Bugzzinga.Api
         {
             var tipoItem = new TipoItem(Nombre<TipoItem>(codigo), Descripcion<TipoItem>(codigo));
 
-            var prioridad = new Prioridad(Nombre<Prioridad>(codigo), Descripcion<Prioridad>(codigo));
+            //var prioridad = new Prioridad(Nombre<Prioridad>(codigo), Descripcion<Prioridad>(codigo));
 
             var proyecto = new Proyecto();
 
