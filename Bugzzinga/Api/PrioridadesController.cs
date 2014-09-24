@@ -19,6 +19,19 @@ namespace Bugzzinga.Api
             return lista;
         }
 
+        //Trae las prioridades de una plantilla de proyecto
+        public IEnumerable<Prioridad> Get(string nombrePlantillaProyecto)
+        {
+            //Devuelve una sublista dummy del total de usuarios
+            var lista = TraerListaPrioridadesDummy();
+
+            lista.RemoveAt(1);
+            lista.RemoveAt(2); 
+            lista.RemoveAt(3);
+
+            return lista;
+        }
+
         private List<Prioridad> TraerListaPrioridadesDummy()
         {
             var listaPrioridades = new List<Prioridad>();

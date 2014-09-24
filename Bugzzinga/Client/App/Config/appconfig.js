@@ -31,6 +31,7 @@ bugzzinga.config(function ($routeProvider) {
         when('/proyectos', { controller: 'proyectoCtrl', templateUrl: 'Client/App/Vistas/proyectos.html' }).
         when('/items/:Codigo', { controller: 'itemCtrl', templateUrl: 'Client/App/Vistas/items.html' }).
         when('/tiposItem/:Codigo', { controller: 'tipoItemCtrl', templateUrl: 'Client/App/Vistas/tiposItem.html' }).
+        when('/plantillaProyecto', { controller: 'plantillaProyectoCtrl', templateUrl: 'Client/App/Vistas/plantillasProyecto.html' }).
         when('/estados', { controller: 'estadoCtrl', templateUrl: 'Client/App/Vistas/estados.html' }).
         otherwise({ redirectTo: '/' });
 });

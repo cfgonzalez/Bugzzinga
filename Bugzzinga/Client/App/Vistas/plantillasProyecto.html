@@ -1,0 +1,27 @@
+﻿<div ng-controller="plantillaProyectoCtrl">
+    <div class="span12">
+        <h2>Administración de Plantillas</h2>
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="span6">Nombre</th>
+                    <th class="span6"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="plantillaProyecto in coleccion" ng-click="seleccionar(plantillaProyecto)" data-ng-class="estiloFila(plantillaProyecto)">
+                    <td class="span6 info">{{plantillaProyecto.Nombre}}</td>
+                    <td class="span6 info">
+                        <a id="lnkPlantillaProyecto{{plantillaProyecto.Nombre}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(plantillaProyecto)" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="display: none">
+            <modal-popup filter-criteria="Nombre" template="plantillaProyecto-modal.html"></modal-popup>
+        </div>
+        <button class="btn btn-primary" ng-click="mostrarPopupAgregar()">Agregar</button>
+        <button class="btn btn-primary" ng-disabled="idEntidadSeleccionada == 0" ng-click="mostrarPopupEditar()">Editar</button>
+
+    </div>
+</div>

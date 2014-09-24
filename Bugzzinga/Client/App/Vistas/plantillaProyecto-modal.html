@@ -1,0 +1,33 @@
+﻿ <script type="text/ng-template" id="Client/App/Vistas/plantillaProyecto-modal.html">        
+        <div class="modal-header">
+            <h3>Plantilla de proyecto</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row-fluid">
+                <div class="span6">
+                    Nombre:
+                </div>
+                <div class="span6">        
+                    {{ entidadSeleccionada.Nombre }}
+                </div>
+            </div>          
+            <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>                       
+                    <th class="span12 ">Prioridades</th>                     
+                </tr>
+            </thead>
+            <tbody>   
+                <tr ng-repeat="prioridad in coleccionPrioridades">              
+                   <td class="span12 info">       
+                       <input type="checkbox" ng-checked="prioridad.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'Prioridades', prioridad, 'Nombre')" ng-model="prioridad.selected" />{{prioridad.Nombre}}                      
+                   </td>                    
+                </tr>
+            </tbody>
+            </table>            
+        </div>       
+         <div class="modal-footer">
+             <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
+             <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+         </div>
+</script>

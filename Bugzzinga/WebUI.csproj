@@ -171,6 +171,7 @@
     <Compile Include="Api\EstadosController.cs" />
     <Compile Include="Api\ItemsController.cs" />
     <Compile Include="Api\PerfilesController.cs" />
+    <Compile Include="Api\PlantillasProyectoController.cs" />
     <Compile Include="Api\PrioridadesController.cs" />
     <Compile Include="Api\ProyectosController.cs" />
     <Compile Include="Api\TiposItemController.cs" />
@@ -200,6 +201,7 @@
     <Content Include="Client\App\Controllers\estado.js" />
     <Content Include="Client\App\Controllers\item.js" />
     <Content Include="Client\App\Controllers\perfil.js" />
+    <Content Include="Client\App\Controllers\plantillaProyecto.js" />
     <Content Include="Client\App\Controllers\proyecto.js" />
     <Content Include="Client\App\Controllers\tipoItem.js" />
     <Content Include="Client\App\Controllers\usuario.js" />
@@ -209,6 +211,8 @@
     <Content Include="Client\App\Vistas\items.html" />
     <Content Include="Client\App\Vistas\perfil-modal.html" />
     <Content Include="Client\App\Vistas\perfiles.html" />
+    <Content Include="Client\App\Vistas\plantillaProyecto-modal.html" />
+    <Content Include="Client\App\Vistas\plantillasProyecto.html" />
     <Content Include="Client\App\Vistas\proyecto-modal.html" />
     <Content Include="Client\App\Vistas\proyectos.html" />
     <Content Include="Client\App\Vistas\tipoItem-modal.html" />
