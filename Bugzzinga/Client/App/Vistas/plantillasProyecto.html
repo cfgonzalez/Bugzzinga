@@ -22,7 +22,7 @@
             <modal-popup filter-criteria="Nombre" template="plantillaProyecto-modal.html"></modal-popup>
         </div>
         <button class="btn btn-primary" ng-click="mostrarPopupAgregar()">Agregar</button>
-        <button class="btn btn-primary" ng-disabled="idEntidadSeleccionada == 0" ng-click="mostrarPopupEditar()">Editar</button>
+        <button class="btn btn-primary" ng-disabled="idEntidadSeleccionada === undefined" ng-click="mostrarPopupEditar()">Editar</button>
 
     </div>
 </div>
