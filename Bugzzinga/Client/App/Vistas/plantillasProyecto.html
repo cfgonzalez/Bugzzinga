@@ -11,6 +11,7 @@
             <tbody>
                 <tr ng-repeat="plantillaProyecto in coleccion" ng-click="seleccionar(plantillaProyecto)" data-ng-class="estiloFila(plantillaProyecto)">
                     <td class="span6 info">{{plantillaProyecto.Nombre}}</td>
+                     <td class="span6 info">{{plantillaProyecto.Descripcion}}</td>
                     <td class="span6 info">
                         <a id="lnkPlantillaProyecto{{plantillaProyecto.Nombre}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(plantillaProyecto)" /></a>
                     </td>

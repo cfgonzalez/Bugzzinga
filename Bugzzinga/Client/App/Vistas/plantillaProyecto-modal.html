@@ -24,7 +24,21 @@
                    </td>                    
                 </tr>
             </tbody>
-            </table>            
+            </table>          
+            <table class="table table-hover table-bordered table-striped">
+                <thead>
+                  <tr>                       
+                      <th class="span12 ">Tipos de Item</th>                     
+                  </tr>
+                </thead>
+                <tbody>   
+                  <tr ng-repeat="tipoItem in coleccionTiposItem">              
+                     <td class="span12 info">       
+                         <input type="checkbox" ng-checked="tipoItem.selected" ng-change="seleccionarListaMultiple(entidadSeleccionada, 'TiposDeItem', tipoItem, 'Nombre')" ng-model="tipoItem.selected" />{{tipoItem.Nombre}}                      
+                     </td>                    
+                  </tr>
+             </tbody>
+             </table>            
         </div>       
          <div class="modal-footer">
              <button class="btn btn-primary" ng-click="ok()">Aceptar</button>

@@ -116,7 +116,7 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
         return listaCompleta;
     };
     
-    //Crea una nueva instancia de Usuario cuando es un alta
+    //Crea una nueva instancia de Estado cuando es un alta
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que valide el nombre del perfil en el server

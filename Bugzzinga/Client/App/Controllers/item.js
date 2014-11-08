@@ -80,7 +80,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
         return usuarioServicio.query();
     };
 
-    //Crea una nueva instancia de Usuario cuando es un alta
+    //Crea una nueva instancia de Item cuando es un alta
     this.crearNuevo = function () {
 
         //TODO: Ver como acceder a un recurso de Angular para que traiga este codigo desde el server

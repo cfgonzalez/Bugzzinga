@@ -10,11 +10,11 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<PlantillaProyecto> Get()
         {
-            var p1 = new PlantillaProyecto() { Nombre = "plantilla1" };
+            var p1 = new PlantillaProyecto() { Nombre = "plantilla1", Descripcion = "Plantilla para defectos"};
 
-            var p2 = new PlantillaProyecto() { Nombre = "plantilla2" };
+            var p2 = new PlantillaProyecto() { Nombre = "plantilla2", Descripcion = "Plantilla para tareas" };
 
-            var p3 = new PlantillaProyecto() { Nombre = "plantilla3" };
+            var p3 = new PlantillaProyecto() { Nombre = "plantilla3", Descripcion = "Plantilla para control de cambios"};
 
             return new List<PlantillaProyecto>() { p1, p2, p3 };
         }

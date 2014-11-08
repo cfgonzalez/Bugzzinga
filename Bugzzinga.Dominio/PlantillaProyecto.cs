@@ -16,7 +16,9 @@ namespace Bugzzinga.Dominio
 
         public string Nombre { get; set; }
 
-        public ArrayList4<TipoItem> TipoDeItem {
+        public string Descripcion { get; set; }
+
+        public ArrayList4<TipoItem> TiposDeItem {
             get { return this._tiposDeItem; } 
         }
 
@@ -24,7 +26,5 @@ namespace Bugzzinga.Dominio
         {
             get { return this._prioridades; }
         }
-
-
     }
 }

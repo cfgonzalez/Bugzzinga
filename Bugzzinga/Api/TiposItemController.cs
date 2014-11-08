@@ -13,10 +13,19 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<TipoItem> Get()
         {
-            var p1 = new TipoItem("t1", "TipoItem1");
-            var p2 = new TipoItem("t2", "TipoItem2");
+            return this.TraerListaTiposItemDummy();
+        }
 
-            return new List<TipoItem>() { p1, p2 };
+        //Trae los tipos de item para una plantilla de proyecto
+        //Trae las prioridades de una plantilla de proyecto
+        public IEnumerable<TipoItem> Get(string nombrePlantillaProyecto)
+        {
+            //Devuelve una sublista dummy del total de usuarios
+            var lista = TraerListaTiposItemDummy();
+
+            lista.RemoveAt(0);
+
+            return lista;
         }
 
         public TipoItem Put(TipoItem TipoItem)
@@ -32,6 +41,14 @@ namespace Bugzzinga.Api
         public bool Delete(string nombre)
         {
             return true;
+        }
+
+        private List<TipoItem> TraerListaTiposItemDummy()
+        {
+            var p1 = new TipoItem("t1", "TipoItem1");
+            var p2 = new TipoItem("t2", "TipoItem2");
+
+            return new List<TipoItem>() { p1, p2 };
         }
     }
 }
