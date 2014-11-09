@@ -1,6 +1,6 @@
 ﻿
 bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
-
+    
     $scope.CodigoProyecto = $routeParams.Codigo;
 
     $scope.idEntidadSeleccionada = 0;

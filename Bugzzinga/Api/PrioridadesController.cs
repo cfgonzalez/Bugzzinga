@@ -26,8 +26,6 @@ namespace Bugzzinga.Api
             var lista = TraerListaPrioridadesDummy();
 
             lista.RemoveAt(1);
-            lista.RemoveAt(2); 
-            lista.RemoveAt(3);
 
             return lista;
         }
@@ -36,7 +34,7 @@ namespace Bugzzinga.Api
         {
             var listaPrioridades = new List<Prioridad>();
 
-            for (var i = 1; i < 8; i++)
+            for (var i = 1; i < 4; i++)
             {
                 listaPrioridades.Add(new Prioridad("P" + i.ToString(), "Prioridad" + i.ToString()));
             }

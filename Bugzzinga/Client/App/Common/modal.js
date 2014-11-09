@@ -84,7 +84,6 @@ var modalCtrl = function ($scope, $modal) {
             });
         });
     };
-    
 };
 
 //Sucede antes de abrir el popup

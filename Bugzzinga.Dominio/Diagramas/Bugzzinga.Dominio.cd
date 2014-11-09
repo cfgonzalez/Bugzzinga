@@ -153,14 +153,6 @@
   </Class>
   <Class Name="Bugzzinga.Dominio.PlantillaProyecto">
     <Position X="15.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="TipoDeItem" Type="Bugzzinga.Dominio.TipoItem" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="15.5" Y="1.61" />
-        <Point X="15.125" Y="1.61" />
-        <Point X="15.125" Y="2.312" />
-        <Point X="14" Y="2.312" />
-      </Path>
-    </AssociationLine>
     <AssociationLine Name="Prioridades" Type="Bugzzinga.Dominio.Prioridad" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="15.5" Y="1.3" />
@@ -170,11 +162,10 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAgAABAAAgAAAAAAABAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAgAABAAAgAAAAAAABAABAAAA=</HashCode>
       <FileName>PlantillaProyecto.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="TipoDeItem" />
       <Property Name="Prioridades" />
     </ShowAsCollectionAssociation>
   </Class>
