@@ -56,21 +56,6 @@ namespace Bugzzinga.Api
 
             proyecto.FechaInicio = DateTime.Now;
 
-            //for (int j = 1; j < 4; j++)
-            //{
-            //    proyecto.AgregarItem(new Item(Nombre<Item>(codigo), Descripcion<Item>(codigo), tipoItem, prioridad));
-
-            //    var usuario = new Usuario();
-
-            //    usuario.Nombre = Nombre<Usuario>(j);
-
-            //    usuario.Apellido = Descripcion<Usuario>(j);
-
-            //    usuario.Codigo = j;
-
-            //    proyecto.AgregarMiembro(usuario);
-            //}
-
             return proyecto;
         }
 

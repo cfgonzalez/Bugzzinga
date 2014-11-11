@@ -1,5 +1,5 @@
 ﻿
-bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
+bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio) {
     
     $scope.CodigoProyecto = $routeParams.Codigo;
 
@@ -10,7 +10,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
 
     $scope.coleccion = itemServicio.get({ codigoProyecto: $scope.CodigoProyecto });
 
-    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio);
 
     $scope.seleccionar = function (item) {
 
@@ -56,7 +56,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
 });
 
 //Delegado que se ejecuta luego de la creación del Modal
- function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio) {
+function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio) {
 
     this.setearScope = function (scope) {
         this.scope = scope;
@@ -66,6 +66,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
         this.scope.coleccionTiposItem = this.cargarTiposItem(item);
         this.scope.coleccionPrioridades = this.cargarPrioridades(item);
         this.scope.coleccionUsuarios = this.cargarUsuarios(item);
+        this.scope.coleccionRegistrosLog = this.cargarRegistrosLog(item);
     };
 
     this.cargarTiposItem = function (item) {
@@ -78,6 +79,10 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
      
     this.cargarUsuarios = function (item) {
         return usuarioServicio.query();
+    };
+
+    this.cargarRegistrosLog = function (item) {
+        return registroLogServicio.get({ nombreItem: item.Nombre });
     };
 
     //Crea una nueva instancia de Item cuando es un alta

@@ -17,10 +17,9 @@ namespace Bugzzinga.Api
         }
 
         //Trae los tipos de item para una plantilla de proyecto
-        //Trae las prioridades de una plantilla de proyecto
         public IEnumerable<TipoItem> Get(string nombrePlantillaProyecto)
         {
-            //Devuelve una sublista dummy del total de usuarios
+            //Devuelve una sublista dummy del total de de tipos de item
             var lista = TraerListaTiposItemDummy();
 
             lista.RemoveAt(0);

@@ -11,10 +11,10 @@ namespace Bugzzinga.Dominio
 
         }
 
-        public DateTime Fecha { get; internal set; }
+        public DateTime Fecha { get; set; }
         public string Comentarios { get; set; }
         
-        public Estado Estado { get; internal set; }
+        public Estado Estado { get; set; }
         public Usuario Responsable { get; set; }
     }
 }

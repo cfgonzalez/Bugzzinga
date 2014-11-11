@@ -10,7 +10,7 @@ namespace Bugzzinga.Api
 {
     public class PrioridadesController : ApiController
     {
-        //Trae los usuarios para un proyecto 
+        //Trae todas las prioridades
         public IEnumerable<Prioridad> Get()
         {
             //Devuelve una sublista dummy del total de prioridades

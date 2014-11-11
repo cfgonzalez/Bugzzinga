@@ -6100,6 +6100,13 @@ a.badge:focus {
 .accordion-inner {
   padding: 9px 15px;
   border-top: 1px solid #e5e5e5;
+  position: relative;
+  width: 100%;
+  float:left;
+  min-height:100px;
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .carousel {

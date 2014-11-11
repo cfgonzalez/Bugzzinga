@@ -37,8 +37,30 @@
             </div>            
 
        <btst-accordion>
-        <btst-pane title="<b>Historia</b>">
-            <div>Historia</div>
+        <btst-pane title="<b>Historia del Item</b>">
+            <div>                   
+                <div class="span12">
+                    <span>Historia </span>               
+                </div>                
+                <table class="table table-hover table-bordered table-striped">
+                <thead>
+                    <tr>                           
+                        <th class="span3 ">Fecha</th>
+                        <th class="span3 ">Estado</th>
+                        <th class="span3 ">Responsable</th>
+                        <th class="span3 ">Comentarios</th>
+                    </tr>
+                </thead>
+                <tbody>   
+                    <tr ng-repeat="log in coleccionRegistrosLog">                                      
+                        <td class="span3 info">{{log.Fecha | fechaFormateada}}</td>
+                        <td class="span3 info">{{log.Estado.Nombre}}</td>
+                        <td class="span3 info">{{log.Responsable.Nombre}},&nbsp{{log.Responsable.Apellido}}</td>
+                        <td class="span3 info"><a><span custom-popover popover-html={{log.Comentarios}} popover-placement="bottom" popover-label="Ver"></span></a></td>
+                    </tr>
+                </tbody>
+                </table>                  
+            </div>
         </btst-pane>
         <btst-pane title="<b>Responsable</b>">
             <div>

@@ -16,7 +16,7 @@ namespace Bugzzinga.Api
             return TraerListaItemsDummy(); ;
         }
 
-        //Trae los usuarios para un proyecto 
+        //Trae los items para un proyecto 
         public IEnumerable<Item> Get(int codigoProyecto)
         {
             //Devuelve una sublista dummy del total de usuarios
