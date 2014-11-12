@@ -49,6 +49,9 @@
         <Point X="15.722" Y="6.257" />
         <Point X="15.722" Y="6.007" />
       </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.227" Y="0.242" />
+      </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAEAgAQBAAAAAAAAAAAAAQAAAAA=</HashCode>
@@ -64,14 +67,26 @@
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="Estado" Type="Bugzzinga.Dominio.Estado" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="6.699" />
+        <Point X="8.312" Y="8.139" />
+        <Point X="16.125" Y="8.139" />
+        <Point X="16.125" Y="6.007" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="3.517" Y="2.203" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAIACAAQAAAAAAAAAAgAABAAAAAACAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AEAAIACAAQAAAAAAAAAAgAABAAAAAACAAAAAAAAAAAw=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Prioridad" />
       <Property Name="Tipo" />
       <Property Name="Responsable" />
+      <Property Name="Estado" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="RegistrosLog" />
@@ -93,9 +108,16 @@
   </Class>
   <Class Name="Bugzzinga.Dominio.RegistroLog">
     <Position X="10.75" Y="5.5" Width="1.5" />
+    <AssociationLine Name="Estado" Type="Bugzzinga.Dominio.Estado">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.329" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="Responsable" Type="Bugzzinga.Dominio.Usuario" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="10.75" Y="7.077" />
+        <Point X="8.396" Y="7.077" Type="JumpStart" />
+        <Point X="8.229" Y="7.077" Type="JumpEnd" />
         <Point X="4.875" Y="7.077" />
         <Point X="4.875" Y="6.487" />
         <Point X="4.5" Y="6.487" />

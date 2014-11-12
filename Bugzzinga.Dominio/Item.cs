@@ -9,7 +9,7 @@ namespace Bugzzinga.Dominio
     {
 
         private IList<RegistroLog> _registrosLog = new ArrayList4<RegistroLog>();
-
+        
         /// <summary>
         /// Constructor de prueba, solamente para los tests iniciales de db4o
         /// </summary>
@@ -30,6 +30,7 @@ namespace Bugzzinga.Dominio
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public Estado Estado { get; set; }
 
         public Prioridad Prioridad { get; internal set; }
         public IEnumerable<RegistroLog> RegistrosLog { get { return this._registrosLog; } }

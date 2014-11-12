@@ -1,5 +1,5 @@
 ﻿
-bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio) {
+bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio, estadoServicio) {
     
     $scope.CodigoProyecto = $routeParams.Codigo;
 
@@ -10,7 +10,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
 
     $scope.coleccion = itemServicio.get({ codigoProyecto: $scope.CodigoProyecto });
 
-    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio);
+    $scope.accionComplementariaModal = new AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio, estadoServicio);
 
     $scope.seleccionar = function (item) {
 
@@ -56,7 +56,7 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
 });
 
 //Delegado que se ejecuta luego de la creación del Modal
-function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio) {
+function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio, estadoServicio) {
 
     this.setearScope = function (scope) {
         this.scope = scope;
@@ -67,6 +67,7 @@ function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, p
         this.scope.coleccionPrioridades = this.cargarPrioridades(item);
         this.scope.coleccionUsuarios = this.cargarUsuarios(item);
         this.scope.coleccionRegistrosLog = this.cargarRegistrosLog(item);
+        this.scope.coleccionProximosEstadosValidos = this.cargarProximosEstadosValidos(item.Estado);
     };
 
     this.cargarTiposItem = function (item) {
@@ -83,6 +84,12 @@ function AccionComplementariaModalItem($scope, itemServicio, tipoItemServicio, p
 
     this.cargarRegistrosLog = function (item) {
         return registroLogServicio.get({ nombreItem: item.Nombre });
+    };
+    
+    this.cargarProximosEstadosValidos = function (estadoActual) {
+
+        //Trae la lista completa de estados
+        return estadoServicio.get({ nombreEstado: estadoActual.Nombre, tipo: 'proximos'});
     };
 
     //Crea una nueva instancia de Item cuando es un alta

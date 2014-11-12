@@ -91,12 +91,12 @@ function AccionComplementariaModalEstado($scope, estadoServicio) {
             //Si está editando
             if (self.scope.entidadSeleccionada.Descripcion != "") {
 
-                //Trae los miembros del proyecto, los mergea con el total de usuarios y los marca como selected=true
+                //Trae los estados actuales, los mergea con el total de estados y los marca como selected=true
                 return self.estadoServicio.get({ nombreEstado: estado.Nombre, tipo: tipo }, function (estados) {
 
                     estado[coleccionScope] = estados;
 
-                    //Copia auxiliar de miembros para que no se pierda en el merge
+                    //Copia auxiliar de estados para que no se pierda en el merge
                     var auxEstadosValidos = estados.slice();
 
                     $.each(estado[coleccionScope], function (index, value) {

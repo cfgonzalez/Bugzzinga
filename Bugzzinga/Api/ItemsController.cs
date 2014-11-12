@@ -44,6 +44,8 @@ namespace Bugzzinga.Api
                 item.Responsable.Codigo = 2;
 
                 item.Codigo = (i + 1);
+
+                item.Estado = new Estado("Creado", "Creado");
                 
                 listaItems.Add(item);
             }

@@ -53,13 +53,20 @@
                  </tr>
              </tbody>
           </table>
-          <a class="linkPointer" onclick="$('#navegacionAdicional').toggle();"> Navegar hacia otros elementos del proyecto >></a>
-          <div class="linkPointer" id="navegacionAdicional" style="display:none">
-              <ul class="listaOtrosElementos">                 
-                 <li><a class="linkPointer" data-toggle="tooltip" title="Items" ng-click="navegar('items',entidadSeleccionada.Codigo)">Items</a></li>
-                 <li><a class="linkPointer" data-toggle="tooltip" title="Tipos de item" ng-click="navegar('tiposItem',entidadSeleccionada.Codigo)">Tipos de item</a></li>
-             </ul> 
-        </div>  
+    
+    
+      <btst-accordion>       
+        <btst-pane title="<b>Navegar hacia otros elementos del proyecto</b>">
+            <div>  
+                 <div class="span12">
+                    <ul class="listaOtrosElementos">                 
+                         <li><a class="linkPointer" data-toggle="tooltip" title="Items" ng-click="navegar('items',entidadSeleccionada.Codigo)">Items de "{{entidadSeleccionada.Nombre}}"</a></li>
+                         <li><a class="linkPointer" data-toggle="tooltip" title="Tipos de item" ng-click="navegar('tiposItem',entidadSeleccionada.Codigo)">Tipos de item de "{{entidadSeleccionada.Nombre}}"</a></li>
+                     </ul>
+                 </div>      
+            </div>
+        </btst-pane>
+        </btst-accordion>          
      </div>                      
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
