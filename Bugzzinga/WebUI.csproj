@@ -200,6 +200,7 @@
     <Content Include="Client\App\Common\servicios.js" />
     <Content Include="Client\App\Config\appconfig.js" />
     <Content Include="Client\App\Controllers\estado.js" />
+    <Content Include="Client\App\Controllers\home.js" />
     <Content Include="Client\App\Controllers\item.js" />
     <Content Include="Client\App\Controllers\perfil.js" />
     <Content Include="Client\App\Controllers\plantillaProyecto.js" />
@@ -208,6 +209,7 @@
     <Content Include="Client\App\Controllers\usuario.js" />
     <Content Include="Client\App\Vistas\estado-modal.html" />
     <Content Include="Client\App\Vistas\estados.html" />
+    <Content Include="Client\App\Vistas\home.html" />
     <Content Include="Client\App\Vistas\item-modal.html" />
     <Content Include="Client\App\Vistas\items.html" />
     <Content Include="Client\App\Vistas\perfil-modal.html" />
@@ -278,6 +280,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bugzzinga.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\gh-fork-ribbon.css" />
     <Content Include="Content\Images\DeleteRed.png" />
     <Content Include="Content\Images\flechaNegra.png" />
@@ -286,6 +289,7 @@
     <Content Include="Content\Images\members.png" />
     <Content Include="Content\KoGrid.css" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\metro-bootstrap.css" />
     <Content Include="Content\pace-center-radar.css" />
     <Content Include="Content\pace-corner-indicator.css" />
     <Content Include="Content\pace-simple-center.css" />
@@ -304,6 +308,7 @@
     <Content Include="Client\ThirdParty\errors.json" />
     <Content Include="Client\ThirdParty\version.json" />
     <Content Include="Client\ThirdParty\pace.min.js" />
+    <Content Include="Content\metro-bootstrap.css.map" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

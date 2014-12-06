@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="proyecto in coleccion" ng-click="seleccionar(proyecto)" data-ng-class="estiloFila(proyecto)">
-                    <td class="span2 info">{{proyecto.Codigo}}</td>
+                    <td class="span2">{{proyecto.Codigo}}</td>
                     <td class="span2 info">{{proyecto.Nombre}}</td>
                     <td class="span2 info">{{proyecto.Descripcion}}</td>
                     <td class="span2 info">{{proyecto.FechaInicio | fechaFormateada}}</td>

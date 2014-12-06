@@ -1,12 +1,12 @@
 ﻿.left-panel {
     background-color: #ccc;
-    width: 10%;
+    width: 12%;
     height: 100%;
     float: left;
 }
 
 .right-panel {
-    width: 90%;
+    width: 88%;
     height: 100%;
     float: left;
 }
@@ -85,5 +85,10 @@ html > body #button li a {
    background-color: whitesmoke;
    filter: alpha(opacity=60);
    opacity: 0.6;
-   z-index: 200;
+   z-index: 2000;
+}
+
+.iconMainPage {
+    font-size: 88px;
+    text-align: center
 }
