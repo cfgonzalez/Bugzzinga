@@ -1,6 +1,14 @@
 ﻿
 bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, tipoItemServicio, prioridadServicio, usuarioServicio, registroLogServicio, estadoServicio) {
     
+    //Activación del item del menú
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuProyectos').addClass("active");
+    };
+
     $scope.CodigoProyecto = $routeParams.Codigo;
 
     $scope.idEntidadSeleccionada = 0;

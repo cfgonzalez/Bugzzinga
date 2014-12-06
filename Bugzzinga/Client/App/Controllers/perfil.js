@@ -1,5 +1,13 @@
 ﻿bugzzinga.controller('perfilCtrl', function ($scope, $routeParams, perfilServicio) {
 
+    //Activación del item del menú
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuPerfiles').addClass("active");
+    };
+
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = perfilServicio;
 

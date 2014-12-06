@@ -1,5 +1,13 @@
 ﻿bugzzinga.controller('tipoItemCtrl', function ($scope, $routeParams,tipoItemServicio, estadoServicio) {
 
+    //Activación del item del menú
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuProyectos').addClass("active");
+    };
+
     $scope.CodigoProyecto = $routeParams.Codigo;
 
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal

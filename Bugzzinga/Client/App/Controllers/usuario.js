@@ -1,5 +1,13 @@
 ﻿bugzzinga.controller('usuarioCtrl', function ($scope, $routeParams, usuarioServicio, perfilServicio ) {
 
+    //Activación del item del menú
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuUsuarios').addClass("active");
+    };
+
     $scope.idEntidadSeleccionada = 0;
     
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal

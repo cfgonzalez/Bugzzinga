@@ -1,5 +1,13 @@
 ﻿bugzzinga.controller('estadoCtrl', function ($scope, $routeParams, $location, $modal, estadoServicio) {
 
+    //Activa el item de menu
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuEstados').addClass("active");
+    };
+
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = estadoServicio;
 

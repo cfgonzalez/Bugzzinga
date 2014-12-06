@@ -1,4 +1,4 @@
-﻿<div ng-controller="estadoCtrl">
+﻿<div ng-controller="estadoCtrl" data-ng-init="init()">
     <div class="span12">
         <h2>Administración de Estados</h2>
         <table class="table table-hover table-bordered table-striped">
@@ -11,9 +11,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="estado in coleccion" ng-click="seleccionar(estado)" data-ng-class="estiloFila(estado)">
-                    <td class="span4 info">{{estado.Nombre}}</td>
-                    <td class="span4 info">{{estado.Descripcion}}</td>
-                    <td class="span4 info">
+                    <td class="span4 info" data-ng-class="estiloFila(estado)">{{estado.Nombre}}</td>
+                    <td class="span4 info" data-ng-class="estiloFila(estado)">{{estado.Descripcion}}</td>
+                    <td class="span4 info" data-ng-class="estiloFila(estado)">
                         <a id="lnkEstado{{estado.Nombre}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(estado)" /></a>
                     </td>
                 </tr>

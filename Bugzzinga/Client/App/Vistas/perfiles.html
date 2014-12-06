@@ -1,4 +1,4 @@
-﻿<div ng-controller="perfilCtrl">
+﻿<div ng-controller="perfilCtrl" data-ng-init="init()">
     <div class="span12">
         <h2>Administración de Perfiles</h2>
         <table class="table table-hover table-bordered table-striped">
@@ -11,9 +11,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="perfil in coleccion" ng-click="seleccionar(perfil)" data-ng-class="estiloFila(perfil)">
-                    <td class="span4 info">{{perfil.Nombre}}</td>
-                    <td class="span4 info">{{perfil.Descripcion}}</td>
-                    <td class="span4 info">
+                    <td class="span4 info" data-ng-class="estiloFila(perfil)">{{perfil.Nombre}}</td>
+                    <td class="span4 info" data-ng-class="estiloFila(perfil)">{{perfil.Descripcion}}</td>
+                    <td class="span4 info" data-ng-class="estiloFila(perfil)">
                         <a id="lnkPerfil{{perfil.Nombre}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(perfil)" /></a>
                     </td>
                 </tr>

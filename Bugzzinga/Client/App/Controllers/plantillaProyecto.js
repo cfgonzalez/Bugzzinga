@@ -1,5 +1,13 @@
 ﻿bugzzinga.controller('plantillaProyectoCtrl', function ($scope, $routeParams, plantillaProyectoServicio, prioridadServicio, tipoItemServicio) {
 
+    //Activación del item del menú
+    $scope.init = function () {
+
+        $("ul li").removeClass("active");
+
+        $('#menuPlantillas').addClass("active");
+    };
+
     //Indica el servicio que se invoca al hacer click en el botón Aceptar del modal
     $scope.servicioPersistencia = plantillaProyectoServicio;
 
