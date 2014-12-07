@@ -26,29 +26,32 @@
                 <div class="span9">
                     <input type='text' ng-model='entidadSeleccionada.Apellido' />
                 </div>
-            </div>
+            </div>            
             <div class="row-fluid">
                 <div class="span3">
                     Perfil:
                 </div>
+                <div class="span3">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            <span ng-if="entidadSeleccionada.Perfil === undefined || entidadSeleccionada.Perfil == ''">&nbsp;Seleccione...</span>
+                            <span ng-if="entidadSeleccionada.Perfil !== undefined">{{entidadSeleccionada.Perfil.Nombre}}</span>     
+                            <span class="caret"></span>
+                        </button>                    
+                        <ul class="dropdown-menu" role="menu">
+                            <li style="cursor:pointer" ng-repeat="perfil in coleccionPerfiles" ng-controller="usuarioCtrl" ng-click="refrescarSeleccion()"><a>{{perfil.Nombre}}</a></li>                        
+                        </ul>
+                    </div>  
+                </div>                 
+            </div> 
+            <div class="row-fluid">
+                <div class="span3">
+                    Descripción Perfil:
+                </div> 
                 <div class="span9">
-                   <span>{{entidadSeleccionada.Perfil.Nombre}}({{entidadSeleccionada.Perfil.Descripcion}})</span>
-                </div>
-            </div>
-             <div class="row-fluid">
-            <div class="span3">
-                Perfiles disponibles:
-            </div>
-            <div class="span9">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                        Seleccione... <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li style="cursor:pointer" ng-repeat="perfil in coleccionPerfiles" ng-controller="usuarioCtrl" ng-click="refrescarSeleccion()"><a>{{perfil.Nombre}}</a></li>                        
-                    </ul>
-                </div>  
-            </div>
+                    {{entidadSeleccionada.Perfil.Descripcion}}
+                </div> 
+             </div>          
         </div>        
      </div>     
        
