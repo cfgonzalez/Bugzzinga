@@ -14,7 +14,7 @@
                     <td class="span4 info" data-ng-class="estiloFila(estado)">{{estado.Nombre}}</td>
                     <td class="span4 info" data-ng-class="estiloFila(estado)">{{estado.Descripcion}}</td>
                     <td class="span4 info" data-ng-class="estiloFila(estado)">
-                        <a id="lnkEstado{{estado.Nombre}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(estado)" /></a>
+                        <a id="lnkEstado{{estado.Nombre}}" data-toggle="confirmation"><i class="fa fa-times" style="cursor: pointer;font-size: 20px;color:azure" ng-click="eliminar(estado)"></i></a>
                     </td>
                 </tr>
             </tbody>

@@ -18,7 +18,7 @@
                     <td class="span3 info" data-ng-class="estiloFila(item)">{{item.Descripcion}}</td>
                     <td class="span3 info" data-ng-class="estiloFila(item)">{{item.Estado.Nombre}}</td>
                     <td class="span3 info" data-ng-class="estiloFila(item)">
-                        <a id="lnkItem{{item.Codigo}}" data-toggle="confirmation"><img src="../../../Content/Images/DeleteRed.png" alt="Eliminar" width='20' height='20' style="cursor: pointer" ng-click="eliminar(item)" /></a>
+                        <a id="lnkItem{{item.Codigo}}" data-toggle="confirmation"><i class="fa fa-times" style="cursor: pointer;font-size: 20px;color:azure" ng-click="eliminar(item)"></i></a>
                     </td>
                 </tr>
             </tbody>

@@ -23,7 +23,7 @@ bugzzinga.directive('modalPopup', function () {
 var modalCtrl = function ($scope, $modal) {
     
     $scope.mostrarPopupEditar = function () {
-      
+        
         //Filtra la colección según el criterio de filtro.
         var entidadesSeleccionadas = $.grep($scope.coleccion, function(entidad) {
             return entidad[$scope.filterCriteria] == $scope.idEntidadSeleccionada;
@@ -59,7 +59,7 @@ var modalCtrl = function ($scope, $modal) {
     };
     
     $scope.mostrarPopupAgregar = function () {
-
+        
         $scope.entidadSeleccionada = null;
 
         var modalInstance = $modal.open({
@@ -89,9 +89,13 @@ var modalCtrl = function ($scope, $modal) {
 //Sucede antes de abrir el popup
 var ModalInstanciaCtrl = function ($scope, $modalInstance, $location, entidadSeleccionada, accionComplementaria) {
 
-   //Si es un alta. (esto está bastante feo)
+   //Si es un alta.
     if (entidadSeleccionada == null) {
+        $scope.editando = false;
         entidadSeleccionada = accionComplementaria.crearNuevo();
+    }
+    else {
+        $scope.editando = true;
     }
 
     //Setea el scope que se bindeará al template
