@@ -36,6 +36,11 @@
 
         return estilo;
     };
+    
+    //El repeater crea automáticamente en $scope.perfil una instancia del objeto perfil seleccionado
+    $scope.refrescarSeleccion = function () {
+        $scope.entidadSeleccionada.Perfil = $scope.perfil;
+    };
 
     $scope.eliminar = function (usuario) {
         

@@ -17,7 +17,9 @@ namespace Bugzzinga.Api
 
             var p2 = new Perfil() { Nombre = "p2", Descripcion = "Perfil2" };
 
-            return new List<Perfil>() { p1, p2 };
+            var p3 = new Perfil() { Nombre = "p3", Descripcion = "Perfil3" };
+
+            return new List<Perfil>() { p1, p2, p3 };
         }
 
         //Trae el perfil para un usuario
