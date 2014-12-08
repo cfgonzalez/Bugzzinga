@@ -40,6 +40,17 @@ bugzzinga.controller('itemCtrl', function ($scope, $routeParams, itemServicio, t
         return estilo;
     };
 
+    $scope.activarTab = function (tab) {
+
+        //Desactivar todas
+        $(".tabItem").css("display", "none");
+        $(".tabItem").removeClass("active");
+        
+        //Activar la actual
+        $("#" + tab).css("display", "block");
+        $("#" + tab).addClass("active");
+    };
+
     $scope.eliminar = function (item) {
 
         //Mensaje de confirmación

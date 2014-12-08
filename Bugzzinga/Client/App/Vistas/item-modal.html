@@ -53,12 +53,15 @@
                     </select>
                 </div>
             </div> 
-        <btst-accordion>
-        <btst-pane title="<b>Historia del Item</b>">
-            <div>                   
-                <div class="span12">
-                    <span>Historia </span>               
-                </div>                
+            
+        <ul ng-controller='itemCtrl' class="nav nav-tabs">
+            <li><a href ng-click="activarTab('tabHistoria')">Historia del Item</a></li>
+            <li><a href ng-click="activarTab('tabResponsable')">Responsable</a></li>
+            <li><a href ng-click="activarTab('tabPrioridad')">Prioridad</a></li>
+        </ul>     
+            
+        <div class='tabItem' id='tabHistoria' style="display:block">
+            <div class="tabItemScroll">                           
                 <table class="table table-hover table-bordered table-striped">
                 <thead>
                     <tr>                           
@@ -78,12 +81,9 @@
                 </tbody>
                 </table>                  
             </div>
-        </btst-pane>
-        <btst-pane title="<b>Responsable</b>">
-            <div>
-                 <div class="span12">
-                    <span>Seleccione un elemento en la grilla para actualizar el responsable</span>               
-                 </div>
+        </div>
+        <div class='tabItem' id='tabResponsable' style="display:none">
+            <div>                
                  <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>           
@@ -103,8 +103,8 @@
                     </tbody>
                   </table>                                    
             </div>
-        </btst-pane>     
-        <btst-pane title="<b>Prioridad</b>">
+        </div>     
+        <div class='tabItem' id ='tabPrioridad' style="display:none">
             <div>  
                  <div class="span12">
                 <span>Seleccione un elemento en la grilla para actualizar la prioridad</span>               
@@ -128,8 +128,8 @@
                     </tbody>
                 </table>              
             </div>
-        </btst-pane>
-    </btst-accordion>
+        </div>
+    
     </div>  
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">Aceptar</button>
