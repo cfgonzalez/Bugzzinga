@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Bugzzinga.Contexto.IoC;
+using Bugzzinga.IoC.Registrys;
 using Bugzzinga.Dominio.IoC;
 using Bugzzinga.Dominio.ModeloPersistente.IoC;
 using ServicioDatos.DB4o.Server;

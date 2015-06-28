@@ -1,4 +1,4 @@
-﻿using Bugzzinga.Contexto.IoC;
+﻿using Bugzzinga.IoC.Registrys;
 using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap;

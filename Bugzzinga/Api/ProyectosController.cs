@@ -4,7 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using Bugzzinga.Dominio.ModeloPersistente;
+using StructureMap;
 
 namespace Bugzzinga.Api
 {
@@ -12,62 +16,88 @@ namespace Bugzzinga.Api
     {
         // GET api/<controller>
         public IEnumerable<Proyecto> Get()
-        {
-            var proyectos = new List<Proyecto>();
+        {           
 
-            for (int i = 1; i < 6; i++)
+            IEnumerable<Proyecto> proyectos = new List<Proyecto>();
+
+            using ( IBugtracker bugzzinga = ObjectFactory.GetInstance<IBugtracker>() )
             {
-                proyectos.Add(this.BuildProyectoDummy(i));
+                proyectos = bugzzinga.Proyectos;
             }
 
             return proyectos;
         }
 
-        public Proyecto Put(Proyecto proyecto)
+        public Proyecto Put(Proyecto proyectoDto)
         {
-            return proyecto;
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                bugzzinga.RegistrarProyecto( proyectoDto );
+            }
+
+            return proyectoDto;
         }
 
-        public Proyecto Post(Proyecto proyecto)
+        public Proyecto Post(Proyecto proyectoDto)
         {
+            Proyecto proyecto = new Proyecto();
+            
+            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                proyecto = bugzzinga.ObtenerProyecto( proyectoDto.Nombre );
+                //mapear proyecto a proyectoBD
+                Mapper.Map( proyectoDto, proyecto );
+                //pedirle a bugtrackter NADA hay persistencia transparente
+            }
+
             return proyecto;
         }
 
         public bool Delete(string codigo)
         {
+            /*
+             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            {
+                proyecto = bugzzinga.ObtenerProyecto( proyectoDto.Nombre );
+                //mapear proyecto a proyectoBD
+                Mapper.Map( proyectoDto, proyecto );
+                //pedirle a bugtrackter NADA hay persistencia transparente
+            }
+             * */
+
             return true;
         }
 
         #region Construcción dummy de objetos
 
-        private Proyecto BuildProyectoDummy(int codigo)
-        {
-            var tipoItem = new TipoItem(Nombre<TipoItem>(codigo), Descripcion<TipoItem>(codigo));
+        //private Proyecto BuildProyectoDummy(int codigo)
+        //{
+        //    var tipoItem = new TipoItem(Nombre<TipoItem>(codigo), Descripcion<TipoItem>(codigo));
 
-            //var prioridad = new Prioridad(Nombre<Prioridad>(codigo), Descripcion<Prioridad>(codigo));
+        //    //var prioridad = new Prioridad(Nombre<Prioridad>(codigo), Descripcion<Prioridad>(codigo));
 
-            var proyecto = new Proyecto();
+        //    var proyecto = new Proyecto();
 
-            proyecto.Codigo = codigo.ToString();
+        //    proyecto.Codigo = codigo.ToString();
 
-            proyecto.Nombre = Nombre<Proyecto>(codigo);
+        //    proyecto.Nombre = Nombre<Proyecto>(codigo);
 
-            proyecto.Descripcion = Descripcion<Proyecto>(codigo);
+        //    proyecto.Descripcion = Descripcion<Proyecto>(codigo);
 
-            proyecto.FechaInicio = DateTime.Now;
+        //    proyecto.FechaInicio = DateTime.Now;
 
-            return proyecto;
-        }
+        //    return proyecto;
+        //}
 
-        private string Nombre<T>(int codigo)
-        {
-            return typeof(T).Name + " " + "Nombre" + codigo;
-        }
+        //private string Nombre<T>(int codigo)
+        //{
+        //    return typeof(T).Name + " " + "Nombre" + codigo;
+        //}
 
-        private string Descripcion<T>(int codigo)
-        {
-            return typeof(T).Name + " " + "Descripción " + codigo;
-        }
+        //private string Descripcion<T>(int codigo)
+        //{
+        //    return typeof(T).Name + " " + "Descripción " + codigo;
+        //}
 
         #endregion
     }

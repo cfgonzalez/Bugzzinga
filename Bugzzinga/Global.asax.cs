@@ -11,6 +11,8 @@ using Bugzzinga.Inicializacion;
 
 namespace Bugzzinga
 {
+    using AutoMapper;
+    using Bugzzinga.Dominio;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -39,13 +41,19 @@ namespace Bugzzinga
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-            
+
+            this.ConfigurarMapeos();
             GestorAplicacion.IniciarAplicacion();
         }
 
         protected void Application_End()
         {
             GestorAplicacion.FinalizarAplicacion();
+        }
+
+        private void ConfigurarMapeos()
+        {
+            Mapper.CreateMap<Proyecto, Proyecto>();
         }
     }
 }

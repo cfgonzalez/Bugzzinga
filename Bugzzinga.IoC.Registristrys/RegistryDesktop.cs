@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
+using Bugzzinga.Contexto;
 using Bugzzinga.Contexto.Interfaces;
 using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap.Configuration.DSL;
 
-namespace Bugzzinga.Contexto.IoC
+namespace Bugzzinga.IoC.Registrys
 {
     public class RegistryDesktop:Registry
     {

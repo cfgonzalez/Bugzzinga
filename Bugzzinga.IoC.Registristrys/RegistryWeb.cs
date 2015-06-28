@@ -1,4 +1,4 @@
-﻿using Bugzzinga.Contexto.Interfaces;
+﻿
 using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using StructureMap;
@@ -8,14 +8,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Contexto;
+using Bugzzinga.Dominio.Intefaces;
+using Bugzzinga.Dominio.ModeloPersistente;
 
-namespace Bugzzinga.Contexto.IoC
+
+namespace Bugzzinga.IoC.Registrys
 {
     public class RegistryWeb:Registry
     {
         public RegistryWeb()
         {
+
+            For<IBugtracker>()
+                .Use<BugTrackerPersistente>();
 
             For<IDB4oServer>()
                 .LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton))
