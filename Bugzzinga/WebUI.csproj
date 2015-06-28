@@ -354,9 +354,9 @@
       <Project>{e57b089d-469a-480e-8568-cf6f9a693545}</Project>
       <Name>Bugzzinga.DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bugzzinga.IoC.Registristrys\Bugzzinga.IoC.Registristrys.csproj">
-      <Project>{b193bd4a-2f94-4b3e-82ca-632e7cb89cf7}</Project>
-      <Name>Bugzzinga.IoC.Registristrys</Name>
+    <ProjectReference Include="..\Bugzzinga.IoC.Registrys\Bugzzinga.IoC.Registrys.csproj">
+      <Project>{3f40a0c1-be7a-49da-a901-d76425e140ec}</Project>
+      <Name>Bugzzinga.IoC.Registrys</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
