@@ -7,7 +7,8 @@ using System.Web.Http;
 using AutoMapper;using Bugzzinga.Dominio;
 
 using Bugzzinga.Contexto.IoC;using Bugzzinga.Dominio.Intefaces;
-using Db4objects.Db4o.Internal;using Bugzzinga.Dominio.ModeloPersistente;
+using Db4objects.Db4o.Internal;
+using Bugzzinga.Dominio.ModeloPersistente;
 namespace Bugzzinga.Api
 {
     public class ProyectosController : ApiController
@@ -36,27 +37,27 @@ namespace Bugzzinga.Api
 
         public Proyecto Put(Proyecto proyectoDto)
         {
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
-            {
-                bugzzinga.RegistrarProyecto( proyectoDto );
-            }
-
-            return proyectoDto;
-        }
-
-        public Proyecto Post(Proyecto proyectoDto)
-        {
             Proyecto proyecto = new Proyecto();
-            
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+
+            using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
             {
-                proyecto = bugzzinga.ObtenerProyecto( proyectoDto.Nombre );
+                proyecto = bugzzinga.ObtenerProyecto(proyectoDto.Nombre);
                 //mapear proyecto a proyectoBD
-                Mapper.Map( proyectoDto, proyecto );
+                Mapper.Map(proyectoDto, proyecto);
                 //pedirle a bugtrackter NADA hay persistencia transparente
             }
 
             return proyecto;
+        }
+
+        public Proyecto Post(Proyecto proyectoDto)
+        {
+            using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
+            {
+                bugzzinga.RegistrarProyecto(proyectoDto);
+            }
+
+            return proyectoDto;
         }
 
         public bool Delete(string codigo)
