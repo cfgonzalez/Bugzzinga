@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -355,6 +361,10 @@
       <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
       <Name>Bugzzinga.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga.DTO\Bugzzinga.DTO.csproj">
+      <Project>{e57b089d-469a-480e-8568-cf6f9a693545}</Project>
+      <Name>Bugzzinga.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
@@ -388,6 +398,8 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

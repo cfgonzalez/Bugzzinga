@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="AutoMapper" version="3.3.1" targetFramework="net45" />
+<<<<<<< HEAD
   <package id="Castle.Core" version="3.3.0" targetFramework="net45" />
   <package id="Castle.FactorySupportFacility" version="3.3.0" targetFramework="net45" />
   <package id="Castle.Windsor" version="3.3.0" targetFramework="net45" />
+=======
+  <package id="AutoMapper" version="3.3.1" targetFramework="net45" />
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
 </packages>

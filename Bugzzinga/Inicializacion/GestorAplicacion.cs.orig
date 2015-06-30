@@ -1,50 +1,48 @@
-﻿using System;
-using System.IO;
+<<<<<<< HEAD
+﻿using ServicioDatos.DB4o.Server;
+=======
+﻿using Bugzzinga.IoC.Registrys;
+using ServicioDatos.DB4o.Server;
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
+using ServicioDatos.DB4o.Server.Interfaces;
+using System;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
-using Castle.Windsor.Installer;using ServicioDatos.DB4o.Server;
-using ServicioDatos.DB4o.Server.Interfaces;
-using IFactory = Bugzzinga.Contexto.IoC.IFactory;
+using Castle.Windsor.Installer;
 
-namespace Buggzzinga.IntegrationTest.Helpers
+namespace Bugzzinga.Inicializacion
 {
-    public static class HelperTestSistema
+    public class GestorAplicacion
     {
-        public static IFactory ObjectFactory;
+        private static IFactory objectFactory;
 
-        private static  string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
-        private static string _nombreBD = "BugzzingaTest.yap";
-
-        public static void IniciarServidor()
+        public static void IniciarAplicacion()
         {
-            ObjectFactory = ContainerSetup.BootstrapContainer();   
+            objectFactory = ContainerSetup.BootstrapContainer();   
+
+            string pathBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"..\BD");
 
             ConfiguracionServer configuracionServidor = new ConfiguracionServer();
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            configuracionServidor.RutaArchivos = _directorioBD;
-            configuracionServidor.NombreArchivoBD = _nombreBD;
+            configuracionServidor.RutaArchivos = pathBD;//Properties.Settings.Default.DirectorioBD;
+            configuracionServidor.NombreArchivoBD = Properties.Settings.Default.NombreBD;
             configuracionServidor.Puerto = 0;
             configuracionServidor.PersistenciaTransparente = true;
             configuracionServidor.ActivacionTransparente = true;
 
-            IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
-            servidorBD.Iniciar( configuracionServidor );
+            IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
+            servidorBD.Iniciar(configuracionServidor);
         }
 
-        public static void FinalizarServidor()
+        public static void FinalizarAplicacion()
         {
-            IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
+            IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
             servidorBD.Finalizar();
         }
-      
-        public static void LimpiarArchivoBD()
-        {
-            System.IO.File.Delete( Path.Combine( _directorioBD, _nombreBD ) );
-        }      
     }
 
     public static class ContainerSetup
@@ -63,7 +61,7 @@ namespace Buggzzinga.IntegrationTest.Helpers
 
                 //Registra todos los installers
                 .Install(FromAssembly.This());
-            
+
             var controllerFactory = new WindsorControllerFactory(container);
 
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);

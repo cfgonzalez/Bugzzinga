@@ -38,12 +38,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper.Net4">
-      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
-    </Reference>
+<<<<<<< HEAD
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -52,6 +47,13 @@
     </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+=======
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
     </Reference>
     <Reference Include="Db4objects.Db4o">
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.dll</HintPath>
@@ -112,9 +114,15 @@
       <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
       <Name>Bugzzinga.Dominio</Name>
     </ProjectReference>
+<<<<<<< HEAD
     <ProjectReference Include="..\Bugzzinga\WebUI.csproj">
       <Project>{D21686EF-68CF-4983-A1AE-C58589FCA464}</Project>
       <Name>WebUI</Name>
+=======
+    <ProjectReference Include="..\Bugzzinga.IoC.Registrys\Bugzzinga.IoC.Registrys.csproj">
+      <Project>{3f40a0c1-be7a-49da-a901-d76425e140ec}</Project>
+      <Name>Bugzzinga.IoC.Registrys</Name>
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
     </ProjectReference>
     <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
@@ -122,7 +130,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>
@@ -145,7 +152,6 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,10 +4,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AutoMapper;using Bugzzinga.Dominio;
+<<<<<<< HEAD
+using Bugzzinga.Contexto.IoC;
+using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using Db4objects.Db4o.Internal;
+=======
+using AutoMapper;
+using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using Bugzzinga.Dominio.ModeloPersistente;
+using StructureMap;
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
 
-using Bugzzinga.Contexto.IoC;using Bugzzinga.Dominio.Intefaces;
-using Db4objects.Db4o.Internal;using Bugzzinga.Dominio.ModeloPersistente;
 namespace Bugzzinga.Api
 {
     public class ProyectosController : ApiController
@@ -21,12 +30,18 @@ namespace Bugzzinga.Api
 
         // GET api/<controller>
         public IEnumerable<Proyecto> Get()
+<<<<<<< HEAD
         {
             var a = objectFactory.Create<IBugtracker>();
 
-            IEnumerable<Proyecto> proyectos = new List<Proyecto>();
+            var proyectos = new List<Proyecto>();
+=======
+        {           
 
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            IEnumerable<Proyecto> proyectos = new List<Proyecto>();
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
+
+            using ( IBugtracker bugzzinga = ObjectFactory.GetInstance<IBugtracker>() )
             {
                 proyectos = bugzzinga.Proyectos;
             }

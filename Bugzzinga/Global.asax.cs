@@ -14,6 +14,8 @@ using Castle.Windsor.Installer;
 
 namespace Bugzzinga
 {
+    using AutoMapper;
+    using Bugzzinga.Dominio;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -41,15 +43,18 @@ namespace Bugzzinga
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
-            ContainerSetup.BootstrapContainer();
-            GestorAplicacion.IniciarAplicacion();
+this.ConfigurarMapeos();ContainerSetup.BootstrapContainer();            GestorAplicacion.IniciarAplicacion();
         }
 
         protected void Application_End()
         {
             GestorAplicacion.FinalizarAplicacion();
             ContainerSetup.TeardownContainer();
+        }
+
+        private void ConfigurarMapeos()
+        {
+            Mapper.CreateMap<Proyecto, Proyecto>();
         }
     }
 

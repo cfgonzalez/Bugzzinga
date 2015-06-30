@@ -1,12 +1,20 @@
 ﻿using System;
 using System.IO;
+<<<<<<< HEAD
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using Buggzzinga.IntegrationTest.Infraestructura.Ioc;
 using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
-using Castle.Windsor.Installer;using ServicioDatos.DB4o.Server;
+using Castle.Windsor.Installer;
+=======
+using Bugzzinga.IoC.Registrys;
+using Bugzzinga.Dominio.IoC;
+using Bugzzinga.Dominio.ModeloPersistente.IoC;
+>>>>>>> 97cbc1be27aabc6d7cafacd56171041c0f978a70
+using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using IFactory = Bugzzinga.Contexto.IoC.IFactory;
 
