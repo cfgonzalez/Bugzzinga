@@ -1,22 +1,29 @@
 ﻿using System;
 using System.IO;
-using Bugzzinga.Contexto.IoC;
-using Bugzzinga.Dominio.IoC;
-using Bugzzinga.Dominio.ModeloPersistente.IoC;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Web.Mvc;
+using Buggzzinga.IntegrationTest.Infraestructura.Ioc;
+using Bugzzinga.Infraestructura.Ioc;
+using Castle.Facilities.TypedFactory;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
-using Sharpen.IO;
-using StructureMap;
+using IFactory = Bugzzinga.Contexto.IoC.IFactory;
 
 namespace Buggzzinga.IntegrationTest.Helpers
 {
     public static class HelperTestSistema
     {
+        public static IFactory ObjectFactory;
+
         private static  string _directorioBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"\..\..\..\BD\BDTest" );
         private static string _nombreBD = "BugzzingaTest.yap";
+
         public static void IniciarServidor()
         {
-            ConfigurarIoC();
+            ObjectFactory = ContainerSetup.BootstrapContainer();   
 
             ConfiguracionServer configuracionServidor = new ConfiguracionServer();
             string path = AppDomain.CurrentDomain.BaseDirectory;
@@ -26,25 +33,55 @@ namespace Buggzzinga.IntegrationTest.Helpers
             configuracionServidor.PersistenciaTransparente = true;
             configuracionServidor.ActivacionTransparente = true;
 
-            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar( configuracionServidor );
         }
 
         public static void FinalizarServidor()
         {
-            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
             servidorBD.Finalizar();
         }
-        private static void ConfigurarIoC()
-        {
-            ObjectFactory.Initialize( x => x.AddRegistry( new RegistryDesktop() ) );
-            ObjectFactory.Configure( x => x.AddRegistry( new RegistryBugzzingaDominio() ) );
-            ObjectFactory.Configure( x => x.AddRegistry( new RegistryBugzzingaDominioModeloPersistente() ) );            
-        }
-
+      
         public static void LimpiarArchivoBD()
         {
             System.IO.File.Delete( Path.Combine( _directorioBD, _nombreBD ) );
         }      
+    }
+
+    public static class ContainerSetup
+    {
+        private static IWindsorContainer container;
+
+        /// <summary>
+        /// Inicializa el container
+        /// </summary>
+        public static IFactory BootstrapContainer()
+        {
+            container = new WindsorContainer()
+
+                .AddFacility<TypedFactoryFacility>()
+                .Register()
+
+                //Registra todos los installers
+                .Install(FromAssembly.This());
+            
+            var controllerFactory = new WindsorControllerFactory(container);
+
+            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
+            //Intercepta la construcción de los IHttpControllers para WebApi
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), controllerFactory);
+
+            return container.Resolve<IFactory>();
+        }
+
+        public static void TeardownContainer()
+        {
+            if (container != null)
+            {
+                container.Dispose();
+            }
+        }
     }
 }

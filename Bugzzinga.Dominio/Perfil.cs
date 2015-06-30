@@ -1,6 +1,4 @@
 ﻿using Bugzzinga.Core.Atributos;
-using Bugzzinga.Core.Intefaces;
-using StructureMap;
 
 namespace Bugzzinga.Dominio
 {

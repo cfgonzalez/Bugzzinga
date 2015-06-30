@@ -8,6 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Bugzzinga.App_Start;
 using Bugzzinga.Inicializacion;
+using Castle.Facilities.TypedFactory;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 
 namespace Bugzzinga
 {
@@ -22,7 +25,6 @@ namespace Bugzzinga
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
 
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
@@ -39,13 +41,42 @@ namespace Bugzzinga
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-            
+
+            ContainerSetup.BootstrapContainer();
             GestorAplicacion.IniciarAplicacion();
         }
 
         protected void Application_End()
         {
             GestorAplicacion.FinalizarAplicacion();
+            ContainerSetup.TeardownContainer();
+        }
+    }
+
+    public static class ContainerSetup
+    {
+        private static IWindsorContainer container;
+
+        /// <summary>
+        /// Inicializa el container
+        /// </summary>
+        public static void BootstrapContainer()
+        {
+            container = new WindsorContainer()
+
+                .AddFacility<TypedFactoryFacility>()
+                .Register()
+
+                //Registra todos los installers
+                .Install(FromAssembly.This());
+        }
+
+        public static void TeardownContainer()
+        {
+            if (container != null)
+            {
+                container.Dispose();
+            }
         }
     }
 }

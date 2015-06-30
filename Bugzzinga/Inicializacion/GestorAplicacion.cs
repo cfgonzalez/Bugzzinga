@@ -1,17 +1,24 @@
-﻿using Bugzzinga.Contexto.IoC;
-using ServicioDatos.DB4o.Server;
+﻿using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
-using StructureMap;
-using System.Web.Configuration;
 using System;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Web.Mvc;
+using Bugzzinga.Contexto.IoC;
+using Bugzzinga.Infraestructura.Ioc;
+using Castle.Facilities.TypedFactory;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 
 namespace Bugzzinga.Inicializacion
 {
     public class GestorAplicacion
     {
+        private static IFactory objectFactory;
+
         public static void IniciarAplicacion()
         {
-            ConfigurarIoC();
+            objectFactory = ContainerSetup.BootstrapContainer();   
 
             string pathBD = String.Concat( AppDomain.CurrentDomain.BaseDirectory, @"..\BD");
 
@@ -22,19 +29,50 @@ namespace Bugzzinga.Inicializacion
             configuracionServidor.PersistenciaTransparente = true;
             configuracionServidor.ActivacionTransparente = true;
 
-            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar(configuracionServidor);
-        }
-
-        private static void ConfigurarIoC()
-        {
-            ObjectFactory.Initialize(x => x.AddRegistry(new RegistryWeb()));
         }
 
         public static void FinalizarAplicacion()
         {
-            IDB4oServer servidorBD = ObjectFactory.GetInstance<IDB4oServer>();
+            IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
             servidorBD.Finalizar();
+        }
+    }
+
+    public static class ContainerSetup
+    {
+        private static IWindsorContainer container;
+
+        /// <summary>
+        /// Inicializa el container
+        /// </summary>
+        public static IFactory BootstrapContainer()
+        {
+            container = new WindsorContainer()
+
+                .AddFacility<TypedFactoryFacility>()
+                .Register()
+
+                //Registra todos los installers
+                .Install(FromAssembly.This());
+
+            var controllerFactory = new WindsorControllerFactory(container);
+
+            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
+            //Intercepta la construcción de los IHttpControllers para WebApi
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), controllerFactory);
+
+            return container.Resolve<IFactory>();
+        }
+
+        public static void TeardownContainer()
+        {
+            if (container != null)
+            {
+                container.Dispose();
+            }
         }
     }
 }

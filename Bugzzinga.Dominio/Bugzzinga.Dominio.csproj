@@ -42,9 +42,6 @@
     <Reference Include="Db4objects.Db4o.NativeQueries">
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,7 +54,6 @@
     <Compile Include="Bugtracker.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Intefaces\IBugtracker.cs" />
-    <Compile Include="IoC\RegistryBugzzingaDominio.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="PlantillaProyecto.cs" />
     <Compile Include="RegistroLog.cs" />

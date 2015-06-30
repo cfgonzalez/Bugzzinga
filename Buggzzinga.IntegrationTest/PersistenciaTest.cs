@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Buggzzinga.IntegrationTest.Helpers;
-using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
-using Bugzzinga.Dominio.ModeloPersistente;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace Buggzzinga.IntegrationTest
 {
@@ -20,7 +16,7 @@ namespace Buggzzinga.IntegrationTest
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 Proyecto p = bugzzinga.NuevoProyecto();
                 p.Codigo = "P1";
@@ -29,7 +25,7 @@ namespace Buggzzinga.IntegrationTest
                 bugzzinga.RegistrarProyecto( p );
             }
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
                 p.Nombre = "Proyecto de prueba modificado";
@@ -43,8 +39,8 @@ namespace Buggzzinga.IntegrationTest
         {
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
-            
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 Proyecto p1 = bugzzinga.NuevoProyecto();
                 p1.Codigo = "P1";
@@ -62,7 +58,7 @@ namespace Buggzzinga.IntegrationTest
                 bugzzinga.RegistrarProyecto( p3 );               
             }
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 IEnumerable<Proyecto> proyectos = bugzzinga.Proyectos;
                 IList<Proyecto> proyectosList = proyectos.ToList();
@@ -77,7 +73,7 @@ namespace Buggzzinga.IntegrationTest
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
 
-             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
              {
                  Proyecto p1 = bugzzinga.NuevoProyecto();
                  p1.Codigo = "P1";
@@ -85,7 +81,7 @@ namespace Buggzzinga.IntegrationTest
                  bugzzinga.RegistrarProyecto( p1 );
              }
 
-             using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
              {
                  Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto1" );
                  p.Nombre = "Proyecto de prueba modificado";
@@ -105,7 +101,7 @@ namespace Buggzzinga.IntegrationTest
         //    HelperTestSistema.LimpiarArchivoBD();
         //    HelperTestSistema.IniciarServidor();
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.NuevoPerfil();
         //        p1.Nombre = "Perfil 1";
@@ -117,7 +113,7 @@ namespace Buggzzinga.IntegrationTest
         //        bugzzinga.RegistrarPerfil( p2 );
         //    }
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
 
@@ -129,7 +125,7 @@ namespace Buggzzinga.IntegrationTest
         //        bugzzinga.RegistrarUsuario( usuario1 );
         //    }
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
         //        u.Nombre = "Roberto";              
@@ -144,7 +140,7 @@ namespace Buggzzinga.IntegrationTest
         //    HelperTestSistema.LimpiarArchivoBD();
         //    HelperTestSistema.IniciarServidor();
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.NuevoPerfil();
         //        p1.Nombre = "Perfil 1";
@@ -156,7 +152,7 @@ namespace Buggzzinga.IntegrationTest
         //        bugzzinga.RegistrarPerfil( p2 );
         //    }
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
 
@@ -168,7 +164,7 @@ namespace Buggzzinga.IntegrationTest
         //        bugzzinga.RegistrarUsuario( usuario1 );
         //    }
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Usuario u = bugzzinga.ObtenerUsuario( "Gabriel" );
         //        u.Nombre = "Roberto";
@@ -190,7 +186,7 @@ namespace Buggzzinga.IntegrationTest
         //    // ------------------------------------------------------------------------------------
         //    //Guardamos los cambios y persistimos en forma transparente
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.NuevoPerfil();
         //        p1.Nombre = "Perfil 1";
@@ -202,7 +198,7 @@ namespace Buggzzinga.IntegrationTest
         //        bugzzinga.RegistrarPerfil( p2 );
         //    }
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        Perfil p1 = bugzzinga.ObtenerPerfil( "Perfil 1" );
 
@@ -217,7 +213,7 @@ namespace Buggzzinga.IntegrationTest
 
         //    Usuario usuarioActivado = null;
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        usuarioActivado = bugzzinga.ObtenerUsuario( "Gabriel" );
         //    }
@@ -228,7 +224,7 @@ namespace Buggzzinga.IntegrationTest
 
         //    usuarioActivado = null;
 
-        //    using ( BugTrackerPersistente bugzzinga = new BugTrackerPersistente() )
+        //    using ( BugTrackerPersistente bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>() )
         //    {
         //        usuarioActivado = bugzzinga.ObtenerUsuario( "Gabriel" );
         //        //Esta vez los datos del perfil se cargan ya que estoy dentro del contexto del sistema
@@ -244,7 +240,7 @@ namespace Buggzzinga.IntegrationTest
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 Proyecto p = bugzzinga.NuevoProyecto();
                 p.Nombre = "Proyecto1";
@@ -265,7 +261,7 @@ namespace Buggzzinga.IntegrationTest
 
             Proyecto proyecto = null;
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
             }
@@ -278,7 +274,7 @@ namespace Buggzzinga.IntegrationTest
 
             proyecto = null;
 
-            using ( IBugtracker bugzzinga = new BugTrackerPersistente() )
+            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
             {
                 proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
 

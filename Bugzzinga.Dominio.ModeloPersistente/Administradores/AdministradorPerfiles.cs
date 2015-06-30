@@ -9,7 +9,7 @@ using Db4objects.Db4o.Linq;
 
 namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
-    internal class AdministradorPerfiles: AdministradorEntidad<Perfil>
+    public class AdministradorPerfiles: AdministradorEntidad<Perfil>
     {
 
         public override void RegistrarNuevo( Perfil entidad )

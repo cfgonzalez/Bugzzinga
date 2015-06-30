@@ -1,15 +1,22 @@
 ﻿using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Contexto.IoC;
 using Db4objects.Db4o;
 using ServicioDatos.DB4o.Server.Interfaces;
-using StructureMap;
 
 namespace Bugzzinga.Contexto
 {
-    public class ContextoProceso:IContextoProceso
-    {        
+    public class ContextoProceso : IContextoProceso
+    {
+        private IFactory objectFactory;
+
         private IObjectContainer _contenedorObjetos;
 
-        private IDB4oServer Servidor { get { return  ObjectFactory.GetInstance<IDB4oServer>(); } }
+        private IDB4oServer Servidor { get { return objectFactory.Create<IDB4oServer>(); } }
+
+        public ContextoProceso(IFactory objectFactory)
+        {
+            this.objectFactory = objectFactory;
+        }
 
         public IObjectContainer ContenedorObjetos
         {

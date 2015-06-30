@@ -11,7 +11,7 @@ using StructureMap;
 
 namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
-    internal abstract class AdministradorEntidad<Entidad> : IAdministradorEntidad<Entidad> where Entidad : new()
+    public abstract class AdministradorEntidad<Entidad> : IAdministradorEntidad<Entidad> where Entidad : new()
     {
         protected IObjectContainer ContenedorObjetos
         {

@@ -38,9 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.CS.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,8 +49,7 @@
   <ItemGroup>
     <Compile Include="ContextoProceso.cs" />
     <Compile Include="Interfaces\IContextoProceso.cs" />
-    <Compile Include="IoC\RegistryDesktop.cs" />
-    <Compile Include="IoC\RegistryWeb.cs" />
+    <Compile Include="IoC\IFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +58,7 @@
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

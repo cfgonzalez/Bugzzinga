@@ -4,15 +4,27 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using Db4objects.Db4o.Internal;
 
 namespace Bugzzinga.Api
 {
     public class ProyectosController : ApiController
     {
+        private readonly IFactory objectFactory;
+
+        public ProyectosController(IFactory objectFactory)
+        {
+            this.objectFactory = objectFactory;
+        }
+
         // GET api/<controller>
         public IEnumerable<Proyecto> Get()
         {
+            var a = objectFactory.Create<IBugtracker>();
+
             var proyectos = new List<Proyecto>();
 
             for (int i = 1; i < 6; i++)

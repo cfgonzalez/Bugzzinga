@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio.Intefaces;
-using Bugzzinga.Dominio.ModeloPersistente.Administradores;
 using Bugzzinga.Dominio.ModeloPersistente.Interfaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
-using StructureMap;
 
 namespace Bugzzinga.Dominio.ModeloPersistente
 {
     public class BugTrackerPersistente: IBugtracker
     {
+        private readonly IFactory objectFactory;
 
-        private IAdministradorEntidad<Perfil> _administradorPerfiles = ObjectFactory.GetInstance<IAdministradorEntidad<Perfil>>();
+        private IAdministradorEntidad<Perfil> _administradorPerfiles;
+
+        public BugTrackerPersistente() {}
+
+        public BugTrackerPersistente(IFactory objectFactory)
+        {
+            this.objectFactory = objectFactory;
+
+            _administradorPerfiles = this.objectFactory.Create<IAdministradorEntidad<Perfil>>();
+        }
 
         private IObjectContainer ContenedorObjetos
         {
             get
             {
-                IContextoProceso contextoProceso = ObjectFactory.GetInstance<IContextoProceso>();
+                IContextoProceso contextoProceso = objectFactory.Create<IContextoProceso>();
                 return contextoProceso.ContenedorObjetos;
             }
         }
-
 
         #region "Proyectos"        
 

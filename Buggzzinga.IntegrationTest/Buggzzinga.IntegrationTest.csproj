@@ -38,6 +38,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\packages\Castle.FactorySupportFacility.3.3.0\lib\net45\Castle.Facilities.FactorySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Db4objects.Db4o">
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.dll</HintPath>
     </Reference>
@@ -50,13 +59,14 @@
     <Reference Include="Db4objects.Db4o.NativeQueries">
       <HintPath>..\packages\db4o.8.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\StructureMap2.6.1.0\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -72,6 +82,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Helpers\HelperTestSistema.cs" />
+    <Compile Include="Infraestructura\Ioc\ContainerInstaller.cs" />
+    <Compile Include="Infraestructura\Ioc\DesktopInstaller.cs" />
+    <Compile Include="Infraestructura\Ioc\DominioInstaller.cs" />
+    <Compile Include="Infraestructura\Ioc\DominioModeloPersistenteInstaller.cs" />
     <Compile Include="PersistenciaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,12 +106,18 @@
       <Project>{92297dfd-18f4-4641-9a63-2f610465578d}</Project>
       <Name>Bugzzinga.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bugzzinga\WebUI.csproj">
+      <Project>{D21686EF-68CF-4983-A1AE-C58589FCA464}</Project>
+      <Name>WebUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServicioDatos.DB4o.Server\ServicioDatos.DB4o.Server.csproj">
       <Project>{4e51de43-d053-4d60-90be-65b8e5a668c9}</Project>
       <Name>ServicioDatos.DB4o.Server</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

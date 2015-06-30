@@ -12,6 +12,5 @@ namespace Bugzzinga.Contexto.Interfaces
     public interface IContextoProceso: IDisposable
     {
         IObjectContainer ContenedorObjetos{get;}
-
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bugzzinga.Dominio.ModeloPersistente.Interfaces
 {
-    internal interface IAdministradorEntidad<Entidad>
+    public interface IAdministradorEntidad<Entidad>
     {
 
         Entidad Nuevo();
