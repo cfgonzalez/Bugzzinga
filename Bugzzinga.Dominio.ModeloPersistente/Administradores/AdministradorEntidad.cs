@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio.ModeloPersistente.Interfaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
@@ -13,11 +14,19 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
     public abstract class AdministradorEntidad<Entidad> : IAdministradorEntidad<Entidad> where Entidad : new()
     {
+
+        private readonly IFactory objectFactory;
+
+        public AdministradorEntidad( IFactory objectFactory )
+        {
+            this.objectFactory = objectFactory;
+        }
+
         protected IObjectContainer ContenedorObjetos
         {
             get
             {
-                IContextoProceso contextoProceso = ObjectFactory.GetInstance<IContextoProceso>();
+                IContextoProceso contextoProceso = this.objectFactory.Create<IContextoProceso>();
                 return contextoProceso.ContenedorObjetos;
             }
         }

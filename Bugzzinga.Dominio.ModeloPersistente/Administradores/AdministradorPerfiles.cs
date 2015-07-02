@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Core;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
@@ -11,6 +12,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
     public class AdministradorPerfiles: AdministradorEntidad<Perfil>
     {
+
+        public AdministradorPerfiles( IFactory objectFactory ) :  
+            base (objectFactory)
+        {
+
+        }
 
         public override void RegistrarNuevo( Perfil entidad )
         {

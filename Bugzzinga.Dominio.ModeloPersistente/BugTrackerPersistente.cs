@@ -44,6 +44,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarProyecto( Proyecto proyecto )
         {
+
+            this.ContenedorObjetos.Activate( proyecto.Miembros.ToList()[0], 0 );
             this.ContenedorObjetos.Store( proyecto );
             this.ContenedorObjetos.Commit();
         }
@@ -75,6 +77,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarUsuario( Usuario usuario )
         {
+            this.ContenedorObjetos.Activate( usuario.Perfil , 0 );
             this.ContenedorObjetos.Store( usuario );
             this.ContenedorObjetos.Commit();
         }
@@ -86,6 +89,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente
                 return (from Usuario u in this.ContenedorObjetos select u).ToList<Usuario>();
             }
         }
+
+
 
         public Usuario ObtenerUsuario( string nombreUsuario )
         {

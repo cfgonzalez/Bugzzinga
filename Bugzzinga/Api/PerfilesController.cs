@@ -4,43 +4,59 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
+using System.Linq;
 
 namespace Bugzzinga.Api
 {
     public class PerfilesController : ApiController
     {
+        private readonly IFactory objectFactory;
+
+        public PerfilesController( IFactory objectFactory )
+        {
+            this.objectFactory = objectFactory;
+        }
+
         // GET api/<controller>
         public IEnumerable<Perfil> Get()
         {
-            var p1 = new Perfil() { Nombre = "p1", Descripcion = "Perfil1"};
+            var perfiles = new List<Perfil>();
 
-            var p2 = new Perfil() { Nombre = "p2", Descripcion = "Perfil2" };
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                perfiles = bugzzinga.Perfiles.ToList();
+            }
 
-            var p3 = new Perfil() { Nombre = "p3", Descripcion = "Perfil3" };
-
-            return new List<Perfil>() { p1, p2, p3 };
+            return perfiles;
         }
 
         //Trae el perfil para un usuario
         public Perfil Get(int codigoUsuario)
         {
-            return new Perfil() { Nombre = "p2", Descripcion = "Perfil2" }; ;
+            throw new NotImplementedException();
         }
 
         public Perfil Put(Perfil perfil)
-        {         
-            return perfil;
+        {
+            throw new NotImplementedException();
         }
 
-        public Perfil Post(Perfil perfil)
+        public Perfil Post(Perfil perfilDto)
         {
-            return perfil;
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                bugzzinga.RegistrarPerfil( perfilDto );
+            }
+
+            return perfilDto;
         }
 
         public bool Delete(string nombre)
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

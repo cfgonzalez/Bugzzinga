@@ -12,10 +12,7 @@ namespace Bugzzinga.Dominio.Intefaces
         /// Retorna los proyectos registrados en el bugtracker
         /// </summary>
         IEnumerable<Proyecto> Proyectos { get; }
-        /// <summary>
-        /// Retorna los usuarios registrados en el bugtracker
-        /// </summary>
-        IEnumerable<Usuario> Usuarios { get ; }
+      
 
         /// <summary>
         /// Devuelve una nueva instancia de Proyecto
@@ -36,11 +33,22 @@ namespace Bugzzinga.Dominio.Intefaces
         /// <returns></returns>
         Proyecto ObtenerProyecto( string nombreProyecto );
 
+        #region "Usuarios"
+
+        /// <summary>
+        /// Retorna los usuarios registrados en el bugtracker
+        /// </summary>
+        IEnumerable<Usuario> Usuarios { get; }
+
         /// <summary>
         /// Devuelve una nueva instancia de un usuario
         /// </summary>
         /// <returns></returns>
         Usuario NuevoUsuario();
+        
+        void RegistrarUsuario(Usuario usuario);
+
+        #endregion
 
         #region "Perfiles"
 

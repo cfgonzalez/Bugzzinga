@@ -54,6 +54,8 @@ namespace Bugzzinga.Api
         {
             using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
             {
+                
+                
                 bugzzinga.RegistrarProyecto(proyectoDto);
             }
 
