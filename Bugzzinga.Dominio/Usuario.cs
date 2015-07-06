@@ -3,7 +3,7 @@
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Usuario
+    public class Usuario:DomainObject 
     {       
         public int Codigo { get; set; }
         public string Nombre { get; set; }

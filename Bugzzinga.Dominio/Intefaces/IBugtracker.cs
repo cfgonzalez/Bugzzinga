@@ -45,6 +45,12 @@ namespace Bugzzinga.Dominio.Intefaces
         /// </summary>
         /// <returns></returns>
         Usuario NuevoUsuario();
+
+        /// <summary>
+        /// Modifica los datos de un usuario en el sistema
+        /// </summary>
+        /// <param name="usuario"></param>
+        void ModificarUsuario( Usuario usuario );
         
         void RegistrarUsuario(Usuario usuario);
 

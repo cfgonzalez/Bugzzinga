@@ -40,9 +40,14 @@ namespace Bugzzinga.Api
             return null;
         }
 
-        public Usuario Put(Usuario usuario)
+        public Usuario Put(Usuario usuarioDto)
         {
-            return usuario;
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                bugzzinga.ModificarUsuario( usuarioDto );
+            }
+
+            return usuarioDto;
         }
 
         public Usuario Post(Usuario usuarioDto)

@@ -3,7 +3,7 @@
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Perfil//:IEntidadValidable
+    public class Perfil:DomainObject  //:IEntidadValidable
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }

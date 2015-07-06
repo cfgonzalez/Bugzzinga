@@ -43,7 +43,8 @@ namespace Bugzzinga
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-this.ConfigurarMapeos();ContainerSetup.BootstrapContainer();            GestorAplicacion.IniciarAplicacion();
+            this.ConfigurarMapeos();ContainerSetup.BootstrapContainer();      
+            GestorAplicacion.IniciarAplicacion();
         }
 
         protected void Application_End()

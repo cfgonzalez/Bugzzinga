@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bugtracker.cs" />
+    <Compile Include="DomainObject.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Intefaces\IBugtracker.cs" />
     <Compile Include="Item.cs" />

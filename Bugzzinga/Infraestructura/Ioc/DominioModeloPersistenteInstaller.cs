@@ -14,6 +14,9 @@ namespace Bugzzinga.Infraestructura.Ioc
             container.Register(Component.For<IAdministradorEntidad<Perfil>>()
                     .ImplementedBy<AdministradorPerfiles>());
 
+            container.Register( Component.For<IAdministradorEntidad<Usuario>>()
+                    .ImplementedBy<AdministradorUsuarios>() );
+
             container.Register(Component.For<IBugtracker>()
                   .ImplementedBy<BugTrackerPersistente>());
         }

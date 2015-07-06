@@ -44,6 +44,18 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
             this.ContenedorObjetos.Commit();
         }
 
+        public virtual void Modificar( Entidad entidad )
+        {
+            this.ContenedorObjetos.Store( entidad );
+            this.ContenedorObjetos.Commit();
+        }
+
+        public virtual void Eliminar( Entidad entidad )
+        {
+            this.ContenedorObjetos.Delete( entidad );
+            this.ContenedorObjetos.Commit();
+        }
+
         public List<Entidad> ListarTodos()
         {
 
@@ -54,7 +66,18 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
         }
 
         public abstract Entidad ObtenerPorNombre( string nombre );
-      
+
+        protected DomainObject ObtenerPorId( string id )
+        {
+            DomainObject resultado;
+            
+            resultado =   (from DomainObject u in this.ContenedorObjetos
+                                    where u.Id == id
+                                    select u).SingleOrDefault();
+
+            return resultado;
+        }
+
         #endregion
     }
 }

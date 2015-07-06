@@ -8,6 +8,7 @@ using Bugzzinga.Dominio.Intefaces;
 using Bugzzinga.Dominio.ModeloPersistente.Interfaces;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
+using System.Linq;
 
 namespace Bugzzinga.Dominio.ModeloPersistente
 {
@@ -16,6 +17,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         private readonly IFactory objectFactory;
 
         private IAdministradorEntidad<Perfil> _administradorPerfiles;
+        private IAdministradorEntidad<Usuario> _administradorUsuarios;
 
         public BugTrackerPersistente() {}
 
@@ -24,6 +26,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             this.objectFactory = objectFactory;
 
             _administradorPerfiles = this.objectFactory.Create<IAdministradorEntidad<Perfil>>();
+            _administradorUsuarios = this.objectFactory.Create<IAdministradorEntidad<Usuario>>();
         }
 
         private IObjectContainer ContenedorObjetos
@@ -77,16 +80,20 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public void RegistrarUsuario( Usuario usuario )
         {
-            this.ContenedorObjetos.Activate( usuario.Perfil , 0 );
-            this.ContenedorObjetos.Store( usuario );
-            this.ContenedorObjetos.Commit();
+            this._administradorUsuarios.RegistrarNuevo( usuario );
         }
+
+        public void ModificarUsuario( Usuario usuario )
+        {
+            this._administradorUsuarios.Modificar( usuario );
+        }
+
 
         public IEnumerable<Usuario> Usuarios
         {
             get 
             {
-                return (from Usuario u in this.ContenedorObjetos select u).ToList<Usuario>();
+                return this._administradorUsuarios.ListarTodos();
             }
         }
 

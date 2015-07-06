@@ -13,6 +13,10 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Interfaces
 
         void RegistrarNuevo(Entidad entidad);
 
+        void Modificar( Entidad entidad );
+
+        void Eliminar( Entidad entidad );
+
         List<Entidad> ListarTodos();
 
         Entidad ObtenerPorNombre(string nombre);
