@@ -83,21 +83,9 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         #region "Gestion de referencias"
 
-        protected void CargarReferencias( DomainObject entidad )
-        {
-            List<string> referencias = new List<string>();
-            Type tipoObjeto = entidad.GetType();
+        
 
-            foreach ( var propiedad in tipoObjeto.GetProperties() )
-            {
-                if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
-                    referencias.Add( propiedad.Name );
-            }
-
-            entidad = this.CargarReferenciaDesdeBD( entidad, entidad  ,referencias );
-        }
-
-        protected DomainObject CargarReferenciasModificacion( DomainObject entidad )
+        protected DomainObject CargarReferencias( DomainObject entidad )
         {
             DomainObject entidadBD = this.ObtenerPorId( entidad.Id );
 
@@ -108,6 +96,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
             {
                 if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
                     referencias.Add( propiedad.Name );
+            }
+
+            if ( entidadBD == null )
+            { 
+                //No existia en la BD
+                entidadBD = entidad;
             }
 
             entidadBD = this.CargarReferenciaDesdeBD( entidad, entidadBD, referencias );

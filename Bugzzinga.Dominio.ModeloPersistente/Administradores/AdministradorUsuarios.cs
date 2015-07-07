@@ -35,7 +35,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
         public override void Modificar( Usuario entidad )
         {
 
-            DomainObject usuario = base.CargarReferenciasModificacion( entidad );
+            DomainObject usuario = base.CargarReferencias( entidad );
 
             this.ContenedorObjetos.Store( usuario );
             this.ContenedorObjetos.Commit();
