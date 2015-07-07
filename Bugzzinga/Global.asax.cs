@@ -56,6 +56,8 @@ namespace Bugzzinga
         private void ConfigurarMapeos()
         {
             Mapper.CreateMap<Proyecto, Proyecto>();
+            Mapper.CreateMap<Usuario, Usuario>();
+            Mapper.CreateMap<Perfil, Perfil>();
         }
     }
 

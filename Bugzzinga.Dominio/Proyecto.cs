@@ -6,7 +6,7 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Proyecto
+    public class Proyecto:DomainObject 
     {
         private IList<Usuario> _miembros = new ArrayList4<Usuario>();
         private IList<TipoItem> _tiposDeItem = new ArrayList4<TipoItem>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio.ModeloPersistente.Interfaces;
@@ -85,12 +86,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         
 
-        protected DomainObject CargarReferencias( DomainObject entidad )
+        protected DomainObject CargarReferencias( DomainObject entidadDto )
         {
-            DomainObject entidadBD = this.ObtenerPorId( entidad.Id );
+            
 
             List<string> referencias = new List<string>();
-            Type tipoObjeto = entidad.GetType();
+            Type tipoObjeto = entidadDto.GetType();
 
             foreach ( var propiedad in tipoObjeto.GetProperties() )
             {
@@ -98,27 +99,34 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
                     referencias.Add( propiedad.Name );
             }
 
-            if ( entidadBD == null )
-            { 
-                //No existia en la BD
-                entidadBD = entidad;
-            }
+            DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
 
-            entidadBD = this.CargarReferenciaDesdeBD( entidad, entidadBD, referencias );
+            if ( entidadBD == null )
+            {
+                //No existia en la BD
+                entidadBD = entidadDto;
+            }
+            else
+            { 
+                //Existe en la BD
+                Mapper.Map( entidadDto, entidadBD );
+            }
+            
+            entidadBD = this.CargarReferenciaDesdeBD( entidadDto, entidadBD, referencias );
 
             return entidadBD;
             
         }
 
-        private DomainObject  CargarReferenciaDesdeBD( DomainObject entidad, DomainObject entidadBD, List<string> subEntidades )
+        private DomainObject  CargarReferenciaDesdeBD( DomainObject entidadDto, DomainObject entidadBD, List<string> referencias )
         {
-            foreach ( var nombreSubEntidad in subEntidades )
+            foreach ( var nombreReferencia in referencias )
             {
                 DomainObject subEntidad = null;
-                subEntidad = (DomainObject) entidad.GetType().GetProperty( nombreSubEntidad ).GetValue(entidad);
+                subEntidad = (DomainObject) entidadDto.GetType().GetProperty( nombreReferencia ).GetValue(entidadDto);
 
                 DomainObject subEntidadBD =   this.ObtenerPorId( subEntidad.Id );
-                entidadBD.GetType().GetProperty( nombreSubEntidad ).SetValue( entidadBD, subEntidadBD );
+                entidadBD.GetType().GetProperty( nombreReferencia ).SetValue( entidadBD, subEntidadBD );
             }
 
             return entidadBD;

@@ -37,7 +37,7 @@ namespace Bugzzinga.Api
 
         public Proyecto Put(Proyecto proyectoDto)
         {
-            Proyecto proyecto = new Proyecto();
+            DomainObject  proyecto;
 
             using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
             {
@@ -47,7 +47,7 @@ namespace Bugzzinga.Api
                 //pedirle a bugtrackter NADA hay persistencia transparente
             }
 
-            return proyecto;
+            return (Proyecto) proyecto;
         }
 
         public Proyecto Post(Proyecto proyectoDto)
