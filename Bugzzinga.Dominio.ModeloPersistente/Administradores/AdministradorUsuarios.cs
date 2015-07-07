@@ -7,6 +7,7 @@ using Bugzzinga.Contexto.IoC;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
 
+
 namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
     public class AdministradorUsuarios : AdministradorEntidad<Usuario>
@@ -19,8 +20,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         public override void RegistrarNuevo( Usuario entidad )
         {
-            Perfil p = (Perfil)this.ContenedorObjetos.QueryByExample( entidad.Perfil )[0];
-            entidad.Perfil = p;
+
+            base.CargarReferencias( entidad );
 
             this.ContenedorObjetos.Store( entidad );
             this.ContenedorObjetos.Commit();
@@ -33,10 +34,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         public override void Modificar( Usuario entidad )
         {
-            var usuario = base.ObtenerPorId( entidad.Id );
 
-            var p = base.ObtenerPorId( entidad.Perfil.Id );
-            ((Usuario) usuario).Perfil = (Perfil) p;
+            DomainObject usuario = base.CargarReferenciasModificacion( entidad );
 
             this.ContenedorObjetos.Store( usuario );
             this.ContenedorObjetos.Commit();

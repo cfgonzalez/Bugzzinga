@@ -79,5 +79,58 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
         }
 
         #endregion
+
+
+        #region "Gestion de referencias"
+
+        protected void CargarReferencias( DomainObject entidad )
+        {
+            List<string> referencias = new List<string>();
+            Type tipoObjeto = entidad.GetType();
+
+            foreach ( var propiedad in tipoObjeto.GetProperties() )
+            {
+                if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
+                    referencias.Add( propiedad.Name );
+            }
+
+            entidad = this.CargarReferenciaDesdeBD( entidad, entidad  ,referencias );
+        }
+
+        protected DomainObject CargarReferenciasModificacion( DomainObject entidad )
+        {
+            DomainObject entidadBD = this.ObtenerPorId( entidad.Id );
+
+            List<string> referencias = new List<string>();
+            Type tipoObjeto = entidad.GetType();
+
+            foreach ( var propiedad in tipoObjeto.GetProperties() )
+            {
+                if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
+                    referencias.Add( propiedad.Name );
+            }
+
+            entidadBD = this.CargarReferenciaDesdeBD( entidad, entidadBD, referencias );
+
+            return entidadBD;
+            
+        }
+
+        private DomainObject  CargarReferenciaDesdeBD( DomainObject entidad, DomainObject entidadBD, List<string> subEntidades )
+        {
+            foreach ( var nombreSubEntidad in subEntidades )
+            {
+                DomainObject subEntidad = null;
+                subEntidad = (DomainObject) entidad.GetType().GetProperty( nombreSubEntidad ).GetValue(entidad);
+
+                DomainObject subEntidadBD =   this.ObtenerPorId( subEntidad.Id );
+                entidadBD.GetType().GetProperty( nombreSubEntidad ).SetValue( entidadBD, subEntidadBD );
+            }
+
+            return entidadBD;
+        }
+
+        #endregion
+
     }
 }
