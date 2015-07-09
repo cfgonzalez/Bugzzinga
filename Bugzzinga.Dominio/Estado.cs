@@ -5,7 +5,7 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Estado
+    public class Estado:DomainObject 
     {
         private IList<Estado> _proximosEstadosValidos = new ArrayList4<Estado>();
 

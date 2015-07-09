@@ -3,10 +3,12 @@ using System.IO;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
-using Castle.Windsor.Installer;using ServicioDatos.DB4o.Server;
+using Castle.Windsor.Installer;
+using ServicioDatos.DB4o.Server;
 using ServicioDatos.DB4o.Server.Interfaces;
 using IFactory = Bugzzinga.Contexto.IoC.IFactory;
 
@@ -40,7 +42,12 @@ namespace Buggzzinga.IntegrationTest.Helpers
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
             servidorBD.Finalizar();
         }
-      
+
+        public static void ReiniciarConexion()
+        {
+            ObjectFactory.Create<IContextoProceso>().ResetearContenedorObjetos();
+        }
+
         public static void LimpiarArchivoBD()
         {
             System.IO.File.Delete( Path.Combine( _directorioBD, _nombreBD ) );

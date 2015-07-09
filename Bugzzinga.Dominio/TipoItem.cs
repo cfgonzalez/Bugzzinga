@@ -5,7 +5,7 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class TipoItem
+    public class TipoItem:DomainObject 
     {
 
         private IList<Estado> _estadosDisponibles = new ArrayList4<Estado>();
