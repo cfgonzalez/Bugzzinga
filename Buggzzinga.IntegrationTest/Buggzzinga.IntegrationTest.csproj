@@ -89,6 +89,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\HelperInstanciacionPerifles.cs" />
     <Compile Include="Helpers\HelperInstanciacionProyectos.cs" />
     <Compile Include="Helpers\HelperTestSistema.cs" />
     <Compile Include="Infraestructura\Ioc\ContainerInstaller.cs" />
@@ -129,6 +130,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestOrdenados\ListadoTests_ProyectosController.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

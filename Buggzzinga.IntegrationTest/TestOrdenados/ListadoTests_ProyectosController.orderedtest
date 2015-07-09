@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="ListadoTests_ProyectosController" storage="d:\cristian\devs\bugzzinga\buggzzinga.integrationtest\testordenados\listadotests_proyectoscontroller.orderedtest" id="f3b40c89-dd1a-48bb-a86b-cc93045364f8" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="f2818f62-7c3f-3804-a76a-a442b36dce70" name="ProyectosController_ListarProyectos" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="48f989b9-1e26-8b49-45e0-ca5cc04a976d" name="ProyectosController_ModificarProyecto" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="c3f9e72b-8058-d881-7f2a-f4cc6b7fca79" name="ProyectosController_NuevoProyecto" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>
