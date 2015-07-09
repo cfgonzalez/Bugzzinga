@@ -3,7 +3,9 @@ using System.IO;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using AutoMapper;
 using Bugzzinga.Contexto.Interfaces;
+using Bugzzinga.Dominio;
 using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
@@ -35,6 +37,15 @@ namespace Buggzzinga.IntegrationTest.Helpers
 
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar( configuracionServidor );
+
+            HelperTestSistema.ConfigurarMapeos();
+        }
+
+        public static void ConfigurarMapeos()
+        {
+            Mapper.CreateMap<Proyecto, Proyecto>();
+            Mapper.CreateMap<Usuario, Usuario>();
+            Mapper.CreateMap<Perfil, Perfil>();
         }
 
         public static void FinalizarServidor()

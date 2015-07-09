@@ -24,7 +24,13 @@ namespace Bugzzinga.Dominio.Intefaces
         /// Registra un nuevo proyecto en el bugtracker
         /// </summary>
         /// <param name="proyecto"></param>
-        void RegistrarProyecto( Proyecto proyecto );        
+        void RegistrarProyecto( Proyecto proyecto );
+
+        /// <summary>
+        /// Modifica un proyecto existente en el bugtracker
+        /// </summary>
+        /// <param name="proyecto"></param>
+        void ModificarProyecto( Proyecto proyecto );
 
         /// <summary>
         /// Devuelve una instancia de proyecto en base a su nombre

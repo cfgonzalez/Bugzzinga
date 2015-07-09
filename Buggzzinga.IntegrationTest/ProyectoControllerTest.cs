@@ -15,7 +15,7 @@ namespace Buggzzinga.IntegrationTest
     public class ProyectoControllerTest
     {
         [TestMethod]
-        public void Proyecto_Get()
+        public void ProyectosController_ListarProyectos()
         {
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
@@ -49,7 +49,7 @@ namespace Buggzzinga.IntegrationTest
 
 
         [TestMethod]
-        public void Proyecto_Post()
+        public void ProyectosController_NuevoProyecto()
         {
             HelperTestSistema.LimpiarArchivoBD();
             HelperTestSistema.IniciarServidor();
@@ -72,6 +72,58 @@ namespace Buggzzinga.IntegrationTest
             //Asserts 
             Assert.AreEqual("Proyecto 1" ,proyectos.ToList()[0].Nombre );
             Assert.AreNotSame( proyectoDto, proyectos.ToList()[0], "La instancia que devuelve el controller no deberia ser la misma" );
+        }
+
+        [TestMethod]
+        public void ProyectosController_ModificarProyecto()
+        {
+            HelperTestSistema.LimpiarArchivoBD();
+            HelperTestSistema.IniciarServidor();
+
+            //Generamos los proyectos de ejemplo directamente sobre la base de datos
+            var listadProyectosDto = HelperInstanciacionProyectos.GetProyectos( 2 );
+
+            using ( IContextoProceso contexto = new ContextoProceso(HelperTestSistema.ObjectFactory  ))
+            {
+                foreach ( var proyectoDto in listadProyectosDto )
+                {
+                    contexto.ContenedorObjetos.Store( proyectoDto );
+                }
+            }
+
+            //Reiniciamos la conexion a la base de datos
+            HelperTestSistema.ReiniciarConexion();
+
+            var controller = new ProyectosController( HelperTestSistema.ObjectFactory );
+            //obtenemos los proyectos y reiniciamos la conexion
+            var listadoProyectosBD = controller.Get();            
+            HelperTestSistema.ReiniciarConexion();
+
+            //obtenemos el primer proyecto y lo modificamos
+            var proyectoBD = listadoProyectosBD.ToList()[0];
+            proyectoBD.Descripcion = "Proyecto de prueba 1 modificado";
+
+            //modificamos el proyecto en la BD a traves del controller y reiniciamos la conexion
+            controller.Put( proyectoBD );
+            HelperTestSistema.ReiniciarConexion();
+
+            //limpiamos las variables para garantizar que las instancias quedan limpias
+            listadoProyectosBD = null;
+            
+            //Obtenemos los proyectos nuevamentes
+            listadoProyectosBD = controller.Get();
+            var otroProyectoBD = listadoProyectosBD.ToList()[0];
+
+            HelperTestSistema.FinalizarServidor();
+
+            //Asserts
+
+            //La cantidad de proyectos debe ser 2 (ya que solo se modifico un proyecto)
+            Assert.AreEqual( 2, listadoProyectosBD.ToList().Count );
+            //El primer proyecto debe tener la descripcion modificada
+            Assert.AreEqual("Proyecto de prueba 1 modificado",listadoProyectosBD.ToList()[0].Descripcion);
+            //La instancia del primer proyecto debe ser una instancia diferente
+            Assert.AreNotSame( proyectoBD, listadoProyectosBD.ToList()[0] );
         }
 
     }

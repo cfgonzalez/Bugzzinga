@@ -37,14 +37,15 @@ namespace Bugzzinga.Api
 
         public Proyecto Put(Proyecto proyectoDto)
         {
-            DomainObject  proyecto;
+            Proyecto  proyecto;
 
             using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
             {
                 proyecto = bugzzinga.ObtenerProyecto(proyectoDto.Nombre);
                 //mapear proyecto a proyectoBD
                 Mapper.Map(proyectoDto, proyecto);
-                //pedirle a bugtrackter NADA hay persistencia transparente
+
+                bugzzinga.ModificarProyecto ( proyecto );
             }
 
             return (Proyecto) proyecto;

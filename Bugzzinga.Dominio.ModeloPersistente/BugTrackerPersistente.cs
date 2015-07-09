@@ -53,6 +53,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             this.ContenedorObjetos.Commit();
         }
 
+        public void ModificarProyecto( Proyecto proyecto )
+        {
+            this.ContenedorObjetos.Store( proyecto );
+            this.ContenedorObjetos.Commit();
+        }
+
         public IEnumerable<Proyecto> Proyectos
         {
             get 
@@ -149,7 +155,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
                 this.ContenedorObjetos.Commit();
             }
 
-            //this._contenedor.Close();
+            this.ContenedorObjetos.Close();
         }        
 
         public void GuardarCambios()

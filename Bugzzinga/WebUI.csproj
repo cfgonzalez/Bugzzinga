@@ -340,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infraestructura\Mapeos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
