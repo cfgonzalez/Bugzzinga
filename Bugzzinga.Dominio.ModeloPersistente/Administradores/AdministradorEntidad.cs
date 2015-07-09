@@ -88,9 +88,40 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         protected DomainObject CargarReferencias( DomainObject entidadDto )
         {
-            
+            //Cargamos la entidad raiz 
+            DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
+            //Mapeamos los atributos de la entidad raiz
+            this.MapearEntidadRaiz( entidadDto, entidadBD );           
+            //Obtenemos el listado de referencias a objetos simples
+            List<string> referencias = this.ObtenerReferenciasSimples( entidadDto );
+            //Obtenemos el listado de referencias a listas de objetos
+            // -- TODO
 
+            //Cargamos las referencias a entidades desde la base de datos
+            entidadBD = this.CargarReferenciaDesdeBD( entidadDto, entidadBD, referencias );
+
+            return entidadBD;            
+        }
+
+        private void MapearEntidadRaiz( DomainObject entidadDto, DomainObject entidadBD )
+        {
+            if ( entidadBD == null )
+            {
+                //No existia en la BD
+                entidadBD = entidadDto;
+            }
+            else
+            {
+                //Existe en la BD
+                Mapper.Map( entidadDto, entidadBD );
+            }
+
+        }
+
+        private List<string> ObtenerReferenciasSimples( DomainObject entidadDto )
+        {
             List<string> referencias = new List<string>();
+
             Type tipoObjeto = entidadDto.GetType();
 
             foreach ( var propiedad in tipoObjeto.GetProperties() )
@@ -99,23 +130,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
                     referencias.Add( propiedad.Name );
             }
 
-            DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
-
-            if ( entidadBD == null )
-            {
-                //No existia en la BD
-                entidadBD = entidadDto;
-            }
-            else
-            { 
-                //Existe en la BD
-                Mapper.Map( entidadDto, entidadBD );
-            }
-            
-            entidadBD = this.CargarReferenciaDesdeBD( entidadDto, entidadBD, referencias );
-
-            return entidadBD;
-            
+            return referencias;
         }
 
         private DomainObject  CargarReferenciaDesdeBD( DomainObject entidadDto, DomainObject entidadBD, List<string> referencias )
