@@ -10,7 +10,7 @@ namespace Buggzzinga.IntegrationTest.Helpers
     public class HelperInstanciacionPerifles
     {
 
-        public static List<Perfil> GetProyectos( int cantidad )
+        public static List<Perfil> GetPerfiles( int cantidad )
         {
             List<Perfil> resultado = new List<Perfil>();
 
