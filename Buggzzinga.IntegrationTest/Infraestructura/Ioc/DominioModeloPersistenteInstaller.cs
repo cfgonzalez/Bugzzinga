@@ -11,11 +11,14 @@ namespace Buggzzinga.IntegrationTest.Infraestructura.Ioc
     {
         public void Install(Castle.Windsor.IWindsorContainer container, Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
         {
-            container.Register(Component.For<IAdministradorEntidad<Perfil>>()
-                    .ImplementedBy<AdministradorPerfiles>()); 
+            container.Register( Component.For<IAdministradorEntidad<Perfil>>()
+                    .ImplementedBy<AdministradorPerfiles>() );
 
-            container.Register(Component.For<IBugtracker>()
-                    .ImplementedBy<BugTrackerPersistente>());
+            container.Register( Component.For<IAdministradorEntidad<Usuario>>()
+                    .ImplementedBy<AdministradorUsuarios>() );
+
+            container.Register( Component.For<IBugtracker>()
+                  .ImplementedBy<BugTrackerPersistente>() );
         }
     }
 }
