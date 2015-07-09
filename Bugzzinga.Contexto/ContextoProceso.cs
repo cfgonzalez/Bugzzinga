@@ -33,8 +33,11 @@ namespace Bugzzinga.Contexto
 
         public void ResetearContenedorObjetos()
         {
-            this._contenedorObjetos.Close();
-            this._contenedorObjetos = this.Servidor.CrearConexion();
+            if ( this._contenedorObjetos != null )
+            {
+                this._contenedorObjetos.Close();
+                this._contenedorObjetos = this.Servidor.CrearConexion();
+            }
         }
 
         public void Dispose()
