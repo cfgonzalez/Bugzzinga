@@ -127,6 +127,11 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             this._administradorPerfiles.RegistrarNuevo( perfil );
         }
 
+        public void ModificarPerfil( Perfil perfil )
+        {
+           this._administradorPerfiles.Modificar( perfil );
+        }
+
         public IEnumerable<Perfil> Perfiles 
         {
             get

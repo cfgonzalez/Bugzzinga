@@ -67,6 +67,8 @@ namespace Bugzzinga.Dominio.Intefaces
         Perfil NuevoPerfil();
         void RegistrarPerfil( Perfil perfil );
 
+        void ModificarPerfil( Perfil perfil );
+
         Perfil ObtenerPerfil( string nombrePerfil );
 
         IEnumerable<Perfil> Perfiles { get; }

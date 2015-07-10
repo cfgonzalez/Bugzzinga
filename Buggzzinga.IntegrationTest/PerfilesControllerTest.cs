@@ -50,6 +50,7 @@ namespace Buggzzinga.IntegrationTest
             Assert.AreNotSame( perfiles[1], perfilesBD.ToList()[1] );
         }
 
+        [TestMethod]
         public void PerfilesController_NuevoPerfil()
         {
             HelperTestSistema.LimpiarArchivoBD();
@@ -79,6 +80,7 @@ namespace Buggzzinga.IntegrationTest
             Assert.AreEqual( "Perfil 1", perfilesBD.ToList()[0].Nombre );
         }
 
+        [TestMethod]
         public void PerfilesController_ModificarPerfil()
         {
 
@@ -127,6 +129,7 @@ namespace Buggzzinga.IntegrationTest
             Assert.AreEqual( "perfil de prueba 1 modificado", perfilesBD.ToList()[0].Descripcion );
         }
 
+        [TestMethod]
         public void PerfilesController_ModificarPerfilAsignadoAUsuario()
         {
 

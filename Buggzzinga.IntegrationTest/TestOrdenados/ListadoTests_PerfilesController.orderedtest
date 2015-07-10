@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="ListadoTests_PerfilesController" storage="d:\cristian\devs\bugzzinga\buggzzinga.integrationtest\testordenados\listadotests_perfilescontroller.orderedtest" id="1ef56ebb-8fb6-4a66-9326-fd53a855b35b" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="7e858092-17f2-7b94-f50b-6d9d2e9c4bdb" name="PerfilesController_ListarPerfiles" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="6b1c34c9-3c50-6b40-3d77-83ce91d3239a" name="PerfilesController_ModificarPerfil" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="58558a56-a664-4ced-5644-e45e233dd9bf" name="PerfilesController_ModificarPerfilAsignadoAUsuario" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="8672d33f-c6ee-1a15-5c86-5fab41afd478" name="PerfilesController_NuevoPerfil" storage="..\bin\debug\buggzzinga.integrationtest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

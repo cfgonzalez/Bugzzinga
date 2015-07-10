@@ -39,9 +39,14 @@ namespace Bugzzinga.Api
             throw new NotImplementedException();
         }
 
-        public Perfil Put(Perfil perfil)
+        public Perfil Put(Perfil perfilDto)
         {
-            throw new NotImplementedException();
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                bugzzinga.ModificarPerfil ( perfilDto );
+            }
+
+            return perfilDto;
         }
 
         public Perfil Post(Perfil perfilDto)

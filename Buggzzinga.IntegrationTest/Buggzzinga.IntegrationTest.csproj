@@ -132,6 +132,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestOrdenados\ListadoTests_PerfilesController.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestOrdenados\ListadoTests_ProyectosController.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
