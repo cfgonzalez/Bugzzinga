@@ -5,7 +5,7 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Item
+    public class Item:DomainObject
     {
 
         private IList<RegistroLog> _registrosLog = new ArrayList4<RegistroLog>();

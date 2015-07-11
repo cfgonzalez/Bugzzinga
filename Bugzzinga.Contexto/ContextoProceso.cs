@@ -22,7 +22,7 @@ namespace Bugzzinga.Contexto
         {
             get
             {
-                if ( this._contenedorObjetos == null )
+                if ( this._contenedorObjetos == null || this._contenedorObjetos.Ext().IsClosed() )
                 {
                     this._contenedorObjetos = this.Servidor.CrearConexion();
                 }

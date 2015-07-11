@@ -90,6 +90,12 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
         {
             //Cargamos la entidad raiz 
             DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
+
+            if ( entidadBD == null )
+            {
+                entidadBD = entidadDto;
+            }
+
             //Mapeamos los atributos de la entidad raiz
             this.MapearEntidadRaiz( entidadDto, entidadBD );           
             //Obtenemos el listado de referencias a objetos simples
@@ -140,8 +146,11 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
                 DomainObject subEntidad = null;
                 subEntidad = (DomainObject) entidadDto.GetType().GetProperty( nombreReferencia ).GetValue(entidadDto);
 
-                DomainObject subEntidadBD =   this.ObtenerPorId( subEntidad.Id );
-                entidadBD.GetType().GetProperty( nombreReferencia ).SetValue( entidadBD, subEntidadBD );
+                if ( subEntidad != null )
+                {
+                    DomainObject subEntidadBD = this.ObtenerPorId( subEntidad.Id );
+                    entidadBD.GetType().GetProperty( nombreReferencia ).SetValue( entidadBD, subEntidadBD );
+                }
             }
 
             return entidadBD;

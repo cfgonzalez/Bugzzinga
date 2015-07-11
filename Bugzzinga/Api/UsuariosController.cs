@@ -19,7 +19,6 @@ namespace Bugzzinga.Api
         public UsuariosController( IFactory objectFactory )
         {
             this.objectFactory = objectFactory;
-
         }
 
         public IEnumerable<Usuario> Get()

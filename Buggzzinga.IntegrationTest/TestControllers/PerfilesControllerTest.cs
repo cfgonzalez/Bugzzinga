@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using Db4objects.Db4o.Linq;
 using Db4objects.Db4o;
 
-namespace Buggzzinga.IntegrationTest
+namespace Buggzzinga.IntegrationTest.TestControllers
 {
     [TestClass]
     public class PerfilesControllerTest
@@ -191,7 +191,14 @@ namespace Buggzzinga.IntegrationTest
             Assert.AreEqual( "perfil de prueba 1 modificado", perfilesBD.ToList()[0].Descripcion );
             //La instancia del perfil asociado al usuario y el primer perfil deben ser  la misma
             Assert.AreSame(perfilesBD.ToList()[0], usuariosBD[0].Perfil );
-        } 
+        }
+
+
+        [TestMethod]
+        public void PerfilesController_EliminarPerfil()
+        {
+            Assert.Inconclusive();
+        }
     }
 
 }

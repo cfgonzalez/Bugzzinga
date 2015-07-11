@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Buggzzinga.IntegrationTest
+namespace Buggzzinga.IntegrationTest.TestControllers
 {
     [TestClass]
     public class ProyectoControllerTest
@@ -126,5 +126,11 @@ namespace Buggzzinga.IntegrationTest
             Assert.AreNotSame( proyectoBD, listadoProyectosBD.ToList()[0] );
         }
 
+
+        [TestMethod]
+        public void ProyectosController_EliminarProyecto()
+        {
+            Assert.Inconclusive();
+        }
     }
 }

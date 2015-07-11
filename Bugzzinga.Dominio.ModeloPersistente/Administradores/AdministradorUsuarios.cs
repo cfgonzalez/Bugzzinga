@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Bugzzinga.Contexto.IoC;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
@@ -36,7 +37,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
         {
 
             DomainObject usuario = base.CargarReferencias( entidad );
-
+            Mapper.Map( entidad, usuario );
             this.ContenedorObjetos.Store( usuario );
             this.ContenedorObjetos.Commit();
         }

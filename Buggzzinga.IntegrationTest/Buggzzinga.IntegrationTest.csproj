@@ -97,11 +97,12 @@
     <Compile Include="Infraestructura\Ioc\DesktopInstaller.cs" />
     <Compile Include="Infraestructura\Ioc\DominioInstaller.cs" />
     <Compile Include="Infraestructura\Ioc\DominioModeloPersistenteInstaller.cs" />
-    <Compile Include="PerfilesControllerTest.cs" />
+    <Compile Include="TestControllers\PerfilesControllerTest.cs" />
     <Compile Include="PersistenciaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProyectoControllerTest.cs" />
+    <Compile Include="TestControllers\ProyectoControllerTest.cs" />
     <Compile Include="ReflectionTest.cs" />
+    <Compile Include="TestControllers\UsuariosControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bugzzinga.Contexto\Bugzzinga.Contexto.csproj">
@@ -136,6 +137,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestOrdenados\ListadoTests_ProyectosController.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestOrdenados\ListadoTests_UsuariosController.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
