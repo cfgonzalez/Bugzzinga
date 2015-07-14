@@ -39,6 +39,13 @@ namespace Bugzzinga.Dominio.Intefaces
         /// <returns></returns>
         Proyecto ObtenerProyecto( string nombreProyecto );
 
+        /// <summary>
+        /// Devuelde una instancia de proyecto en base a su codigo
+        /// </summary>
+        /// <param name="codigoProyecto"></param>
+        /// <returns></returns>
+        Proyecto ObtenerProyectoPorCodigo( string codigoProyecto );
+
         #region "Usuarios"
 
         /// <summary>

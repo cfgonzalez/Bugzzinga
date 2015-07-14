@@ -23,7 +23,7 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<Proyecto> Get()
         {
-            var a = objectFactory.Create<IBugtracker>();
+            
 
             IEnumerable<Proyecto> proyectos = new List<Proyecto>();
 

@@ -9,7 +9,7 @@ namespace Bugzzinga.Dominio
     public class Proyecto:DomainObject 
     {
         private IList<Usuario> _miembros = new ArrayList4<Usuario>();
-        private IList<TipoItem> _tiposDeItem = new ArrayList4<TipoItem>();
+        private IList<TipoItem> _tiposDeItem = new List<TipoItem>();
         private IList<Item> _items =  new ArrayList4<Item>();
         private ArrayList4<Prioridad> _prioridades = new ArrayList4<Prioridad>();
 
@@ -25,6 +25,11 @@ namespace Bugzzinga.Dominio
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaInicio { get; set; }
+
+        public void AgregarTipoDeItem( TipoItem tipoDeItem )
+        {
+            this._tiposDeItem.Add( tipoDeItem );
+        }
 
         public void AgregarItem(Item item)
         {

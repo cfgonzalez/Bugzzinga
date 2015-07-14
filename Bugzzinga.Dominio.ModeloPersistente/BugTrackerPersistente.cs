@@ -66,6 +66,15 @@ namespace Bugzzinga.Dominio.ModeloPersistente
                 return (from Proyecto p in this.ContenedorObjetos select p).ToList<Proyecto>();                
             }
         }
+
+        public Proyecto ObtenerProyectoPorCodigo( string codigoProyecto )
+        {
+            Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
+                                 where p.Codigo.ToUpper() == codigoProyecto.ToUpper()
+                                 select p).SingleOrDefault();
+            return proyecto;
+        }
+
         public Proyecto ObtenerProyecto( string nombreProyecto )
         {
             Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
@@ -149,16 +158,16 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         
         public void Dispose()
         {
-            bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
+            //bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
 
-            if ( isInException )
-            {
-                this.ContenedorObjetos.Rollback();
-            }
-            else
-            {
-                this.ContenedorObjetos.Commit();
-            }
+            //if ( isInException )
+            //{
+            //    this.ContenedorObjetos.Rollback();
+            //}
+            //else
+            //{
+            //    this.ContenedorObjetos.Commit();
+            //}
 
             this.ContenedorObjetos.Close();
         }        

@@ -4,50 +4,68 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
 
 namespace Bugzzinga.Api
 {
     public class TiposItemController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<TipoItem> Get()
+         private readonly IFactory objectFactory;
+
+         public TiposItemController( IFactory objectFactory )
         {
-            return this.TraerListaTiposItemDummy();
+            this.objectFactory = objectFactory;
         }
 
+        //*** Lo vamos a implementar luego, si es que dejamos las plantillas de proyecto
         //Trae los tipos de item para una plantilla de proyecto
-        public IEnumerable<TipoItem> Get(string nombrePlantillaProyecto)
+        //public IEnumerable<TipoItem> Get(string nombrePlantillaProyecto)
+        //{
+        //    //Devuelve una sublista dummy del total de de tipos de item
+        //    var lista = TraerListaTiposItemDummy();
+
+        //    lista.RemoveAt(0);
+
+        //    return lista;
+        //}
+
+        public IEnumerable<TipoItem> Get(string codigoProyecto)
         {
-            //Devuelve una sublista dummy del total de de tipos de item
-            var lista = TraerListaTiposItemDummy();
 
-            lista.RemoveAt(0);
+            List<TipoItem> tiposItem = new List<TipoItem>();
 
-            return lista;
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+                tiposItem = proyecto.TiposDeItem.ToList();
+            }
+
+            return tiposItem;
         }
 
-        public TipoItem Put(TipoItem TipoItem)
+        public TipoItem Put(string codigoProyecto, TipoItem TipoItem)
         {
             return TipoItem;
         }
 
-        public TipoItem Post(TipoItem TipoItem)
+        public TipoItem Post(string codigoProyecto, TipoItem TipoItem)
         {
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+                proyecto.AgregarTipoDeItem( TipoItem );
+
+                bugzzinga.ModificarProyecto( proyecto );
+            }
+
             return TipoItem;
         }
 
         public bool Delete(string nombre)
         {
             return true;
-        }
-
-        private List<TipoItem> TraerListaTiposItemDummy()
-        {
-            var p1 = new TipoItem("t1", "TipoItem1");
-            var p2 = new TipoItem("t2", "TipoItem2");
-
-            return new List<TipoItem>() { p1, p2 };
         }
     }
 }

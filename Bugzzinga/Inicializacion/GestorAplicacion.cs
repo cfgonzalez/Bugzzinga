@@ -26,8 +26,8 @@ namespace Bugzzinga.Inicializacion
             configuracionServidor.RutaArchivos = pathBD;//Properties.Settings.Default.DirectorioBD;
             configuracionServidor.NombreArchivoBD = Properties.Settings.Default.NombreBD;
             configuracionServidor.Puerto = 0;
-            configuracionServidor.PersistenciaTransparente = true;
-            configuracionServidor.ActivacionTransparente = true;
+            configuracionServidor.PersistenciaTransparente = false;
+            configuracionServidor.ActivacionTransparente = false;
 
             IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar(configuracionServidor);

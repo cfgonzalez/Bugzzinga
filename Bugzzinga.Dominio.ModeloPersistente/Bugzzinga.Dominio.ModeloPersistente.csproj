@@ -61,6 +61,7 @@
     <Compile Include="Administradores\AdministradorPerfiles.cs" />
     <Compile Include="Administradores\AdministradorUsuarios.cs" />
     <Compile Include="BugTrackerPersistente.cs" />
+    <Compile Include="Configuracion\ConfiguracionEntidades.cs" />
     <Compile Include="Interfaces\IAdministradorEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

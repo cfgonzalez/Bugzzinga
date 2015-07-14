@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.ModeloPersistente.Configuracion;
 using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
@@ -25,19 +26,21 @@ namespace Buggzzinga.IntegrationTest.Helpers
 
         public static void IniciarServidor()
         {
-            ObjectFactory = ContainerSetup.BootstrapContainer();   
+            ObjectFactory = ContainerSetup.BootstrapContainer();
+
+            ConfiguracionEntidades.ConfigurarPersistencia();
 
             ConfiguracionServer configuracionServidor = new ConfiguracionServer();
             string path = AppDomain.CurrentDomain.BaseDirectory;
             configuracionServidor.RutaArchivos = _directorioBD;
             configuracionServidor.NombreArchivoBD = _nombreBD;
             configuracionServidor.Puerto = 0;
-            configuracionServidor.PersistenciaTransparente = true;
-            configuracionServidor.ActivacionTransparente = true;
+            configuracionServidor.PersistenciaTransparente = false;
+            configuracionServidor.ActivacionTransparente = false;
 
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar( configuracionServidor );
-
+            
             HelperTestSistema.ConfigurarMapeos();
         }
 
