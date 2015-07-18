@@ -130,7 +130,7 @@ namespace Buggzzinga.IntegrationTest.TestControllers
             //El proyecto debe tener 3 tipos de item
             Assert.AreEqual( 3, proyectosBD[0].TiposDeItem.Count() );
             //El tercer tipo de item debe ser el que agregamos
-            Assert.AreEqual( "Tipo de item 3", proyectosBD[0].TiposDeItem.ToList()[2].Descripcion );
+            Assert.AreEqual( "Proyecto 1-Tipo de item de prueba 3", proyectosBD[0].TiposDeItem.ToList()[2].Descripcion );
         }
 
 

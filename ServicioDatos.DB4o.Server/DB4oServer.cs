@@ -33,7 +33,13 @@ namespace ServicioDatos.DB4o.Server
         /// </summary>
         /// <param name="configuracion">Configuración a utilizar para iniciar el servidor.
         /// </param>
-        public void Iniciar(ConfiguracionServer configuracion)
+        public void Iniciar( ConfiguracionServer configuracion )
+        {
+            this.Iniciar( configuracion, null );
+        }
+
+        
+        public void Iniciar(ConfiguracionServer configuracion, IConfiguracionEntidades configuracionEntidades)
         {
             string pathBD = Path.Combine(configuracion.RutaArchivos, configuracion.NombreArchivoBD);
             var db4oConfig = Db4oClientServer.NewServerConfiguration();
@@ -46,6 +52,12 @@ namespace ServicioDatos.DB4o.Server
             if(configuracion.PersistenciaTransparente)
             {
                 db4oConfig.Common.Add(new TransparentPersistenceSupport());
+            }
+
+            //Aplicamos la configuracion de las entidades persistentes solamente si la misma fue especificada
+            if ( configuracionEntidades != null )
+            {
+                db4oConfig = configuracionEntidades.ConfigurarPersistenciaEntidades( db4oConfig );
             }
 
             this._servidor =  Db4oClientServer.OpenServer(db4oConfig, pathBD, 0);            

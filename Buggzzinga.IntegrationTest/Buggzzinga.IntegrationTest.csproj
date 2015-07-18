@@ -89,6 +89,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DB4oTest.cs" />
     <Compile Include="Helpers\HelperInstanciacionItems.cs" />
     <Compile Include="Helpers\HelperInstanciacionPerifles.cs" />
     <Compile Include="Helpers\HelperInstanciacionProyectos.cs" />

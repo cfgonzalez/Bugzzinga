@@ -48,13 +48,14 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         public void RegistrarProyecto( Proyecto proyecto )
         {
 
-            //this.ContenedorObjetos.Activate( proyecto.Miembros.ToList()[0], 0 );
+            
             this.ContenedorObjetos.Store( proyecto );
             this.ContenedorObjetos.Commit();
         }
 
         public void ModificarProyecto( Proyecto proyecto )
         {
+
             this.ContenedorObjetos.Store( proyecto );
             this.ContenedorObjetos.Commit();
         }

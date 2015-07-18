@@ -9,6 +9,7 @@ using Bugzzinga.Infraestructura.Ioc;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using Bugzzinga.Dominio.ModeloPersistente.Configuracion;
 
 namespace Bugzzinga.Inicializacion
 {
@@ -30,7 +31,7 @@ namespace Bugzzinga.Inicializacion
             configuracionServidor.ActivacionTransparente = false;
 
             IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
-            servidorBD.Iniciar(configuracionServidor);
+            servidorBD.Iniciar(configuracionServidor, new ConfiguracionEntidades());
         }
 
         public static void FinalizarAplicacion()

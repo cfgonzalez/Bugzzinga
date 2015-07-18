@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ConfiguracionServer.cs" />
     <Compile Include="DB4oServer.cs" />
+    <Compile Include="Interfaces\IConfiguracionEntidades.cs" />
     <Compile Include="Interfaces\IDB4oServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

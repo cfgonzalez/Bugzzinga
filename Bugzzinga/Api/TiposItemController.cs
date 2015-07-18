@@ -54,6 +54,7 @@ namespace Bugzzinga.Api
         {
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
+                
                 Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
                 proyecto.AgregarTipoDeItem( TipoItem );
 

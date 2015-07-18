@@ -28,8 +28,6 @@ namespace Buggzzinga.IntegrationTest.Helpers
         {
             ObjectFactory = ContainerSetup.BootstrapContainer();
 
-            ConfiguracionEntidades.ConfigurarPersistencia();
-
             ConfiguracionServer configuracionServidor = new ConfiguracionServer();
             string path = AppDomain.CurrentDomain.BaseDirectory;
             configuracionServidor.RutaArchivos = _directorioBD;
@@ -39,7 +37,8 @@ namespace Buggzzinga.IntegrationTest.Helpers
             configuracionServidor.ActivacionTransparente = false;
 
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
-            servidorBD.Iniciar( configuracionServidor );
+                        
+            servidorBD.Iniciar( configuracionServidor, new ConfiguracionEntidades() );
             
             HelperTestSistema.ConfigurarMapeos();
         }
