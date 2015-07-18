@@ -46,6 +46,8 @@ namespace Buggzzinga.IntegrationTest.Helpers
         public static void ConfigurarMapeos()
         {
             Mapper.CreateMap<Proyecto, Proyecto>();
+            Mapper.CreateMap<TipoItem, TipoItem>();
+
             Mapper.CreateMap<Usuario, Usuario>();
             Mapper.CreateMap<Perfil, Perfil>();
         }

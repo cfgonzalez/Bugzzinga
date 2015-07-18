@@ -140,9 +140,55 @@ namespace Buggzzinga.IntegrationTest.TestControllers
         [TestMethod]
         public void TiposItemController_ModificarTipoDeItemDeProyecto()
         {
+            HelperTestSistema.LimpiarArchivoBD();
+            HelperTestSistema.IniciarServidor();
+
+            //Creamos 1 proyecto1 directamente en la BD con dos tipos de item            
+            var tiposDeItemProyecto1 = HelperInstanciacionItems.GetTiposDeItem( "Proyecto 1", 3 );
+            var proyecto = HelperInstanciacionProyectos.GetProyectos( 1 )[0];
+
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[0] );
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[1] );
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[2] );
+
+            //Guardamos los objetos en la BD
+            using ( IContextoProceso contexto = new ContextoProceso( HelperTestSistema.ObjectFactory ) )
+            {
+                contexto.ContenedorObjetos.Store( proyecto );
+            }
+
+            HelperTestSistema.ReiniciarConexion();
+
+            //Obtenemos los tipos de item del proyecto directamente a traves de la API
+            var controller = new TiposItemController( HelperTestSistema.ObjectFactory );
+            var tiposItem = controller.Get( "P1" );
+
+            //Obtenemos el primer tipo de item y lo modificamos a traves de la API
+            var tipoItem = tiposItem.ToList()[1];
+            tipoItem.Descripcion = "Tipo de item 2 modificado";
+            controller.Put( "P1", tipoItem );
+            HelperTestSistema.ReiniciarConexion();
+
+            //Obtenemos los datos para validar directamente desde la base de datos
+            var  proyectosBD = new List<Proyecto>();
+            using ( IContextoProceso contexto = new ContextoProceso( HelperTestSistema.ObjectFactory ) )
+            {
+                proyectosBD = (from Proyecto p in contexto.ContenedorObjetos select p).ToList();
+            }
+
+            HelperTestSistema.ReiniciarConexion();
+            HelperTestSistema.FinalizarServidor();
+
             //Asserts
-            Assert.Inconclusive();
+           
+            //Tiene que haber un solo proyecto en la BD
+            Assert.AreEqual( 1, proyectosBD.Count );
+            //El proyecto debe tener 3 tipos de item
+            Assert.AreEqual( 3, proyectosBD[0].TiposDeItem.Count() );
+            //El tipo de item 2 debe tener la descripcion modificada
+            Assert.AreEqual( "Tipo de item 2 modificado", proyectosBD[0].TiposDeItem.ToList()[1].Descripcion );
         }
+
 
         /// <summary>
         /// El objetivo es modificar un tipo de item de un proyecto que tiene mas de un tipo de item
@@ -151,8 +197,64 @@ namespace Buggzzinga.IntegrationTest.TestControllers
         [TestMethod]
         public void TiposItemController_ModificarTipoDeItemDeProyecto_ConReferencias()
         {
+
+            HelperTestSistema.LimpiarArchivoBD();
+            HelperTestSistema.IniciarServidor();
+
+            //Creamos 1 proyecto1 directamente en la BD con dos tipos de item            
+            var tiposDeItemProyecto1 = HelperInstanciacionItems.GetTiposDeItem( "Proyecto 1", 3 );
+            var proyecto = HelperInstanciacionProyectos.GetProyectos( 1 )[0];
+
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[0] );
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[1] );
+            proyecto.AgregarTipoDeItem( tiposDeItemProyecto1[2] );
+
+            //Cregamos un item y le asignamos el tipo de item 2
+            var item = new Item("Item 1", "Item de prueba 1",tiposDeItemProyecto1[1], new Prioridad("Baja", "Test") );            
+            proyecto.AgregarItem( item );
+
+            //Guardamos los objetos en la BD
+            using ( IContextoProceso contexto = new ContextoProceso( HelperTestSistema.ObjectFactory ) )
+            {
+                contexto.ContenedorObjetos.Store( proyecto );
+            }
+
+            HelperTestSistema.ReiniciarConexion();
+
+            //Obtenemos los tipos de item del proyecto desde el controller
+            var controller = new TiposItemController( HelperTestSistema.ObjectFactory );
+            var tiposItem = controller.Get( "P1" );
+            
+            var tipoItemAModificar = tiposItem.ToList()[1];
+            tipoItemAModificar.Descripcion = "Tipo de item 2 modificado";
+
+            controller.Put( "P1", tipoItemAModificar );
+            HelperTestSistema.ReiniciarConexion();
+
+            //Obtenemos los datos directamente desde la BD para validarlos
+             //Obtenemos los datos para validar directamente desde la base de datos
+            var  proyectosBD = new List<Proyecto>();
+            using ( IContextoProceso contexto = new ContextoProceso( HelperTestSistema.ObjectFactory ) )
+            {
+                proyectosBD = (from Proyecto p in contexto.ContenedorObjetos select p).ToList();
+            }
+
+
+            HelperTestSistema.ReiniciarConexion();
+            HelperTestSistema.FinalizarServidor();
+
             //Asserts
-            Assert.Inconclusive();
+            
+            //Tiene que haber un solo proyecto
+            Assert.AreEqual( 1, proyectosBD.Count );
+            //El proyeto debe tener 3 tipos de item
+            Assert.AreEqual( 3, proyectosBD[0].TiposDeItem.Count() );
+            //El tipo de item 2 debe estar modificado
+            Assert.AreEqual( "Tipo de item 2 modificado", proyectosBD[0].TiposDeItem.ToList()[1].Descripcion );
+            //El proyecto debe tener 1 item
+            Assert.AreEqual( 1, proyectosBD[0].Items.Count() );
+            //La instanacia del tipo de item 2 debe ser la misma asociada al item del proyecto
+            Assert.AreSame( proyectosBD[0].TiposDeItem.ToList()[1], proyectosBD[0].Items.ToList()[0].Tipo );
         }
 
         /// <summary>

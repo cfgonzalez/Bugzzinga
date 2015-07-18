@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
@@ -45,9 +46,18 @@ namespace Bugzzinga.Api
             return tiposItem;
         }
 
-        public TipoItem Put(string codigoProyecto, TipoItem TipoItem)
+        public TipoItem Put(string codigoProyecto, TipoItem TipoItemDTO)
         {
-            return TipoItem;
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+
+                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+                TipoItem tipoItem = proyecto.TiposDeItem.Where( x => x.Id == TipoItemDTO.Id ).SingleOrDefault();
+                Mapper.Map( TipoItemDTO, tipoItem );
+                bugzzinga.ModificarProyecto( proyecto );
+            }
+
+            return TipoItemDTO;
         }
 
         public TipoItem Post(string codigoProyecto, TipoItem TipoItem)
