@@ -84,6 +84,21 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             return proyecto;
         }
 
+
+        public void QuitarTipoItemDeProyecto( string codigoProyecto, string nombreTipoItem )
+        {
+            Proyecto proyecto = this.ObtenerProyectoPorCodigo( codigoProyecto );
+            TipoItem tipoItem = proyecto.GetTipoItem( nombreTipoItem );
+
+            proyecto.QuitarTipoDeItem( tipoItem );
+            
+            this.ContenedorObjetos.Delete( tipoItem );
+            this.ContenedorObjetos.Store( proyecto );
+
+            this.ContenedorObjetos.Commit();
+        }
+
+
         #endregion
 
         #region "Usuarios"

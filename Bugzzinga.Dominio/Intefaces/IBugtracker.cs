@@ -12,7 +12,9 @@ namespace Bugzzinga.Dominio.Intefaces
         /// Retorna los proyectos registrados en el bugtracker
         /// </summary>
         IEnumerable<Proyecto> Proyectos { get; }
-      
+
+
+        #region "Proyectos"
 
         /// <summary>
         /// Devuelve una nueva instancia de Proyecto
@@ -45,6 +47,11 @@ namespace Bugzzinga.Dominio.Intefaces
         /// <param name="codigoProyecto"></param>
         /// <returns></returns>
         Proyecto ObtenerProyectoPorCodigo( string codigoProyecto );
+
+        void QuitarTipoItemDeProyecto( string codigoProyecto, string nombreTipoItem );
+
+        #endregion
+
 
         #region "Usuarios"
 

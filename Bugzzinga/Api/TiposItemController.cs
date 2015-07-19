@@ -52,7 +52,8 @@ namespace Bugzzinga.Api
             {
 
                 Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                TipoItem tipoItem = proyecto.TiposDeItem.Where( x => x.Id == TipoItemDTO.Id ).SingleOrDefault();
+                TipoItem tipoItem = proyecto.GetTipoItem( TipoItemDTO.Nombre );
+
                 Mapper.Map( TipoItemDTO, tipoItem );
                 bugzzinga.ModificarProyecto( proyecto );
             }
@@ -60,22 +61,27 @@ namespace Bugzzinga.Api
             return TipoItemDTO;
         }
 
-        public TipoItem Post(string codigoProyecto, TipoItem TipoItem)
+        public TipoItem Post(string codigoProyecto, TipoItem tipoItem)
         {
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
                 
                 Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                proyecto.AgregarTipoDeItem( TipoItem );
+                proyecto.AgregarTipoDeItem( tipoItem );
 
                 bugzzinga.ModificarProyecto( proyecto );
             }
 
-            return TipoItem;
+            return tipoItem;
         }
 
-        public bool Delete(string nombre)
+        public bool Delete(string codigoProyecto, string nombreTipoItem)
         {
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                bugzzinga.QuitarTipoItemDeProyecto( codigoProyecto, nombreTipoItem );
+            }
+
             return true;
         }
     }

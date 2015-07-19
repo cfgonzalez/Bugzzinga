@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Bugzzinga.Core.Atributos;
 using Db4objects.Db4o.Collections;
+using System.Linq;
 
 namespace Bugzzinga.Dominio
 {
@@ -26,10 +27,24 @@ namespace Bugzzinga.Dominio
         public string Descripcion { get; set; }
         public DateTime FechaInicio { get; set; }
 
+        #region "Tipos de item"
+
         public void AgregarTipoDeItem( TipoItem tipoDeItem )
         {
             this._tiposDeItem.Add( tipoDeItem );
         }
+
+        public void QuitarTipoDeItem( TipoItem tipoDeItem )
+        {
+            this._tiposDeItem.Remove( tipoDeItem );
+        }
+
+        public TipoItem GetTipoItem( string nombreTipoItem )
+        {
+            return this._tiposDeItem.Where( x => x.Nombre.Equals( nombreTipoItem, StringComparison.InvariantCultureIgnoreCase ) ).SingleOrDefault();
+        }
+
+        #endregion
 
         public void AgregarItem(Item item)
         {
