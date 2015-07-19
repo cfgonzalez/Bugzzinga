@@ -32,20 +32,20 @@ namespace Bugzzinga
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;
             jsonFormatter.UseDataContractJsonSerializer = false;
-            settings.Converters.Add(new IsoDateTimeConverter());
+            settings.Converters.Add( new IsoDateTimeConverter() );
             settings.Formatting = Formatting.Indented;
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
-            GlobalConfiguration.Configuration.Formatters.Add(jsonFormatter);
+            WebApiConfig.Register( GlobalConfiguration.Configuration );
+            FilterConfig.RegisterGlobalFilters( GlobalFilters.Filters );
+            GlobalConfiguration.Configuration.Formatters.Remove( GlobalConfiguration.Configuration.Formatters.XmlFormatter );
+            GlobalConfiguration.Configuration.Formatters.Add( jsonFormatter );
             //GlobalConfiguration.Configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            RouteConfig.RegisterRoutes( RouteTable.Routes );
+            BundleConfig.RegisterBundles( BundleTable.Bundles );
             AuthConfig.RegisterAuth();
-            this.ConfigurarMapeos();
-            ContainerSetup.BootstrapContainer();      
-            
+
+            ContainerSetup.BootstrapContainer();
+
             GestorAplicacion.IniciarAplicacion();
         }
 
@@ -55,15 +55,6 @@ namespace Bugzzinga
             ContainerSetup.TeardownContainer();
         }
 
-        private void ConfigurarMapeos()
-        {
-            Mapper.CreateMap<Proyecto, Proyecto>();
-            Mapper.CreateMap<TipoItem, TipoItem>();
-            
-            Mapper.CreateMap<Usuario, Usuario>();
-            Mapper.CreateMap<Perfil, Perfil>();
-
-        }
     }
 
     public static class ContainerSetup
@@ -81,12 +72,12 @@ namespace Bugzzinga
                 .Register()
 
                 //Registra todos los installers
-                .Install(FromAssembly.This());
+                .Install( FromAssembly.This() );
         }
 
         public static void TeardownContainer()
         {
-            if (container != null)
+            if ( container != null )
             {
                 container.Dispose();
             }

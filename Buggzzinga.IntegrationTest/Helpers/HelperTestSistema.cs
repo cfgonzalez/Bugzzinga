@@ -39,18 +39,11 @@ namespace Buggzzinga.IntegrationTest.Helpers
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();
                         
             servidorBD.Iniciar( configuracionServidor, new ConfiguracionEntidades() );
-            
-            HelperTestSistema.ConfigurarMapeos();
+
+            ConfiguracionMapeos.ConfigurarMapeos();
         }
 
-        public static void ConfigurarMapeos()
-        {
-            Mapper.CreateMap<Proyecto, Proyecto>();
-            Mapper.CreateMap<TipoItem, TipoItem>();
-
-            Mapper.CreateMap<Usuario, Usuario>();
-            Mapper.CreateMap<Perfil, Perfil>();
-        }
+       
 
         public static void FinalizarServidor()
         {

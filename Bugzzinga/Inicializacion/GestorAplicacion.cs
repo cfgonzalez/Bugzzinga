@@ -32,6 +32,8 @@ namespace Bugzzinga.Inicializacion
 
             IDB4oServer servidorBD = objectFactory.Create<IDB4oServer>();
             servidorBD.Iniciar(configuracionServidor, new ConfiguracionEntidades());
+
+            ConfiguracionMapeos.ConfigurarMapeos();
         }
 
         public static void FinalizarAplicacion()

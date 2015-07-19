@@ -142,6 +142,9 @@
     <None Include="TestOrdenados\ListadoTests_ProyectosController.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestOrdenados\ListadoTests_TiposItemController.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestOrdenados\ListadoTests_UsuariosController.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
