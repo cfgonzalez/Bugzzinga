@@ -99,6 +99,7 @@
     <Compile Include="Infraestructura\Ioc\DesktopInstaller.cs" />
     <Compile Include="Infraestructura\Ioc\DominioInstaller.cs" />
     <Compile Include="Infraestructura\Ioc\DominioModeloPersistenteInstaller.cs" />
+    <Compile Include="TestControllers\ItemsControllerTest.cs" />
     <Compile Include="TestControllers\PerfilesControllerTest.cs" />
     <Compile Include="PersistenciaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

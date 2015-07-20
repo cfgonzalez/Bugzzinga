@@ -13,56 +13,31 @@ namespace Bugzzinga.Api
         //Trae los usuarios para un proyecto 
         public IEnumerable<Item> Get()
         {
-            return TraerListaItemsDummy(); ;
+            return new List<Item>();
         }
 
         //Trae los items para un proyecto 
         public IEnumerable<Item> Get(int codigoProyecto)
         {
             //Devuelve una sublista dummy del total de usuarios
-            var lista = TraerListaItemsDummy();
+            //var lista = TraerListaItemsDummy();
 
-            lista.RemoveAt(1);
+//            lista.RemoveAt(1);
 
-            return lista;
+            return new List<Item>();
         }
-
-        private List<Item> TraerListaItemsDummy()
+        
+        public Item Put(string codigoProyecto, Item itemDto)
         {
-            var listaItems = new List<Item>();
-
-            for (var i = 0; i < 3; i++)
-            {
-                var tipo = new TipoItem("t1", "TipoItem1");
-
-                var prioridad = new Prioridad("P1", "Prioridad 1");
-
-                var item = new Item("Nombre" + (i + 1).ToString(), "Descripcion" + (i + 1).ToString(), tipo, prioridad);
-
-                item.Responsable = new Usuario();
-
-                item.Responsable.Codigo = 2;
-
-                item.Codigo = (i + 1);
-
-                item.Estado = new Estado("Creado", "Creado");
-                
-                listaItems.Add(item);
-            }
-
-            return listaItems;
+            return itemDto;
         }
-        public Item Put(Item item)
+
+        public Item Post(string codigoProyecto, Item itemDto)
         {
-            return item;
+            return itemDto;
         }
 
-        public Item Post(Item item)
-        {
-            return item;
-        }
-
-        public bool Delete(int codigo)
+        public bool Delete(string codigoProyecto, int codigoItem)
         {
             return true;
         }

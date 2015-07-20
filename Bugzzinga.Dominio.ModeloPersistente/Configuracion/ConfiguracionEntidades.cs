@@ -19,7 +19,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Configuracion
 
             //configuracion.Common.ObjectClass( typeof( Proyecto )).CascadeOnUpdate( true );
             configuracion.Common.ObjectClass( typeof( Proyecto ) ).UpdateDepth( 10 );
-            
+                        
             return configuracion;
         }
 
