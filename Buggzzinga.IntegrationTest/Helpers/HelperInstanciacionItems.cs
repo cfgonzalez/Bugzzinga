@@ -14,7 +14,7 @@ namespace Buggzzinga.IntegrationTest.Helpers
             List<TipoItem> resultado = new List<TipoItem>();
 
             for ( int i = 1; i <= cantidad; i++ )
-            {
+            { 
                 TipoItem p = new TipoItem();
                 p.Nombre = String.Concat( "Tipo de item ", i );
                 p.Descripcion = String.Concat(nombreProyecto, "-" , "Tipo de item de prueba ", i );                
