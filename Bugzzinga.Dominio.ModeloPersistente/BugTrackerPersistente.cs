@@ -46,9 +46,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         }
 
         public void RegistrarProyecto( Proyecto proyecto )
-        {
-
-            
+        {   
             this.ContenedorObjetos.Store( proyecto );
             this.ContenedorObjetos.Commit();
         }
@@ -83,7 +81,6 @@ namespace Bugzzinga.Dominio.ModeloPersistente
                                     select p).SingleOrDefault();
             return proyecto;
         }
-
 
         public void QuitarTipoItemDeProyecto( string codigoProyecto, string nombreTipoItem )
         {

@@ -4,27 +4,33 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Bugzzinga.Contexto.IoC;
 using Bugzzinga.Dominio;
+using Bugzzinga.Dominio.Intefaces;
 
 namespace Bugzzinga.Api
 {
     public class ItemsController : ApiController
     {
-        //Trae los usuarios para un proyecto 
-        public IEnumerable<Item> Get()
+        private readonly IFactory objectFactory;
+
+        public ItemsController( IFactory ObjectFactory )
         {
-            return new List<Item>();
+            this.objectFactory = ObjectFactory;
         }
 
         //Trae los items para un proyecto 
-        public IEnumerable<Item> Get(int codigoProyecto)
+        public IEnumerable<Item> Get(string codigoProyecto)
         {
-            //Devuelve una sublista dummy del total de usuarios
-            //var lista = TraerListaItemsDummy();
+            var items =  new List<Item>();
+            
+            using ( IBugtracker bugzzinga = this.objectFactory.Create<IBugtracker>() )
+            {
+                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+                items = proyecto.Items.ToList();
+            }
 
-//            lista.RemoveAt(1);
-
-            return new List<Item>();
+            return items;
         }
         
         public Item Put(string codigoProyecto, Item itemDto)
@@ -34,6 +40,14 @@ namespace Bugzzinga.Api
 
         public Item Post(string codigoProyecto, Item itemDto)
         {
+
+            using ( IBugtracker bugzzinga = this.objectFactory.Create<IBugtracker>() )
+            {
+                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+                proyecto.AgregarItem( itemDto );
+                bugzzinga.ModificarProyecto( proyecto );
+            }
+
             return itemDto;
         }
 
