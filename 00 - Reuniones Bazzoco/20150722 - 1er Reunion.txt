@@ -1,0 +1,13 @@
+En esta iteracion
+
+- Un item puede tener relacionado mas de un item (solo en el mismo proyecto).
+- Cada proyecto debe tener un listado de prioridades validas
+- Un item debe tener un vinculo a su estado actual
+- Unificar los conceptos Usuario y cuenta de usuario
+- Un usuario puede tener diferentes perfiles en diferentes proyectos
+
+En otra iteracion
+
+- Poder cambiar un item de proyecto
+- Poder activar / Desactivar workflows
+- Poder modificar workflows
