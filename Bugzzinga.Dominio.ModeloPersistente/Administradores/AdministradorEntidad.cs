@@ -68,16 +68,16 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         public abstract Entidad ObtenerPorNombre( string nombre );
 
-        protected DomainObject ObtenerPorId( string id )
-        {
-            DomainObject resultado;
+        //protected DomainObject ObtenerPorId( string id )
+        //{
+        //    DomainObject resultado;
             
-            resultado =   (from DomainObject u in this.ContenedorObjetos
-                                    where u.Id == id
-                                    select u).SingleOrDefault();
+        //    resultado =   (from DomainObject u in this.ContenedorObjetos
+        //                            where u.Id == id
+        //                            select u).SingleOrDefault();
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
 
         #endregion
 
@@ -86,75 +86,75 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         
 
-        protected DomainObject CargarReferencias( DomainObject entidadDto )
-        {
-            //Cargamos la entidad raiz 
-            DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
+        //protected DomainObject CargarReferencias( DomainObject entidadDto )
+        //{
+        //    //Cargamos la entidad raiz 
+        //    DomainObject entidadBD = this.ObtenerPorId( entidadDto.Id );
 
-            if ( entidadBD == null )
-            {
-                entidadBD = entidadDto;
-            }
+        //    if ( entidadBD == null )
+        //    {
+        //        entidadBD = entidadDto;
+        //    }
 
-            //Mapeamos los atributos de la entidad raiz
-            this.MapearEntidadRaiz( entidadDto, entidadBD );           
-            //Obtenemos el listado de referencias a objetos simples
-            List<string> referencias = this.ObtenerReferenciasSimples( entidadDto );
-            //Obtenemos el listado de referencias a listas de objetos
-            // -- TODO
+        //    //Mapeamos los atributos de la entidad raiz
+        //    this.MapearEntidadRaiz( entidadDto, entidadBD );           
+        //    //Obtenemos el listado de referencias a objetos simples
+        //    List<string> referencias = this.ObtenerReferenciasSimples( entidadDto );
+        //    //Obtenemos el listado de referencias a listas de objetos
+        //    // -- TODO
 
-            //Cargamos las referencias a entidades desde la base de datos
-            entidadBD = this.CargarReferenciaDesdeBD( entidadDto, entidadBD, referencias );
+        //    //Cargamos las referencias a entidades desde la base de datos
+        //    entidadBD = this.CargarReferenciaDesdeBD( entidadDto, entidadBD, referencias );
 
-            return entidadBD;            
-        }
+        //    return entidadBD;            
+        //}
 
-        private void MapearEntidadRaiz( DomainObject entidadDto, DomainObject entidadBD )
-        {
-            if ( entidadBD == null )
-            {
-                //No existia en la BD
-                entidadBD = entidadDto;
-            }
-            else
-            {
-                //Existe en la BD
-                Mapper.Map( entidadDto, entidadBD );
-            }
+        //private void MapearEntidadRaiz( DomainObject entidadDto, DomainObject entidadBD )
+        //{
+        //    if ( entidadBD == null )
+        //    {
+        //        //No existia en la BD
+        //        entidadBD = entidadDto;
+        //    }
+        //    else
+        //    {
+        //        //Existe en la BD
+        //        Mapper.Map( entidadDto, entidadBD );
+        //    }
 
-        }
+        //}
 
-        private List<string> ObtenerReferenciasSimples( DomainObject entidadDto )
-        {
-            List<string> referencias = new List<string>();
+        //private List<string> ObtenerReferenciasSimples( DomainObject entidadDto )
+        //{
+        //    List<string> referencias = new List<string>();
 
-            Type tipoObjeto = entidadDto.GetType();
+        //    Type tipoObjeto = entidadDto.GetType();
 
-            foreach ( var propiedad in tipoObjeto.GetProperties() )
-            {
-                if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
-                    referencias.Add( propiedad.Name );
-            }
+        //    foreach ( var propiedad in tipoObjeto.GetProperties() )
+        //    {
+        //        if ( propiedad.PropertyType.FullName.StartsWith( "Bugzzinga.Dominio" ) )
+        //            referencias.Add( propiedad.Name );
+        //    }
 
-            return referencias;
-        }
+        //    return referencias;
+        //}
 
-        private DomainObject  CargarReferenciaDesdeBD( DomainObject entidadDto, DomainObject entidadBD, List<string> referencias )
-        {
-            foreach ( var nombreReferencia in referencias )
-            {
-                DomainObject subEntidad = null;
-                subEntidad = (DomainObject) entidadDto.GetType().GetProperty( nombreReferencia ).GetValue(entidadDto);
+        //private DomainObject  CargarReferenciaDesdeBD( DomainObject entidadDto, DomainObject entidadBD, List<string> referencias )
+        //{
+        //    foreach ( var nombreReferencia in referencias )
+        //    {
+        //        DomainObject subEntidad = null;
+        //        subEntidad = (DomainObject) entidadDto.GetType().GetProperty( nombreReferencia ).GetValue(entidadDto);
 
-                if ( subEntidad != null )
-                {
-                    DomainObject subEntidadBD = this.ObtenerPorId( subEntidad.Id );
-                    entidadBD.GetType().GetProperty( nombreReferencia ).SetValue( entidadBD, subEntidadBD );
-                }
-            }
+        //        if ( subEntidad != null )
+        //        {
+        //            DomainObject subEntidadBD = this.ObtenerPorId( subEntidad.Id );
+        //            entidadBD.GetType().GetProperty( nombreReferencia ).SetValue( entidadBD, subEntidadBD );
+        //        }
+        //    }
 
-            return entidadBD;
-        }
+        //    return entidadBD;
+        //}
 
         #endregion
 

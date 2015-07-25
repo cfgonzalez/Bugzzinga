@@ -21,9 +21,9 @@ namespace Bugzzinga.Api
         }
 
         // GET api/<controller>
-        public IEnumerable<Perfil> Get()
+        public IEnumerable<Rol> Get()
         {
-            var perfiles = new List<Perfil>();
+            var perfiles = new List<Rol>();
 
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
@@ -34,12 +34,12 @@ namespace Bugzzinga.Api
         }
 
         //Trae el perfil para un usuario
-        public Perfil Get(int codigoUsuario)
+        public Rol Get(int codigoUsuario)
         {
             throw new NotImplementedException();
         }
 
-        public Perfil Put(Perfil perfilDto)
+        public Rol Put(Rol perfilDto)
         {
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
@@ -49,7 +49,7 @@ namespace Bugzzinga.Api
             return perfilDto;
         }
 
-        public Perfil Post(Perfil perfilDto)
+        public Rol Post(Rol perfilDto)
         {
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {

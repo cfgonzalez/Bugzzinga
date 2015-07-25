@@ -4,9 +4,9 @@ using Bugzzinga.Core.Atributos;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class RegistroLog
+    public class LogItem
     {
-        public RegistroLog()
+        public LogItem()
         {            
 
         }
@@ -16,5 +16,6 @@ namespace Bugzzinga.Dominio
         
         public Estado Estado { get; set; }
         public Usuario Responsable { get; set; }
+        public Rol ResponsableRol { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
     {
         private readonly IFactory objectFactory;
 
-        private IAdministradorEntidad<Perfil> _administradorPerfiles;
+        private IAdministradorEntidad<Rol> _administradorPerfiles;
         private IAdministradorEntidad<Usuario> _administradorUsuarios;
 
         public BugTrackerPersistente() {}
@@ -25,7 +25,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         {
             this.objectFactory = objectFactory;
 
-            _administradorPerfiles = this.objectFactory.Create<IAdministradorEntidad<Perfil>>();
+            _administradorPerfiles = this.objectFactory.Create<IAdministradorEntidad<Rol>>();
             _administradorUsuarios = this.objectFactory.Create<IAdministradorEntidad<Usuario>>();
         }
 
@@ -139,22 +139,22 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         #region "Perfiles"
 
-        public Perfil NuevoPerfil()
+        public Rol NuevoPerfil()
         {
             return this._administradorPerfiles.Nuevo();
         }
 
-        public void RegistrarPerfil( Perfil perfil)
+        public void RegistrarPerfil( Rol perfil)
         {
             this._administradorPerfiles.RegistrarNuevo( perfil );
         }
 
-        public void ModificarPerfil( Perfil perfil )
+        public void ModificarPerfil( Rol perfil )
         {
            this._administradorPerfiles.Modificar( perfil );
         }
 
-        public IEnumerable<Perfil> Perfiles 
+        public IEnumerable<Rol> Perfiles 
         {
             get
             {
@@ -162,7 +162,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             }
         }
 
-        public Perfil ObtenerPerfil(string nombrePerfil)
+        public Rol ObtenerPerfil(string nombrePerfil)
         {
             return this._administradorPerfiles.ObtenerPorNombre( nombrePerfil );
         }

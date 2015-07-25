@@ -78,14 +78,14 @@ namespace Bugzzinga.Dominio.Intefaces
 
         #region "Perfiles"
 
-        Perfil NuevoPerfil();
-        void RegistrarPerfil( Perfil perfil );
+        Rol NuevoPerfil();
+        void RegistrarPerfil( Rol perfil );
 
-        void ModificarPerfil( Perfil perfil );
+        void ModificarPerfil( Rol perfil );
 
-        Perfil ObtenerPerfil( string nombrePerfil );
+        Rol ObtenerPerfil( string nombrePerfil );
 
-        IEnumerable<Perfil> Perfiles { get; }
+        IEnumerable<Rol> Perfiles { get; }
 
 
 

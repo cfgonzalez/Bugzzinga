@@ -2,7 +2,7 @@
 
 namespace Bugzzinga.Dominio.Validadores
 {
-    public class ValidadorPerfil: IValidadorEntidad<Perfil>
+    public class ValidadorPerfil: IValidadorEntidad<Rol>
     {
         //public IResultadoValidacion Validar( Perfil entidad )
         //{

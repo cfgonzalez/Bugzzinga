@@ -16,7 +16,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Configuracion
             Mapper.CreateMap<TipoItem, TipoItem>();
 
             Mapper.CreateMap<Usuario, Usuario>();
-            Mapper.CreateMap<Perfil, Perfil>();
+            Mapper.CreateMap<Rol, Rol>();
         }
     }
 }

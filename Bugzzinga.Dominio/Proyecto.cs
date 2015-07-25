@@ -7,20 +7,21 @@ using System.Linq;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Proyecto:DomainObject 
+    public class Proyecto 
     {
-        private IList<Usuario> _miembros = new ArrayList4<Usuario>();
-        private IList<TipoItem> _tiposDeItem = new List<TipoItem>();
-        private IList<Item> _items =  new ArrayList4<Item>();
-        private ArrayList4<Prioridad> _prioridades = new ArrayList4<Prioridad>();
 
-        public IEnumerable<Usuario> Miembros { get { return this._miembros; } }
-        public IEnumerable<TipoItem> TiposDeItem { get {return this._tiposDeItem; } }
+        private IList<TipoItem> _tiposDeItem = new List<TipoItem>();
+        private ArrayList4<Prioridad> _prioridades = new ArrayList4<Prioridad>();
+        private IList<Item> _items = new ArrayList4<Item>();
+        private IList<MiembroProyecto> _miembros = new ArrayList4<MiembroProyecto>();
+        private IList<Rol> _roles = new ArrayList4<Rol>();
+
+        public IEnumerable<TipoItem> TiposDeItem { get { return this._tiposDeItem; } }        
+        public ArrayList4<Prioridad> Prioridades { get { return this._prioridades; } }
         public IEnumerable<Item> Items { get { return this._items; } }
-        public ArrayList4<Prioridad> Prioridades
-        {
-            get { return this._prioridades; }
-        }
+        public IEnumerable<MiembroProyecto> Miembros { get { return this._miembros; } }
+        public IEnumerable<Rol> Roles { get { return this._roles; } }
+                
 
         public string Codigo { get; set; }
         public string Nombre { get; set; }
@@ -51,9 +52,9 @@ namespace Bugzzinga.Dominio
             this._items.Add(item);
         }
 
-        public void AgregarMiembro(Usuario usuario)
+        public void AgregarMiembro(MiembroProyecto miembro)
         {
-            this._miembros.Add(usuario);
+            this._miembros.Add(miembro);
         }
     }
 }

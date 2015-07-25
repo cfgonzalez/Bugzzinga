@@ -10,7 +10,7 @@ namespace Bugzzinga.Infraestructura.Ioc
     {
         public void Install(Castle.Windsor.IWindsorContainer container, Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore store)
         {
-            container.Register(Component.For<IValidadorEntidad<Perfil>>()
+            container.Register(Component.For<IValidadorEntidad<Rol>>()
                      .ImplementedBy<ValidadorPerfil>());          
         }
     }

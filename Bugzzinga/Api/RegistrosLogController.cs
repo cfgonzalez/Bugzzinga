@@ -7,7 +7,7 @@ namespace Bugzzinga.Api
 {
     public class RegistrosLogController : ApiController
     {
-        public IEnumerable<RegistroLog> Get(string nombreItem)
+        public IEnumerable<LogItem> Get(string nombreItem)
         {
             //Devuelve una sublista dummy de Registros de log
             var lista = TraerListaRegistrosLogDUmmy();
@@ -15,14 +15,14 @@ namespace Bugzzinga.Api
             return lista;
         }
 
-        private List<RegistroLog> TraerListaRegistrosLogDUmmy()
+        private List<LogItem> TraerListaRegistrosLogDUmmy()
         { 
             //
-            var listaLog = new List<RegistroLog>(); 
+            var listaLog = new List<LogItem>(); 
 
             for (int i = 0; i < 12; i++)
             {
-                var log = new RegistroLog();
+                var log = new LogItem();
 
                 log.Comentarios = "Comentario " + i;
                 log.Estado = new Estado("Estado " + i.ToString(), "Descripcion" + i.ToString());

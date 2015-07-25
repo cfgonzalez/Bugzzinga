@@ -5,10 +5,10 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class Item:DomainObject
+    public class Item
     {
 
-        private IList<RegistroLog> _registrosLog = new ArrayList4<RegistroLog>();
+        private IList<LogItem> _historial = new ArrayList4<LogItem>();
         
         /// <summary>
         /// Constructor de prueba, solamente para los tests iniciales de db4o
@@ -22,7 +22,7 @@ namespace Bugzzinga.Dominio
         {                     
             this.Nombre = nombre;
             this.Descripcion = descripcion;
-            this.Tipo = tipo;
+            this.TipoItem = tipo;
             this.Prioridad = prioridad;            
         }
 
@@ -33,8 +33,8 @@ namespace Bugzzinga.Dominio
         public Estado Estado { get; set; }
 
         public Prioridad Prioridad { get; internal set; }
-        public IEnumerable<RegistroLog> RegistrosLog { get { return this._registrosLog; } }
-        public TipoItem Tipo { get; internal set; }
-        public Usuario Responsable { get; set; }
+        public IEnumerable<LogItem> Historial { get { return this._historial; } }
+        public TipoItem TipoItem { get; internal set; }
+        public MiembroProyecto Responsable { get; set; }
     }
 }

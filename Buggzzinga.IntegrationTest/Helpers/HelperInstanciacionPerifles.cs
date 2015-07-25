@@ -10,13 +10,13 @@ namespace Buggzzinga.IntegrationTest.Helpers
     public class HelperInstanciacionPerifles
     {
 
-        public static List<Perfil> GetPerfiles( int cantidad )
+        public static List<Rol> GetPerfiles( int cantidad )
         {
-            List<Perfil> resultado = new List<Perfil>();
+            List<Rol> resultado = new List<Rol>();
 
             for ( int i = 1; i <= cantidad; i++ )
             {
-                Perfil p = new Perfil();                
+                Rol p = new Rol();                
                 p.Descripcion = String.Concat( "Perfil de prueba ", i );
                 p.Nombre = String.Concat( "Perfil ", i );
 

@@ -19,28 +19,28 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         }
 
-        public override void RegistrarNuevo( Usuario entidad )
-        {
+        //public override void RegistrarNuevo( Usuario entidad )
+        //{
 
-            base.CargarReferencias( entidad );
+        //    //base.CargarReferencias( entidad );
 
-            this.ContenedorObjetos.Store( entidad );
-            this.ContenedorObjetos.Commit();
-        }
+        //    this.ContenedorObjetos.Store( entidad );
+        //    this.ContenedorObjetos.Commit();
+        //}
 
         public override Usuario ObtenerPorNombre( string nombre )
         {
             throw new NotImplementedException();
         }
 
-        public override void Modificar( Usuario entidad )
-        {
+        //public override void Modificar( Usuario entidad )
+        //{
 
-            DomainObject usuario = base.CargarReferencias( entidad );
-            Mapper.Map( entidad, usuario );
-            this.ContenedorObjetos.Store( usuario );
-            this.ContenedorObjetos.Commit();
-        }
+        //    //DomainObject usuario = base.CargarReferencias( entidad );
+        //    Mapper.Map( entidad, usuario );
+        //    this.ContenedorObjetos.Store( usuario );
+        //    this.ContenedorObjetos.Commit();
+        //}
 
         
     }

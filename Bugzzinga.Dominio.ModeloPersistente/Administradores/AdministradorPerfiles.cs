@@ -11,7 +11,7 @@ using Db4objects.Db4o.Linq;
 
 namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 {
-    public class AdministradorPerfiles: AdministradorEntidad<Perfil>
+    public class AdministradorPerfiles: AdministradorEntidad<Rol>
     {
 
         public AdministradorPerfiles( IFactory objectFactory ) :  
@@ -20,7 +20,7 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
 
         }
 
-        public override void RegistrarNuevo( Perfil entidad )
+        public override void RegistrarNuevo( Rol entidad )
         {
 
             base.RegistrarNuevo( entidad );
@@ -40,19 +40,19 @@ namespace Bugzzinga.Dominio.ModeloPersistente.Administradores
             //}
         }
 
-        public override void Modificar( Perfil entidad )
+        //public override void Modificar( Rol entidad )
+        //{
+        //    DomainObject perfilBD = base.ObtenerPorId( entidad.Id  );
+
+        //    Mapper.Map( entidad, perfilBD );
+
+        //    this.ContenedorObjetos.Store( perfilBD );
+        //    this.ContenedorObjetos.Commit();
+        //}
+
+        public override Rol ObtenerPorNombre( string nombre )
         {
-            DomainObject perfilBD = base.ObtenerPorId( entidad.Id  );
-
-            Mapper.Map( entidad, perfilBD );
-
-            this.ContenedorObjetos.Store( perfilBD );
-            this.ContenedorObjetos.Commit();
-        }
-
-        public override Perfil ObtenerPorNombre( string nombre )
-        {
-            Perfil resultado = (from Perfil p in base.ContenedorObjetos
+            Rol resultado = (from Rol p in base.ContenedorObjetos
                                       where p.Nombre.Equals( nombre, StringComparison.InvariantCultureIgnoreCase )
                                       select p).SingleOrDefault();
 

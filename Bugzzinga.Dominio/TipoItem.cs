@@ -5,7 +5,7 @@ using Db4objects.Db4o.Collections;
 namespace Bugzzinga.Dominio
 {
     [Persisted]
-    public class TipoItem:DomainObject 
+    public class TipoItem 
     {
 
         private IList<Estado> _estadosDisponibles = new ArrayList4<Estado>();
@@ -24,6 +24,6 @@ namespace Bugzzinga.Dominio
         public string Nombre { get;  set; }
         public string Descripcion { get; set; }
 
-        public IEnumerable<Estado> EstadosDisponibles { get { return this._estadosDisponibles; } }
+        public IEnumerable<Estado> WorkFlow { get { return this._estadosDisponibles; } }
     }
 }
