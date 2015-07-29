@@ -7,6 +7,8 @@ using Bugzzinga.Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using Db4objects.Db4o;
+using Db4objects.Db4o.Linq;
 
 
 namespace Buggzzinga.IntegrationTest.TestControllers
@@ -21,11 +23,15 @@ namespace Buggzzinga.IntegrationTest.TestControllers
             HelperTestSistema.IniciarServidor();
             
             //Obtenemos los proyectos de prueba
+            Bugtracker bugtracker = new Bugtracker();
             var proyectosTest = HelperInstanciacionProyectos.GetProyectos( 2 );
+            bugtracker.AgregarProyecto( proyectosTest[0] );
+            bugtracker.AgregarProyecto( proyectosTest[1] );
+            
             //Guardamos los proyectos de prueba directamente en la base de datos
             using ( IContextoProceso contextoProceso = new ContextoProceso(HelperTestSistema.ObjectFactory ) )
             {
-                contextoProceso.ContenedorObjetos.Store(proyectosTest);
+                contextoProceso.ContenedorObjetos.Store( bugtracker );
             }
             //Reiniciamos la conexion a la base de datos
             HelperTestSistema.ReiniciarConexion();
@@ -38,7 +44,7 @@ namespace Buggzzinga.IntegrationTest.TestControllers
 
 
             //Asserts
-            Assert.Inconclusive( "Refactorizar y terminar este test" );
+            //Assert.Inconclusive( "Refactorizar y terminar este test" );
             //La cantidad de proyectos registrados deben ser 2
             Assert.AreEqual( 2, proyectosResultado.ToList().Count() );
             //El primer proyecto se debe llamar proyecto 1
@@ -66,13 +72,24 @@ namespace Buggzzinga.IntegrationTest.TestControllers
 
             //Solicitamos los proyectos al controller
             var proyectos = controller.Get();
-            
+
+            //Obtenemos el listado de objetos bugtracker del sistema a ver si hay uno solo
+            int cantidadBugtrackers = 0;
+            using ( IContextoProceso contexto = HelperTestSistema.ObjectFactory.Create<IContextoProceso>() )
+            {
+                cantidadBugtrackers = (from Bugtracker b in contexto.ContenedorObjetos select b).Count();                
+            }
+
+
+            HelperTestSistema.ReiniciarConexion();        
             HelperTestSistema.FinalizarServidor();
             
-            //Asserts 
-            Assert.Inconclusive( "Refactorizar y terminar este test" );
+            //Asserts     
+            //Deberia haber una unica instancia del bugtracker
+            Assert.AreEqual(1, cantidadBugtrackers);
+            //El nombre del proyecto deberia ser Proyecto 1
             Assert.AreEqual("Proyecto 1" ,proyectos.ToList()[0].Nombre );
-            Assert.AreNotSame( proyectoDto, proyectos.ToList()[0], "La instancia que devuelve el controller no deberia ser la misma" );
+
         }
 
         [TestMethod]
@@ -82,14 +99,15 @@ namespace Buggzzinga.IntegrationTest.TestControllers
             HelperTestSistema.IniciarServidor();
 
             //Generamos los proyectos de ejemplo directamente sobre la base de datos
-            var listadProyectosDto = HelperInstanciacionProyectos.GetProyectos( 2 );
+            Bugtracker bugtracker = new Bugtracker();
+            var proyectosTest = HelperInstanciacionProyectos.GetProyectos( 2 );
+            bugtracker.AgregarProyecto( proyectosTest[0] );
+            bugtracker.AgregarProyecto( proyectosTest[1] );
+
 
             using ( IContextoProceso contexto = new ContextoProceso(HelperTestSistema.ObjectFactory  ))
-            {
-                foreach ( var proyectoDto in listadProyectosDto )
-                {
-                    contexto.ContenedorObjetos.Store( proyectoDto );
-                }
+            {                
+                contexto.ContenedorObjetos.Store( bugtracker );                
             }
 
             //Reiniciamos la conexion a la base de datos
@@ -118,13 +136,12 @@ namespace Buggzzinga.IntegrationTest.TestControllers
             HelperTestSistema.FinalizarServidor();
 
             //Asserts
-            Assert.Inconclusive( "Refactorizar y terminar este test" );
+            
             //La cantidad de proyectos debe ser 2 (ya que solo se modifico un proyecto)
             Assert.AreEqual( 2, listadoProyectosBD.ToList().Count );
             //El primer proyecto debe tener la descripcion modificada
             Assert.AreEqual("Proyecto de prueba 1 modificado",listadoProyectosBD.ToList()[0].Descripcion);
-            //La instancia del primer proyecto debe ser una instancia diferente
-            Assert.AreNotSame( proyectoBD, listadoProyectosBD.ToList()[0] );
+            Assert.AreEqual( "Proyecto de prueba 2", listadoProyectosBD.ToList()[1].Descripcion );            
         }
 
 
@@ -135,3 +152,4 @@ namespace Buggzzinga.IntegrationTest.TestControllers
         }
     }
 }
+

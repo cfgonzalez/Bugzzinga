@@ -6,6 +6,7 @@ using Bugzzinga.Core;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
 using System.Linq;
+using System;
 
 namespace Bugzzinga.Api
 {
@@ -23,14 +24,16 @@ namespace Bugzzinga.Api
 
         public IEnumerable<Usuario> Get()
         {
-            var listaUsuarios = new List<Usuario>();
+            //var listaUsuarios = new List<Usuario>();
             
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                listaUsuarios = bugzzinga.Usuarios.ToList();
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    listaUsuarios = bugzzinga.Usuarios.ToList();
+            //}
 
-            return listaUsuarios;
+            //return listaUsuarios;
+
+            throw new NotImplementedException();
         }
 
         //Trae los usuarios para un proyecto 
@@ -41,22 +44,26 @@ namespace Bugzzinga.Api
 
         public Usuario Put(Usuario usuarioDto)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                bugzzinga.ModificarUsuario( usuarioDto );
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    bugzzinga.ModificarUsuario( usuarioDto );
+            //}
 
-            return usuarioDto;
+            //return usuarioDto;
+
+            throw new NotImplementedException();
         }
 
         public Usuario Post(Usuario usuarioDto)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                bugzzinga.RegistrarUsuario( usuarioDto );
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    bugzzinga.AgregarUsuario( usuarioDto );
+            //}
 
-            return usuarioDto;
+            //return usuarioDto;
+            throw new NotImplementedException();
+
         }
 
         public bool Delete(int codigo)

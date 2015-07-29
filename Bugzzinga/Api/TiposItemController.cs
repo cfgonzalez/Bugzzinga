@@ -35,54 +35,40 @@ namespace Bugzzinga.Api
         public IEnumerable<TipoItem> Get(string codigoProyecto)
         {
 
-            List<TipoItem> tiposItem = new List<TipoItem>();
+            //List<TipoItem> tiposItem = new List<TipoItem>();
 
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                tiposItem = proyecto.TiposDeItem.ToList();
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+            //    tiposItem = proyecto.TiposDeItem.ToList();
+            //}
 
-            return tiposItem;
+            //return tiposItem;
+
+            throw new NotImplementedException();
         }
 
         public TipoItem Put(string codigoProyecto, TipoItem TipoItemDTO)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-
-                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                TipoItem tipoItem = proyecto.GetTipoItem( TipoItemDTO.Nombre );
-
-                Mapper.Map( TipoItemDTO, tipoItem );
-                bugzzinga.ModificarProyecto( proyecto );
-            }
-
-            return TipoItemDTO;
+            throw new NotImplementedException();
         }
 
         public TipoItem Post(string codigoProyecto, TipoItem tipoItem)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                
-                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                proyecto.AgregarTipoDeItem( tipoItem );
 
-                bugzzinga.ModificarProyecto( proyecto );
-            }
-
-            return tipoItem;
+            throw new NotImplementedException();
         }
 
         public bool Delete(string codigoProyecto, string nombreTipoItem)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                bugzzinga.QuitarTipoItemDeProyecto( codigoProyecto, nombreTipoItem );
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    bugzzinga.QuitarTipoItemDeProyecto( codigoProyecto, nombreTipoItem );
+            //}
 
-            return true;
+            //return true;
+
+            throw new NotImplementedException();
         }
     }
 }

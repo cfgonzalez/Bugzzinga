@@ -23,14 +23,16 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<Rol> Get()
         {
-            var perfiles = new List<Rol>();
+            //var perfiles = new List<Rol>();
 
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                perfiles = bugzzinga.Perfiles.ToList();
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    perfiles = bugzzinga.Roles.ToList();
+            //}
 
-            return perfiles;
+            //return perfiles;
+
+            throw new NotImplementedException();
         }
 
         //Trae el perfil para un usuario
@@ -41,22 +43,26 @@ namespace Bugzzinga.Api
 
         public Rol Put(Rol perfilDto)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                bugzzinga.ModificarPerfil ( perfilDto );
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    bugzzinga.ModificarPerfil ( perfilDto );
+            //}
 
-            return perfilDto;
+            //return perfilDto;
+
+            throw new NotImplementedException();
         }
 
         public Rol Post(Rol perfilDto)
         {
-            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
-            {
-                bugzzinga.RegistrarPerfil( perfilDto );
-            }
+            //using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            //{
+            //    bugzzinga.AgregarRol( perfilDto );
+            //}
 
-            return perfilDto;
+            //return perfilDto;
+
+            throw new NotImplementedException();
         }
 
         public bool Delete(string nombre)

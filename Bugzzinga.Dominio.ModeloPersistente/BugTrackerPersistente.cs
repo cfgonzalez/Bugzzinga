@@ -15,18 +15,13 @@ namespace Bugzzinga.Dominio.ModeloPersistente
     public class BugTrackerPersistente: IBugtracker
     {
         private readonly IFactory objectFactory;
-
-        private IAdministradorEntidad<Rol> _administradorPerfiles;
-        private IAdministradorEntidad<Usuario> _administradorUsuarios;
+        private IBugtracker _bugtracker;
 
         public BugTrackerPersistente() {}
 
         public BugTrackerPersistente(IFactory objectFactory)
         {
             this.objectFactory = objectFactory;
-
-            _administradorPerfiles = this.objectFactory.Create<IAdministradorEntidad<Rol>>();
-            _administradorUsuarios = this.objectFactory.Create<IAdministradorEntidad<Usuario>>();
         }
 
         private IObjectContainer ContenedorObjetos
@@ -38,6 +33,26 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             }
         }
 
+        private IBugtracker Bugtracker
+        {   
+            get
+            {
+                if ( this._bugtracker == null )
+                {
+                    this._bugtracker =  (IBugtracker)(from Bugtracker b in this.ContenedorObjetos select b).SingleOrDefault();
+                }
+
+                if ( this._bugtracker == null )
+                {
+                    this._bugtracker = new Bugtracker();
+                    this.ContenedorObjetos.Store( this._bugtracker );
+                }
+
+                return this._bugtracker;                         
+            }
+        }
+
+
         #region "Proyectos"        
 
         public Proyecto NuevoProyecto()
@@ -45,56 +60,37 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             return new Proyecto();
         }
 
-        public void RegistrarProyecto( Proyecto proyecto )
-        {   
-            this.ContenedorObjetos.Store( proyecto );
-            this.ContenedorObjetos.Commit();
-        }
-
-        public void ModificarProyecto( Proyecto proyecto )
+        public void AgregarProyecto( Proyecto proyecto )
         {
-
-            this.ContenedorObjetos.Store( proyecto );
-            this.ContenedorObjetos.Commit();
+            IBugtracker bugtracker = this.Bugtracker;
+            bugtracker.AgregarProyecto( proyecto );            
         }
+               
 
         public IEnumerable<Proyecto> Proyectos
         {
             get 
             {
-                return (from Proyecto p in this.ContenedorObjetos select p).ToList<Proyecto>();                
+                IBugtracker bugtracker = this.Bugtracker;
+                this.ContenedorObjetos.Ext().Activate( bugtracker, 3 );
+                return bugtracker.Proyectos.ToList();                
             }
         }
 
         public Proyecto ObtenerProyectoPorCodigo( string codigoProyecto )
         {
-            Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
-                                 where p.Codigo.ToUpper() == codigoProyecto.ToUpper()
-                                 select p).SingleOrDefault();
-            return proyecto;
+            return this.Bugtracker.ObtenerProyectoPorCodigo( codigoProyecto );
+          
         }
 
         public Proyecto ObtenerProyecto( string nombreProyecto )
         {
-            Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
-                                    where p.Nombre.ToUpper() == nombreProyecto.ToUpper()
-                                    select p).SingleOrDefault();
-            return proyecto;
+            //Proyecto proyecto = (from Proyecto p in this.ContenedorObjetos
+            //                        where p.Nombre.ToUpper() == nombreProyecto.ToUpper()
+            //                        select p).SingleOrDefault();
+            //return proyecto;
+            throw new NotImplementedException();
         }
-
-        public void QuitarTipoItemDeProyecto( string codigoProyecto, string nombreTipoItem )
-        {
-            Proyecto proyecto = this.ObtenerProyectoPorCodigo( codigoProyecto );
-            TipoItem tipoItem = proyecto.GetTipoItem( nombreTipoItem );
-
-            proyecto.QuitarTipoDeItem( tipoItem );
-            
-            this.ContenedorObjetos.Delete( tipoItem );
-            this.ContenedorObjetos.Store( proyecto );
-
-            this.ContenedorObjetos.Commit();
-        }
-
 
         #endregion
 
@@ -106,14 +102,14 @@ namespace Bugzzinga.Dominio.ModeloPersistente
             return new Usuario();
         }
 
-        public void RegistrarUsuario( Usuario usuario )
+        public void AgregarUsuario( Usuario usuario )
         {
-            this._administradorUsuarios.RegistrarNuevo( usuario );
+            //this._administradorUsuarios.RegistrarNuevo( usuario );
         }
 
         public void ModificarUsuario( Usuario usuario )
         {
-            this._administradorUsuarios.Modificar( usuario );
+           // this._administradorUsuarios.Modificar( usuario );
         }
 
 
@@ -121,7 +117,8 @@ namespace Bugzzinga.Dominio.ModeloPersistente
         {
             get 
             {
-                return this._administradorUsuarios.ListarTodos();
+                return null;
+               // return this._administradorUsuarios.ListarTodos();
             }
         }
 
@@ -129,65 +126,65 @@ namespace Bugzzinga.Dominio.ModeloPersistente
 
         public Usuario ObtenerUsuario( string nombreUsuario )
         {
-            Usuario usuario = (from Usuario u in this.ContenedorObjetos
-                                where u.Nombre.ToUpper() == nombreUsuario.ToUpper()
-                                select u).SingleOrDefault();
-            return usuario;
+            //Usuario usuario = (from Usuario u in this.ContenedorObjetos
+            //                    where u.Nombre.ToUpper() == nombreUsuario.ToUpper()
+            //                    select u).SingleOrDefault();
+            //return usuario;
+            throw new NotImplementedException();
         }
 
         #endregion
 
         #region "Perfiles"
 
-        public Rol NuevoPerfil()
+        public Rol NuevoRol()
         {
-            return this._administradorPerfiles.Nuevo();
+            return null;
+            
         }
 
-        public void RegistrarPerfil( Rol perfil)
+        public void AgregarRol( Rol perfil)
         {
-            this._administradorPerfiles.RegistrarNuevo( perfil );
+            
         }
 
         public void ModificarPerfil( Rol perfil )
         {
-           this._administradorPerfiles.Modificar( perfil );
+         
         }
 
-        public IEnumerable<Rol> Perfiles 
+        public IEnumerable<Rol> Roles 
         {
             get
             {
-                return this._administradorPerfiles.ListarTodos();
+                return null;
+               // return this._administradorPerfiles.ListarTodos();
             }
         }
 
-        public Rol ObtenerPerfil(string nombrePerfil)
+        public Rol ObtenerRol(string nombrePerfil)
         {
-            return this._administradorPerfiles.ObtenerPorNombre( nombrePerfil );
+            return null;
+            //return this._administradorPerfiles.ObtenerPorNombre( nombrePerfil );
         }
 
         #endregion
         
         public void Dispose()
         {
-            //bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
+            bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
 
-            //if ( isInException )
-            //{
-            //    this.ContenedorObjetos.Rollback();
-            //}
-            //else
-            //{
-            //    this.ContenedorObjetos.Commit();
-            //}
+            if ( isInException )
+            {
+                this.ContenedorObjetos.Rollback();
+            }
+            else
+            {
+                this.ContenedorObjetos.Commit();
+            }
 
             this.ContenedorObjetos.Close();
         }        
 
-        public void GuardarCambios()
-        {
-            throw new NotImplementedException();
-        }     
     }
 }

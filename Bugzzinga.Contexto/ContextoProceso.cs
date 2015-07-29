@@ -1,4 +1,6 @@
-﻿using Bugzzinga.Contexto.Interfaces;
+﻿using System;
+using System.Runtime.InteropServices;
+using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Contexto.IoC;
 using Db4objects.Db4o;
 using ServicioDatos.DB4o.Server.Interfaces;
@@ -43,6 +45,20 @@ namespace Bugzzinga.Contexto
         public void Dispose()
         {
             this.ContenedorObjetos.Close();
+
+            //bool isInException = Marshal.GetExceptionPointers() != IntPtr.Zero || Marshal.GetExceptionCode() != 0;
+
+            //if ( isInException )
+            //{
+            //    this.ContenedorObjetos.Rollback();
+            //}
+            //else
+            //{
+            //    this.ContenedorObjetos.Commit();
+            //}
+
+            //this.ContenedorObjetos.Close();
+
         }
     }
 }

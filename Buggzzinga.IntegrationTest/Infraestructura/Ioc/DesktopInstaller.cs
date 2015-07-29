@@ -14,7 +14,8 @@ namespace Buggzzinga.IntegrationTest.Infraestructura.Ioc
                        .ImplementedBy<DB4oServer>());
 
             container.Register(Component.For<IContextoProceso>()
-                      .ImplementedBy<ContextoProceso>());
+                      .ImplementedBy<ContextoProceso>()
+                      /*.LifestyleTransient()*/);
         }
     }
 }

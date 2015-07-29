@@ -23,45 +23,39 @@ namespace Bugzzinga.Api
         // GET api/<controller>
         public IEnumerable<Proyecto> Get()
         {
-            
-
             IEnumerable<Proyecto> proyectos = new List<Proyecto>();
 
             using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
                 proyectos = bugzzinga.Proyectos;
+                
             }
 
             return proyectos;
         }
 
-        public Proyecto Put(Proyecto proyectoDto)
+
+        public Proyecto Post( Proyecto proyectoDto )
         {
-            Proyecto  proyecto;
-
-            using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
             {
-                proyecto = bugzzinga.ObtenerProyecto(proyectoDto.Nombre);
-                //mapear proyecto a proyectoBD
-                Mapper.Map(proyectoDto, proyecto);
-
-                bugzzinga.ModificarProyecto ( proyecto );
-            }
-
-            return (Proyecto) proyecto;
-        }
-
-        public Proyecto Post(Proyecto proyectoDto)
-        {
-            using (IBugtracker bugzzinga = objectFactory.Create<IBugtracker>())
-            {
-                
-                
-                bugzzinga.RegistrarProyecto(proyectoDto);
+                bugzzinga.AgregarProyecto( proyectoDto );
             }
 
             return proyectoDto;
         }
+
+        public Proyecto Put(Proyecto proyectoDto)
+        {
+            using ( IBugtracker bugzzinga = objectFactory.Create<IBugtracker>() )
+            {
+                Proyecto proyectoBd = bugzzinga.ObtenerProyectoPorCodigo( proyectoDto.Codigo );
+                Mapper.Map( proyectoDto, proyectoBd );
+            }
+
+            return proyectoDto;
+        }
+
 
         public bool Delete(string codigo)
         {

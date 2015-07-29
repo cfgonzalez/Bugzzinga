@@ -33,7 +33,7 @@ namespace Buggzzinga.IntegrationTest.Helpers
             configuracionServidor.RutaArchivos = _directorioBD;
             configuracionServidor.NombreArchivoBD = _nombreBD;
             configuracionServidor.Puerto = 0;
-            configuracionServidor.PersistenciaTransparente = false;
+            configuracionServidor.PersistenciaTransparente = true;
             configuracionServidor.ActivacionTransparente = false;
 
             IDB4oServer servidorBD = ObjectFactory.Create<IDB4oServer>();

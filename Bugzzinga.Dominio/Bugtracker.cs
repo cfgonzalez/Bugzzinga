@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bugzzinga.Core;
+using Bugzzinga.Core.Atributos;
+using Bugzzinga.Dominio.Intefaces;
 using Db4objects.Db4o.Collections;
 
 namespace Bugzzinga.Dominio
 {
-    public  class Bugtracker
+    [Persisted]
+    public  class Bugtracker:IBugtracker
     {
 
         private ArrayList4<Proyecto> _proyectos;
         private ArrayList4<Usuario> _usuarios;
-        private ArrayList4<Rol> _perfiles;
+        private ArrayList4<Rol> _roles;
         private ArrayList4<PlantillaProyecto> _plantillas;    
         
         public Bugtracker()
         {
             this._proyectos = new ArrayList4<Proyecto>();
             this._usuarios = new ArrayList4<Usuario>();
-            this._perfiles = new ArrayList4<Rol>();
+            this._roles = new ArrayList4<Rol>();
             this._plantillas = new ArrayList4<PlantillaProyecto>();
         }
 
 
         public IEnumerable<Proyecto> Proyectos { get { return this._proyectos; } }
         public IEnumerable<Usuario> Usuarios { get { return this._usuarios; } }
-        public IEnumerable<Rol> Perfiles { get { return this._perfiles; } }
+        public IEnumerable<Rol> Roles { get { return this._roles; } }
         public IEnumerable<PlantillaProyecto> Plantillas { get { return this._plantillas; } }
         
         public Proyecto NuevoProyecto()
@@ -34,7 +37,7 @@ namespace Bugzzinga.Dominio
         }
 
 
-        public void RegistrarProyecto(Proyecto proyecto)
+        public void AgregarProyecto(Proyecto proyecto)
         {
             if(this.ObtenerProyecto(proyecto.Nombre) == null)
             {
@@ -47,6 +50,10 @@ namespace Bugzzinga.Dominio
             }
         }
 
+        public Proyecto ObtenerProyectoPorCodigo( string codigoProyecto )
+        {
+            return this.Proyectos.Where( x => x.Codigo.Equals( codigoProyecto, StringComparison.InvariantCultureIgnoreCase ) ).SingleOrDefault();
+        }
 
         public Proyecto ObtenerProyecto(string nombreProyecto)
         {
@@ -71,7 +78,17 @@ namespace Bugzzinga.Dominio
         #region IBugtracker Members
 
 
-        public void GuardarCambios()
+     
+        #endregion
+
+        #region IBugtracker Members
+
+
+        #endregion
+
+        #region IDisposable Members
+
+        void IDisposable.Dispose()
         {
             throw new NotImplementedException();
         }

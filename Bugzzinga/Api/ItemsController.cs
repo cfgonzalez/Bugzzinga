@@ -22,15 +22,17 @@ namespace Bugzzinga.Api
         //Trae los items para un proyecto 
         public IEnumerable<Item> Get(string codigoProyecto)
         {
-            var items =  new List<Item>();
+            //var items =  new List<Item>();
             
-            using ( IBugtracker bugzzinga = this.objectFactory.Create<IBugtracker>() )
-            {
-                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                items = proyecto.Items.ToList();
-            }
+            //using ( IBugtracker bugzzinga = this.objectFactory.Create<IBugtracker>() )
+            //{
+            //    Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
+            //    items = proyecto.Items.ToList();
+            //}
 
-            return items;
+            //return items;
+
+            throw new NotImplementedException();
         }
         
         public Item Put(string codigoProyecto, Item itemDto)
@@ -41,14 +43,7 @@ namespace Bugzzinga.Api
         public Item Post(string codigoProyecto, Item itemDto)
         {
 
-            using ( IBugtracker bugzzinga = this.objectFactory.Create<IBugtracker>() )
-            {
-                Proyecto proyecto = bugzzinga.ObtenerProyectoPorCodigo( codigoProyecto );
-                proyecto.AgregarItem( itemDto );
-                bugzzinga.ModificarProyecto( proyecto );
-            }
-
-            return itemDto;
+            throw new NotImplementedException();
         }
 
         public bool Delete(string codigoProyecto, int codigoItem)

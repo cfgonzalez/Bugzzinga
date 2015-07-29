@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Buggzzinga.IntegrationTest.Helpers;
+using Bugzzinga.Contexto.Interfaces;
 using Bugzzinga.Dominio;
 using Bugzzinga.Dominio.Intefaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Db4objects.Db4o;
+using Db4objects.Db4o.Linq;
 
 namespace Buggzzinga.IntegrationTest
 {
@@ -13,25 +16,27 @@ namespace Buggzzinga.IntegrationTest
         [TestMethod]
         public void Test_BugTrackerScope()
         {
-            HelperTestSistema.LimpiarArchivoBD();
-            HelperTestSistema.IniciarServidor();
+            //HelperTestSistema.LimpiarArchivoBD();
+            //HelperTestSistema.IniciarServidor();
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-            {
-                Proyecto p = bugzzinga.NuevoProyecto();
-                p.Codigo = "P1";
-                p.Nombre = "Proyecto de prueba 1";
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            //{
+            //    Proyecto p = bugzzinga.NuevoProyecto();
+            //    p.Codigo = "P1";
+            //    p.Nombre = "Proyecto de prueba 1";
                 
-                bugzzinga.RegistrarProyecto( p );
-            }
+            //    bugzzinga.AgregarProyecto( p );
+            //}
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-            {
-                Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
-                p.Nombre = "Proyecto de prueba modificado";
-            }
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            //{
+            //    Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto de prueba 1" );
+            //    p.Nombre = "Proyecto de prueba modificado";
+            //}
 
-            HelperTestSistema.FinalizarServidor();
+            //HelperTestSistema.FinalizarServidor();
+
+            Assert.Inconclusive("Refactorizar y finalizar este test");
         }
 
         [TestMethod]
@@ -45,17 +50,17 @@ namespace Buggzzinga.IntegrationTest
                 Proyecto p1 = bugzzinga.NuevoProyecto();
                 p1.Codigo = "P1";
                 p1.Nombre = "Proyecto1";
-                bugzzinga.RegistrarProyecto( p1 );
+                bugzzinga.AgregarProyecto( p1 );
 
                 Proyecto p2 = bugzzinga.NuevoProyecto();
                 p2.Codigo = "P2";
                 p2.Nombre = "Proyecto2";
-                bugzzinga.RegistrarProyecto( p2 );
+                bugzzinga.AgregarProyecto( p2 );
 
                 Proyecto p3 = bugzzinga.NuevoProyecto();
                 p3.Codigo = "P3";
                 p3.Nombre = "Proyecto3";
-                bugzzinga.RegistrarProyecto( p3 );               
+                bugzzinga.AgregarProyecto( p3 );               
             }
 
             using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
@@ -70,29 +75,32 @@ namespace Buggzzinga.IntegrationTest
         [TestMethod]
         public void Test_PersistenciaPorAlcance()
         {
-            HelperTestSistema.LimpiarArchivoBD();
-            HelperTestSistema.IniciarServidor();
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-             {
-                 Proyecto p1 = bugzzinga.NuevoProyecto();
-                 p1.Codigo = "P1";
-                 p1.Nombre = "Proyecto1";
-                 bugzzinga.RegistrarProyecto( p1 );
-             }
+            //HelperTestSistema.LimpiarArchivoBD();
+            //HelperTestSistema.IniciarServidor();
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-             {
-                 Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto1" );
-                 p.Nombre = "Proyecto de prueba modificado";
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            // {
+            //     Proyecto p1 = bugzzinga.NuevoProyecto();
+            //     p1.Codigo = "P1";
+            //     p1.Nombre = "Proyecto1";
+            //     bugzzinga.AgregarProyecto( p1 );
+            // }
 
-                 Item item1 = new Item();                 
-                 item1.Nombre = "Primer item del proyecto";
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            // {
+            //     Proyecto p = bugzzinga.ObtenerProyecto( "Proyecto1" );
+            //     p.Nombre = "Proyecto de prueba modificado";
 
-                 p.AgregarItem(item1);
-             }
+            //     Item item1 = new Item();                 
+            //     item1.Nombre = "Primer item del proyecto";
 
-             HelperTestSistema.FinalizarServidor();
+            //     p.AgregarItem(item1);
+            // }
+
+            // HelperTestSistema.FinalizarServidor();
+
+            Assert.Inconclusive("Refactorizar y terminar este test");
         }
 
         //[TestMethod]
@@ -237,53 +245,56 @@ namespace Buggzzinga.IntegrationTest
         [TestMethod]
         public void Test_DemoActivacionTransparente_Colecciones()
         {
-            HelperTestSistema.LimpiarArchivoBD();
-            HelperTestSistema.IniciarServidor();
+            Assert.Inconclusive("Refactorizar y finalizar este test");
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-            {
-                Proyecto p = bugzzinga.NuevoProyecto();
-                p.Nombre = "Proyecto1";
+            //HelperTestSistema.LimpiarArchivoBD();
+            //HelperTestSistema.IniciarServidor();
+
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            //{
+            //    Proyecto p = bugzzinga.NuevoProyecto();
+            //    p.Nombre = "Proyecto1";
                                 
-                Item item1 = new Item();
-                item1.Nombre = "Primer item del proyecto";
+            //    Item item1 = new Item();
+            //    item1.Nombre = "Primer item del proyecto";
 
-                Item item2 = new Item();
-                item2.Nombre = "Segundo item del proyecto";
+            //    Item item2 = new Item();
+            //    item2.Nombre = "Segundo item del proyecto";
 
-                p.AgregarItem( item1 );
-                p.AgregarItem( item2 );
+            //    p.AgregarItem( item1 );
+            //    p.AgregarItem( item2 );
 
-                bugzzinga.RegistrarProyecto( p );
-            }
+            //    bugzzinga.AgregarProyecto( p );
+            //}
 
-            // ----------------------------------------------------------------------------------------------------
+            //// ----------------------------------------------------------------------------------------------------
 
-            Proyecto proyecto = null;
+            //Proyecto proyecto = null;
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-            {
-                proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
-            }
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            //{
+            //    proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
+            //}
 
-            //Al cargar esta instancia de pryecto de la BD, los items deberian estar en blanco
-            //ya que solo se van a activar de manera lazy pero ya estan fuera del contexto del sistema
-            IEnumerable<Item> items = proyecto.Items;
+            ////Al cargar esta instancia de pryecto de la BD, los items deberian estar en blanco
+            ////ya que solo se van a activar de manera lazy pero ya estan fuera del contexto del sistema
+            //IEnumerable<Item> items = proyecto.Items;
 
-            // ----------------------------------------------------------------------------------------------------
+            //// ----------------------------------------------------------------------------------------------------
 
-            proyecto = null;
+            //proyecto = null;
 
-            using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
-            {
-                proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
+            //using (IBugtracker bugzzinga = HelperTestSistema.ObjectFactory.Create<IBugtracker>())
+            //{
+            //    proyecto = bugzzinga.ObtenerProyecto( "Proyecto1" );
 
-                IEnumerable<Item> itemsActivados = proyecto.Items;
-            }      
+            //    IEnumerable<Item> itemsActivados = proyecto.Items;
+            //}      
 
-            // ----------------------------------------------------------------------------------------------------
+            //// ----------------------------------------------------------------------------------------------------
 
-            HelperTestSistema.FinalizarServidor();
+            //HelperTestSistema.FinalizarServidor();
         }
     }
 }
+
